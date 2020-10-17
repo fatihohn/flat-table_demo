@@ -13,7 +13,7 @@
                     </a>
                 </li>
                 <li class="nav_item">
-                    <mark>.about us</mark>
+                    <mark>.new flat table</mark>
                     <a href="/admin_new_article.php">
                         새로운 평상+
                     </a>
