@@ -21,17 +21,17 @@
             <div class="intro_slide_img"><!--배경 이미지 넣기-->
                 <div class="intro_slide_btn prev_btn">
                     <a>
-                        <img src="/static/img/prev_btn.png" alt="prev_btn">
+                        <img src="../static/img/prev_btn.png" alt="prev_btn">
                     </a>
                 </div>
                 <div class="intro_slide_btn next_btn">
                     <a>
-                        <img src="/static/img/next_btn.png" alt="next_btn">
+                        <img src="../static/img/next_btn.png" alt="next_btn">
                     </a>
                 </div>
                 <div class="intro_slide_btn down_btn">
                     <a>
-                        <img src="/static/img/down_btn.png" alt="down_btn">
+                        <img src="../static/img/down_btn.png" alt="down_btn">
                     </a>
                 </div>
                 <header class="intro_slide_title">
@@ -72,7 +72,7 @@
         <div class="main">
             <div class="container group">
                 <header class="container_header">
-                    <img src="/static/img/flat_table_icon.svg" alt="flat_table_icon">
+                    <img src="../static/img/flat_table_icon.svg" alt="flat_table_icon">
                     <h1>평상들</h1>
                 </header>
                 <nav class="container_nav group">
@@ -533,6 +533,6 @@
 
     <?php include 'admin_footer.php'; ?>
 
-    <script src="/static/js/main.js"></script>
+    <script src="../static/js/main.js"></script>
 </body>
 </html>
