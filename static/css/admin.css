@@ -1,0 +1,54 @@
+.title>.actions.login_link {
+    position: absolute;
+    right: 0;
+    top: 0;
+    padding: 0 20px;
+}
+
+.title>.actions.login_link .login {
+    width: 100%;
+}
+
+
+.spacer.login_spacer {
+    height: 100px;
+}
+
+.container_login {
+    text-align: center;
+}
+
+.container_login .login_form {
+    background-color: rgba(255, 255, 255, 0.7);
+    color: grey;
+    width: 300px;
+    padding: 20px;
+    line-height: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    margin: 0 auto;
+}
+.container_login .login_form .login_input{
+    background: rgba(0, 0, 0, 0);
+    border: 0px;
+    border-bottom: 1px solid grey;
+    border-radius: 0px;
+}
+.container_login .login_form .login_btn{
+    background: rgba(255, 255, 255, 0.7);
+    border-radius: 5px;
+    padding: 7px;
+    border: 0px;
+    box-shadow: 0px 4px 8px 0px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    width: 80px;
+    height: 30px;
+    margin: 10px 0 10px 0;
+    transition: 0.3s;
+    font-weight: 900;
+    font-size: 0.9rem;
+    color: rgba(0, 0, 0, 0.7);
+}
+.container_login .login_form .login_btn>p{
+    margin: 0;
+}
