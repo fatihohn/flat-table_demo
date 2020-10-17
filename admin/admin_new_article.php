@@ -1,538 +1,188 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <?php include 'admin_head.php'?>
+    <?php include 'head.php'?>
 </head>
 <body>
-    <?php include 'admin_header.php'?>
-    <?php include 'admin_nav.php'?>
+    <?php include 'header.php'?>
+    <?php include 'nav.php'?>
 
     <div id="overlay" class="overlay"></div>
     <!-- @yield ('content') -->
-    <aside class="intro">
-        <div class="intro_slide">
-            <!--대표 평상 이미지 목록-->
-                <div class="intro_slide_imgs" style="visibility:hidden; height:0;">
-                    <img class="slide_img_src" title="성보주택 평상" src="https://www.doongdoong.org/uploads/thumbs/1593343384.jpeg" alt="">
-                    <img class="slide_img_src" title="못골 고개에는 평상이 없다" src="https://www.doongdoong.org/se2/upload/c_modify_20200706093011525244320FUN_4974_001.jpg" alt="">
-                    <img class="slide_img_src" title="우물물은 시원하다" src="https://www.doongdoong.org/se2/upload/c_modify_20200706093043948349794IMG_0913.JPG" alt="">
-                </div>
-                <!--대표 평상 이미지 목록 끝-->
-            <div class="intro_slide_img"><!--배경 이미지 넣기-->
-                <div class="intro_slide_btn prev_btn">
-                    <a>
-                        <img src="../static/img/prev_btn.png" alt="prev_btn">
-                    </a>
-                </div>
-                <div class="intro_slide_btn next_btn">
-                    <a>
-                        <img src="../static/img/next_btn.png" alt="next_btn">
-                    </a>
-                </div>
-                <div class="intro_slide_btn down_btn">
-                    <a>
-                        <img src="../static/img/down_btn.png" alt="down_btn">
-                    </a>
-                </div>
-                <header class="intro_slide_title">
-                    <h1 class="slide_title">
-                        <a href="/article">
-                            못골에는 평상이 없더라
-                        </a>
-                    </h1>
-                    <a href="/article" class="slide_enter button">
-                        <p>
-                            평상 살펴보기
-                        </p>
-                    </a>
-                </header>
-            </div>
-        </div>
-    </aside>
-    <div class="spacer"></div>
-    <aside class="tagline">
-        <div class="container group">
-            <div class="col-1">
-                <h1>
-                    동두천<em>의</em>
-                    평상
-                </h1>
-            </div>
-            <div class="col-2">
-                <h2>변방평상</h2>
-                <p>
-                    평상을 이용하는 사람들의 문화를 관찰합니다.<br>
-                    평상이 품은 역사와 특유의 문화를 배웁니다.
-                </p>
-            </div>
-        </div>
-    </aside>
-        <!-- 평상 리스트 -->
-    <section class="front_main">
+    <section class="article_main">
         <div class="main">
-            <div class="container group">
-                <header class="container_header">
-                    <img src="../static/img/flat_table_icon.svg" alt="flat_table_icon">
-                    <h1>평상들</h1>
-                </header>
-                <nav class="container_nav group">
-                    <div class="filter_container">
-                        <div class="filter_list">
-                            <a href="#" class="action">
-                                구분
-                                <span>+</span>
+            <div class="article_container container">
+                <header class="article_header">
+                    <h2>
+                        성보주택 평상
+                    </h2>
+                    <div class="article_info">
+                        <p class="article_address">
+                            경기도 동두천시 상봉암동 153-15
+                        </p>
+                        <p class="category">
+                            <a href="#">
+                                주민모임형
                             </a>
-                            <div class="collapseable-lined"></div>
-                            <div class="list collapseable">
-                                <div class="scroller">
-                                    <div class="link">
-                                        <a href="#">sample</a>
-                                    </div>
-                                    <div class="link">
-                                        <a href="#">sample</a>
-                                    </div>
-                                    <div class="link">
-                                        <a href="#">sample</a>
-                                    </div>
-                                    <div class="link">
-                                        <a href="#">sample</a>
-                                    </div>
-                                    <div class="link">
-                                        <a href="#">sample</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                        </p>
                     </div>
-                </nav>
-                <div class="collection group">
-                    <ul>
-                        <li>
-                            <article class="article">
-                                <figure>
-                                    <a href="/article" class="overlay">
-                                        <div class="center">
-                                            <p>
-                                                읽기
-                                            </p>
-                                        </div>
-                                    </a>
-                                    <a href="/article">
-                                        <img src="https://www.doongdoong.org/uploads/thumbs/1593343384.jpeg" alt="" class="cover">
-                                    </a>
-                                </figure>
-                                <div class="article_content">
-                                    <aside class="meta">
-                                        <p>
-                                            <a href="/article" class="category">
-                                                종류
-                                            </a>
-                                        </p>
-                                    </aside>
-                                    <h1 class="article_title">
-                                        <a href="/article">
-                                            <span class="line">
-                                                성보주택 평상
-                                            </span>
-                                        </a>
-                                    </h1>
-                                    <div class="article_comment">
-                                        <p>
-                                            자전거 거치대를 개조해 만든 평상.
-                                        </p>
-
-                                    </div>
-                                </div>
-                            </article>
-                        </li>
-                        <li>
-                            <article class="article">
-                                <figure>
-                                    <a href="/article" class="overlay">
-                                        <div class="center">
-                                            <p>
-                                                읽기
-                                            </p>
-                                        </div>
-                                    </a>
-                                    <a href="/article">
-                                        <img src="https://www.doongdoong.org/uploads/thumbs/1593343384.jpeg" alt="" class="cover">
-                                    </a>
-                                </figure>
-                                <div class="article_content">
-                                    <aside class="meta">
-                                        <p>
-                                            <a href="/article" class="category">
-                                                종류
-                                            </a>
-                                        </p>
-                                    </aside>
-                                    <h1 class="article_title">
-                                        <a href="/article">
-                                            <span class="line">
-                                                성보주택 평상
-                                            </span>
-                                        </a>
-                                    </h1>
-                                    <div class="article_comment">
-                                        <p>
-                                            자전거 거치대를 개조해 만든 평상. 자전거 거치대를 개조해 만든 평상. 자전거 거치대를 개조해 만든 평상. 자전거 거치대를 개조해 만든 평상. 자전거 거치대를 개조해 만든 평상. 자전거 거치대를 개조해 만든 평상. 자전거 거치대를 개조해 만든 평상. 자전거 거치대를 개조해 만든 평상. 자전거 거치대를 개조해 만든 평상.
-                                        </p>
-
-                                    </div>
-                                </div>
-                            </article>
-                        </li>
-                        <li>
-                            <article class="article">
-                                <figure>
-                                    <a href="/article" class="overlay">
-                                        <div class="center">
-                                            <p>
-                                                읽기
-                                            </p>
-                                        </div>
-                                    </a>
-                                    <a href="/article">
-                                        <img src="https://www.doongdoong.org/uploads/thumbs/1593343384.jpeg" alt="" class="cover">
-                                    </a>
-                                </figure>
-                                <div class="article_content">
-                                    <aside class="meta">
-                                        <p>
-                                            <a href="/article" class="category">
-                                                종류
-                                            </a>
-                                        </p>
-                                    </aside>
-                                    <h1 class="article_title">
-                                        <a href="/article">
-                                            <span class="line">
-                                                성보주택 평상
-                                            </span>
-                                        </a>
-                                    </h1>
-                                    <div class="article_comment">
-                                        <p>
-                                            자전거 거치대를 개조해 만든 평상.
-                                        </p>
-
-                                    </div>
-                                </div>
-                            </article>
-                        </li>
-                        <li>
-                            <article class="article">
-                                <figure>
-                                    <a href="/article" class="overlay">
-                                        <div class="center">
-                                            <p>
-                                                읽기
-                                            </p>
-                                        </div>
-                                    </a>
-                                    <a href="/article">
-                                        <img src="https://www.doongdoong.org/uploads/thumbs/1593343384.jpeg" alt="" class="cover">
-                                    </a>
-                                </figure>
-                                <div class="article_content">
-                                    <aside class="meta">
-                                        <p>
-                                            <a href="/article" class="category">
-                                                종류
-                                            </a>
-                                        </p>
-                                    </aside>
-                                    <h1 class="article_title">
-                                        <a href="/article">
-                                            <span class="line">
-                                                성보주택 평상
-                                            </span>
-                                        </a>
-                                    </h1>
-                                    <div class="article_comment">
-                                        <p>
-                                            자전거 거치대를 개조해 만든 평상.
-                                        </p>
-
-                                    </div>
-                                </div>
-                            </article>
-                        </li>
-                        <li>
-                            <article class="article">
-                                <figure>
-                                    <a href="/article" class="overlay">
-                                        <div class="center">
-                                            <p>
-                                                읽기
-                                            </p>
-                                        </div>
-                                    </a>
-                                    <a href="/article">
-                                        <img src="https://www.doongdoong.org/uploads/thumbs/1593343384.jpeg" alt="" class="cover">
-                                    </a>
-                                </figure>
-                                <div class="article_content">
-                                    <aside class="meta">
-                                        <p>
-                                            <a href="/article" class="category">
-                                                종류
-                                            </a>
-                                        </p>
-                                    </aside>
-                                    <h1 class="article_title">
-                                        <a href="/article">
-                                            <span class="line">
-                                                성보주택 평상
-                                            </span>
-                                        </a>
-                                    </h1>
-                                    <div class="article_comment">
-                                        <p>
-                                            자전거 거치대를 개조해 만든 평상.
-                                        </p>
-
-                                    </div>
-                                </div>
-                            </article>
-                        </li>
-                        <li>
-                            <article class="article">
-                                <figure>
-                                    <a href="/article" class="overlay">
-                                        <div class="center">
-                                            <p>
-                                                읽기
-                                            </p>
-                                        </div>
-                                    </a>
-                                    <a href="/article">
-                                        <img src="https://www.doongdoong.org/uploads/thumbs/1593343384.jpeg" alt="" class="cover">
-                                    </a>
-                                </figure>
-                                <div class="article_content">
-                                    <aside class="meta">
-                                        <p>
-                                            <a href="/article" class="category">
-                                                종류
-                                            </a>
-                                        </p>
-                                    </aside>
-                                    <h1 class="article_title">
-                                        <a href="/article">
-                                            <span class="line">
-                                                성보주택 평상
-                                            </span>
-                                        </a>
-                                    </h1>
-                                    <div class="article_comment">
-                                        <p>
-                                            자전거 거치대를 개조해 만든 평상.
-                                        </p>
-
-                                    </div>
-                                </div>
-                            </article>
-                        </li>
-                        <li>
-                            <article class="article">
-                                <figure>
-                                    <a href="/article" class="overlay">
-                                        <div class="center">
-                                            <p>
-                                                읽기
-                                            </p>
-                                        </div>
-                                    </a>
-                                    <a href="/article">
-                                        <img src="https://www.doongdoong.org/uploads/thumbs/1593343384.jpeg" alt="" class="cover">
-                                    </a>
-                                </figure>
-                                <div class="article_content">
-                                    <aside class="meta">
-                                        <p>
-                                            <a href="/article" class="category">
-                                                종류
-                                            </a>
-                                        </p>
-                                    </aside>
-                                    <h1 class="article_title">
-                                        <a href="/article">
-                                            <span class="line">
-                                                성보주택 평상
-                                            </span>
-                                        </a>
-                                    </h1>
-                                    <div class="article_comment">
-                                        <p>
-                                            자전거 거치대를 개조해 만든 평상.
-                                        </p>
-
-                                    </div>
-                                </div>
-                            </article>
-                        </li>
-                        <li>
-                            <article class="article">
-                                <figure>
-                                    <a href="/article" class="overlay">
-                                        <div class="center">
-                                            <p>
-                                                읽기
-                                            </p>
-                                        </div>
-                                    </a>
-                                    <a href="/article">
-                                        <img src="https://www.doongdoong.org/uploads/thumbs/1593343384.jpeg" alt="" class="cover">
-                                    </a>
-                                </figure>
-                                <div class="article_content">
-                                    <aside class="meta">
-                                        <p>
-                                            <a href="/article" class="category">
-                                                종류
-                                            </a>
-                                        </p>
-                                    </aside>
-                                    <h1 class="article_title">
-                                        <a href="/article">
-                                            <span class="line">
-                                                성보주택 평상
-                                            </span>
-                                        </a>
-                                    </h1>
-                                    <div class="article_comment">
-                                        <p>
-                                            자전거 거치대를 개조해 만든 평상.
-                                        </p>
-
-                                    </div>
-                                </div>
-                            </article>
-                        </li>
-                        <li>
-                            <article class="article">
-                                <figure>
-                                    <a href="/article" class="overlay">
-                                        <div class="center">
-                                            <p>
-                                                읽기
-                                            </p>
-                                        </div>
-                                    </a>
-                                    <a href="/article">
-                                        <img src="https://www.doongdoong.org/uploads/thumbs/1593343384.jpeg" alt="" class="cover">
-                                    </a>
-                                </figure>
-                                <div class="article_content">
-                                    <aside class="meta">
-                                        <p>
-                                            <a href="/article" class="category">
-                                                종류
-                                            </a>
-                                        </p>
-                                    </aside>
-                                    <h1 class="article_title">
-                                        <a href="/article">
-                                            <span class="line">
-                                                성보주택 평상
-                                            </span>
-                                        </a>
-                                    </h1>
-                                    <div class="article_comment">
-                                        <p>
-                                            자전거 거치대를 개조해 만든 평상.
-                                        </p>
-
-                                    </div>
-                                </div>
-                            </article>
-                        </li>
-                        <li>
-                            <article class="article">
-                                <figure>
-                                    <a href="/article" class="overlay">
-                                        <div class="center">
-                                            <p>
-                                                읽기
-                                            </p>
-                                        </div>
-                                    </a>
-                                    <a href="/article">
-                                        <img src="https://www.doongdoong.org/uploads/thumbs/1593343384.jpeg" alt="" class="cover">
-                                    </a>
-                                </figure>
-                                <div class="article_content">
-                                    <aside class="meta">
-                                        <p>
-                                            <a href="/article" class="category">
-                                                종류
-                                            </a>
-                                        </p>
-                                    </aside>
-                                    <h1 class="article_title">
-                                        <a href="/article">
-                                            <span class="line">
-                                                성보주택 평상
-                                            </span>
-                                        </a>
-                                    </h1>
-                                    <div class="article_comment">
-                                        <p>
-                                            자전거 거치대를 개조해 만든 평상.
-                                        </p>
-
-                                    </div>
-                                </div>
-                            </article>
-                        </li>
-                        <li>
-                            <article class="article">
-                                <figure>
-                                    <a href="/article" class="overlay">
-                                        <div class="center">
-                                            <p>
-                                                읽기
-                                            </p>
-                                        </div>
-                                    </a>
-                                    <a href="/article">
-                                        <img src="https://www.doongdoong.org/uploads/thumbs/1593343384.jpeg" alt="" class="cover">
-                                    </a>
-                                </figure>
-                                <div class="article_content">
-                                    <aside class="meta">
-                                        <p>
-                                            <a href="/article" class="category">
-                                                종류
-                                            </a>
-                                        </p>
-                                    </aside>
-                                    <h1 class="article_title">
-                                        <a href="/article">
-                                            <span class="line">
-                                                성보주택 평상
-                                            </span>
-                                        </a>
-                                    </h1>
-                                    <div class="article_comment">
-                                        <p>
-                                            자전거 거치대를 개조해 만든 평상.
-                                        </p>
-
-                                    </div>
-                                </div>
-                            </article>
-                        </li>
-                    </ul>
+                    
+                </header>
+                <div class="article_pics">
+                    <figure>
+                        <img src="https://www.doongdoong.org/se2/upload/c37_202008090731431935073975%25EC%2588%2598%25EC%25A0%2595%25EB%2590%25A8_Copy%2Bof%2BHUN_DSC_1089.jpg" alt="">
+                    </figure>
+                    <figure>
+                        <img src="https://www.doongdoong.org/se2/upload/c37_202008090733272041502992%25EC%2588%2598%25EC%25A0%2595%25EB%2590%25A8_FUN_4279_001.jpg" alt="">
+                    </figure>
+                    <figure>
+                        <img src="https://www.doongdoong.org/se2/upload/c37_20200809073306970504637%25EC%2588%2598%25EC%25A0%2595%25EB%2590%25A8_FUN_4580_001.jpg" alt="">
+                    </figure>
+                    <figure>
+                        <img src="https://www.doongdoong.org/se2/upload/c37_202008090733501338812052%25EC%2588%2598%25EC%25A0%2595%25EB%2590%25A8_Copy%2Bof%2BHUN_DSC_1180.jpg" alt="">
+                    </figure>
                 </div>
+                <div class="article_text">
+                    <div class="article_comment">
+                        <p>
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo temporibus consequuntur quibusdam quos! Maxime quam dicta quas, fugit velit eaque rem consequuntur, labore distinctio amet odio asperiores veritatis odit nesciunt?
+                        </p>
+                    </div>
+                    <div class="article_text_spacer"></div>
+                    <div class="article_cont">
+                        <p>
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo eius quae sequi aperiam, adipisci exercitationem! Facere, doloribus neque quasi rem exercitationem dignissimos temporibus illum modi dolore labore fugit totam cumque? Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo eius quae sequi aperiam, adipisci exercitationem! Facere, doloribus neque quasi rem exercitationem dignissimos temporibus illum modi dolore labore fugit totam cumque? Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo eius quae sequi aperiam, adipisci exercitationem! Facere, doloribus neque quasi rem exercitationem dignissimos temporibus illum modi dolore labore fugit totam cumque?
+                        </p>
+                        <p>
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo eius quae sequi aperiam, adipisci exercitationem! Facere, doloribus neque quasi rem exercitationem dignissimos temporibus illum modi dolore labore fugit totam cumque? Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo eius quae sequi aperiam, adipisci exercitationem! Facere, doloribus neque quasi rem exercitationem dignissimos temporibus illum modi dolore labore fugit totam cumque? Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo eius quae sequi aperiam, adipisci exercitationem! Facere, doloribus neque quasi rem exercitationem dignissimos temporibus illum modi dolore labore fugit totam cumque? Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo eius quae sequi aperiam, adipisci exercitationem! Facere, doloribus neque quasi rem exercitationem dignissimos temporibus illum modi dolore labore fugit totam cumque? Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo eius quae sequi aperiam, adipisci exercitationem! Facere, doloribus neque quasi rem exercitationem dignissimos temporibus illum modi dolore labore fugit totam cumque?
+                        </p>
+                    </div>
+                    <footer class="article_footer">
+                        <div class="article_auth">
+                            <p class="photo">
+                                사진
+                                <span>
+                                    박상환
+                                </span>
+                            </p>
+                            <p class="words">
+                                글
+                                <span>
+                                    이경렬
+                                </span>
+                            </p>
+                        </div>
+                        <div class="article_share">
+                            <span>
+                                공유:
+                            </span>
+                            <a href="">Facebook</a>
+                            <a href="">Tweeter</a>
+                        </div>
+                    </footer>
+                </div>
+                <div class="article_pics_mobile"></div>
             </div>
         </div>
     </section>
 
-    <?php include 'admin_footer.php'?>
+    <?php include 'footer.php'?>
 
-    <script src="../static/js/main.js"></script>
+    <script src="static/js/main.js"></script>
+    <script>
+        function organizePics() {
+        let articleImgs = document.querySelectorAll(".article_pics figure");
+        let mobileImgs = document.querySelector(".article_pics_mobile");
+            for(let m=0; m < articleImgs.length; m++) {
+                articleImgs[m].style.display = "block";
+                articleImgs[m].childNodes[1].style.width = "100%";
+                if(window.innerWidth > 1080) {
+                    if(mobileImgs.childNodes.length > 0) {
+                        for(let n=0; n < mobileImgs.childNodes.length; n++) {
+                            mobileImgs.childNodes[n].remove();
+                        }
+                    }
+                    
+                    if(articleImgs[m].childNodes[1].width > articleImgs[m].childNodes[1].height) {
+                        articleImgs[m].style.maxWidth = "96.5%";
+                        articleImgs[m].style.height = "auto";
+                        articleImgs[m].childNodes[1].style.height = "auto";
+                        articleImgs[m].childNodes[1].style.width = "100%";
+                        articleImgs[m].style.margin = "10px 0.75%";
+                    } else {
+                        articleImgs[m].style.maxWidth = "47.5%";
+                        articleImgs[m].style.height = "auto";
+                        articleImgs[m].childNodes[1].style.height = "auto";
+                        articleImgs[m].childNodes[1].style.width = "100%";
+                        articleImgs[m].style.margin = "10px 0.5%";
+                        articleImgs[m].style.display = "inline-flex";
+                    }
+                } else if(window.innerWidth <= 1080 && window.innerWidth >= 720) {
+                    if(m > 0 && document.querySelectorAll(".article_pics_mobile figure").length < document.querySelectorAll(".article_pics figure").length - 1) {
+                        replaceImg(articleImgs[m]);
+                        if(articleImgs[m].childNodes[1].width >= articleImgs[m].childNodes[1].height) {
+                            document.querySelectorAll(".mobile_img")[m-1].style.maxWidth = "96.5%";
+                            document.querySelectorAll(".mobile_img")[m-1].style.width = "96.5%";
+                            document.querySelectorAll(".mobile_img")[m-1].style.height = "auto";
+                            document.querySelectorAll(".mobile_img")[m-1].childNodes[0].style.width = "100%";
+                            document.querySelectorAll(".mobile_img")[m-1].childNodes[0].style.height = "auto";
+                            document.querySelectorAll(".mobile_img")[m-1].style.margin = "10px 0.25%";
+                        } else {
+                            document.querySelectorAll(".mobile_img")[m-1].style.maxWidth = "47.5%";
+                            document.querySelectorAll(".mobile_img")[m-1].style.width = "47.5%";
+                            document.querySelectorAll(".mobile_img")[m-1].style.height = "auto";
+                            document.querySelectorAll(".mobile_img")[m-1].childNodes[0].style.width = "100%";
+                            document.querySelectorAll(".mobile_img")[m-1].childNodes[0].style.height = "auto";
+                            document.querySelectorAll(".mobile_img")[m-1].style.margin = "10px 0.5%";
+                            document.querySelectorAll(".mobile_img")[m-1].style.display = "inline-flex";
+                        }
+                    }
+                    
+                } else if(window.innerWidth < 720) {
+                    if(m > 0 && document.querySelectorAll(".article_pics_mobile figure").length < document.querySelectorAll(".article_pics figure").length - 1) {
+                        replaceImg(articleImgs[m]);
+                        document.querySelectorAll(".mobile_img")[m-1].style.maxWidth = "100% !important";
+                        document.querySelectorAll(".mobile_img")[m-1].style.height = "auto";
+                        document.querySelectorAll(".mobile_img")[m-1].childNodes[0].style.width = "100% !important";
+                        document.querySelectorAll(".mobile_img")[m-1].childNodes[0].style.height = "auto";
+                        document.querySelectorAll(".mobile_img")[m-1].style.margin = "0 0 20px 0 !important";
+                        document.querySelectorAll(".mobile_img")[m-1].style.display = "block";
+                        
+                    }
+                }
+                
+            }
+            function replaceImg(imgSrc) {
+                let imgUrl = imgSrc.childNodes[1].src;
+                let mobileImgWrap = document.createElement("figure");
+                mobileImgWrap.className = "mobile_img";
+                mobileImgWrap.style.width = "100%";
+                mobileImgWrap.style.margin = "0 0 20px 0";
+                document.querySelector(".article_pics_mobile").appendChild(mobileImgWrap);
+                let mobileImg = document.createElement("img");
+                mobileImg.src = imgUrl;
+                mobileImg.style.width = "100%";
+                mobileImgWrap.appendChild(mobileImg);
+            }
+        }
+        let picControl = setInterval(organizePics, 200);
+        organizePics();
+        setTimeout(function() {
+            organizePics();
+        }, 300);
+        
+        window.addEventListener("resize", function() {
+            setTimeout(function() {
+                if(window.innerWidth > 1080) {
+                    setTimeout(() => {
+                        clearInterval(picControl);
+                        organizePics();
+                    }, 200);
+                } else {
+                    organizePics();
+                }
+            }, 300);
+        });
+    </script>
 </body>
 </html>
