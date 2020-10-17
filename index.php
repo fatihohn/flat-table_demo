@@ -14,6 +14,8 @@
     <?php include 'head.php'; ?>
 </head>
 <body>
+    <?php include 'header.php'; ?>
+
     <!-- <div class="header">
         <div class="title header-margin">
             <div class="box actions">
