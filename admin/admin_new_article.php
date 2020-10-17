@@ -13,7 +13,7 @@
         <div class="main">
             <div class="article_container container">
                 <header class="article_header">
-                    <h2>
+                    <!-- <h2>
                         성보주택 평상
                     </h2>
                     <div class="article_info">
@@ -25,8 +25,29 @@
                                 주민모임형
                             </a>
                         </p>
-                    </div>
-                    
+                    </div> -->
+                    <form action="/new_article" method="post" enctype="multipart/form-data">
+                        <!-- @method('PUT')
+                        @csrf -->
+                        <!-- <h2>
+                            성보주택 평상
+                        </h2> -->
+                        <input type="text" name="title" placeholder="제목" required/>
+                        <div class="article_info">
+                            <p class="article_address">
+                                <!-- {{-- 경기도 동두천시 상봉암동 153-15 --}} -->
+                                <input type="text" name="address" placeholder="주소" required />
+                            </p>
+                            <p class="category">
+                                <!-- <a href="#">
+                                    주민모임형
+                                </a> -->
+                                <input type="text" id="hashtags" autocomplete="off">
+                                <div class="tag-container"></div>
+                                <input id="category_container" type="text" name="category" value="" />
+                            </p>
+                        </div>
+                    </form>
                 </header>
                 <div class="article_pics">
                     <figure>
