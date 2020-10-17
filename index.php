@@ -15,6 +15,7 @@
 </head>
 <body>
     <?php include 'header.php'; ?>
+    <?php include 'nav.php'; ?>
 
     <!-- <div class="header">
         <div class="title header-margin">
