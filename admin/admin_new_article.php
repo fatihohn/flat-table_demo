@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <?php include '/head.php'?>
+    <?php include '../head.php'?>
 </head>
 <body>
-    <?php include '/header.php'?>
-    <?php include '/nav.php'?>
+    <?php include '../header.php'?>
+    <?php include '../nav.php'?>
 
     <div id="overlay" class="overlay"></div>
     <!-- @yield ('content') -->
@@ -86,8 +86,8 @@
         </div>
     </section>
 
-    <?php include '/footer.php'?>
+    <?php include '../footer.php'?>
 
-    <script src="/static/js/main.js"></script>
+    <script src="static/js/main.js"></script>
 </body>
 </html>
