@@ -12,6 +12,6 @@
                 평상으로부터
             </a>
         </li>
-        @yield ('nav_item')
+        <!-- @yield ('nav_item') -->
     </ul>
 </nav>
