@@ -36,11 +36,11 @@
                 </div>
                 <header class="intro_slide_title">
                     <h1 class="slide_title">
-                        <a href="/admin_article.php">
+                        <a href="/article">
                             못골에는 평상이 없더라
                         </a>
                     </h1>
-                    <a href="/admin_article.php" class="slide_enter button">
+                    <a href="/article" class="slide_enter button">
                         <p>
                             평상 살펴보기
                         </p>
@@ -110,27 +110,27 @@
                         <li>
                             <article class="article">
                                 <figure>
-                                    <a href="/admin_article.php" class="overlay">
+                                    <a href="/article" class="overlay">
                                         <div class="center">
                                             <p>
                                                 읽기
                                             </p>
                                         </div>
                                     </a>
-                                    <a href="/admin_article.php">
+                                    <a href="/article">
                                         <img src="https://www.doongdoong.org/uploads/thumbs/1593343384.jpeg" alt="" class="cover">
                                     </a>
                                 </figure>
                                 <div class="article_content">
                                     <aside class="meta">
                                         <p>
-                                            <a href="/admin_article.php" class="category">
+                                            <a href="/article" class="category">
                                                 종류
                                             </a>
                                         </p>
                                     </aside>
                                     <h1 class="article_title">
-                                        <a href="/admin_article.php">
+                                        <a href="/article">
                                             <span class="line">
                                                 성보주택 평상
                                             </span>
@@ -148,27 +148,27 @@
                         <li>
                             <article class="article">
                                 <figure>
-                                    <a href="/admin_article.php" class="overlay">
+                                    <a href="/article" class="overlay">
                                         <div class="center">
                                             <p>
                                                 읽기
                                             </p>
                                         </div>
                                     </a>
-                                    <a href="/admin_article.php">
+                                    <a href="/article">
                                         <img src="https://www.doongdoong.org/uploads/thumbs/1593343384.jpeg" alt="" class="cover">
                                     </a>
                                 </figure>
                                 <div class="article_content">
                                     <aside class="meta">
                                         <p>
-                                            <a href="/admin_article.php" class="category">
+                                            <a href="/article" class="category">
                                                 종류
                                             </a>
                                         </p>
                                     </aside>
                                     <h1 class="article_title">
-                                        <a href="/admin_article.php">
+                                        <a href="/article">
                                             <span class="line">
                                                 성보주택 평상
                                             </span>
@@ -186,27 +186,27 @@
                         <li>
                             <article class="article">
                                 <figure>
-                                    <a href="/admin_article.php" class="overlay">
+                                    <a href="/article" class="overlay">
                                         <div class="center">
                                             <p>
                                                 읽기
                                             </p>
                                         </div>
                                     </a>
-                                    <a href="/admin_article.php">
+                                    <a href="/article">
                                         <img src="https://www.doongdoong.org/uploads/thumbs/1593343384.jpeg" alt="" class="cover">
                                     </a>
                                 </figure>
                                 <div class="article_content">
                                     <aside class="meta">
                                         <p>
-                                            <a href="/admin_article.php" class="category">
+                                            <a href="/article" class="category">
                                                 종류
                                             </a>
                                         </p>
                                     </aside>
                                     <h1 class="article_title">
-                                        <a href="/admin_article.php">
+                                        <a href="/article">
                                             <span class="line">
                                                 성보주택 평상
                                             </span>
@@ -224,27 +224,27 @@
                         <li>
                             <article class="article">
                                 <figure>
-                                    <a href="/admin_article.php" class="overlay">
+                                    <a href="/article" class="overlay">
                                         <div class="center">
                                             <p>
                                                 읽기
                                             </p>
                                         </div>
                                     </a>
-                                    <a href="/admin_article.php">
+                                    <a href="/article">
                                         <img src="https://www.doongdoong.org/uploads/thumbs/1593343384.jpeg" alt="" class="cover">
                                     </a>
                                 </figure>
                                 <div class="article_content">
                                     <aside class="meta">
                                         <p>
-                                            <a href="/admin_article.php" class="category">
+                                            <a href="/article" class="category">
                                                 종류
                                             </a>
                                         </p>
                                     </aside>
                                     <h1 class="article_title">
-                                        <a href="/admin_article.php">
+                                        <a href="/article">
                                             <span class="line">
                                                 성보주택 평상
                                             </span>
@@ -262,27 +262,27 @@
                         <li>
                             <article class="article">
                                 <figure>
-                                    <a href="/admin_article.php" class="overlay">
+                                    <a href="/article" class="overlay">
                                         <div class="center">
                                             <p>
                                                 읽기
                                             </p>
                                         </div>
                                     </a>
-                                    <a href="/admin_article.php">
+                                    <a href="/article">
                                         <img src="https://www.doongdoong.org/uploads/thumbs/1593343384.jpeg" alt="" class="cover">
                                     </a>
                                 </figure>
                                 <div class="article_content">
                                     <aside class="meta">
                                         <p>
-                                            <a href="/admin_article.php" class="category">
+                                            <a href="/article" class="category">
                                                 종류
                                             </a>
                                         </p>
                                     </aside>
                                     <h1 class="article_title">
-                                        <a href="/admin_article.php">
+                                        <a href="/article">
                                             <span class="line">
                                                 성보주택 평상
                                             </span>
@@ -300,27 +300,27 @@
                         <li>
                             <article class="article">
                                 <figure>
-                                    <a href="/admin_article.php" class="overlay">
+                                    <a href="/article" class="overlay">
                                         <div class="center">
                                             <p>
                                                 읽기
                                             </p>
                                         </div>
                                     </a>
-                                    <a href="/admin_article.php">
+                                    <a href="/article">
                                         <img src="https://www.doongdoong.org/uploads/thumbs/1593343384.jpeg" alt="" class="cover">
                                     </a>
                                 </figure>
                                 <div class="article_content">
                                     <aside class="meta">
                                         <p>
-                                            <a href="/admin_article.php" class="category">
+                                            <a href="/article" class="category">
                                                 종류
                                             </a>
                                         </p>
                                     </aside>
                                     <h1 class="article_title">
-                                        <a href="/admin_article.php">
+                                        <a href="/article">
                                             <span class="line">
                                                 성보주택 평상
                                             </span>
@@ -338,27 +338,27 @@
                         <li>
                             <article class="article">
                                 <figure>
-                                    <a href="/admin_article.php" class="overlay">
+                                    <a href="/article" class="overlay">
                                         <div class="center">
                                             <p>
                                                 읽기
                                             </p>
                                         </div>
                                     </a>
-                                    <a href="/admin_article.php">
+                                    <a href="/article">
                                         <img src="https://www.doongdoong.org/uploads/thumbs/1593343384.jpeg" alt="" class="cover">
                                     </a>
                                 </figure>
                                 <div class="article_content">
                                     <aside class="meta">
                                         <p>
-                                            <a href="/admin_article.php" class="category">
+                                            <a href="/article" class="category">
                                                 종류
                                             </a>
                                         </p>
                                     </aside>
                                     <h1 class="article_title">
-                                        <a href="/admin_article.php">
+                                        <a href="/article">
                                             <span class="line">
                                                 성보주택 평상
                                             </span>
@@ -376,27 +376,27 @@
                         <li>
                             <article class="article">
                                 <figure>
-                                    <a href="/admin_article.php" class="overlay">
+                                    <a href="/article" class="overlay">
                                         <div class="center">
                                             <p>
                                                 읽기
                                             </p>
                                         </div>
                                     </a>
-                                    <a href="/admin_article.php">
+                                    <a href="/article">
                                         <img src="https://www.doongdoong.org/uploads/thumbs/1593343384.jpeg" alt="" class="cover">
                                     </a>
                                 </figure>
                                 <div class="article_content">
                                     <aside class="meta">
                                         <p>
-                                            <a href="/admin_article.php" class="category">
+                                            <a href="/article" class="category">
                                                 종류
                                             </a>
                                         </p>
                                     </aside>
                                     <h1 class="article_title">
-                                        <a href="/admin_article.php">
+                                        <a href="/article">
                                             <span class="line">
                                                 성보주택 평상
                                             </span>
@@ -414,27 +414,27 @@
                         <li>
                             <article class="article">
                                 <figure>
-                                    <a href="/admin_article.php" class="overlay">
+                                    <a href="/article" class="overlay">
                                         <div class="center">
                                             <p>
                                                 읽기
                                             </p>
                                         </div>
                                     </a>
-                                    <a href="/admin_article.php">
+                                    <a href="/article">
                                         <img src="https://www.doongdoong.org/uploads/thumbs/1593343384.jpeg" alt="" class="cover">
                                     </a>
                                 </figure>
                                 <div class="article_content">
                                     <aside class="meta">
                                         <p>
-                                            <a href="/admin_article.php" class="category">
+                                            <a href="/article" class="category">
                                                 종류
                                             </a>
                                         </p>
                                     </aside>
                                     <h1 class="article_title">
-                                        <a href="/admin_article.php">
+                                        <a href="/article">
                                             <span class="line">
                                                 성보주택 평상
                                             </span>
@@ -452,27 +452,27 @@
                         <li>
                             <article class="article">
                                 <figure>
-                                    <a href="/admin_article.php" class="overlay">
+                                    <a href="/article" class="overlay">
                                         <div class="center">
                                             <p>
                                                 읽기
                                             </p>
                                         </div>
                                     </a>
-                                    <a href="/admin_article.php">
+                                    <a href="/article">
                                         <img src="https://www.doongdoong.org/uploads/thumbs/1593343384.jpeg" alt="" class="cover">
                                     </a>
                                 </figure>
                                 <div class="article_content">
                                     <aside class="meta">
                                         <p>
-                                            <a href="/admin_article.php" class="category">
+                                            <a href="/article" class="category">
                                                 종류
                                             </a>
                                         </p>
                                     </aside>
                                     <h1 class="article_title">
-                                        <a href="/admin_article.php">
+                                        <a href="/article">
                                             <span class="line">
                                                 성보주택 평상
                                             </span>
@@ -490,27 +490,27 @@
                         <li>
                             <article class="article">
                                 <figure>
-                                    <a href="/admin_article.php" class="overlay">
+                                    <a href="/article" class="overlay">
                                         <div class="center">
                                             <p>
                                                 읽기
                                             </p>
                                         </div>
                                     </a>
-                                    <a href="/admin_article.php">
+                                    <a href="/article">
                                         <img src="https://www.doongdoong.org/uploads/thumbs/1593343384.jpeg" alt="" class="cover">
                                     </a>
                                 </figure>
                                 <div class="article_content">
                                     <aside class="meta">
                                         <p>
-                                            <a href="/admin_article.php" class="category">
+                                            <a href="/article" class="category">
                                                 종류
                                             </a>
                                         </p>
                                     </aside>
                                     <h1 class="article_title">
-                                        <a href="/admin_article.php">
+                                        <a href="/article">
                                             <span class="line">
                                                 성보주택 평상
                                             </span>
