@@ -114,57 +114,55 @@ $wi_id="tmp";
             // //기존 코드 끝
 
             
-            // // //Promise phrase
-            function sendAndShow() {
-                return Promise.all([snedFileList()]).then(renderFileList());
+            // //Promise phrase
+            
+            async function myFetch() {
+                let response = await sendFileList();
+
+                if (!response) {
+                    // throw new Error(`HTTP error! status: ${response.status}`);
+                } else {
+                    // let myBlob = await response.blob();
+
+                    // let objectURL = URL.createObjectURL(myBlob);
+                    // let image = document.createElement('img');
+                    // image.src = objectURL;
+                    // document.body.appendChild(image);
+                    return renderFileList();
+                }
             }
-            // async function myFetch() {
-            //     let response = await sendFileList();
 
-            //     if (!response) {
-            //         // throw new Error(`HTTP error! status: ${response.status}`);
-            //     } else {
-            //         // let myBlob = await response.blob();
-
-            //         // let objectURL = URL.createObjectURL(myBlob);
-            //         // let image = document.createElement('img');
-            //         // image.src = objectURL;
-            //         // document.body.appendChild(image);
-            //         return renderFileList();
-            //     }
-            // }
-
-            // myFetch()
-            // .catch(e => {
-            // console.log('There has been a problem with your fetch operation: ' + e.message);
-            // });
+            myFetch()
+            .catch(e => {
+            console.log('There has been a problem with your fetch operation: ' + e.message);
+            });
 
 
-            // //     (function () {
-            // //         function showRenderedFileList() {
-            // //             return new Promise(resolve => {
-            // //                 setTimeout(() => {
-            // //                 // resolve('resolved');
-            // //                 resolve(
-            // //                     renderFileList()
-            // //                 );
-            // //                 }, 100);
-            // //             });
-            // //         }
+            //     (function () {
+            //         function showRenderedFileList() {
+            //             return new Promise(resolve => {
+            //                 setTimeout(() => {
+            //                 // resolve('resolved');
+            //                 resolve(
+            //                     renderFileList()
+            //                 );
+            //                 }, 100);
+            //             });
+            //         }
 
-            // //         async function asyncCall() {
-            // //         // console.log('calling');
-            // //             fileList.forEach(function (file) {
-            // //                 sendFile(file);
-            // //             });
-            // //         // const result = await showRenderedFileList();
-            // //         // console.log(result);
-            // //         await showRenderedFileList();
-            // //         // return result;
-            // //         // expected output: "resolved"
-            // //         }
-            // //     })();
-            // // //promise phrase end
+            //         async function asyncCall() {
+            //         // console.log('calling');
+            //             fileList.forEach(function (file) {
+            //                 sendFile(file);
+            //             });
+            //         // const result = await showRenderedFileList();
+            //         // console.log(result);
+            //         await showRenderedFileList();
+            //         // return result;
+            //         // expected output: "resolved"
+            //         }
+            //     })();
+            // //promise phrase end
 
             });
 
