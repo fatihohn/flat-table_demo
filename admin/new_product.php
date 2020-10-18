@@ -104,7 +104,10 @@ $wi_id="tmp";
                     sendFile(file);
                 };
                 if(fileList.length === newFileList.length) {
-                    renderFileList();
+                    // renderFileList();
+                    setTimeout(() => {
+                        renderFileList();
+                    }, 1000);//...임시방편
                 }
                 // //화면 표시->promise async await program needed
                 // // renderFileList();
