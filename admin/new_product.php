@@ -146,7 +146,7 @@ $wi_id="tmp";
             .then(function (text) {
                 // 성공시
                 // console.log(text);
-                renderFileList();
+                renderFileList(fileListLength.length === fileList.length);
             }, function (error) {
                 // 실패시 
                 console.error(error);
@@ -202,13 +202,15 @@ $wi_id="tmp";
 
             });
 
-            renderFileList = async function () {
-                fileListDisplay.innerHTML = '';
-                newFileList.forEach(function (newFileName) {
-                    var fileDisplayEl = document.createElement('li');
-                fileDisplayEl.innerHTML = '<img src="../uploads/' + newFileName + '">';
-                fileListDisplay.appendChild(fileDisplayEl);
-                });
+            renderFileList = async function (param) {
+                if(param) {
+                    fileListDisplay.innerHTML = '';
+                    newFileList.forEach(function (newFileName) {
+                        var fileDisplayEl = document.createElement('li');
+                    fileDisplayEl.innerHTML = '<img src="../uploads/' + newFileName + '">';
+                    fileListDisplay.appendChild(fileDisplayEl);
+                    });
+                }
             };
             
             sendFileList = async function() {
