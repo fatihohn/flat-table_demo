@@ -114,7 +114,7 @@ $wi_id="tmp";
                 // // renderFileList();
                 setTimeout(() => {
                     renderFileList();
-                }, 10000);//...임시방편
+                }, 300);//...임시방편
                 // //callback method needed-> async&await method 구현
                 // //fileList.forEach(sendFile())->renderFileList()
 
