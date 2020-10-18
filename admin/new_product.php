@@ -106,14 +106,14 @@ $wi_id="tmp";
                     sendFile(file);
                     fileListLength.push("file");
                 };
-                if(fileListLegth.length === newFileList.length) {
-                    renderFileList();//...임시방편
-                }
+                // if(fileListLegth.length === newFileList.length) {
+                //     renderFileList();//...임시방편
+                // }
                 // //화면 표시->promise async await program needed
                 // // renderFileList();
-                // setTimeout(() => {
-                //     renderFileList();
-                // }, 1000);//...임시방편
+                setTimeout(() => {
+                    renderFileList();
+                }, 1000);//...임시방편
                 // //callback method needed-> async&await method 구현
                 // //fileList.forEach(sendFile())->renderFileList()
 
