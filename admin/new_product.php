@@ -122,7 +122,7 @@ $wi_id="tmp";
             
             // // //Promise phrase
             var _promise = function (param) {
-                        sendFileList()
+                        sendFileList();
                 return new Promise(function (resolve, reject) {
                     // 비동기를 표현하기 위해 setTimeout 함수를 사용 
                     window.setTimeout(function () {
