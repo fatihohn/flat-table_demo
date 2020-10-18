@@ -94,34 +94,61 @@ $wi_id="tmp";
                     // fileListLength.push(fileInput.files[i]);
                 }
 
-            //기존 코드(concurrent)
+            // //기존 코드(concurrent)
 
-                // //파일 전송 forEach
-                // fileList.forEach(function (file) {
-                //     sendFile(file);
-                // });
+            //     // //파일 전송 forEach
+            //     // fileList.forEach(function (file) {
+            //     //     sendFile(file);
+            //     // });
 
-                //파일 전송 for of
-                for (const file of fileList) {
-                    sendFile(file);
-                    fileListLength.push("file");
-                };
-                // if(fileListLegth.length === newFileList.length) {
-                //     renderFileList();//...임시방편
-                // }
-                // //화면 표시->promise async await program needed
-                // // renderFileList();
-                setTimeout(() => {
-                    renderFileList();
-                }, 1000);//...임시방편
-                // //callback method needed-> async&await method 구현
-                // //fileList.forEach(sendFile())->renderFileList()
+            //     //파일 전송 for of
+            //     for (const file of fileList) {
+            //         sendFile(file);
+            //         fileListLength.push("file");
+            //     };
+            //     // if(fileListLegth.length === newFileList.length) {
+            //     //     renderFileList();//...임시방편
+            //     // }
+            //     // //화면 표시->promise async await program needed
+            //     // // renderFileList();
+            //     setTimeout(() => {
+            //         renderFileList();
+            //     }, 1000);//...임시방편
+            //     // //callback method needed-> async&await method 구현
+            //     // //fileList.forEach(sendFile())->renderFileList()
 
-            //기존 코드 끝
+            // //기존 코드 끝
 
             
             // // //Promise phrase
-            
+            var _promise = function (param) {
+                return new Promise(function (resolve, reject) {
+                    // 비동기를 표현하기 위해 setTimeout 함수를 사용 
+                    window.setTimeout(function () {
+                        // 파라메터가 참이면, 
+                        if (param) {
+                            // 해결됨 
+                            // resolve("해결 완료");
+                            resolve(sendFileList());
+                        }
+                        // 파라메터가 거짓이면, 
+                        else {
+                            // 실패 
+                            reject(Error("실패!!"));
+                        }
+                    }, 300);
+                });
+            };
+
+            _promise(true)
+            .then(function (text) {
+                // 성공시
+                // console.log(text);
+                renderFileList();
+            }, function (error) {
+                // 실패시 
+                console.error(error);
+            });
             // async function myFetch() {
             //     let response = await sendFileList();
 
