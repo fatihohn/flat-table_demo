@@ -128,12 +128,12 @@ $wi_id="tmp";
                     // let image = document.createElement('img');
                     // image.src = objectURL;
                     // document.body.appendChild(image);
-                    return renderFileList();
+                    return await renderFileList();
                 }
             }
 
             myFetch()
-            .then(await renderFileList())
+            .then(renderFileList())
             .catch(e => {
             console.log('There has been a problem with your fetch operation: ' + e.message);
             });
