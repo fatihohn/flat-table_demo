@@ -91,7 +91,7 @@ $wi_id="tmp";
                 fileList = [];
                 for (var i = 0; i < fileInput.files.length; i++) {
                     fileList.push(fileInput.files[i]);
-                    fileListLength.push(fileInput.files[i]);
+                    // fileListLength.push(fileInput.files[i]);
                 }
 
             //기존 코드(concurrent)
@@ -104,6 +104,7 @@ $wi_id="tmp";
                 //파일 전송 for of
                 for (const file of fileList) {
                     sendFile(file);
+                    fileListLenfth.push("file");
                 };
                 if(fileListLegth.length === newFileList.length) {
                     renderFileList();//...임시방편
