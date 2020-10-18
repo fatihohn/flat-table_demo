@@ -91,79 +91,79 @@ $wi_id="tmp";
                     fileList.push(fileInput.files[i]);
                 }
 
-            // //기존 코드(concurrent)
+            //기존 코드(concurrent)
 
-            //     // //파일 전송 forEach
-            //     // fileList.forEach(function (file) {
-            //     //     sendFile(file);
-            //     // });
+                // //파일 전송 forEach
+                // fileList.forEach(function (file) {
+                //     sendFile(file);
+                // });
 
-            //     //파일 전송 for of
-            //     for (const file of fileList) {
-            //         sendFile(file);
-            //     };
+                //파일 전송 for of
+                for (const file of fileList) {
+                    sendFile(file);
+                };
 
-            //     //화면 표시->promise async await program needed
-            //     // renderFileList();
-            //     setTimeout(() => {
-            //         renderFileList();
-            //     }, 300);//...임시방편
-            //     //callback method needed-> async&await method 구현
-            //     //fileList.forEach(sendFile())->renderFileList()
+                //화면 표시->promise async await program needed
+                // renderFileList();
+                setTimeout(() => {
+                    renderFileList();
+                }, 1000);//...임시방편
+                //callback method needed-> async&await method 구현
+                //fileList.forEach(sendFile())->renderFileList()
 
-            // //기존 코드 끝
+            //기존 코드 끝
 
             
-            // //Promise phrase
+            // // //Promise phrase
             
-            async function myFetch() {
-                let response = await sendFileList();
+            // async function myFetch() {
+            //     let response = await sendFileList();
 
-                if (!response) {
-                    // throw new Error(`HTTP error! status: ${response.status}`);
-                } else {
-                    // let myBlob = await response.blob();
+            //     if (!response) {
+            //         // throw new Error(`HTTP error! status: ${response.status}`);
+            //     } else {
+            //         // let myBlob = await response.blob();
 
-                    // let objectURL = URL.createObjectURL(myBlob);
-                    // let image = document.createElement('img');
-                    // image.src = objectURL;
-                    // document.body.appendChild(image);
-                    return await renderFileList();
-                }
-            }
+            //         // let objectURL = URL.createObjectURL(myBlob);
+            //         // let image = document.createElement('img');
+            //         // image.src = objectURL;
+            //         // document.body.appendChild(image);
+            //         return await renderFileList();
+            //     }
+            // }
 
-            myFetch()
-            .then(renderFileList())
-            .catch(e => {
-            console.log('There has been a problem with your fetch operation: ' + e.message);
-            });
+            // myFetch()
+            // .then(renderFileList())
+            // .catch(e => {
+            // console.log('There has been a problem with your fetch operation: ' + e.message);
+            // });
 
 
-            //     (function () {
-            //         function showRenderedFileList() {
-            //             return new Promise(resolve => {
-            //                 setTimeout(() => {
-            //                 // resolve('resolved');
-            //                 resolve(
-            //                     renderFileList()
-            //                 );
-            //                 }, 100);
-            //             });
-            //         }
+            // //     (function () {
+            // //         function showRenderedFileList() {
+            // //             return new Promise(resolve => {
+            // //                 setTimeout(() => {
+            // //                 // resolve('resolved');
+            // //                 resolve(
+            // //                     renderFileList()
+            // //                 );
+            // //                 }, 100);
+            // //             });
+            // //         }
 
-            //         async function asyncCall() {
-            //         // console.log('calling');
-            //             fileList.forEach(function (file) {
-            //                 sendFile(file);
-            //             });
-            //         // const result = await showRenderedFileList();
-            //         // console.log(result);
-            //         await showRenderedFileList();
-            //         // return result;
-            //         // expected output: "resolved"
-            //         }
-            //     })();
-            // //promise phrase end
+            // //         async function asyncCall() {
+            // //         // console.log('calling');
+            // //             fileList.forEach(function (file) {
+            // //                 sendFile(file);
+            // //             });
+            // //         // const result = await showRenderedFileList();
+            // //         // console.log(result);
+            // //         await showRenderedFileList();
+            // //         // return result;
+            // //         // expected output: "resolved"
+            // //         }
+            // //     })();
+            // // //promise phrase end
 
             });
 
