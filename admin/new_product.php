@@ -124,8 +124,8 @@ $wi_id="tmp";
             var _promise = function (param) {
                 return new Promise(function (resolve, reject) {
                     // 비동기를 표현하기 위해 setTimeout 함수를 사용 
-                    window.setTimeout(function () {
                         sendFileList()
+                    window.setTimeout(function () {
                         // 파라메터가 참이면, 
                         if (param) {
                             // 해결됨 
