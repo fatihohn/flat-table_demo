@@ -133,7 +133,7 @@ $wi_id="tmp";
             }
 
             myFetch()
-            .then(renderFileList())
+            .then(await renderFileList())
             .catch(e => {
             console.log('There has been a problem with your fetch operation: ' + e.message);
             });
