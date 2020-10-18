@@ -142,7 +142,7 @@ $wi_id="tmp";
                 });
             };
 
-            promiseSendFile(fileSent)
+            promiseSendFile(fileListLength.length === fileList.length)
             .then(function (text) {
                 // 성공시
                 // console.log(text);
@@ -220,6 +220,7 @@ $wi_id="tmp";
                 
                 for (const file of fileList) {
                     sendFile(file);
+                    fileListLength.push("file");
                 };
                 return fileSent;
 
