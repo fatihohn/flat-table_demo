@@ -221,7 +221,7 @@ $wi_id="tmp";
                 for (const file of fileList) {
                     sendFile(file);
                 };
-                await return fileSent;
+                return fileSent;
 
             };
 
