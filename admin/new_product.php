@@ -187,7 +187,7 @@ $wi_id="tmp";
                 };
             };
 
-            sendFile = function (file) {
+            sendFile = async function (file) {
                 var formData = new FormData();
                 var request = new XMLHttpRequest();
                 formData.append('file', file);
