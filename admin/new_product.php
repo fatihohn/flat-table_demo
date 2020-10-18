@@ -83,7 +83,8 @@ $wi_id="tmp";
             
             var fileList = [];//전송용
             var newFileList = [];//디스플레이->저장용
-            var renderFileList, sendFile, sendFileList;
+            var renderFileList, sendFile, sendFileList, fileListLength;
+            // fileListLength = fileList.length;
             
             fileInput.addEventListener('change', function (evnt) {
                 fileList = [];
@@ -102,14 +103,16 @@ $wi_id="tmp";
                 for (const file of fileList) {
                     sendFile(file);
                 };
-
-                //화면 표시->promise async await program needed
-                // renderFileList();
-                setTimeout(() => {
+                if(fileList.length === newFileList.length) {
                     renderFileList();
-                }, 1000);//...임시방편
-                //callback method needed-> async&await method 구현
-                //fileList.forEach(sendFile())->renderFileList()
+                }
+                // //화면 표시->promise async await program needed
+                // // renderFileList();
+                // setTimeout(() => {
+                //     renderFileList();
+                // }, 1000);//...임시방편
+                // //callback method needed-> async&await method 구현
+                // //fileList.forEach(sendFile())->renderFileList()
 
             //기존 코드 끝
 
@@ -181,9 +184,12 @@ $wi_id="tmp";
                 // fileList.forEach(function (file) {
                 //     sendFile(file);
                 // });
+                 
+                
                 for (const file of fileList) {
                     sendFile(file);
                 };
+
             };
 
             sendFile = async function (file) {
