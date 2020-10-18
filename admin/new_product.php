@@ -91,34 +91,33 @@ $wi_id="tmp";
                     fileList.push(fileInput.files[i]);
                 }
 
+            // //기존 코드(concurrent)
 
+            //     // //파일 전송 forEach
+            //     // fileList.forEach(function (file) {
+            //     //     sendFile(file);
+            //     // });
 
+            //     //파일 전송 for of
+            //     for (const file of fileList) {
+            //         sendFile(file);
+            //     };
 
-            //기존 코드(concurrent)
+            //     //화면 표시->promise async await program needed
+            //     // renderFileList();
+            //     setTimeout(() => {
+            //         renderFileList();
+            //     }, 300);//...임시방편
+            //     //callback method needed-> async&await method 구현
+            //     //fileList.forEach(sendFile())->renderFileList()
 
-                // //파일 전송 forEach
-                // fileList.forEach(function (file) {
-                //     sendFile(file);
-                // });
+            // //기존 코드 끝
 
-                //파일 전송 for of
-                // fileList.forEach(function (file) {
-                for (const file of fileList) {
-                    sendFile(file);
-                };
-
-                //화면 표시->promise async await program needed
-                // renderFileList();
-                setTimeout(() => {
-                    renderFileList();
-                }, 300);//...임시방편
-                //callback method needed-> async&await method 구현
-                //fileList.forEach(sendFile())->renderFileList()
-
-            //기존 코드 끝
-
-
+            
             // // //Promise phrase
+            function sendAndShow() {
+                return Promise.all([snedFileList()]).then(renderFileList());
+            }
             // async function myFetch() {
             //     let response = await sendFileList();
 
@@ -167,14 +166,9 @@ $wi_id="tmp";
             // //     })();
             // // //promise phrase end
 
-
-
-
-
-
             });
 
-            renderFileList = function () {
+            renderFileList = async function () {
                 fileListDisplay.innerHTML = '';
                 newFileList.forEach(function (newFileName) {
                     var fileDisplayEl = document.createElement('li');
@@ -183,7 +177,7 @@ $wi_id="tmp";
                 });
             };
             
-            sendFileList = function() {
+            sendFileList = async function() {
                 //파일 전송
                 // fileList.forEach(function (file) {
                 //     sendFile(file);
