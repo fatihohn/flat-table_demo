@@ -104,7 +104,7 @@ $wi_id="tmp";
                 //파일 전송 for of
                 for (const file of fileList) {
                     sendFile(file);
-                    fileListLenfth.push("file");
+                    fileListLength.push("file");
                 };
                 if(fileListLegth.length === newFileList.length) {
                     renderFileList();//...임시방편
