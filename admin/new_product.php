@@ -85,6 +85,7 @@ $wi_id="tmp";
             var newFileList = [];//디스플레이->저장용
             var fileListLength = [];//카운터
             var renderFileList, sendFile, sendFileList;
+            var fileSent = false;
             // fileListLength = fileList.length;
             
             fileInput.addEventListener('change', function (evnt) {
@@ -121,8 +122,8 @@ $wi_id="tmp";
 
             
             // // //Promise phrase
-            var promiseSendFile = function (param) {
                 sendFileList();
+            var promiseSendFile = function (param) {
                 return new Promise(function (resolve, reject) {
                     // 비동기를 표현하기 위해 setTimeout 함수를 사용 
                     window.setTimeout(function () {
@@ -141,7 +142,7 @@ $wi_id="tmp";
                 });
             };
 
-            promiseSendFile(true)
+            promiseSendFile(fileSent)
             .then(function (text) {
                 // 성공시
                 // console.log(text);
@@ -215,11 +216,12 @@ $wi_id="tmp";
                 // fileList.forEach(function (file) {
                 //     sendFile(file);
                 // });
-                 
+                fileSent = true;
                 
                 for (const file of fileList) {
                     sendFile(file);
                 };
+                await return fileSent;
 
             };
 
