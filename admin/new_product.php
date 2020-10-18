@@ -83,13 +83,15 @@ $wi_id="tmp";
             
             var fileList = [];//전송용
             var newFileList = [];//디스플레이->저장용
-            var renderFileList, sendFile, sendFileList, fileListLength;
+            var fileListLength = [];//카운터
+            var renderFileList, sendFile, sendFileList;
             // fileListLength = fileList.length;
             
             fileInput.addEventListener('change', function (evnt) {
                 fileList = [];
                 for (var i = 0; i < fileInput.files.length; i++) {
                     fileList.push(fileInput.files[i]);
+                    fileListLength.push(fileInput.files[i]);
                 }
 
             //기존 코드(concurrent)
@@ -103,11 +105,8 @@ $wi_id="tmp";
                 for (const file of fileList) {
                     sendFile(file);
                 };
-                if(fileList.length === newFileList.length) {
-                    // renderFileList();
-                    setTimeout(() => {
-                        renderFileList();
-                    }, 1000);//...임시방편
+                if(fileListLegth.length === newFileList.length) {
+                    renderFileList();//...임시방편
                 }
                 // //화면 표시->promise async await program needed
                 // // renderFileList();
