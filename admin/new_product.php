@@ -178,7 +178,7 @@ $wi_id="tmp";
                 fileListDisplay.innerHTML = '';
                 newFileList.forEach(function (newFileName) {
                     var fileDisplayEl = document.createElement('li');
-                fileDisplayEl.innerHTML = '<img src="/uploads/' + newFileName + '">';
+                fileDisplayEl.innerHTML = '<img src="../uploads/' + newFileName + '">';
                 fileListDisplay.appendChild(fileDisplayEl);
                 });
             };
