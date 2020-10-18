@@ -197,7 +197,7 @@ $wi_id="tmp";
                 var formData = new FormData();
                 var request = new XMLHttpRequest();
                 formData.append('file', file);
-                request.open("POST", '/upload_image.php');
+                request.open("POST", './upload_image.php');
                 request.send(formData);
                 
                 request.onreadystatechange = function() { // 요청에 대한 콜백
