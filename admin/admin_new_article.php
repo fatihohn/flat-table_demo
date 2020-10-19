@@ -172,18 +172,18 @@
         //     organizePics();
         // }, 300);
         
-        // window.addEventListener("resize", function() {
-        //     setTimeout(function() {
-        //         if(window.innerWidth > 1080) {
-        //             setTimeout(() => {
-        //                 clearInterval(picControl);
-        //                 organizePics();
-        //             }, 200);
-        //         } else {
-        //             organizePics();
-        //         }
-        //     }, 300);
-        // });
+        window.addEventListener("resize", function() {
+            setTimeout(function() {
+                if(window.innerWidth > 1080) {
+                    setTimeout(() => {
+                        clearInterval(picControl);
+                        organizePics();
+                    }, 200);
+                } else {
+                    organizePics();
+                }
+            }, 300);
+        });
     </script>
     <script>
         //file transfer, render list
