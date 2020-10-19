@@ -91,9 +91,9 @@
                         <input type="submit">
                     </footer>
                 </div>
+            </form>
                 <div class="article_pics_mobile"></div>
             </div>
-        </form>
         </div>
     </section>
 
