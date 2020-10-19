@@ -231,7 +231,7 @@
                 var formData = new FormData();
                 var request = new XMLHttpRequest();
                 formData.append('file', file);
-                request.open("POST", '/upload_image.php');
+                request.open("POST", './upload_image.php');
                 request.send(formData);
                 request.onreadystatechange = function() { // 요청에 대한 콜백
                     if (request.readyState === request.DONE) { // 요청이 완료되면
