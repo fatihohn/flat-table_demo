@@ -14,8 +14,8 @@
     <section class="article_main">
         <div class="main">
             <div class="article_container container">
-                <header class="article_header">
-                    <form action="/new_article" method="post" enctype="multipart/form-data">
+                <form action="/new_article" method="post" enctype="multipart/form-data">
+                    <header class="article_header">
                         <input type="text" name="title" placeholder="제목" required/>
                         <div class="article_info">
                             <p class="article_address">
@@ -31,8 +31,8 @@
                                 <input id="category_container" type="hidden" name="category" value="" />
                             </p>
                         </div>
-                    </form>
-                </header>
+                    </header>
+                
                 <!-- <div class="article_pics"> -->
                 <div id="file-list-display" class="article_pics">
                     <div class="locked" draggable="false">
@@ -91,6 +91,8 @@
                     </footer>
                 </div>
                 <div class="article_pics_mobile"></div>
+                <input type="submit">
+                </form>
             </div>
         </div>
     </section>
