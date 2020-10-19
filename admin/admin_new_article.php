@@ -166,11 +166,11 @@
                 mobileImgWrap.appendChild(mobileImg);
             }
         }
-        // let picControl = setInterval(organizePics, 200);
-        // organizePics();
-        // setTimeout(function() {
-        //     organizePics();
-        // }, 300);
+        let picControl = setInterval(organizePics, 200);
+        organizePics();
+        setTimeout(function() {
+            organizePics();
+        }, 300);
         
         window.addEventListener("resize", function() {
             setTimeout(function() {
