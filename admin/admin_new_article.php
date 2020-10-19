@@ -241,8 +241,11 @@
                             // console.log(newFileList.length + ':' + sentFileList.length);
                             if(newFileList.length === sentFileList.length) {
                                 renderFileList();
-                                organizePics();
                                 resetInputValue("file-container", newFileList);
+                                var renderedImgs = document.querySelectorAll(".article_img_figure");
+                                if(renderedImgs[newFileList.length - 1].childNodes[1].src) {
+                                    organizePics();
+                                }
                             }
                         } else {
                             console.error(request.responseText);
