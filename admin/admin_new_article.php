@@ -11,10 +11,10 @@
 
     <div id="overlay" class="overlay"></div>
     <!-- @yield ('content') -->
+    <form action="/new_article" method="post" enctype="multipart/form-data">
     <section class="article_main">
         <div class="main">
             <div class="article_container container">
-                <form action="/new_article" method="post" enctype="multipart/form-data">
                     <header class="article_header">
                         <input type="text" name="title" placeholder="제목" required/>
                         <div class="article_info">
@@ -91,11 +91,11 @@
                         <input type="submit">
                     </footer>
                 </div>
-            </form>
                 <div class="article_pics_mobile"></div>
             </div>
         </div>
     </section>
+</form>
 
     <?php include 'admin_footer.php'?>
 
