@@ -12,9 +12,12 @@ $wi_id="tmp";
 
 
     <link rel="stylesheet" type="text/css" href="/trix-master/dist/trix.css">
+    <link rel="stylesheet" type="text/css" href="/css/uploader.css">
     <script type="text/javascript" src="/trix-master/dist/trix.js"></script>
     <script type="text/javascript" src="/trix-master/dist/attachments.js"></script>
     <!-- <script type="text/javascript" src="/js/image_uploader.js"></script> -->
+    <!-- jsDelivr :: Sortable :: Latest (https://www.jsdelivr.com/package/npm/sortablejs) -->
+    <script src="https://cdn.jsdelivr.net/npm/sortablejs@latest/Sortable.min.js"></script>
 </head>
 
 
@@ -25,14 +28,9 @@ $wi_id="tmp";
             <center>
                 <h3>판매글 작성</h3>
             </center>
-            <form class="createForm" action="create_product_action.php" method="POST" enctype="multipart/form-data">
+            <form class="createForm" action="new_product_action.php" method="POST" enctype="multipart/form-data">
                 <input class="createGrid2" name="wi_id" type="hidden" value="<?=$wi_id?>" />
-                <p>
-                    <div class="createInput">
-                        <!-- <label class="createGrid1">제목</label> -->
-                        <input class="createGrid2" name="title" placeholder="제목" required />
-                    </div>
-                </p>
+                
                 <!-- <p>
                     <div class="createInput">
                         <label class="createGrid1">상품이미지</label>
@@ -41,35 +39,66 @@ $wi_id="tmp";
                 </p> -->
                 <p>
                     <div class="createInput">
-                        <!-- <ul id="file-list-display"> -->
-                        <ul >
-                            <li>
+                        <ul id="file-list-display" class="image-list">
+                            <li class="locked" draggable="false">
                                 이미지 등록
                                 <input id="file-input" type="file" accept="image/jpg, image/jpeg, image/png" multiple="">
                             </li>
-                            <div id="file-list-display"></div>
-                            <!-- 여기에 업로드 된 이미지들이 들어감 & 드래그 순서변경 기능 필요 -->
                         </ul>
-                        <div>
-                            <b>* 상품 이미지는 640x640에 최적화 되어 있습니다.</b>
-                            - 이미지는 상품등록 시 정사각형으로 잘려서 등록됩니다.<br>
-                            - 이미지를 클릭 할 경우 원본이미지를 확인할 수 있습니다.<br>
-                            - 이미지를 클릭 후 이동하여 등록순서를 변경할 수 있습니다.<br>
-                            - 큰 이미지일경우 이미지가 깨지는 경우가 발생할 수 있습니다.<br>
-                            최대 지원 사이즈인 640 X 640 으로 리사이즈 해서 올려주세요.(개당 이미지 최대 10M)
-                        </div>
                         
+                        <input id="file-container" type="hidden" name="images" value="">
                     </div>
                 </p>
                 <p>
                     <div class="createInput">
-                        <div class="admin_editor trix-content">
-                            <input id="x" type="hidden" name="content">
-                            <trix-editor input="x"></trix-editor>
-                        </div>
+                        <!-- <label class="createGrid1">제목</label> -->
+                        <input class="createGrid2" name="title" placeholder="제목" required />
                     </div>
                 </p>
                 <p>
+                    <div class="category_wraper">
+                        <div class="category_selector">
+                            <div class="category_level group0">
+                                <ul class="group0_ul">
+                                    <li class="group0_li">
+                                        <button type="button" class="category_btn group0_btn">여성의류</button>
+                                    </li>
+                                    <li class="group0_li">
+                                        <button type="button" class="category_btn group0_btn">패션잡화</button>
+                                    </li>
+                                    <li class="group0_li">
+                                        <button type="button" class="category_btn group0_btn">남성의류</button>
+                                    </li>
+                                    <li class="group0_li">
+                                        <button type="button" class="category_btn group0_btn">디지털/가전</button>
+                                    </li>
+                                    <li class="group0_li">
+                                        <button type="button" class="category_btn group0_btn">도서/티켓/취미/애완</button>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="category_level group1">중분류 선택</div>
+                            <div class="category_level group2">소분류 선택</div>
+                        </div>
+                        <h3 class="category_selected">선택한 카테고리 : <b></b></h3>
+                        <input type="hidden" name="categories" value="1">
+                    </div>
+                </p>
+                <p>
+                    <div class="createInput">
+                        <!-- <div class="admin_editor trix-content">
+                            <input id="x" type="hidden" name="content">
+                            <trix-editor input="x"></trix-editor>
+                        </div> -->
+                        <textarea name="detail" id="detail-input" cols="60" rows="20"></textarea>
+                    </div>
+                </p>
+                <p>
+                    <input type="hidden" name="price" value="1">
+                    <input type="hidden" name="model_info" value="iphone8">
+                    <input type="hidden" name="quantity" value="1">
+                    <input type="hidden" name="location" value="seoul">
+                    <input type="hidden" name="tag" value="real">
                     <input type="submit">   
                 </p>
             </form>   
@@ -77,285 +106,92 @@ $wi_id="tmp";
     </section>
 
     <script>
+        //file transfer, render list
+        var fileList = [];//전송 준비용
+        var newFileList = [];//디스플레이->저장용
+        var sentFileList = [];//전송 확인용
+        var resetInputValue;
         (function () {
             var fileInput = document.getElementById('file-input');
             var fileListDisplay = document.getElementById('file-list-display');
-            
-            var fileList = [];//전송용
-            var newFileList = [];//디스플레이->저장용
-            var fileListLength = [];//카운터
             var renderFileList, sendFile, sendFileList;
-            var fileSent = false;
-            // fileListLength = fileList.length;
             
+
             fileInput.addEventListener('change', function (evnt) {
                 fileList = [];
                 for (var i = 0; i < fileInput.files.length; i++) {
                     fileList.push(fileInput.files[i]);
-                    // fileListLength.push(fileInput.files[i]);
                 }
-
-            //기존 코드(concurrent)
-
-                // //파일 전송 forEach
-                // fileList.forEach(function (file) {
-                //     sendFile(file);
-                // });
-
-                //파일 전송 for of
-                for (const file of fileList) {
-                    sendFile(file);
-                    fileListLength.push("file");
-                };
-                // if(fileListLegth.length === newFileList.length) {
-                //     renderFileList();//...임시방편
-                // }
-                // //화면 표시->promise async await program needed
-                // // renderFileList();
-                setTimeout(() => {
-                    renderFileList();
-                }, 300);//...임시방편
-                // //callback method needed-> async&await method 구현
-                // //fileList.forEach(sendFile())->renderFileList()
-
-            //기존 코드 끝
-
-            
-            // // // //Promise phrase
-            //     sendFileList();
-            // var promiseSendFile = function (param) {
-            //     return new Promise(function (resolve, reject) {
-            //         // 비동기를 표현하기 위해 setTimeout 함수를 사용 
-            //         window.setTimeout(function () {
-            //             // 파라메터가 참이면, 
-            //             if (param) {
-            //                 // 해결됨 
-            //                 resolve("ok");
-            //                 // resolve(sendFileList());
-            //             }
-            //             // 파라메터가 거짓이면, 
-            //             else {
-            //                 // 실패 
-            //                 reject(Error("fail"));
-            //             }
-            //         }, 300);
-            //     });
-            // };
-
-            // promiseSendFile(fileListLength.length === fileList.length)
-            // .then(function (text) {
-            //     // 성공시
-            //     // console.log(text);
-            //     renderFileList(fileListLength.length === fileList.length);
-            // }, function (error) {
-            //     // 실패시 
-            //     console.error(error);
-            // });
-            // // async function myFetch() {
-            // //     let response = await sendFileList();
-
-            // //     if (!response) {
-            // //         // throw new Error(`HTTP error! status: ${response.status}`);
-            // //     } else {
-            // //         // let myBlob = await response.blob();
-
-            // //         // let objectURL = URL.createObjectURL(myBlob);
-            // //         // let image = document.createElement('img');
-            // //         // image.src = objectURL;
-            // //         // document.body.appendChild(image);
-            // //         return await renderFileList();
-            // //     }
-            // // }
-
-            // // myFetch()
-            // // .then(renderFileList())
-            // // .catch(e => {
-            // // console.log('There has been a problem with your fetch operation: ' + e.message);
-            // // });
-
-
-            // // //     (function () {
-            // // //         function showRenderedFileList() {
-            // // //             return new Promise(resolve => {
-            // // //                 setTimeout(() => {
-            // // //                 // resolve('resolved');
-            // // //                 resolve(
-            // // //                     renderFileList()
-            // // //                 );
-            // // //                 }, 100);
-            // // //             });
-            // // //         }
-
-            // // //         async function asyncCall() {
-            // // //         // console.log('calling');
-            // // //             fileList.forEach(function (file) {
-            // // //                 sendFile(file);
-            // // //             });
-            // // //         // const result = await showRenderedFileList();
-            // // //         // console.log(result);
-            // // //         await showRenderedFileList();
-            // // //         // return result;
-            // // //         // expected output: "resolved"
-            // // //         }
-            // // //     })();
-            // // // //promise phrase end
+                sendFileList();
 
             });
 
-
-
-            // renderFileList = async function (param) {
-            //     if(param) {
-            //         fileListDisplay.innerHTML = '';
-            //         newFileList.forEach(function (newFileName) {
-            //             var fileDisplayEl = document.createElement('li');
-            //         fileDisplayEl.innerHTML = '<img src="../uploads/' + newFileName + '">';
-            //         fileListDisplay.appendChild(fileDisplayEl);
-            //         });
-            //     }
-            // };
-
-            renderFileList = async function (param) {
-                fileListDisplay.innerHTML = '';
-                newFileList.forEach(function (newFileName) {
-                    var fileDisplayEl = document.createElement('li');
-                fileDisplayEl.innerHTML = '<img src="../uploads/' + newFileName + '">';
-                fileListDisplay.appendChild(fileDisplayEl);
-                });
+            renderFileList = function () {
+                var prodImgs = document.querySelectorAll(".product_img");
+                for(const pImg of prodImgs) {
+                    pImg.remove();
+                }
+                    // console.log(newFileList);
+                    newFileList.forEach(function (newFileName, index) {
+                        var fileDisplayEl = document.createElement('li');
+                    fileDisplayEl.innerHTML = '<img src="/uploads/' + newFileName + '">';
+                    fileDisplayEl.setAttribute("class", 'product_img');
+                    fileListDisplay.appendChild(fileDisplayEl);
+                    });
             };
             
-            sendFileList = async function() {
-                //파일 전송
-                // fileList.forEach(function (file) {
-                //     sendFile(file);
-                // });
-                fileSent = true;
-                
+            sendFileList = function() {
                 for (const file of fileList) {
                     sendFile(file);
-                    fileListLength.push("file");
+                    sentFileList.push(file.name);
                 };
-                return fileSent;
-
             };
 
-            sendFile = async function (file) {
+            sendFile = function (file) {
                 var formData = new FormData();
                 var request = new XMLHttpRequest();
                 formData.append('file', file);
-                request.open("POST", './upload_image.php');
+                request.open("POST", '/upload_image.php');
                 request.send(formData);
-                
                 request.onreadystatechange = function() { // 요청에 대한 콜백
                     if (request.readyState === request.DONE) { // 요청이 완료되면
                         if (request.status === 200 || request.status === 201) {
                             newFileList.push(request.responseText); // 바뀐 이름 stack
+                            // console.log(newFileList.length + ':' + sentFileList.length);
+                            if(newFileList.length === sentFileList.length) {
+                                renderFileList();
+                                resetInputValue("file-container", newFileList);
+                            }
                         } else {
                             console.error(request.responseText);
                         }
                     }
                 };
             };
-
         })();
+        
+        //drag&drop sorting
+        var imgDisplay = document.getElementById("file-list-display");
+        var sortable = new Sortable(imgDisplay, {
+            draggable: ".product_img",
+            onEnd:function (evt) {
+                var sortedImgs = document.querySelectorAll(".product_img");
+                newFileList = [];
+                for(let pImg of sortedImgs) {
+                    let pImgSrc = pImg.firstChild.src;
+                    let pImgDir = pImgSrc.split("/")[4];
+                    
+                    newFileList.push(pImgDir);
+                    resetInputValue("file-container", newFileList);
+                }
+            }
+        });
+
+        //fill form input
+        resetInputValue = function(id, val) {
+            document.getElementById(id).value = val;
+        }
     </script>
-    <!-- <script>
-        (function () {
-
-            function createFormData(file) {
-                var data = new FormData()
-                data.append("Content-Type", file.type)
-                data.append("file", file)
-                return data
-            }
-        })();
-    </script> -->
-
-
-
-    <!-- <script>
-        (function() {
-            var IMGHOST = "/upload_image.php"
-        
-            document.querySelector("#image_uploader").addEventListener("change", function(event) {
-                console.log(event)
-                if (event.attachment.file) {
-                    uploadFileAttachment(event.attachment)
-                }
-            })
-        
-            function uploadFileAttachment(attachment) {
-                uploadFile(attachment.file, setProgress, setAttributes)
-        
-                function setProgress(progress) {
-                    attachment.setUploadProgress(progress)
-                }
-        
-                function setAttributes(attributes) {
-                    attachment.setAttributes(attributes)
-                }
-            }
-        
-            function uploadFile(file, progressCallback, successCallback) {
-                var formData = createFormData(file)
-                var xhr = new XMLHttpRequest()
-        
-                xhr.open("POST", IMGHOST, true)
-        
-                xhr.upload.addEventListener("progress", function(event) {
-                    var progress = event.loaded / event.total * 100
-                    progressCallback(progress)
-                })
-        
-                xhr.addEventListener("load", function(event) {
-                    var attributes = {
-                        url: xhr.responseText,
-                        // href: xhr.responseText + "?content-disposition=attachment"
-                    }
-                    successCallback(attributes)
-                })
-        
-                xhr.send(formData)
-            }
-
-            function createFormData(file) {
-                var data = new FormData(document.getElementById("#image_uploader"))
-                data.append("Content-Type", file.type)
-                data.append("file", file)
-                return data
-            }
-        })();
-    </script> -->
 </body>
 
 </html>
-<!-- <div>
-    <ul>
-        <li>
-            이미지 등록
-            <input id="image_uploader" type="file" accept="image/jpg, image/jpeg, image/png" multiple="">
-        </li>
-    </ul>
-    <div>
-        <b>* 상품 이미지는 640x640에 최적화 되어 있습니다.</b>
-        - 이미지는 상품등록 시 정사각형으로 잘려서 등록됩니다.<br>
-        - 이미지를 클릭 할 경우 원본이미지를 확인할 수 있습니다.<br>
-        - 이미지를 클릭 후 이동하여 등록순서를 변경할 수 있습니다.<br>
-        - 큰 이미지일경우 이미지가 깨지는 경우가 발생할 수 있습니다.<br>
-        최대 지원 사이즈인 640 X 640 으로 리사이즈 해서 올려주세요.(개당 이미지 최대 10M)
-    </div>
-    <div>
-        <div>
-            <button type="button">
-                <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEQAAABACAYAAACjgtGkAAAAAXNSR0IArs4c6QAAAolJREFUeAHl20tSxCAQANCJW12ql3DtKTxE9GQ6h/AU7j2EutT12J1qUowhCZ/+AFLFgIEU9pvApjPDAcrpdLqH5gHqJ9TjMAzf0HZfIO4rCHKEegP1FeJ+u6Co36H9oIGRJtJQn80fDIwdDQ6DCxcmXEIftW6hdv2kBDBwV/ygxQyCf/wHlC2MBUjvKHsYQZBeUWIwVkF6Q4nF2ATpBSUFYxekdZRUjCiQVlFyMKJBWkPJxUgCaQWlBCMZpHaUUowskFpRODCyQWpD4cIoAqkFhROjGMQahRuDBcQKRQKDDUQbRQqDFUQLRRKDHUQaRRpDBEQKRQNDDIQbRQtDFIQLRRNDHKQURRtDBSQXxQJDDSQVxQpDFSQWxRJDHWQPxRrDBGQNBa9DcYlnzLXO6cVpROnjLJWptOa0DDwNfi75i9a+htYMA/8HMxBcnFCeoIsQWBDm2SWepyvKH+51COVl5+VCX0jo2nyDdMcMxDtA8enAJwMr9kcag65+Mfk2PAx8c2c6Myh08/dT1EFCGO7MgDH/oDV5aUcVZAvDbQ5rFDWQGIwaUFRAUjCsUcRBcjAsUURBSjCsUMRAODAsUERAODG0UdhBJDA0UVhBJDG0UNhANDA0UFhANDGkUYpBLDAkUYpALDGkULJBasCQQMkCqQmDGyUZpEYMTpQkkJoxuFCiQVrA4ECJAmkJoxRlF6RFjBKUTZCWMXJRVkF6wMhBCSaqesJAFEpzHKGLOSDMBY0QI6Y8FmUBQhNdFt7lRqYf+S7ubuiCh4IxIcpjCOVsy9CER7oBb3xxSSTod1H2YpxB9iZ2oUFBbMU6gWxN6AnCj2UtZneG3MFk3FddbhMfwvUDZwoaHH4B+xHVOFecBB4AAAAASUVORK5CYII=" width="34" height="32" alt="닫기 버튼 아이콘">
-            </button>
-            <div>
-                <div>
-                    상품이미지
-                </div>
-                <div></div>
-                <div></div>
-            </div>
-        </div>
-    </div>
-</div> -->
