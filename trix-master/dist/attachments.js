@@ -1,5 +1,5 @@
 (function() {
-    var HOST = "/upload.php"
+    var HOST = "/admin/upload_image.php"
  
     addEventListener("trix-attachment-add", function(event) {
         if (event.attachment.file) {
