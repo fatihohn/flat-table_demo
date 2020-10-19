@@ -33,13 +33,13 @@
                         </div>
                     </form>
                 </header>
-                <div class="article_pics">
-                    <div id="file-list-display" class="article_pics">
-                        <figure class="locked" draggable="false">
-                            이미지 등록
-                            <input id="file-input" type="file" accept="image/jpg, image/jpeg, image/png" multiple="">
-                        </figure>
-                    </div>
+                <!-- <div class="article_pics"> -->
+                <div id="file-list-display" class="article_pics">
+                    <figure class="locked" draggable="false">
+                        이미지 등록
+                        <input id="file-input" type="file" accept="image/jpg, image/jpeg, image/png" multiple="">
+                    </figure>
+                    
                     
                     <input id="file-container" type="hidden" name="images" value="">
                 </div>
