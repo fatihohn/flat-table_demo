@@ -260,7 +260,7 @@
                 var sortedImgs = document.querySelectorAll(".article_img_figure");
                 newFileList = [];
                 for(let aImg of sortedImgs) {
-                    let aImgSrc = aImg.firstChild.src;
+                    let aImgSrc = aImg.secondChild.src;
                     let aImgDir = aImgSrc.split("/")[4];
                     
                     newFileList.push(aImgDir);
