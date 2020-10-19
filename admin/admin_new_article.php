@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <?php include '../head.php'?>
+    <?php include 'admin_head.php'?>
+    <!-- jsDelivr :: Sortable :: Latest (https://www.jsdelivr.com/package/npm/sortablejs) -->
+    <script src="https://cdn.jsdelivr.net/npm/sortablejs@latest/Sortable.min.js"></script>
 </head>
 <body>
-    <?php include '../header.php'?>
-    <?php include '../nav.php'?>
+    <?php include 'admin_header.php'?>
+    <?php include 'admin_nav.php'?>
 
     <div id="overlay" class="overlay"></div>
     <!-- @yield ('content') -->
@@ -13,25 +15,7 @@
         <div class="main">
             <div class="article_container container">
                 <header class="article_header">
-                    <!-- <h2>
-                        성보주택 평상
-                    </h2>
-                    <div class="article_info">
-                        <p class="article_address">
-                            경기도 동두천시 상봉암동 153-15
-                        </p>
-                        <p class="category">
-                            <a href="#">
-                                주민모임형
-                            </a>
-                        </p>
-                    </div> -->
                     <form action="/new_article" method="post" enctype="multipart/form-data">
-                        <!-- @method('PUT')
-                        @csrf -->
-                        <!-- <h2>
-                            성보주택 평상
-                        </h2> -->
                         <input type="text" name="title" placeholder="제목" required/>
                         <div class="article_info">
                             <p class="article_address">
@@ -50,18 +34,14 @@
                     </form>
                 </header>
                 <div class="article_pics">
-                    <figure>
-                        <img src="https://www.doongdoong.org/se2/upload/c37_202008090731431935073975%25EC%2588%2598%25EC%25A0%2595%25EB%2590%25A8_Copy%2Bof%2BHUN_DSC_1089.jpg" alt="">
-                    </figure>
-                    <figure>
-                        <img src="https://www.doongdoong.org/se2/upload/c37_202008090733272041502992%25EC%2588%2598%25EC%25A0%2595%25EB%2590%25A8_FUN_4279_001.jpg" alt="">
-                    </figure>
-                    <figure>
-                        <img src="https://www.doongdoong.org/se2/upload/c37_20200809073306970504637%25EC%2588%2598%25EC%25A0%2595%25EB%2590%25A8_FUN_4580_001.jpg" alt="">
-                    </figure>
-                    <figure>
-                        <img src="https://www.doongdoong.org/se2/upload/c37_202008090733501338812052%25EC%2588%2598%25EC%25A0%2595%25EB%2590%25A8_Copy%2Bof%2BHUN_DSC_1180.jpg" alt="">
-                    </figure>
+                    <div id="file-list-display" class="article_pics">
+                        <figure class="locked" draggable="false">
+                            이미지 등록
+                            <input id="file-input" type="file" accept="image/jpg, image/jpeg, image/png" multiple="">
+                        </figure>
+                    </div>
+                    
+                    <input id="file-container" type="hidden" name="images" value="">
                 </div>
                 <div class="article_text">
                     <div class="article_comment">
@@ -107,7 +87,7 @@
         </div>
     </section>
 
-    <?php include '../footer.php'?>
+    <?php include 'admin_footer.php'?>
 
     <script src="../static/js/main.js"></script>
     <script>
@@ -204,6 +184,93 @@
                 }
             }, 300);
         });
+    </script>
+    <script>
+        //file transfer, render list
+        var fileList = [];//전송 준비용
+        var newFileList = [];//디스플레이->저장용
+        var sentFileList = [];//전송 확인용
+        var resetInputValue;
+        (function () {
+            var fileInput = document.getElementById('file-input');
+            var fileListDisplay = document.getElementById('file-list-display');
+            var renderFileList, sendFile, sendFileList;
+            
+
+            fileInput.addEventListener('change', function (evnt) {
+                fileList = [];
+                for (var i = 0; i < fileInput.files.length; i++) {
+                    fileList.push(fileInput.files[i]);
+                }
+                sendFileList();
+
+            });
+
+            renderFileList = function () {
+                var articleImgs = document.querySelectorAll(".article_img_figure");
+                for(const aImg of articleImgs) {
+                    aImg.remove();
+                }
+                    // console.log(newFileList);
+                    newFileList.forEach(function (newFileName, index) {
+                        var fileDisplayEl = document.createElement('figure');
+                    fileDisplayEl.innerHTML = '<img src="../uploads/' + newFileName + '">';
+                    fileDisplayEl.setAttribute("class", 'article_img_figure');
+                    fileListDisplay.appendChild(fileDisplayEl);
+                    });
+            };
+            
+            sendFileList = function() {
+                for (const file of fileList) {
+                    sendFile(file);
+                    sentFileList.push(file.name);
+                };
+            };
+
+            sendFile = function (file) {
+                var formData = new FormData();
+                var request = new XMLHttpRequest();
+                formData.append('file', file);
+                request.open("POST", '/upload_image.php');
+                request.send(formData);
+                request.onreadystatechange = function() { // 요청에 대한 콜백
+                    if (request.readyState === request.DONE) { // 요청이 완료되면
+                        if (request.status === 200 || request.status === 201) {
+                            newFileList.push(request.responseText); // 바뀐 이름 stack
+                            // console.log(newFileList.length + ':' + sentFileList.length);
+                            if(newFileList.length === sentFileList.length) {
+                                renderFileList();
+                                resetInputValue("file-container", newFileList);
+                            }
+                        } else {
+                            console.error(request.responseText);
+                        }
+                    }
+                };
+            };
+        })();
+        
+        //drag&drop sorting
+        var imgDisplay = document.getElementById("file-list-display");
+        var sortable = new Sortable(imgDisplay, {
+            draggable: ".article_img_figure",
+            onEnd:function (evt) {
+                var sortedImgs = document.querySelectorAll(".article_img_figure");
+                newFileList = [];
+                for(let aImg of sortedImgs) {
+                    let aImgSrc = aImg.firstChild.src;
+                    let aImgDir = aImgSrc.split("/")[4];
+                    
+                    newFileList.push(aImgDir);
+                    resetInputValue("file-container", newFileList);
+                }
+            }
+        });
+
+        //fill form input
+        resetInputValue = function(id, val) {
+            document.getElementById(id).value = val;
+        }
     </script>
 </body>
 </html>
