@@ -263,6 +263,7 @@
                     let aImgDir = aImgSrc.split("/")[4];
                     
                     newFileList.push(aImgDir);
+                    organizePics();
                     resetInputValue("file-container", newFileList);
                 }
             }
