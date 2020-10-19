@@ -81,13 +81,13 @@
                                 </span>
                             </p>
                         </div>
-                        <div class="article_share">
+                        <!-- <div class="article_share">
                             <span>
                                 공유:
                             </span>
                             <a href="">Facebook</a>
                             <a href="">Tweeter</a>
-                        </div>
+                        </div> -->
                         <input type="submit">
                     </footer>
                 </div>
