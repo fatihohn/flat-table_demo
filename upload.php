@@ -33,7 +33,7 @@ function compressImage($source, $destination, $quality) {
  
  
 // File upload path 
-$uploadPath = "../uploads/"; 
+$uploadPath = "uploads/"; 
  
 // If file upload form is submitted 
 $status = $statusMsg = ''; 
