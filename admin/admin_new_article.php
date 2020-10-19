@@ -35,10 +35,10 @@
                 </header>
                 <!-- <div class="article_pics"> -->
                 <div id="file-list-display" class="article_pics">
-                    <figure class="locked" draggable="false">
+                    <div class="locked" draggable="false">
                         이미지 등록
                         <input id="file-input" type="file" accept="image/jpg, image/jpeg, image/png" multiple="">
-                    </figure>
+                    </div>
                     
                     
                     <input id="file-container" type="hidden" name="images" value="">
@@ -166,24 +166,24 @@
                 mobileImgWrap.appendChild(mobileImg);
             }
         }
-        let picControl = setInterval(organizePics, 200);
-        organizePics();
-        setTimeout(function() {
-            organizePics();
-        }, 300);
+        // let picControl = setInterval(organizePics, 200);
+        // organizePics();
+        // setTimeout(function() {
+        //     organizePics();
+        // }, 300);
         
-        window.addEventListener("resize", function() {
-            setTimeout(function() {
-                if(window.innerWidth > 1080) {
-                    setTimeout(() => {
-                        clearInterval(picControl);
-                        organizePics();
-                    }, 200);
-                } else {
-                    organizePics();
-                }
-            }, 300);
-        });
+        // window.addEventListener("resize", function() {
+        //     setTimeout(function() {
+        //         if(window.innerWidth > 1080) {
+        //             setTimeout(() => {
+        //                 clearInterval(picControl);
+        //                 organizePics();
+        //             }, 200);
+        //         } else {
+        //             organizePics();
+        //         }
+        //     }, 300);
+        // });
     </script>
     <script>
         //file transfer, render list
