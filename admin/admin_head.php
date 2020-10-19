@@ -9,3 +9,6 @@
 <!-- Styles -->
 <link rel="stylesheet" href="../static/css/layout.css?after" type="text/css" media="all" />
 <link rel="stylesheet" href="../static/css/admin.css?after" type="text/css" media="all" />
+<link rel="stylesheet" type="text/css" href="/trix-master/dist/trix.css">
+    <script type="text/javascript" src="/trix-master/dist/trix.js"></script>
+    <script type="text/javascript" src="/trix-master/dist/attachments.js"></script>
