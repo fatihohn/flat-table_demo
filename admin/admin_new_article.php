@@ -214,7 +214,8 @@
                     // console.log(newFileList);
                     newFileList.forEach(function (newFileName, index) {
                         var fileDisplayEl = document.createElement('figure');
-                    fileDisplayEl.innerHTML = '<img src="../uploads/' + newFileName + '">';
+                    fileDisplayEl.innerHTML = `
+                    <img src="../uploads/' + newFileName + '">`;
                     fileDisplayEl.setAttribute("class", 'article_img_figure');
                     fileListDisplay.appendChild(fileDisplayEl);
                     });
