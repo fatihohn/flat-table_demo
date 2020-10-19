@@ -88,10 +88,10 @@
                             <a href="">Facebook</a>
                             <a href="">Tweeter</a>
                         </div>
+                        <input type="submit">
                     </footer>
                 </div>
                 <div class="article_pics_mobile"></div>
-                <input type="submit">
                 </form>
             </div>
         </div>
