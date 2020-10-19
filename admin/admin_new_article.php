@@ -48,7 +48,7 @@
                         <!-- <p>
                             Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo temporibus consequuntur quibusdam quos! Maxime quam dicta quas, fugit velit eaque rem consequuntur, labore distinctio amet odio asperiores veritatis odit nesciunt?
                         </p> -->
-                            <textarea name="comment" id="article_comment_input" cols="30" rows="10"></textarea>
+                            <textarea name="comment" id="article_comment_input" cols="40" rows="5">요약</textarea>
                         
                     </div>
                     <div class="article_text_spacer"></div>
