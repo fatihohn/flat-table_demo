@@ -1,7 +1,7 @@
 <?php
-if (!file_exists('../uploads')) {
+if (!file_exists('/uploads')) {
  
-    mkdir('../uploads', 0777);
+    mkdir('/uploads', 0777);
 }
 //image compression
 function compressImage($source, $destination, $quality) { 
