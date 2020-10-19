@@ -240,6 +240,7 @@
                             // console.log(newFileList.length + ':' + sentFileList.length);
                             if(newFileList.length === sentFileList.length) {
                                 renderFileList();
+                                organizePics();
                                 resetInputValue("file-container", newFileList);
                             }
                         } else {
