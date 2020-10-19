@@ -92,8 +92,8 @@
                     </footer>
                 </div>
                 <div class="article_pics_mobile"></div>
-                </form>
             </div>
+        </form>
         </div>
     </section>
 
