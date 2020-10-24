@@ -145,8 +145,8 @@ function setIntroImg() {
         // setTimeout(function() {
         //     introTitleHeader.classList.add("active");
         // }, 100);
-        introTitle.classList.add(imgSrc.alt);
-        introEnter.classList.add(imgSrc.alt);
+        introTitle.classList.add(imgSrc.title);
+        introEnter.classList.add(imgSrc.title);
         introTitle.innerHTML = imgSrc.title;
         introTitleHeader.classList.add("active");
     }
