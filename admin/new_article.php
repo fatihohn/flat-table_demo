@@ -400,6 +400,7 @@
                     let pImgDir = pImgSrcArr[pImgSrcArr.length - 1];
                     newFileList.push(pImgDir);
                     resetInputValue("file-container", newFileList);
+                    organizePics();
                 }
             }
         });
