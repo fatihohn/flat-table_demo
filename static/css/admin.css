@@ -56,6 +56,7 @@
 #file-list-display figure button {
     width: 1.5rem;
     height: 1.5rem;
+    padding: 12px;
     background-position: center center;
     background-repeat: no-repeat;
     background-size: 12px 12px;
@@ -65,14 +66,14 @@
     /* position: absolute; */
     position: relative;
     top: 0.5rem;
-    right: 0.5rem;
+    right: 30px;
     border: none;
     cursor: pointer;
 }
 
 #file-list-display figure .thumb_img {
-    /* position: absolute; */
-    position: relative;
+    position: absolute;
+    /* position: relative; */
     height: 1.5rem;
     padding: 0px 0.5rem;
     display: flex;
@@ -80,7 +81,7 @@
     align-items: center;
     top: 0.5rem;
     left: 0.5rem;
-    right: 100%;
+    /* right: 100%; */
     background-color: rgba(30, 29, 41, 0.32);
     color: rgb(255, 255, 255);
     border-radius: 12px;
