@@ -957,7 +957,7 @@ em {
         position: relative;
         top: 0;
         padding: 0;
-        border-bottom: 1px solid rgba(0, 0, 0, 0.15);
+        border-bottom: 1px solid #D9D9D9;
         margin-bottom: 40px;
     }
     /* .article_main .main .article_container .article_pics figure {
@@ -1149,7 +1149,7 @@ em {
 .container_login .login_form .login_input {
     background: rgba(0, 0, 0, 0);
     border: 0px;
-    border-bottom: 1px solid grey;
+    border-bottom: 1px solid #D9D9D9;
     border-radius: 0px;
 }
 
@@ -1260,7 +1260,7 @@ em {
 .article_header input {
     font-family: 'GyeonggiBatang';
     border: none;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+    border-bottom: 1px solid #D9D9D9;
     padding: 5px;
 }
 
