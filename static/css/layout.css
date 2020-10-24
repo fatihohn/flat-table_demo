@@ -921,7 +921,8 @@ em {
     }
     .article_main .main .article_container .article_pics figure {
         /* display: none !important; */
-        display: none;
+        /* display: none; */
+        visibility: hidden;
     }
     .article_main .main .article_container .article_pics figure:first-of-type {
         display: block !important;
