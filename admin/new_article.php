@@ -324,7 +324,8 @@
                     newFileList.forEach(function (newFileName, index) {
                         if(newFileName !== "") {
                         var fileDisplayEl = document.createElement('li');
-                        fileDisplayEl.innerHTML = '<img src="./uploads/' + newFileName + '"><button type="button" class="article_img_figure_del"></button>';
+                        fileDisplayEl.innerHTML = `
+                        <img src="../uploads/` + newFileName + `"><button type="button" class="article_img_figure_del"></button>`;
                         fileDisplayEl.setAttribute("class", 'article_img_figure ' + newFileName.split(".")[0]);
                         fileListDisplay.appendChild(fileDisplayEl);
                         }
