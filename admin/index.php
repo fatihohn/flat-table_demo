@@ -35,7 +35,7 @@
                             $frontArticleTitle = $rows_article_flag["title"];
                             $frontArticleImg = explode(",", $rows_article_flag["imgs"])[0];
 
-                            echo '<img class="slide_img_src" title="'.$frontArticleTitle.'" src="'.$frontArticleImg.'" alt="'.$frontArticleTitle.'">';
+                            echo '<img class="slide_img_src" title="'.$frontArticleTitle.'" src="/uploads/'.$frontArticleImg.'" alt="'.$frontArticleTitle.'">';
                         }
                     }
                     ?>
