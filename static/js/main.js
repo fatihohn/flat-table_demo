@@ -170,10 +170,10 @@ setIntroImg();
         location.href = "./article.php?q=" + id;
     }
     document.querySelector(".slide_enter.button").addEventListener("click", function() {
-        showArticle(this.className);
+        showArticle(this.classList.item(2));
     });
     document.querySelector(".slide_title a").addEventListener("click", function() {
-        showArticle(this.className);
+        showArticle(this.classList.item(0));
     });
 
 })();
