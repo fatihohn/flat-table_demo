@@ -145,7 +145,7 @@ function setIntroImg() {
         //     introTitleHeader.classList.add("active");
         // }, 100);
         introTitleHeader.classList.add("active");
-        introTitle.setAttribute("class") = imgSrc.classList.item(1);
+        introTitle.setAttribute("class", imgSrc.classList.item(1));
         introTitle.innerHTML = imgSrc.title;
     }
     function hideIntroTitle() {
@@ -158,9 +158,9 @@ function setIntroImg() {
 }
 setIntroImg();
 
-(function() {
-    
-})();
+// (function() {
+
+// })();
 
 
 
