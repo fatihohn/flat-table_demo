@@ -84,25 +84,24 @@
                             <p class="photo">
                                 사진
                                 <span>
-                                    <!-- 박상환 -->
                                     <input type="text" name="photographer">
                                 </span>
                             </p>
                             <p class="words">
                                 글
                                 <span>
-                                    <!-- 이경렬 -->
                                     <input type="text" name="words" required>
                                 </span>
                             </p>
+                        </div>
+                        <div class="article_flag">
                             <p class="flag">
-                                <!-- <span> -->
-                                    <!-- 이경렬 -->
+                                <span>
                                     <label for="flag">
                                         대표평상
                                     </label>
                                     <input id="flag" type="checkbox" name="flag">
-                                <!-- </span> -->
+                                </span>
                             </p>
                         </div>
                         <!-- <div class="article_share">
