@@ -77,6 +77,7 @@
                 </header>
                 <nav class="container_nav group">
                     <div class="filter_container">
+                        <!-- 태그 검색 기능으로 변경 -->
                         <div class="filter_list">
                             <a href="#" class="action">
                                 구분
@@ -103,6 +104,7 @@
                                 </div>
                             </div>
                         </div>
+                        <!-- 태그 검색 기능으로 변경 -->
                     </div>
                 </nav>
                 <div class="collection group">
