@@ -1,5 +1,5 @@
 <?php
-    include '/bbps_db_conn.php';   
+    include '../bbps_db_conn.php';   
 
 
     $sessionUser = $_SESSION['username'];
