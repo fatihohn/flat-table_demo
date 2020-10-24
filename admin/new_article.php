@@ -96,13 +96,13 @@
                                 </span>
                             </p>
                             <p class="flag">
-                                <span>
+                                <!-- <span> -->
                                     <!-- 이경렬 -->
                                     <label for="flag">
                                         대표평상
                                     </label>
                                     <input id="flag" type="checkbox" name="flag">
-                                </span>
+                                <!-- </span> -->
                             </p>
                         </div>
                         <!-- <div class="article_share">
