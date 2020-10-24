@@ -139,6 +139,7 @@ ul {
     text-align: center;
     max-width: 500px;
 }
+
 .intro .intro_slide .intro_slide_img .intro_slide_title h1 {
     font-size: 48px;
     font-weight: 800;
@@ -150,6 +151,7 @@ ul {
     transition: -webkit-transform 1s .2s ease, opacity 1s .2s ease;
     transition: transform 1s .2s ease, opacity 1s .2s ease;
 }
+
 .intro .intro_slide .intro_slide_img .intro_slide_title h1 a {
     color: #fff;
     white-space: nowrap;
@@ -163,6 +165,7 @@ ul {
     transition: -webkit-transform 1s 1s ease, opacity 1s 1s ease;
     transition: transform 1s 1s ease, opacity 1s 1s ease;
 }
+
 .intro .intro_slide .intro_slide_img .intro_slide_title .slide_enter {
     border: 2px solid #fff;
     color: #fff;
@@ -172,12 +175,11 @@ ul {
     padding: 8px 18px 8px 18px;
     transition: opacity 1s 1.5s ease, background .7s, color .7s;
 }
+
 .intro .intro_slide .intro_slide_img .intro_slide_title .slide_enter:hover {
     background: #fff;
     color: #1a1a1a;
 }
-
-
 
 .full-height {
     height: 100vh;
@@ -220,7 +222,6 @@ ul {
 .title>.home-btn {
     padding-top: 10px;
 }
-
 
 .header-margin {
     width: 90%;
@@ -275,9 +276,6 @@ ul {
     transform: rotate(-45deg);
     top: -7px;
 }
-
-
-
 
 .nav {
     padding: 8% 0;
@@ -456,11 +454,12 @@ em {
     color: #1a1a1a;
 }
 
+
 /*articles*/
+
 .main .container .articles_header {
     margin: 50px 0;
 }
-
 
 
 /*container_nav*/
@@ -545,6 +544,7 @@ em {
 .collection {
     display: block;
 }
+
 .collection ul li {
     margin: 0 1% 2% 0;
     width: 23.5%;
@@ -677,7 +677,9 @@ em {
     word-break: keep-all;
 }
 
+
 /*article-content*/
+
 .article_main {
     padding-top: 50px;
 }
@@ -685,20 +687,24 @@ em {
 .article_main .main {
     background: #fff;
 }
+
 .article_main .main .article_container {
     display: flex;
     padding-bottom: 200px;
     max-width: 1120px;
 }
+
 .article_main .main .article_container .article_header {
     flex: 0;
     position: absolute;
 }
+
 .article_main .main .article_container .article_header h2 {
     font-size: 38px;
     margin-bottom: 25px;
     color: #1a1a1a;
 }
+
 .article_main .main .article_container .article_header .article_info {
     -webkit-box-align: center;
     -ms-flex-align: center;
@@ -710,6 +716,7 @@ em {
     -ms-flex-pack: start;
     justify-content: flex-start;
 }
+
 .article_main .main .article_container .article_header .article_info .category {
     color: #c28c29;
     font-size: 14px;
@@ -718,10 +725,12 @@ em {
     font-weight: 600;
     text-transform: uppercase;
 }
+
 .article_main .main .article_container .article_header .article_info .category a {
     color: inherit;
     text-decoration: none;
 }
+
 .article_main .main .article_container .article_header .article_info .article_address {
     /* font-family: "p22-underground",sans-serif; */
     font-size: 14px;
@@ -730,18 +739,18 @@ em {
     text-transform: uppercase;
 }
 
-
-
 .article_main .main .article_container .article_pics {
     flex: 2;
     position: relative;
     top: 150px;
     padding-right: 10px;
 }
+
 .article_main .main .article_container .article_pics figure {
     width: 100%;
     margin: auto 0;
 }
+
 .article_main .main .article_container .article_pics figure img {
     width: 100%;
 }
@@ -754,6 +763,7 @@ em {
     border-left: 1px solid #D9D9D9;
     max-width: 361px;
 }
+
 .article_main .main .article_container .article_text .article_comment p,
 .article_main .main .article_container .article_text .article_cont p {
     line-height: 1.4;
@@ -761,21 +771,25 @@ em {
     font-size: 1.05rem;
     color: #1a1a1a;
 }
+
 .article_main .main .article_container .article_text .article_comment p {
     font-style: italic;
     font-weight: 600;
 }
+
 .article_main .main .article_container .article_cont {
     border-bottom: 1px solid #D9D9D9;
     margin-bottom: 30px;
     padding-bottom: 30px;
 }
+
 .article_main .main .article_container .article_text .article_text_spacer {
     background: #1a1a1a;
     height: 2px;
     margin-bottom: 35px;
     width: 20px;
 }
+
 .article_main .main .article_container .article_text .article_auth {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -785,14 +799,17 @@ em {
     -ms-flex-pack: start;
     justify-content: flex-start;
 }
+
 .article_main .main .article_container .article_text .article_auth p {
     font-size: 13px;
     font-style: italic;
     letter-spacing: .02em;
 }
+
 .article_main .main .article_container .article_text .article_auth p:first-child {
     margin-right: 30px;
 }
+
 .article_main .main .article_container .article_text .article_auth p span {
     /* font-family: "p22-underground",sans-serif; */
     font-style: normal;
@@ -808,6 +825,7 @@ em {
     font-weight: 600;
     text-transform: uppercase;
 }
+
 .article_main .main .article_container .article_text .article_share a {
     border-bottom: 1px solid #D9D9D9;
     color: #1a1a1a;
@@ -818,22 +836,21 @@ em {
 
 
 /*about*/
+
 .about_main .articles_header {
     margin: 0;
     padding: 50px 0;
     background: #edecec;
 }
+
 .about_main .about_pics {
     flex: 0.75 !important;
     top: 0 !important;
 }
+
 .about_main .about_text .article_auth p span {
     display: block;
 }
-
-
-
-
 
 
 /*footer*/
@@ -903,7 +920,8 @@ em {
         padding: 0;
     }
     .article_main .main .article_container .article_pics figure {
-        display: none !important;
+        /* display: none !important; */
+        display: none;
     }
     .article_main .main .article_container .article_pics figure:first-of-type {
         display: block !important;
@@ -920,6 +938,7 @@ em {
         display: block;
     }
 }
+
 @media all and (max-width: 1025px) {
     .tagline {
         padding-top: 75px;
@@ -960,7 +979,6 @@ em {
     .intro .intro_slide .intro_slide_img .intro_slide_title h1 {
         font-size: 25px
     }
-
     .article_main .main .article_container .article_pics_mobile figure {
         display: block !important;
         max-width: 100% !important;
@@ -971,16 +989,11 @@ em {
         max-width: 100% !important;
         width: 100% !important;
     }
-
-/*about*/
+    /*about*/
     .about_main .articles_header {
         margin-top: 50px;
         padding: 20px 0;
     }
-
-
-
-
     .tagline h1 {
         font-size: 1.8rem;
     }
@@ -1020,7 +1033,6 @@ em {
         display: block;
         color: #1a1a1a;
     }
-
     /*article-content*/
     /* .article_main {
         padding-top: 0;
@@ -1057,13 +1069,4 @@ em {
     .article_main .main .article_container .article_text .article_auth p span {
         display: block;
     } */
-
-
-
-
-
-
-
-
-
 }
