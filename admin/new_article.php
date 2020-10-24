@@ -2,7 +2,8 @@
     include '../bbps_db_conn.php';   
 
 
-    $sessionUser = $_SESSION['username'];
+    // $sessionUser = $_SESSION['username'];
+    $sessionUser = "tmp_name";
     $sql_user_data = "SELECT * FROM user_data WHERE username= '$sessionUser'";
     $result_user_data = $conn->query($sql_user_data);
     $rows_user_data = mysqli_fetch_assoc($result_user_data);
