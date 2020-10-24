@@ -1166,3 +1166,21 @@ em {
     border-radius: 12px;
     font-size: 12px;
 }
+
+#article_comment_input {
+    resize: none;
+    font-family: 'GyeonggiBatang';
+    font-size: 1rem;
+}
+
+.article_header input {
+    font-size: 1.5rem;
+}
+
+.article_footer .article_auth input,
+.article_header input {
+    font-family: 'GyeonggiBatang';
+    border: 0;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+    padding: 5px;
+}
