@@ -158,7 +158,7 @@ function setIntroImg() {
             // }, 100);
         introTitleHeader.classList.remove("active");
         // introTitle.setAttribute("class", imgSrc.classList.item(1));
-        introTitle.classList.remove(introTitle.classList.item(1));
+        introTitle.classList.remove(introTitle.classList.item(0));
         introEnter.classList.remove(introEnter.classList.item(2));
     }
 }
