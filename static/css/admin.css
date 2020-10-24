@@ -1187,7 +1187,7 @@ em {
 .article_footer .article_auth input,
 .article_header input {
     font-family: 'GyeonggiBatang';
-    border: 0;
+    border: none;
     border-bottom: 1px solid rgba(0, 0, 0, 0.2);
     padding: 5px;
 }
@@ -1197,9 +1197,10 @@ em {
     padding: 12px;
 }
 
-trix-editor {
+
+/* trix-editor {
     border: none;
-}
+} */
 
 
 /* width */
