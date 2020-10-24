@@ -1264,13 +1264,14 @@ em {
     padding: 5px;
 }
 
+/* .article_header input {
+    font-size: 1.5rem;
+    padding: 12px;
+} */
 .article_header input {
     font-size: 1.5rem;
     padding: 12px;
-}
-.article_header input {
-    font-size: 1.5rem;
-    padding: 12px;
+    width: 100%;
 }
 
 .article_submit {
