@@ -1145,7 +1145,7 @@ em {
 
 #file-list-display .locked:hover {
     background-color: rgba(0, 0, 0, 0.1);
-    color: #f1f1f1;
+    color: #333
 }
 
 #file-list-display .locked input {
