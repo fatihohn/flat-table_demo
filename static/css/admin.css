@@ -1197,6 +1197,20 @@ em {
     padding: 12px;
 }
 
+.article_submit {
+    width: 100%;
+    height: 40px;
+    border: none;
+    font-family: 'GyeonggiBatang';
+    font-size: 1.5rem;
+    color: rgba(0, 0, 0, 0.6);
+    cursor: pointer;
+}
+
+.article_submit:hover {
+    background-color: #c28c29;
+}
+
 
 /* trix-editor {
     border: none;
