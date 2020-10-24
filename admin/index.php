@@ -30,10 +30,10 @@
             <!--대표 평상 이미지 목록-->
                 <div class="intro_slide_imgs" style="visibility:hidden; height:0;">
                     <?php
-                    if ($result_article_data_all->num_rows > 0) {
-                        while($rows_article_all = $result_article_data_all->fetch_assoc()) {
-                            $frontArticleTitle = $rows_article_all["title"];
-                            $frontArticleImg = explode(",", $rows_article_all["imgs"])[0];
+                    if ($result_article_data_flag->num_rows > 0) {
+                        while($rows_article_flag = $result_article_data_flag->fetch_assoc()) {
+                            $frontArticleTitle = $rows_article_flag["title"];
+                            $frontArticleImg = explode(",", $rows_article_flag["imgs"])[0];
 
                             echo '<img class="slide_img_src" title="'.$frontArticleTitle.'" src="'.$frontArticleImg.'" alt="'.$frontArticleTitle.'">';
                         }
