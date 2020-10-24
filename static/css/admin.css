@@ -1241,7 +1241,8 @@ em {
 }
 
 .article_container input:focus {
-    border: none;
+    /* border: none; */
+    outline: none;
 }
 
 
