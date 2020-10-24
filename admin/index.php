@@ -67,7 +67,7 @@
                 <header class="intro_slide_title">
                     <h1 class="slide_title">
                         <!-- <a href="./article.php?q="> -->
-                        <a onclick="showArticle(this.className)">
+                        <a>
                             <!-- 못골에는 평상이 없더라 -->
                         </a>
                     </h1>

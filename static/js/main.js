@@ -158,9 +158,19 @@ function setIntroImg() {
 }
 setIntroImg();
 
-// (function() {
+(function() {
+    var showArticle;
+    showArticle = function(id) {
+        location.href = "./article.php?q=" + id;
+    }
+    document.querySelector(".slide_enter .button").addEventListener("click", function(this) {
+        showArticle(this.className);
+    });
+    document.querySelector(".slide_title a").addEventListener("click", function(this) {
+        showArticle(this.className);
+    });
 
-// })();
+})();
 
 
 
