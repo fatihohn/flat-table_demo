@@ -67,7 +67,7 @@ function setIntroImg() {
     let nextBtn = document.querySelector(".next_btn");
     let introTitleHeader = document.querySelector(".intro_slide_title");
     let introTitle = document.querySelector(".slide_title a");
-    let introEnter = document.querySelector(".slide_enter .button");
+    let introEnter = document.querySelector(".slide_enter.button");
     prevBtn.classList.add(slideImgSrc.length-1);
     nextBtn.classList.add("1");
     for(let i = 0; i < slideImgSrc.length; i++) {
@@ -165,7 +165,7 @@ setIntroImg();
     showArticle = function(id) {
         location.href = "./article.php?q=" + id;
     }
-    document.querySelector(".slide_enter .button").addEventListener("click", function() {
+    document.querySelector(".slide_enter.button").addEventListener("click", function() {
         showArticle(this.className);
     });
     document.querySelector(".slide_title a").addEventListener("click", function() {
