@@ -1,5 +1,5 @@
 <?php
-    include_once 'bbps_db_config.php';
+    include_once 'bbps_db_conn.php';
 
     $username = $_POST['username'];
 
