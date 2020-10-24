@@ -957,6 +957,8 @@ em {
         position: relative;
         top: 0;
         padding: 0;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.15);
+        margin-bottom: 40px;
     }
     /* .article_main .main .article_container .article_pics figure {
         display: none !important; */
