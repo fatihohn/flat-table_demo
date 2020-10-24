@@ -148,7 +148,11 @@ function setIntroImg() {
         introTitle.innerHTML = imgSrc.title;
     }
     function hideIntroTitle() {
-        introTitleHeader.classList.remove("active");
+        setTimeout(function() {
+            // introTitleHeader.classList.add("active");
+            introTitleHeader.classList.remove("active");
+        }, 100);
+        // introTitleHeader.classList.remove("active");
     }
 }
 setIntroImg();
