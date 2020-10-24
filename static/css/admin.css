@@ -1132,6 +1132,10 @@ em {
     margin: 0;
 }
 
+#file-list-display .locked {
+    margin: 20px 0;
+}
+
 #file-list-display figure button {
     width: 1.5rem;
     height: 1.5rem;
@@ -1171,6 +1175,7 @@ em {
     resize: none;
     font-family: 'GyeonggiBatang';
     font-size: 1rem;
+    border: none;
 }
 
 .article_header .article_info input {
@@ -1190,4 +1195,43 @@ em {
 .article_header input {
     font-size: 1.5rem;
     padding: 12px;
+}
+
+trix-editor {
+    border: none;
+}
+
+
+/* width */
+
+::-webkit-scrollbar {
+    /* width: 5px; */
+    width: 7px;
+}
+
+
+/* Track */
+
+ ::-webkit-scrollbar-track {
+    /* background: #ffffff;  */
+    background: rgba(0, 0, 0, 0);
+    /* background: rgba(255, 255, 255, 0.1); */
+}
+
+
+/* Handle */
+
+ ::-webkit-scrollbar-thumb {
+    /* background: rgba(6, 102, 152, 0.2); */
+    background: rgba(180, 180, 180, 0.2);
+    /* background: rgba(0, 0, 0, 0); */
+}
+
+
+/* Handle on hover */
+
+::-webkit-scrollbar-thumb:hover {
+    /* background: rgba(6, 102, 152, 0.2);  */
+    /* background: rgba(0, 0, 0, 0); */
+    background: rgba(180, 180, 180, 0.6);
 }
