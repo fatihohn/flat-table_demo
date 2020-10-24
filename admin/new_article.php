@@ -4,7 +4,7 @@
     <?php include 'admin_head.php'?>
     <!-- jsDelivr :: Sortable :: Latest (https://www.jsdelivr.com/package/npm/sortablejs) -->
     <script src="https://cdn.jsdelivr.net/npm/sortablejs@latest/Sortable.min.js"></script>
-    <script type="text/javascript" src="../trix-master/dist/attachments.js"></script>
+    <!-- <script type="text/javascript" src="../trix-master/dist/attachments.js"></script> -->
 </head>
 <body>
     <?php include 'admin_header.php'?>
