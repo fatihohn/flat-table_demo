@@ -1134,6 +1134,29 @@ em {
 
 #file-list-display .locked {
     margin: 20px 0;
+    width: 100px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.05);
+    border-radius: 12px;
+}
+
+#file-list-display .locked:hover {
+    background-color: rgba(0, 0, 0, 0.1);
+    color: #f1f1f1;
+}
+
+#file-list-display .locked input {
+    width: 100px;
+    height: 100%;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    opacity: 0;
+    cursor: pointer;
+    font-size: 0px;
 }
 
 #file-list-display figure button {
@@ -1205,6 +1228,7 @@ em {
     font-size: 1.5rem;
     color: rgba(0, 0, 0, 0.6);
     cursor: pointer;
+    border-radius: 12px;
 }
 
 .article_submit:hover {
