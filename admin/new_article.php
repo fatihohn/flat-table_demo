@@ -325,7 +325,7 @@
                     fileList.push(fileInput.files[i]);
                 }
                 sendFileList();
-
+                organizePics();
             });
 
             renderFileList = function () {
