@@ -323,7 +323,7 @@
                     // console.log(newFileList);
                     newFileList.forEach(function (newFileName, index) {
                         if(newFileName !== "") {
-                        var fileDisplayEl = document.createElement('li');
+                        var fileDisplayEl = document.createElement('figure');
                         fileDisplayEl.innerHTML = `
                         <img src="../uploads/` + newFileName + `"><button type="button" class="article_img_figure_del"></button>`;
                         fileDisplayEl.setAttribute("class", 'article_img_figure ' + newFileName.split(".")[0]);
