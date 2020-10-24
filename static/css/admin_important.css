@@ -10,3 +10,17 @@
     /* visibility: visible; */
     /* height: auto; */
 }
+
+@media all and (max-width: 1080px) {
+    .article_main .main .article_container .article_pics figure {
+        display: inline-flex !important;
+        /* display: none; */
+        /* visibility: hidden;
+        height: 0px; */
+    }
+    .article_main .main .article_container .article_pics figure:first-of-type {
+        display: inline-flex !important;
+        /* visibility: visible; */
+        /* height: auto; */
+    }
+}
