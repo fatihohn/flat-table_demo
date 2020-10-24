@@ -65,11 +65,11 @@
                 </div>
                 <header class="intro_slide_title">
                     <h1 class="slide_title">
-                        <a href="/admin_article.php">
-                            못골에는 평상이 없더라
+                        <a href="./article.php">
+                            <!-- 못골에는 평상이 없더라 -->
                         </a>
                     </h1>
-                    <a href="/admin_article.php" class="slide_enter button">
+                    <a href="./article.php" class="slide_enter button">
                         <p>
                             평상 살펴보기
                         </p>
