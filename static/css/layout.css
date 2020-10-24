@@ -157,6 +157,8 @@ ul {
     color: rgba(0, 0, 0, 0);
     white-space: nowrap;
     filter: drop-shadow(2px 4px 6px rgba(0, 0, 0, 0.2));
+    transition: -webkit-transform 1s .2s ease, opacity 1s .2s ease;
+    transition: transform 1s .2s ease, opacity 1s .2s ease;
 }
 
 .intro .intro_slide .intro_slide_img .intro_slide_title.active h1 {
@@ -168,6 +170,8 @@ ul {
 }
 .intro .intro_slide .intro_slide_img .intro_slide_title.active h1 a {
     color: #fff;
+    transition: -webkit-transform 1s 1s ease, opacity 1s 1s ease;
+    transition: transform 1s 1s ease, opacity 1s 1s ease;
 }
 
 .intro .intro_slide .intro_slide_img .intro_slide_title .slide_enter {
