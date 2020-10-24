@@ -122,15 +122,15 @@
                     
                     if(articleImgs[m].childNodes[1].width > articleImgs[m].childNodes[1].height) {
                         articleImgs[m].style.maxWidth = "96.5%";
-                        // articleImgs[m].style.height = "auto";
-                        articleImgs[m].style.height = "100%";//mobile test
+                        articleImgs[m].style.height = "auto";
+                        // articleImgs[m].style.height = "100%";//mobile test
                         articleImgs[m].childNodes[1].style.height = "auto";
                         articleImgs[m].childNodes[1].style.width = "100%";
                         articleImgs[m].style.margin = "10px 0.75%";
                     } else {
                         articleImgs[m].style.maxWidth = "47.5%";
-                        // articleImgs[m].style.height = "auto";
-                        articleImgs[m].style.height = "100%";//mobile test
+                        articleImgs[m].style.height = "auto";
+                        // articleImgs[m].style.height = "100%";//mobile test
                         articleImgs[m].childNodes[1].style.height = "auto";
                         articleImgs[m].childNodes[1].style.width = "100%";
                         articleImgs[m].style.margin = "10px 0.5%";
