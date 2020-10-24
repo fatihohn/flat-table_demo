@@ -130,7 +130,7 @@
                         articleImgs[m].childNodes[1].style.height = "auto";
                         articleImgs[m].childNodes[1].style.width = "100%";
                         articleImgs[m].style.margin = "10px 0.5%";
-                        articleImgs[m].style.display = "inline-flex";
+                        // articleImgs[m].style.display = "inline-flex";
                         // articleImgs[m].style.display = "inline-block";
                     }
                 // } else if(window.innerWidth <= 1080 && window.innerWidth >= 720) {
