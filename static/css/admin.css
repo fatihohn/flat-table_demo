@@ -1177,6 +1177,10 @@ em {
     font-size: 1.5rem;
 }
 
+.article_header .article_info input {
+    font-size: 1rem;
+}
+
 .article_footer .article_auth input,
 .article_header input {
     font-family: 'GyeonggiBatang';
