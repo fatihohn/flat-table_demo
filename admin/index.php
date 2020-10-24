@@ -72,7 +72,7 @@
                         </a>
                     </h1>
                     <!-- <a href="./article.php?q=" class="slide_enter button"> -->
-                    <a href="./article.php?q=" class="slide_enter button">
+                    <a class="slide_enter button">
                         <p>
                             평상 살펴보기
                         </p>
