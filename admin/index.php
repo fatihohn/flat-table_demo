@@ -143,14 +143,14 @@
                 <div class="collection group">
                     <ul>
                         <?php
-                        if ($result_article_data_all->num_rows > 0) {
-                            while($rows_article_all = $result_article_data_all->fetch_assoc()) {
-                                $articleTitle = $rows_article_all["title"];
-                                $articleImgList = explode(",", $rows_article_all["imgs"]);
+                        // if ($result_article_data_all->num_rows > 0) {
+                        //     while($rows_article_all = $result_article_data_all->fetch_assoc()) {
+                        //         $articleTitle = $rows_article_all["title"];
+                        //         $articleImgList = explode(",", $rows_article_all["imgs"]);
 
-                                echo '<img class="slide_img_src" title="'.$frontArticleTitle.'" src="/uploads/'.$frontArticleImg.'" alt="'.$frontArticleTitle.'">';
-                            }
-                        }
+                        //         echo '<img class="slide_img_src" title="'.$frontArticleTitle.'" src="/uploads/'.$frontArticleImg.'" alt="'.$frontArticleTitle.'">';
+                        //     }
+                        // }
                         ?>
                         <li>
                             <article class="article">
