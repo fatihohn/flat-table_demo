@@ -67,7 +67,7 @@ function setIntroImg() {
     let nextBtn = document.querySelector(".next_btn");
     let introTitleHeader = document.querySelector(".intro_slide_title");
     let introTitle = document.querySelector(".slide_title a");
-    let introEnter = document.querySelector(".slide_enter.button");
+    // let introEnter = document.querySelector(".slide_enter.button");
     prevBtn.classList.add(slideImgSrc.length-1);
     nextBtn.classList.add("1");
     for(let i = 0; i < slideImgSrc.length; i++) {
@@ -146,9 +146,8 @@ function setIntroImg() {
         //     introTitleHeader.classList.add("active");
         // }, 100);
         introTitle.innerHTML = imgSrc.title;
-        // introTitle.setAttribute("class", imgSrc.classList.item(1));
-        introTitle.classList.add(imgSrc.classList.item(1));
-        introEnter.classList.add(imgSrc.classList.item(1));
+        // introTitle.classList.add(imgSrc.classList.item(1));
+        // introEnter.classList.add(imgSrc.classList.item(1));
         introTitleHeader.classList.add("active");
     }
     function hideIntroTitle() {
@@ -156,9 +155,8 @@ function setIntroImg() {
             //     // introTitleHeader.classList.add("active");
             //     introTitleHeader.classList.remove("active");
             // }, 100);
-            // introTitle.setAttribute("class", imgSrc.classList.item(1));
-            introTitle.classList.remove(introTitle.classList.item(0));
-            introEnter.classList.remove(introEnter.classList.item(2));
+            // introTitle.classList.remove(introTitle.classList.item(0));
+            // introEnter.classList.remove(introEnter.classList.item(2));
             introTitleHeader.classList.remove("active");
     }
 }
