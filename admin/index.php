@@ -6,7 +6,8 @@
     // $rows_article_all = mysqli_fetch_assoc($result_article_data_all);
 
 
-    $sql_article_data_flag = $sql_article_data_all." WHERE flag = flag";
+    // $sql_article_data_flag = $sql_article_data_all." WHERE flag = flag";
+    $sql_article_data_flag = "SELECT * FROM articles WHERE flag = flag";
     $result_article_data_flag = $conn->query($sql_article_data_flag);
 
 
