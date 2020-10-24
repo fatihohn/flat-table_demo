@@ -1240,7 +1240,8 @@ em {
     border: none;
 }
 
-.article_container input:focus {
+.article_container input:focus,
+.article_container #article_comment_input:focus {
     /* border: none; */
     outline: none;
 }
