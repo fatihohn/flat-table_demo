@@ -95,6 +95,15 @@
                                     <input type="text" name="words" required>
                                 </span>
                             </p>
+                            <p class="flag">
+                                <span>
+                                    <!-- 이경렬 -->
+                                    <label for="flag">
+                                        대표평상
+                                    </label>
+                                    <input id="flag" type="checkbox" name="flag">
+                                </span>
+                            </p>
                         </div>
                         <!-- <div class="article_share">
                             <span>

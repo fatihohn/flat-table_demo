@@ -27,10 +27,12 @@
     $words = $_POST['words'];
     $words = mysqli_real_escape_string($conn, $words);
     
+    $flag = $_POST['flag'];
+    $flag = mysqli_real_escape_string($conn, $flag);
 
     $sql = 
         "INSERT INTO articles
-            (username, title, table_address, categories, imgs, comment, content, photographer, words)
+            (username, title, table_address, categories, imgs, comment, content, photographer, words, flag)
         VALUES(
             '{$username}',
             '{$title}',
@@ -40,7 +42,8 @@
             '{$comment}',
             '{$content}',
             '{$photographer}',
-            '{$words}'
+            '{$words}',
+            '{$flag}'
             )";
 
     $result = mysqli_query($conn, $sql);

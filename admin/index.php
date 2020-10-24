@@ -1,3 +1,19 @@
+<?php
+    include_once '../bbps_db_conn.php';
+    
+    $sql_article_data_all = "SELECT * FROM articles";
+    $result_article_data_all = $conn->query($sql_article_data_all);
+    // $rows_article_all = mysqli_fetch_assoc($result_article_data_all);
+
+
+    $sql_article_data_flag = $sql_article_data_all." WHERE flag = flag";
+    $result_article_data_flag = $conn->query($sql_article_data_flag);
+
+
+
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,9 +29,22 @@
         <div class="intro_slide">
             <!--대표 평상 이미지 목록-->
                 <div class="intro_slide_imgs" style="visibility:hidden; height:0;">
-                    <img class="slide_img_src" title="성보주택 평상" src="https://www.doongdoong.org/uploads/thumbs/1593343384.jpeg" alt="">
-                    <img class="slide_img_src" title="못골 고개에는 평상이 없다" src="https://www.doongdoong.org/se2/upload/c_modify_20200706093011525244320FUN_4974_001.jpg" alt="">
-                    <img class="slide_img_src" title="우물물은 시원하다" src="https://www.doongdoong.org/se2/upload/c_modify_20200706093043948349794IMG_0913.JPG" alt="">
+                    <?php
+                    if ($result_article_data_all->num_rows > 0) {
+                        while($rows_article_all = $result_article_data_all->fetch_assoc()) {
+                            $frontArticleTitle = $rows_article_all["title"];
+                            $frontArticleImg = explode(",", $rows_article_all["imgs"])[0];
+
+                            echo '<img class="slide_img_src" title="'.$frontArticleTitle.'" src="'.$frontArticleImg.'" alt="'.$frontArticleTitle.'">';
+                        }
+                    }
+                    ?>
+
+
+
+                    <!-- <img class="slide_img_src" title="성보주택 평상" src="https://www.doongdoong.org/uploads/thumbs/1593343384.jpeg" alt=""> -->
+                    <!-- <img class="slide_img_src" title="못골 고개에는 평상이 없다" src="https://www.doongdoong.org/se2/upload/c_modify_20200706093011525244320FUN_4974_001.jpg" alt=""> -->
+                    <!-- <img class="slide_img_src" title="우물물은 시원하다" src="https://www.doongdoong.org/se2/upload/c_modify_20200706093043948349794IMG_0913.JPG" alt=""> -->
                 </div>
                 <!--대표 평상 이미지 목록 끝-->
             <div class="intro_slide_img"><!--배경 이미지 넣기-->
