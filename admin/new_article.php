@@ -128,6 +128,7 @@
                         articleImgs[m].childNodes[1].style.width = "100%";
                         articleImgs[m].style.margin = "10px 0.5%";
                         // articleImgs[m].style.display = "inline-flex";
+                        articleImgs[m].style.display = "inline-block";
                     }
                 } else if(window.innerWidth <= 1080 && window.innerWidth >= 720) {
                     if(m > 0 && document.querySelectorAll(".article_pics_mobile figure").length < document.querySelectorAll(".article_pics figure").length - 1) {
@@ -147,6 +148,7 @@
                             document.querySelectorAll(".mobile_img")[m-1].childNodes[0].style.height = "auto";
                             document.querySelectorAll(".mobile_img")[m-1].style.margin = "10px 0.5%";
                             // document.querySelectorAll(".mobile_img")[m-1].style.display = "inline-flex";
+                            document.querySelectorAll(".mobile_img")[m-1].style.display = "inline-block";
                         }
                     }
                     
