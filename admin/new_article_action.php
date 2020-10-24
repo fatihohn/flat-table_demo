@@ -1,42 +1,46 @@
 <?php
     include_once 'bbps_db_config.php';
 
-    $wi_id = $_POST['wi_id'];
+    $username = $_POST['username'];
 
     $title = $_POST['title'];
     $title = mysqli_real_escape_string($conn, $title);
 
-    $model_info = $_POST['model_info'];
-    $model_info = mysqli_real_escape_string($conn, $model_info);
-    $price = $_POST['price'];
-    $price = mysqli_real_escape_string($conn, $price);
-    $quantity = $_POST['quantity'];
-    $quantity = mysqli_real_escape_string($conn, $quantity);
-    $location = $_POST['location'];
-    $location = mysqli_real_escape_string($conn, $location);
-    $detail = $_POST['detail'];
-    $detail = mysqli_real_escape_string($conn, $detail);
-    $tag = $_POST['tag'];
-    $tag = mysqli_real_escape_string($conn, $tag);
-    $images = $_POST['images'];
-    // $images = mysqli_real_escape_string($conn, $images);
-    $categories = intval($_POST['categories']);
-    // $categories = mysqli_real_escape_string($conn, $categories);
+    $table_address = $_POST['address'];
+    $table_address = mysqli_real_escape_string($conn, $table_address);
+
+    $categories = $_POST['categories'];
+    $categories = mysqli_real_escape_string($conn, $categories);
+
+    $imgs = $_POST['imgs'];
+    $imgs = mysqli_real_escape_string($conn, $imgs);
+
+    $comment = $_POST['comment'];
+    $comment = mysqli_real_escape_string($conn, $comment);
+
+    $content = $_POST['content'];
+    $content = mysqli_real_escape_string($conn, $content);
+
+    $photographer = $_POST['photographer'];
+    $photographer = mysqli_real_escape_string($conn, $photographer);
+
+    $words = $_POST['words'];
+    $words = mysqli_real_escape_string($conn, $words);
+    
 
     $sql = 
-        "INSERT INTO items
-            (wi_id, title, model_info, price, quantity, location, detail, tag, images, categories)
+        "INSERT INTO articles
+            (username, title, table_address, categories, imgs, comment, content, photographer, words)
         VALUES(
-            '{$wi_id}',
+            '{$username}',
             '{$title}',
-            '{$model_info}',
-            '{$price}',
-            '{$quantity}',
-            '{$location}',
-            '{$detail}',
-            '{$tag}',
-            '{$images}',
-            '{$categories}'
+            '{$table_address}',
+            '{$categories}',
+            '{$imgs}',
+            '{$comment}',
+            '{$content}',
+            '{$photographer}',
+            '{$words}'
             )";
 
     $result = mysqli_query($conn, $sql);
@@ -47,5 +51,5 @@
         error_log(mysqli_error($conn));
     }
     else{
-        echo("<script>alert('이 생성되었습니다.');location.href='index.php';</script>");
+        echo("<script>alert('평상이 생성되었습니다.');location.href='index.php';</script>");
     }

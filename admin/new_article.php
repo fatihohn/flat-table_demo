@@ -1,3 +1,15 @@
+<?php
+    include 'bbps_db_conn.php';   
+
+
+    $sessionUser = $_SESSION['username'];
+    $sql_user_data = "SELECT * FROM user_data WHERE username= '$sessionUser'";
+    $result_user_data = $conn->query($sql_user_data);
+    $rows_user_data = mysqli_fetch_assoc($result_user_data);
+    
+    $username = $rows_get_user['username'];
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -29,7 +41,7 @@
                                 </a> -->
                                 <input type="text" id="hashtags" placeholder="태그" autocomplete="off">
                                 <div class="tag-container"></div>
-                                <input id="category_container" type="hidden" name="category" value="" />
+                                <input id="category_container" type="hidden" name="categories" value="" />
                             </p>
                         </div>
                     </header>
@@ -42,7 +54,7 @@
                     </div>
                     
                     
-                    <input id="file-container" type="hidden" name="images" value="">
+                    <input id="file-container" type="hidden" name="imgs" value="">
                 </div>
                 <div class="article_text">
                     <div class="article_comment">
@@ -71,7 +83,7 @@
                                 사진
                                 <span>
                                     <!-- 박상환 -->
-                                    <input type="text" name="photography">
+                                    <input type="text" name="photographer">
                                 </span>
                             </p>
                             <p class="words">
@@ -89,6 +101,7 @@
                             <a href="">Facebook</a>
                             <a href="">Tweeter</a>
                         </div> -->
+                        <input type="hidden" name="username" value="<?=$username?>">
                         <input class="article_submit" type="submit">
                     </footer>
                 </div>
