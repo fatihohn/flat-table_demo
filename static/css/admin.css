@@ -5,6 +5,45 @@
     font-style: normal;
 }
 
+/*----------------- scrollbar conf--------------- */
+
+/* width */
+
+::-webkit-scrollbar {
+    /* width: 5px; */
+    width: 7px;
+}
+
+
+/* Track */
+
+ ::-webkit-scrollbar-track {
+     /* background: #ffffff;  */
+     background: rgba(0, 0, 0, 0);
+     /* background: rgba(255, 255, 255, 0.1); */
+    }
+
+    
+/* Handle */
+
+ ::-webkit-scrollbar-thumb {
+     /* background: rgba(6, 102, 152, 0.2); */
+    background: rgba(180, 180, 180, 0.2);
+    /* background: rgba(0, 0, 0, 0); */
+}
+
+
+/* Handle on hover */
+
+::-webkit-scrollbar-thumb:hover {
+    /* background: rgba(6, 102, 152, 0.2);  */
+    /* background: rgba(0, 0, 0, 0); */
+    background: rgba(180, 180, 180, 0.6);
+}
+
+/*----------------- scrollbar conf--------------- */
+
+
 html,
 body {
     background-color: #fff;
@@ -1201,6 +1240,12 @@ em {
     border: none;
 }
 
+.article_container input:focus {
+    border: none;
+}
+
+
+
 .article_header .article_info input {
     font-size: 1rem;
     width: 300px;
@@ -1215,6 +1260,10 @@ em {
     padding: 5px;
 }
 
+.article_header input {
+    font-size: 1.5rem;
+    padding: 12px;
+}
 .article_header input {
     font-size: 1.5rem;
     padding: 12px;
@@ -1242,36 +1291,3 @@ em {
 } */
 
 
-/* width */
-
-::-webkit-scrollbar {
-    /* width: 5px; */
-    width: 7px;
-}
-
-
-/* Track */
-
- ::-webkit-scrollbar-track {
-    /* background: #ffffff;  */
-    background: rgba(0, 0, 0, 0);
-    /* background: rgba(255, 255, 255, 0.1); */
-}
-
-
-/* Handle */
-
- ::-webkit-scrollbar-thumb {
-    /* background: rgba(6, 102, 152, 0.2); */
-    background: rgba(180, 180, 180, 0.2);
-    /* background: rgba(0, 0, 0, 0); */
-}
-
-
-/* Handle on hover */
-
-::-webkit-scrollbar-thumb:hover {
-    /* background: rgba(6, 102, 152, 0.2);  */
-    /* background: rgba(0, 0, 0, 0); */
-    background: rgba(180, 180, 180, 0.6);
-}
