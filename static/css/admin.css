@@ -65,7 +65,7 @@
     /* position: absolute; */
     position: relative;
     top: 0.5rem;
-    right: 0.5rem;
+    /* right: 0.5rem; */
     border: none;
     cursor: pointer;
 }
@@ -79,7 +79,8 @@
     -webkit-box-align: center;
     align-items: center;
     top: 0.5rem;
-    left: 0.5rem;
+    /* left: 0.5rem; */
+    right: 100%;
     background-color: rgba(30, 29, 41, 0.32);
     color: rgb(255, 255, 255);
     border-radius: 12px;
