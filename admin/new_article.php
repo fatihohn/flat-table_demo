@@ -107,7 +107,7 @@
         let mobileImgs = document.querySelector(".article_pics_mobile");
             for(let m=0; m < articleImgs.length; m++) {
                 // articleImgs[m].style.display = "block";
-                articleImgs[m].style.display = "inline-flex";
+                articleImgs[m].style.display = "inline-flex !important";
                 articleImgs[m].style.position = "relative";
                 // articleImgs[m].style.display = "flex";
                 articleImgs[m].childNodes[1].style.width = "100%";
