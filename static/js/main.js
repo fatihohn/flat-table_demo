@@ -146,17 +146,19 @@ function setIntroImg() {
         //     introTitleHeader.classList.add("active");
         // }, 100);
         introTitleHeader.classList.add("active");
-        introTitle.setAttribute("class", imgSrc.classList.item(1));
         introTitle.innerHTML = imgSrc.title;
-        // introEnter.setAttribute("class", imgSrc.classList.item(1));
+        introTitle.setAttribute("class", imgSrc.classList.item(1));
         introEnter.classList.add(imgSrc.classList.item(1));
     }
     function hideIntroTitle() {
         // setTimeout(function() {
-        //     // introTitleHeader.classList.add("active");
-        //     introTitleHeader.classList.remove("active");
-        // }, 100);
+            //     // introTitleHeader.classList.add("active");
+            //     introTitleHeader.classList.remove("active");
+            // }, 100);
         introTitleHeader.classList.remove("active");
+        // introTitle.setAttribute("class", imgSrc.classList.item(1));
+        introTitle.classList.remove(this.item(1));
+        introEnter.classList.remove(this.item(2));
     }
 }
 setIntroImg();
