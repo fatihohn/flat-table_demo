@@ -62,7 +62,7 @@
                         </p> -->
                         <div class="admin_editor trix-content">
                             <input id="x" type="hidden" name="content">
-                            <trix-editor input="x"></trix-editor>
+                            <trix-editor input="x" placeholder="내용"></trix-editor>
                         </div>
                     </div>
                     <footer class="article_footer">

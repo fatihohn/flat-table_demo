@@ -35,7 +35,7 @@ trix-toolbar .trix-button-group {
     border-radius: 3px;
 }
 
-trix-toolbar .trix-button-group:not(:first-child) {
+trix-toolbar .trixtrix-button-group:not(:first-child) {
     margin-left: 1.5vw;
 }
 
