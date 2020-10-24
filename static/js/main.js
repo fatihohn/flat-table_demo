@@ -147,7 +147,8 @@ function setIntroImg() {
         // }, 100);
         introTitleHeader.classList.add("active");
         introTitle.innerHTML = imgSrc.title;
-        introTitle.setAttribute("class", imgSrc.classList.item(1));
+        // introTitle.setAttribute("class", imgSrc.classList.item(1));
+        introTitle.classList.add(imgSrc.classList.item(1));
         introEnter.classList.add(imgSrc.classList.item(1));
     }
     function hideIntroTitle() {
