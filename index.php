@@ -1,6 +1,10 @@
 <?php
     include_once 'bbps_db_conn.php';
-    
+
+    $scrollTag = $_GET['q'];
+
+
+
     $sql_article_data_all = "SELECT * FROM articles WHERE about = 'no'";
     $result_article_data_all = $conn->query($sql_article_data_all);
     // $rows_article_all = mysqli_fetch_assoc($result_article_data_all);
@@ -19,6 +23,24 @@
 <html lang="en">
 <head>
     <?php include 'head.php'?>
+    <?php
+    if($scrollTag !== "") {
+    ?>
+        <script>
+            var scrollTag = "<?=$scrollTag?>";
+        </script>
+    <?php
+    } else {
+        ?>
+        <script>
+            var scrollTag = "";
+        </script>
+        <?php
+    }
+    ?>
+    <script>
+        var isIndex = "yes";
+    </script>
 </head>
 <body>
     <?php include 'header.php'?>
