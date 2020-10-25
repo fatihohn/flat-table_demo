@@ -2,13 +2,14 @@
             <ul class="nav_group">
                 <li class="nav_item">
                     <mark>.flat tables</mark>
-                    <a href="admin_list.php">
+                    <!-- <a href="admin_list.php"> -->
+                    <a class="down_btn">
                         평상들
                     </a>
                 </li>
                 <li class="nav_item">
                     <mark>.about us</mark>
-                    <a href="admin_about.php">
+                    <a href="about.php">
                         평상으로부터
                     </a>
                 </li>
