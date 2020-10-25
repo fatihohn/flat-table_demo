@@ -55,7 +55,7 @@
 
     <div id="overlay" class="overlay"></div>
     <!-- @yield ('content') -->
-    <form action="new_article_action.php" method="post" enctype="multipart/form-data">
+    <form action="modify_article_action.php" method="post" enctype="multipart/form-data">
     <section class="article_main">
         <div class="main">
             <div class="article_container container">
