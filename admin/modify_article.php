@@ -92,7 +92,7 @@
                         <!-- <p>
                             Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo temporibus consequuntur quibusdam quos! Maxime quam dicta quas, fugit velit eaque rem consequuntur, labore distinctio amet odio asperiores veritatis odit nesciunt?
                         </p> -->
-                            <textarea name="comment" id="article_comment_input" cols="40" rows="5" style="width:100%;" value="<?=$comment?>" required></textarea>
+                            <textarea name="comment" id="article_comment_input" cols="40" rows="5" style="width:100%;" required><?=$comment?></textarea>
                         
                     </div>
                     <div class="article_text_spacer"></div>
@@ -104,8 +104,8 @@
                             Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo eius quae sequi aperiam, adipisci exercitationem! Facere, doloribus neque quasi rem exercitationem dignissimos temporibus illum modi dolore labore fugit totam cumque? Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo eius quae sequi aperiam, adipisci exercitationem! Facere, doloribus neque quasi rem exercitationem dignissimos temporibus illum modi dolore labore fugit totam cumque? Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo eius quae sequi aperiam, adipisci exercitationem! Facere, doloribus neque quasi rem exercitationem dignissimos temporibus illum modi dolore labore fugit totam cumque? Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo eius quae sequi aperiam, adipisci exercitationem! Facere, doloribus neque quasi rem exercitationem dignissimos temporibus illum modi dolore labore fugit totam cumque? Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo eius quae sequi aperiam, adipisci exercitationem! Facere, doloribus neque quasi rem exercitationem dignissimos temporibus illum modi dolore labore fugit totam cumque?
                         </p> -->
                         <div class="admin_editor trix-content">
-                            <input id="x" type="hidden" name="content">
-                            <trix-editor input="x" placeholder="내용" required></trix-editor>
+                            <input id="x" value="<?=$content?>" type="hidden" name="content">
+                            <trix-editor input="x" required></trix-editor>
                         </div>
                     </div>
                     <footer class="article_footer">
