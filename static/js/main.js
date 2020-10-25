@@ -60,11 +60,13 @@ function goToList() {
             window.scrollBy(0, pageHeight);
         }
         goToListBtn.addEventListener("click", function() {
-            window.scrollBy(0, pageHeight);
             if (navigation.classList.contains("active")) {
                 navigation.classList.remove("active");
                 overlay.classList.remove("active");
                 menuBtn.classList.remove("active");
+            }
+            if(window.pageYOffset == 0) {
+                window.scrollBy(0, pageHeight);
             }
         });
     } else {
