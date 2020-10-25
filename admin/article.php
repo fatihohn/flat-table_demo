@@ -124,10 +124,10 @@
                         </div>
                         <div class="article_share">
                             <span>
-                                공유:
+                                관리:
                             </span>
-                            <a href="">Facebook</a>
-                            <a href="">Tweeter</a>
+                            <a href="modify_article.php?q=<?=$q?>">수정</a>
+                            <a href="delete_article.php?q=<?=$q?>">삭제</a>
                         </div>
                     </footer>
                 </div>
