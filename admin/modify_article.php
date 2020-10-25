@@ -20,7 +20,10 @@
 
     $title = $rows_article["title"];
     $address = $rows_article["table_address"];
-    $imgList = explode(",", $rows_article["imgs"]);
+    // $imgList = explode(",", $rows_article["imgs"]);
+
+    $imgs = $rows_article["imgs"];
+    
     $comment = $rows_article["comment"];
     $comment = htmlspecialchars($comment);
     $content = $rows_article["content"];
@@ -269,116 +272,28 @@
 
 
     </script>
-    <!-- <script>
-        //file transfer, render list
-        var fileList = [];//전송 준비용
-        var newFileList = [];//디스플레이->저장용
-        var sentFileList = [];//전송 확인용
-        var resetInputValue;
-        (function () {
-            var fileInput = document.getElementById('file-input');
-            var fileListDisplay = document.getElementById('file-list-display');
-            var renderFileList, sendFile, sendFileList;
-            
-
-            fileInput.addEventListener('change', function (evnt) {
-                fileList = [];
-                for (var i = 0; i < fileInput.files.length; i++) {
-                    fileList.push(fileInput.files[i]);
-                }
-                sendFileList();
-
-            });
-
-            renderFileList = function () {
-                var articleImgs = document.querySelectorAll(".article_img_figure");
-                for(const aImg of articleImgs) {
-                    aImg.remove();
-                }
-                    // console.log(newFileList);
-                    newFileList.forEach(function (newFileName, index) {
-                        var fileDisplayEl = document.createElement('figure');
-                    fileDisplayEl.innerHTML = `
-                    <img src="../uploads/` + newFileName + '">';
-                    fileDisplayEl.setAttribute("class", 'article_img_figure');
-                    fileListDisplay.appendChild(fileDisplayEl);
-                    });
-            };
-            
-            sendFileList = function() {
-                for (const file of fileList) {
-                    sendFile(file);
-                    sentFileList.push(file.name);
-                };
-            };
-
-            sendFile = function (file) {
-                var formData = new FormData();
-                var request = new XMLHttpRequest();
-                formData.append('file', file);
-                request.open("POST", './upload_image.php');
-                request.send(formData);
-                request.onreadystatechange = function() { // 요청에 대한 콜백
-                    if (request.readyState === request.DONE) { // 요청이 완료되면
-                        if (request.status === 200 || request.status === 201) {
-                            newFileList.push(request.responseText); // 바뀐 이름 stack
-                            // console.log(newFileList.length + ':' + sentFileList.length);
-                            if(newFileList.length === sentFileList.length) {
-                                renderFileList();
-                                resetInputValue("file-container", newFileList);
-                                var renderedImgs = document.querySelectorAll(".article_img_figure");
-                                if(renderedImgs[newFileList.length - 1].childNodes[1].src) {
-                                    organizePics();
-                                }
-                            }
-                        } else {
-                            console.error(request.responseText);
-                        }
-                    }
-                };
-            };
-        })();
-        
-        //drag&drop sorting
-        var imgDisplay = document.getElementById("file-list-display");
-        var sortable = new Sortable(imgDisplay, {
-            draggable: ".article_img_figure",
-            onEnd:function (evt) {
-                var sortedImgs = document.querySelectorAll(".article_img_figure");
-                newFileList = [];
-                for(let aImg of sortedImgs) {
-                    let aImgSrc = aImg.childNodes[1].src;
-                    let aImgDir = aImgSrc.split("/")[4];
-                    
-                    newFileList.push(aImgDir);
-                    organizePics();
-                    resetInputValue("file-container", newFileList);
-                }
-            }
-        });
-
-        //fill form input
-        resetInputValue = function(id, val) {
-            document.getElementById(id).value = val;
-        }
-    </script> -->
     <script>
-        //file transfer, render list
-        var fileList = [];//전송 준비용
+//file transfer, render list
+var fileList = [];//전송 준비용
         var newFileList = [];//디스플레이->저장용
         var sentFileList = [];//전송 확인용
+        newFileList = "<?=$images?>";//디스플레이->저장용
+        newFileList = newFileList.toString();
+        newFileList = newFileList.split(",");
+        sentFileList = "<?=$images?>";//전송 확인용
+        sentFileList = sentFileList.toString();
+        sentFileList = sentFileList.split(",");
         var resetInputValue;
         var deleteImg;
         var delBtn;
         var setThumbImg;
         var imgList;
-
         (function () {
             var fileInput = document.getElementById('file-input');
             var fileListDisplay = document.getElementById('file-list-display');
             var renderFileList, sendFile, sendFileList;
             
-
+            
             fileInput.addEventListener('change', function (evnt) {
                 fileList = [];
                 for (var i = 0; i < fileInput.files.length; i++) {
@@ -404,7 +319,6 @@
                         }
                     });
 
-                //image delete
                 delBtn = document.querySelectorAll(".article_img_figure_del");
                 for(let i = 0; i < delBtn.length; i++) {
                     delBtn[i].addEventListener("click", function() {
@@ -415,9 +329,11 @@
                         resetInputValue("file-container", newFileList);
                     });
                 }
-
             };
+            renderFileList();
             
+
+
             sendFileList = function() {
                 for (const file of fileList) {
                     sendFile(file);
@@ -472,6 +388,7 @@
             document.getElementById(id).value = val;
             setThumbImg("article_img_figure");
         }
+        
         //set thumbImg
         setThumbImg = function(cls) {
             imgList = document.querySelectorAll("." + cls);
@@ -490,6 +407,141 @@
                 imgList[0].appendChild(thumbTag);
             }
         }
+        setThumbImg("article_img_figure");
+
+
+
+
+
+
+// //------NEW ARTICLE CODE----------------------------------------------------------------------------//
+//         //file transfer, render list
+//         var fileList = [];//전송 준비용
+//         var newFileList = [];//디스플레이->저장용
+//         var sentFileList = [];//전송 확인용
+//         var resetInputValue;
+//         var deleteImg;
+//         var delBtn;
+//         var setThumbImg;
+//         var imgList;
+
+//         (function () {
+//             var fileInput = document.getElementById('file-input');
+//             var fileListDisplay = document.getElementById('file-list-display');
+//             var renderFileList, sendFile, sendFileList;
+            
+
+//             fileInput.addEventListener('change', function (evnt) {
+//                 fileList = [];
+//                 for (var i = 0; i < fileInput.files.length; i++) {
+//                     fileList.push(fileInput.files[i]);
+//                 }
+//                 sendFileList();
+//                 organizePics();
+//             });
+
+//             renderFileList = function () {
+//                 var prodImgs = document.querySelectorAll(".article_img_figure");
+//                 for(const pImg of prodImgs) {
+//                     pImg.remove();
+//                 }
+//                     // console.log(newFileList);
+//                     newFileList.forEach(function (newFileName, index) {
+//                         if(newFileName !== "") {
+//                         var fileDisplayEl = document.createElement('figure');
+//                         fileDisplayEl.innerHTML = `
+//                         <img src="../uploads/` + newFileName + `"><button type="button" class="article_img_figure_del"></button>`;
+//                         fileDisplayEl.setAttribute("class", 'article_img_figure ' + newFileName.split(".")[0]);
+//                         fileListDisplay.appendChild(fileDisplayEl);
+//                         }
+//                     });
+
+//                 //image delete
+//                 delBtn = document.querySelectorAll(".article_img_figure_del");
+//                 for(let i = 0; i < delBtn.length; i++) {
+//                     delBtn[i].addEventListener("click", function() {
+//                         var newFileListIdArr = delBtn[i].parentElement.querySelector("img").src.split("/");
+//                         var newFileListId = newFileListIdArr[newFileListIdArr.length - 1];
+//                         delete newFileList[newFileList.indexOf(newFileListId)];
+//                         delBtn[i].parentElement.remove();
+//                         resetInputValue("file-container", newFileList);
+//                     });
+//                 }
+
+//             };
+            
+//             sendFileList = function() {
+//                 for (const file of fileList) {
+//                     sendFile(file);
+//                     sentFileList.push(file.name);
+//                 };
+//             };
+
+//             sendFile = function (file) {
+//                 var formData = new FormData();
+//                 var request = new XMLHttpRequest();
+//                 formData.append('file', file);
+//                 request.open("POST", './upload_image.php');
+//                 request.send(formData);
+//                 request.onreadystatechange = function() { // 요청에 대한 콜백
+//                     if (request.readyState === request.DONE) { // 요청이 완료되면
+//                         if (request.status === 200 || request.status === 201) {
+//                             newFileList.push(request.responseText); // 바뀐 이름 stack
+//                             // console.log(newFileList.length + ':' + sentFileList.length);
+//                             // if(newFileList.length === sentFileList.length) {
+//                                 renderFileList();
+//                                 resetInputValue("file-container", newFileList);
+//                             // }
+//                         } else {
+//                             console.error(request.responseText);
+//                         }
+//                     }
+//                 };
+//             };
+//         })();
+        
+//         //drag&drop sorting
+//         var imgDisplay = document.getElementById("file-list-display");
+//         var sortable = new Sortable(imgDisplay, {
+//             draggable: ".article_img_figure",
+//             onEnd:function (evt) {
+//                 var sortedImgs = document.querySelectorAll(".article_img_figure");
+//                 newFileList = [];
+//                 for(let pImg of sortedImgs) {
+//                     // let pImgSrc = pImg.firstChild.src;
+//                     let pImgSrc = pImg.querySelector("img").src;
+//                     let pImgSrcArr = pImgSrc.split("/");
+//                     let pImgDir = pImgSrcArr[pImgSrcArr.length - 1];
+//                     newFileList.push(pImgDir);
+//                     resetInputValue("file-container", newFileList);
+//                     organizePics();
+//                 }
+//             }
+//         });
+
+//         //fill form input
+//         resetInputValue = function(id, val) {
+//             document.getElementById(id).value = val;
+//             setThumbImg("article_img_figure");
+//         }
+//         //set thumbImg
+//         setThumbImg = function(cls) {
+//             imgList = document.querySelectorAll("." + cls);
+//             var thumbTag = document.createElement('div');
+//                 thumbTag.innerHTML = '대표이미지';
+//                 thumbTag.setAttribute("class", 'thumb_img');
+//             for(let iii = 1; iii < imgList.length; iii++) {
+//                 if(imgList[iii].querySelector(".thumb_img")) {
+//                     imgList[iii].querySelector(".thumb_img").remove();
+//                 }
+//             }
+//             if(imgList[0]) {
+//                 if(imgList[0].querySelector(".thumb_img")) {
+//                     imgList[0].querySelector(".thumb_img").remove();
+//                 }
+//                 imgList[0].appendChild(thumbTag);
+//             }
+//         }
         
 
 
