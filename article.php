@@ -1,3 +1,30 @@
+<?php
+    include_once 'bbps_db_conn.php';
+    
+    $q = intval($_GET["q"]);
+
+    $sql_article_data = "SELECT * FROM articles WHERE id = $q";
+    $result_article_data = $conn->query($sql_article_data);
+    $rows_article = mysqli_fetch_assoc($result_article_data);
+
+    $title = $rows_article["title"];
+    $address = $rows_article["table_address"];
+    $imgList = explode(",", $rows_article["imgs"]);
+    $comment = $rows_article["comment"];
+    $content = $rows_article["content"];
+    // $content = htmlspecialchars($content);
+    $photographer = $rows_article["photographer"];
+    $words = $rows_article["words"];
+
+    // // $sql_article_data_flag = $sql_article_data_all." WHERE flag = flag";
+    // $sql_article_data_flag = "SELECT * FROM articles WHERE flag = flag";
+    // $result_article_data_flag = $conn->query($sql_article_data_flag);
+
+
+
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,11 +41,13 @@
             <div class="article_container container">
                 <header class="article_header">
                     <h2>
-                        성보주택 평상
+                        <!-- 성보주택 평상 -->
+                        <?=$title?>
                     </h2>
                     <div class="article_info">
                         <p class="article_address">
-                            경기도 동두천시 상봉암동 153-15
+                            <!-- 경기도 동두천시 상봉암동 153-15 -->
+                            <?=$address?>
                         </p>
                         <p class="category">
                             <a href="#">
@@ -29,10 +58,28 @@
                     
                 </header>
                 <div class="article_pics">
-                    <figure>
+                    <?php
+                        if (count($imgList) > 0) {
+                            foreach ($imgList as $imgSrc) {
+                                echo '
+                                <figure>
+                                    <img src="/uploads/'.$imgSrc.'" alt="image">
+                                </figure>
+                                ';
+                            }
+                            // while($rows_article_flag = $result_article_data_flag->fetch_assoc()) {
+                            //     $frontArticleTitle = $rows_article_flag["title"];
+                            //     $frontArticleId = $rows_article_flag["id"];
+                            //     $frontArticleImg = explode(",", $rows_article_flag["imgs"])[0];
+    
+                            //     echo '<img class="slide_img_src" title="'.$frontArticleTitle.'" src="/uploads/'.$frontArticleImg.'" alt="'.$frontArticleId.'">';
+                            // }
+                        }
+                    ?>
+                    <!-- <figure>
                         <img src="https://www.doongdoong.org/se2/upload/c37_202008090731431935073975%25EC%2588%2598%25EC%25A0%2595%25EB%2590%25A8_Copy%2Bof%2BHUN_DSC_1089.jpg" alt="">
-                    </figure>
-                    <figure>
+                    </figure> -->
+                    <!-- <figure>
                         <img src="https://www.doongdoong.org/se2/upload/c37_202008090733272041502992%25EC%2588%2598%25EC%25A0%2595%25EB%2590%25A8_FUN_4279_001.jpg" alt="">
                     </figure>
                     <figure>
@@ -40,35 +87,37 @@
                     </figure>
                     <figure>
                         <img src="https://www.doongdoong.org/se2/upload/c37_202008090733501338812052%25EC%2588%2598%25EC%25A0%2595%25EB%2590%25A8_Copy%2Bof%2BHUN_DSC_1180.jpg" alt="">
-                    </figure>
+                    </figure> -->
                 </div>
                 <div class="article_text">
                     <div class="article_comment">
                         <p>
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo temporibus consequuntur quibusdam quos! Maxime quam dicta quas, fugit velit eaque rem consequuntur, labore distinctio amet odio asperiores veritatis odit nesciunt?
+                            <?=$comment?>
+                            <!-- Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo temporibus consequuntur quibusdam quos! Maxime quam dicta quas, fugit velit eaque rem consequuntur, labore distinctio amet odio asperiores veritatis odit nesciunt? -->
                         </p>
                     </div>
                     <div class="article_text_spacer"></div>
-                    <div class="article_cont">
-                        <p>
+                    <div class="article_cont trix-content">
+                        <?=$content?>
+                        <!-- <p>
                             Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo eius quae sequi aperiam, adipisci exercitationem! Facere, doloribus neque quasi rem exercitationem dignissimos temporibus illum modi dolore labore fugit totam cumque? Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo eius quae sequi aperiam, adipisci exercitationem! Facere, doloribus neque quasi rem exercitationem dignissimos temporibus illum modi dolore labore fugit totam cumque? Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo eius quae sequi aperiam, adipisci exercitationem! Facere, doloribus neque quasi rem exercitationem dignissimos temporibus illum modi dolore labore fugit totam cumque?
                         </p>
                         <p>
                             Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo eius quae sequi aperiam, adipisci exercitationem! Facere, doloribus neque quasi rem exercitationem dignissimos temporibus illum modi dolore labore fugit totam cumque? Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo eius quae sequi aperiam, adipisci exercitationem! Facere, doloribus neque quasi rem exercitationem dignissimos temporibus illum modi dolore labore fugit totam cumque? Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo eius quae sequi aperiam, adipisci exercitationem! Facere, doloribus neque quasi rem exercitationem dignissimos temporibus illum modi dolore labore fugit totam cumque? Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo eius quae sequi aperiam, adipisci exercitationem! Facere, doloribus neque quasi rem exercitationem dignissimos temporibus illum modi dolore labore fugit totam cumque? Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo eius quae sequi aperiam, adipisci exercitationem! Facere, doloribus neque quasi rem exercitationem dignissimos temporibus illum modi dolore labore fugit totam cumque?
-                        </p>
+                        </p> -->
                     </div>
                     <footer class="article_footer">
                         <div class="article_auth">
                             <p class="photo">
                                 사진
                                 <span>
-                                    박상환
+                                    <?=$photographer?>
                                 </span>
                             </p>
                             <p class="words">
                                 글
                                 <span>
-                                    이경렬
+                                    <?=$words?>
                                 </span>
                             </p>
                         </div>
@@ -88,7 +137,7 @@
 
     <?php include 'footer.php'?>
 
-    <script src="static/js/main.js"></script>
+    <script src="/static/js/main.js"></script>
     <script>
         function organizePics() {
         let articleImgs = document.querySelectorAll(".article_pics figure");
