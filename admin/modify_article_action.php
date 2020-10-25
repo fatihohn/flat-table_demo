@@ -1,6 +1,6 @@
 <?php
     include_once '../bbps_db_conn.php';
-    $q = intval($_POST['q']);
+    $q = intval($_POST['id']);
     $username = $_POST['username'];
 
     $title = $_POST['title'];

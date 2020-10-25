@@ -142,6 +142,7 @@
                         </div> -->
                         <input id="about_input" type="hidden" name="about" value="no">
                         <input type="hidden" name="username" value="<?=$username?>">
+                        <input type="hidden" name="id" value="<?=$q?>">
                         <input class="article_submit" type="submit">
                     </footer>
                 </div>
