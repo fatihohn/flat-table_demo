@@ -15,14 +15,14 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <?php include 'admin_head.php'?>
+    <?php include 'head.php'?>
     <!-- jsDelivr :: Sortable :: Latest (https://www.jsdelivr.com/package/npm/sortablejs) -->
     <script src="https://cdn.jsdelivr.net/npm/sortablejs@latest/Sortable.min.js"></script>
     <!-- <script type="text/javascript" src="../trix-master/dist/attachments.js"></script> -->
 </head>
 <body>
-    <?php include 'admin_header.php'?>
-    <?php include 'admin_nav.php'?>
+    <?php include 'header.php'?>
+    <?php include 'nav.php'?>
 
     <div id="overlay" class="overlay"></div>
     <!-- @yield ('content') -->
@@ -121,7 +121,7 @@
     </section>
 </form>
 
-    <?php include 'admin_footer.php'?>
+    <?php include 'footer.php'?>
 
     <script src="../static/js/main.js"></script>
     <script>

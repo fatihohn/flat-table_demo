@@ -18,11 +18,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <?php include 'admin_head.php'?>
+    <?php include 'head.php'?>
 </head>
 <body>
-    <?php include 'admin_header.php'?>
-    <?php include 'admin_nav.php'?>
+    <?php include 'header.php'?>
+    <?php include 'nav.php'?>
 
     <div id="overlay" class="overlay"></div>
     <!-- @yield ('content') -->
@@ -174,7 +174,7 @@
                                                         종류
                                                     </a>
                                                     <a class="'.$articleId.'" onclick="showArticle(this.className)" class="category">
-                                                        종류
+                                                        무엇
                                                     </a>
                                                 </p>
                                             </aside>
@@ -583,7 +583,7 @@
         </div>
     </section>
 
-    <?php include 'admin_footer.php'?>
+    <?php include 'footer.php'?>
 
     <script src="../static/js/main.js"></script>
 </body>

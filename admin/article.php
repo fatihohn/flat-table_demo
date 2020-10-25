@@ -1,3 +1,22 @@
+<?php
+    include_once '../bbps_db_conn.php';
+    
+    $q = intval($_GET["q"]);
+
+    $sql_article_data = "SELECT * FROM articles WHERE id = $q";
+    $result_article_data = $conn->query($sql_article_data);
+    $rows_article = mysqli_fetch_assoc($result_article_data);
+
+
+    // // $sql_article_data_flag = $sql_article_data_all." WHERE flag = flag";
+    // $sql_article_data_flag = "SELECT * FROM articles WHERE flag = flag";
+    // $result_article_data_flag = $conn->query($sql_article_data_flag);
+
+
+
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
