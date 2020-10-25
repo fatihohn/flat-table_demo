@@ -2,7 +2,8 @@
     <ul class="nav_group">
         <li class="nav_item">
             <mark>.flat tables</mark>
-            <a href="/list.php">
+            <!-- <a href="/list.php"> -->
+            <a onclick="scrollDown()">
                 평상들
             </a>
         </li>
