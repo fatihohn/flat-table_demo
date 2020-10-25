@@ -47,7 +47,7 @@ showReadArticle();
 
 //FRONT
 function goToList() {
-    let goToListBtn = document.querySelector(".go_to_lsit");
+    let goToListBtn = document.querySelector(".go_to_list");
     let pageHeight = window.innerHeight;
     if(isIndex === "yes") {
         if(scrollTag !== "") {
