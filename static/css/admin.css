@@ -1,5 +1,41 @@
 
+/*----------------- scrollbar conf--------------- */
 
+/* width */
+
+::-webkit-scrollbar {
+    /* width: 5px; */
+    width: 7px;
+}
+
+
+/* Track */
+
+ ::-webkit-scrollbar-track {
+     /* background: #ffffff;  */
+     background: rgba(0, 0, 0, 0);
+     /* background: rgba(255, 255, 255, 0.1); */
+    }
+
+    
+/* Handle */
+
+ ::-webkit-scrollbar-thumb {
+     /* background: rgba(6, 102, 152, 0.2); */
+    background: rgba(180, 180, 180, 0.2);
+    /* background: rgba(0, 0, 0, 0); */
+}
+
+
+/* Handle on hover */
+
+::-webkit-scrollbar-thumb:hover {
+    /* background: rgba(6, 102, 152, 0.2);  */
+    /* background: rgba(0, 0, 0, 0); */
+    background: rgba(180, 180, 180, 0.6);
+}
+
+/*----------------- scrollbar conf--------------- */
 .title>.actions.login_link {
     position: absolute;
     right: 0;
