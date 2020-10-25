@@ -57,7 +57,10 @@ function goToList() {
 
     if(isIndex === "yes") {
         if(scrollTag !== "") {
-            window.scrollBy(0, pageHeight);
+            if(window.pageYOffset == 0) {
+                window.scrollBy(0, pageHeight);
+            }
+            // window.scrollBy(0, pageHeight);
         }
         goToListBtn.addEventListener("click", function() {
             if (navigation.classList.contains("active")) {
