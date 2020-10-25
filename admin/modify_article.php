@@ -157,7 +157,7 @@
     <script>
         (function() {
             var flagVal, aboutInput;
-            flagVal = <?=$flag?>;
+            flagVal = "<?=$flag?>";
             aboutInput = document.querySelector("#about_input");
             if(flagVal == "on") {
                 aboutInput.checked = true;
