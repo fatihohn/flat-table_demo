@@ -277,10 +277,10 @@
 var fileList = [];//전송 준비용
         var newFileList = [];//디스플레이->저장용
         var sentFileList = [];//전송 확인용
-        newFileList = "<?=$images?>";//디스플레이->저장용
+        newFileList = "<?=$imgs?>";//디스플레이->저장용
         newFileList = newFileList.toString();
         newFileList = newFileList.split(",");
-        sentFileList = "<?=$images?>";//전송 확인용
+        sentFileList = "<?=$imgs?>";//전송 확인용
         sentFileList = sentFileList.toString();
         sentFileList = sentFileList.split(",");
         var resetInputValue;
