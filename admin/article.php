@@ -107,7 +107,7 @@
 
     <?php include 'footer.php'?>
 
-    <script src="static/js/main.js"></script>
+    <script src="/static/js/main.js"></script>
     <script>
         function organizePics() {
         let articleImgs = document.querySelectorAll(".article_pics figure");
