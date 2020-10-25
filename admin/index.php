@@ -173,6 +173,9 @@
                                                     <a class="'.$articleId.'" onclick="showArticle(this.className)" class="category">
                                                         종류
                                                     </a>
+                                                    <a class="'.$articleId.'" onclick="showArticle(this.className)" class="category">
+                                                        종류
+                                                    </a>
                                                 </p>
                                             </aside>
                                             <h1 class="article_title">
