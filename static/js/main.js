@@ -70,9 +70,9 @@ function setIntroImg() {
     let introTitleHeader = document.querySelector(".intro_slide_title");
     let introTitle = document.querySelector(".slide_title a");
     let introEnter = document.querySelector(".slide_enter.button");
-    prevBtn.classList.add(slideImgSrc.length-1);
-    nextBtn.classList.add("1");
     if(prevBtn && nextBtn) {
+        prevBtn.classList.add(slideImgSrc.length-1);
+        nextBtn.classList.add("1");
         for(let i = 0; i < slideImgSrc.length; i++) {
             slideImgSrc[i].classList.add(i);
         }
