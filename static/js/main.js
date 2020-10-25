@@ -57,7 +57,9 @@ function opacityByScroll() {
     let scrollPosition = window.pageYOffset;
     let pageHeight = window.innerHeight;
     let slideImg = document.querySelector(".intro_slide_img");
-    slideImg.style.opacity = 1 - scrollPosition/pageHeight;
+    if(slideImg) {
+        slideImg.style.opacity = 1 - scrollPosition/pageHeight;
+    }
 }
 window.onscroll = function() {
     opacityByScroll();
