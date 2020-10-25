@@ -98,7 +98,7 @@
                             <p class="flag">
                                 <span>
                                     <label for="flag">
-                                        <input id="flag" type="checkbox" name="flag" value="flag">
+                                        <input id="flag" type="checkbox" name="flag">
                                         대표평상
                                     </label>
                                 </span>
