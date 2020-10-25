@@ -100,6 +100,18 @@ ul {
     right: 50px;
 }
 
+.intro .intro_slide .intro_slide_img .prev_btn:hover {
+    background: rgba(255, 255, 255, 0.2);
+    padding: 20px 0 20px 20px;
+    border-radius: 12px;
+}
+
+.intro .intro_slide .intro_slide_img .next_btn:hover {
+    background: rgba(255, 255, 255, 0.2);
+    padding: 20px 20px 20px 0;
+    border-radius: 12px;
+}
+
 .intro .intro_slide .intro_slide_img .down_btn {
     position: relative;
     margin: 0 auto;
@@ -168,6 +180,8 @@ ul {
     transition: -webkit-transform 1s 1s ease, opacity 1s 1s ease;
     transition: transform 1s 1s ease, opacity 1s 1s ease;
 }
+
+
 /* .intro .intro_slide .intro_slide_img .intro_slide_title.active h1 a {
     color: #fff;
     transition: -webkit-transform 1s 1s ease, opacity 1s 1s ease;
