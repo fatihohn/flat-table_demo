@@ -56,6 +56,7 @@ showReadArticle();
 //     }
 // }
 function scrollDown() {
+    let currentLocation = window.location.href.split("/");
     let downBtn = document.querySelectorAll(".down_btn");
     let pageHeight = window.innerHeight;
     let menuBtn = document.querySelector(".menu");
@@ -68,11 +69,16 @@ function scrollDown() {
 
         downBtn.forEach((btn) => {
             btn.addEventListener("click", function() {
-                window.scrollBy(0, pageHeight);
-                if (navigation.classList.contains("active")) {
-                    navigation.classList.remove("active");
-                    overlay.classList.remove("active");
-                    menuBtn.classList.remove("active");
+
+                if (currentLocation[currentLocation.length - 1] == "") {
+                    window.scrollBy(0, pageHeight);
+                    if (navigation.classList.contains("active")) {
+                        navigation.classList.remove("active");
+                        overlay.classList.remove("active");
+                        menuBtn.classList.remove("active");
+                    }
+                } else {
+                    location.href = "index.php";
                 }
             });
         });
