@@ -3,7 +3,7 @@
                 <li class="nav_item">
                     <mark>.flat tables</mark>
                     <!-- <a href="admin_list.php"> -->
-                    <a class="down_btn">
+                    <a class="go_to_list">
                         평상들
                     </a>
                 </li>

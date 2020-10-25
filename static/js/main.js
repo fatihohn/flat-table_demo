@@ -46,46 +46,70 @@ showReadArticle();
 //end INDEX
 
 //FRONT
-// function scrollDown() {
-//     let downBtn = document.querySelector(".down_btn");
-//     let pageHeight = window.innerHeight;
-//     if (downBtn) {
-//         downBtn.addEventListener("click", function() {
-//             window.scrollBy(0, pageHeight);
-//         });
-//     }
-// }
-function scrollDown() {
-    // let currentLocation = window.location.href.split("/");
-    // let downBtn = document.querySelector(".down_btn");
-    let downBtn = document.querySelectorAll(".down_btn");
+function goToList() {
+    let goToListBtn = document.querySelector(".go_to_lsit");
     let pageHeight = window.innerHeight;
-    let menuBtn = document.querySelector(".menu");
-    let navigation = document.getElementById("nav");
-    let overlay = document.getElementById("overlay");
+    if(isIndex === "yes") {
+        if(scrollTag !== "") {
+            window.scrollBy(0, pageHeight);
+        }
+        goToListBtn.addEventListener("click", function() {
+            window.scrollBy(0, pageHeight);
+        });
+    } else {
+        goToListBtn.addEventListener("click", function() {
+            // window.scrollBy(0, pageHeight);
+            location.href = "index.php?q=ok";
+        });
+    }
+}
+goToList();
+
+
+
+function scrollDown() {
+    let downBtn = document.querySelector(".down_btn");
+    let pageHeight = window.innerHeight;
     if (downBtn) {
         downBtn.addEventListener("click", function() {
             window.scrollBy(0, pageHeight);
         });
-
-        //     downBtn.forEach((btn) => {
-        //         btn.addEventListener("click", function() {
-
-        //             if (currentLocation[currentLocation.length - 1] == "") {
-        //                 window.scrollBy(0, pageHeight);
-        //                 if (navigation.classList.contains("active")) {
-        //                     navigation.classList.remove("active");
-        //                     overlay.classList.remove("active");
-        //                     menuBtn.classList.remove("active");
-        //                 }
-        //             } else {
-        //                 location.href = "index.php";
-        //             }
-        //         });
-        //     });
-
     }
 }
+// function scrollDown() {
+//     // let currentLocation = window.location.href.split("/");
+//     // let downBtn = document.querySelector(".down_btn");
+//     let downBtn = document.querySelectorAll(".down_btn");
+//     let pageHeight = window.innerHeight;
+//     let menuBtn = document.querySelector(".menu");
+//     let navigation = document.getElementById("nav");
+//     let overlay = document.getElementById("overlay");
+
+
+//     if (downBtn) {
+//     //     downBtn.addEventListener("click", function() {
+//     //         window.scrollBy(0, pageHeight);
+//     //     });
+
+//         if (scrollTag !== "scroll_down") {
+//             downBtn.forEach((btn) => {
+//                 btn.addEventListener("click", function() {
+
+//                 // if (currentLocation[currentLocation.length - 1] == "") {
+//                     window.scrollBy(0, pageHeight);
+//                     if (navigation.classList.contains("active")) {
+//                         navigation.classList.remove("active");
+//                         overlay.classList.remove("active");
+//                         menuBtn.classList.remove("active");
+//                     }
+//                 });
+//             });
+//         } else {
+//             window.scrollBy(0, pageHeight);
+//             scrollTag = FALSE;
+//         }
+//     }
+// }
 scrollDown();
 
 function opacityByScroll() {
