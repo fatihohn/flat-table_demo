@@ -85,7 +85,7 @@
                     </div>
                     
                     
-                    <input id="file-container" type="hidden" name="imgs" value="">
+                    <input id="file-container" type="hidden" name="imgs" value="<?=$imgs?>">
                 </div>
                 <div class="article_text">
                     <div class="article_comment">
