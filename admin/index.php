@@ -164,7 +164,7 @@
                                                 </div>
                                             </a>
                                             <a class=".'$articleId'." onclick="showArticle(this.className)">
-                                                <img src="https://www.doongdoong.org/uploads/thumbs/1593343384.jpeg" alt="" class="cover">
+                                                <img src="/uploads/'.$articleImgList[0].'" alt="" class="cover">
                                             </a>
                                         </figure>
                                         <div class="article_content">
