@@ -1,7 +1,7 @@
 <?php
     include_once '../bbps_db_conn.php';
     
-    $sql_article_data_all = "SELECT * FROM articles";
+    $sql_article_data_all = "SELECT * FROM articles WHERE about = 'no'";
     $result_article_data_all = $conn->query($sql_article_data_all);
     // $rows_article_all = mysqli_fetch_assoc($result_article_data_all);
 

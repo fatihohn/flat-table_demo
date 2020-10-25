@@ -111,6 +111,7 @@
                             <a href="">Facebook</a>
                             <a href="">Tweeter</a>
                         </div> -->
+                        <input type="hidden" name="about" value="no">
                         <input type="hidden" name="username" value="<?=$username?>">
                         <input class="article_submit" type="submit">
                     </footer>
