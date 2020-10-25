@@ -56,32 +56,33 @@ showReadArticle();
 //     }
 // }
 function scrollDown() {
-    let currentLocation = window.location.href.split("/");
+    // let currentLocation = window.location.href.split("/");
+    // let downBtn = document.querySelector(".down_btn");
     let downBtn = document.querySelectorAll(".down_btn");
     let pageHeight = window.innerHeight;
     let menuBtn = document.querySelector(".menu");
     let navigation = document.getElementById("nav");
     let overlay = document.getElementById("overlay");
     if (downBtn) {
-        // downBtn.addEventListener("click", function() {
-        //     window.scrollBy(0, pageHeight);
-        // });
-
-        downBtn.forEach((btn) => {
-            btn.addEventListener("click", function() {
-
-                if (currentLocation[currentLocation.length - 1] == "") {
-                    window.scrollBy(0, pageHeight);
-                    if (navigation.classList.contains("active")) {
-                        navigation.classList.remove("active");
-                        overlay.classList.remove("active");
-                        menuBtn.classList.remove("active");
-                    }
-                } else {
-                    location.href = "index.php";
-                }
-            });
+        downBtn.addEventListener("click", function() {
+            window.scrollBy(0, pageHeight);
         });
+
+        //     downBtn.forEach((btn) => {
+        //         btn.addEventListener("click", function() {
+
+        //             if (currentLocation[currentLocation.length - 1] == "") {
+        //                 window.scrollBy(0, pageHeight);
+        //                 if (navigation.classList.contains("active")) {
+        //                     navigation.classList.remove("active");
+        //                     overlay.classList.remove("active");
+        //                     menuBtn.classList.remove("active");
+        //                 }
+        //             } else {
+        //                 location.href = "index.php";
+        //             }
+        //         });
+        //     });
 
     }
 }
