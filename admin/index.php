@@ -143,54 +143,58 @@
                 <div class="collection group">
                     <ul>
                         <?php
-                        // if ($result_article_data_all->num_rows > 0) {
-                        //     while($rows_article_all = $result_article_data_all->fetch_assoc()) {
-                        //         $articleTitle = $rows_article_all["title"];
-                        //         $articleImgList = explode(",", $rows_article_all["imgs"]);
+                        if ($result_article_data_all->num_rows > 0) {
+                            while($rows_article_all = $result_article_data_all->fetch_assoc()) {
+                                $articleId = $rows_article_all["id"];
+                                $articleTitle = $rows_article_all["title"];
+                                $articleComment = $rows_article_all["comment"];
+                                $articleImgList = explode(",", $rows_article_all["imgs"]);
+                                $articleTags = ["임시", "태그", "골목"];
 
-                        //         echo '<img class="slide_img_src" title="'.$frontArticleTitle.'" src="/uploads/'.$frontArticleImg.'" alt="'.$frontArticleTitle.'">';
-                        //     }
-                        // }
-                        ?>
-                        <li>
-                            <article class="article">
-                                <figure>
-                                    <a href="./article.php" class="overlay">
-                                        <div class="center">
-                                            <p>
-                                                읽기
-                                            </p>
-                                        </div>
-                                    </a>
-                                    <a href="./article.php">
-                                        <img src="https://www.doongdoong.org/uploads/thumbs/1593343384.jpeg" alt="" class="cover">
-                                    </a>
-                                </figure>
-                                <div class="article_content">
-                                    <aside class="meta">
-                                        <p>
-                                            <a href="./article.php" class="category">
-                                                종류
+                                // echo '<img class="slide_img_src" title="'.$frontArticleTitle.'" src="/uploads/'.$frontArticleImg.'" alt="'.$frontArticleTitle.'">';
+                                echo '
+                                <li>
+                                    <article class="article">
+                                        <figure>
+                                            <a class=".'$articleId'." onclick="showArticle(this.className)" class="overlay">
+                                                <div class="center">
+                                                    <p>
+                                                        읽기
+                                                    </p>
+                                                </div>
                                             </a>
-                                        </p>
-                                    </aside>
-                                    <h1 class="article_title">
-                                        <a href="./article.php">
-                                            <span class="line">
-                                                성보주택 평상
-                                            </span>
-                                        </a>
-                                    </h1>
-                                    <div class="article_comment">
-                                        <p>
-                                            자전거 거치대를 개조해 만든 평상.
-                                        </p>
-
-                                    </div>
-                                </div>
-                            </article>
-                        </li>
-                        <li>
+                                            <a class=".'$articleId'." onclick="showArticle(this.className)">
+                                                <img src="https://www.doongdoong.org/uploads/thumbs/1593343384.jpeg" alt="" class="cover">
+                                            </a>
+                                        </figure>
+                                        <div class="article_content">
+                                            <aside class="meta">
+                                                <p>
+                                                    <a class=".'$articleId'." onclick="showArticle(this.className)" class="category">
+                                                        종류
+                                                    </a>
+                                                </p>
+                                            </aside>
+                                            <h1 class="article_title">
+                                                <a class=".'$articleId'." onclick="showArticle(this.className)">
+                                                    <span class="line">
+                                                        '.$articleTitle.'
+                                                    </span>
+                                                </a>
+                                            </h1>
+                                            <div class="article_comment">
+                                                <p>
+                                                    '.$articleComment.'
+                                                </p>
+        
+                                            </div>
+                                        </div>
+                                    </article>
+                                </li>';
+                            }
+                        }
+                        ?>
+                        <!-- <li>
                             <article class="article">
                                 <figure>
                                     <a href="/admin_article.php" class="overlay">
@@ -569,7 +573,7 @@
                                     </div>
                                 </div>
                             </article>
-                        </li>
+                        </li> -->
                     </ul>
                 </div>
             </div>
