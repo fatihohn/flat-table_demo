@@ -156,7 +156,7 @@
                                 <li>
                                     <article class="article">
                                         <figure>
-                                            <a class="'.$articleId.'" onclick="showArticle(this.className)" class="overlay">
+                                            <a class="overlay '.$articleId.'" onclick="showArticle(this.classList.item(1))">
                                                 <div class="center">
                                                     <p>
                                                         읽기
