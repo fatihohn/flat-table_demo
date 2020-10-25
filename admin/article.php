@@ -12,7 +12,7 @@
     $imgList = explode(",", $rows_article["imgs"]);
     $comment = $rows_article["comment"];
     $content = $rows_article["content"];
-    $content = htmlspecialchars($content);
+    // $content = htmlspecialchars($content);
     $photographer = $rows_article["photographer"];
     $words = $rows_article["words"];
 
