@@ -156,27 +156,27 @@
                                 <li>
                                     <article class="article">
                                         <figure>
-                                            <a class=".'$articleId'." onclick="showArticle(this.className)" class="overlay">
+                                            <a class="'.$articleId.'" onclick="showArticle(this.className)" class="overlay">
                                                 <div class="center">
                                                     <p>
                                                         읽기
                                                     </p>
                                                 </div>
                                             </a>
-                                            <a class=".'$articleId'." onclick="showArticle(this.className)">
+                                            <a class="'.$articleId.'" onclick="showArticle(this.className)">
                                                 <img src="/uploads/'.$articleImgList[0].'" alt="" class="cover">
                                             </a>
                                         </figure>
                                         <div class="article_content">
                                             <aside class="meta">
                                                 <p>
-                                                    <a class=".'$articleId'." onclick="showArticle(this.className)" class="category">
+                                                    <a class="'.$articleId.'" onclick="showArticle(this.className)" class="category">
                                                         종류
                                                     </a>
                                                 </p>
                                             </aside>
                                             <h1 class="article_title">
-                                                <a class=".'$articleId'." onclick="showArticle(this.className)">
+                                                <a class="'.$articleId.'" onclick="showArticle(this.className)">
                                                     <span class="line">
                                                         '.$articleTitle.'
                                                     </span>
