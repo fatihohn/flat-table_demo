@@ -46,9 +46,11 @@ showReadArticle();
 function scrollDown() {
     let downBtn = document.querySelector(".down_btn");
     let pageHeight = window.innerHeight;
-    downBtn.addEventListener("click", function() {
-        window.scrollBy(0, pageHeight);
-    });
+    if(downBtn) {
+        downBtn.addEventListener("click", function() {
+            window.scrollBy(0, pageHeight);
+        });
+    }
 }
 scrollDown();
 function opacityByScroll() {
