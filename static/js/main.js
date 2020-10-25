@@ -49,12 +49,23 @@ showReadArticle();
 function goToList() {
     let goToListBtn = document.querySelector(".go_to_list");
     let pageHeight = window.innerHeight;
+
+    let menuBtn = document.querySelector(".menu");
+    let navigation = document.getElementById("nav");
+    let overlay = document.getElementById("overlay");
+
+
     if(isIndex === "yes") {
         if(scrollTag !== "") {
             window.scrollBy(0, pageHeight);
         }
         goToListBtn.addEventListener("click", function() {
             window.scrollBy(0, pageHeight);
+            if (navigation.classList.contains("active")) {
+                navigation.classList.remove("active");
+                overlay.classList.remove("active");
+                menuBtn.classList.remove("active");
+            }
         });
     } else {
         goToListBtn.addEventListener("click", function() {
