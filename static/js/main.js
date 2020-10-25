@@ -162,7 +162,7 @@ function setIntroImg() {
 }
 setIntroImg();
 
-(function() {
+// (function() {
     var showArticle;
     showArticle = function(id) {
         location.href = "./article.php?q=" + id;
@@ -174,7 +174,7 @@ setIntroImg();
         showArticle(this.classList.item(0));
     });
 
-})();
+// })();
 
 
 
