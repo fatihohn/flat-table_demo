@@ -158,9 +158,9 @@
         (function() {
             var flagVal, aboutInput;
             flagVal = "<?=$flag?>";
-            aboutInput = document.querySelector("#about_input");
+            flagInput = document.querySelector("#flag");
             if(flagVal == "on") {
-                aboutInput.checked = true;
+                flagInput.checked = true;
             }
         })();
     </script>
