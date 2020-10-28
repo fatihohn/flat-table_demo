@@ -43,7 +43,7 @@
         </header>
         <div class="main">
             <div class="article_container container">
-                <div class="article_pics">
+                <div class="article_pics about_pics">
                     <?php
                         if (count($imgList) > 0) {
                             foreach ($imgList as $imgSrc) {
