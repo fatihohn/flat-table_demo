@@ -228,10 +228,10 @@ function setIntroImg() {
             // setTimeout(function() {
             //     introTitleHeader.classList.add("active");
             // }, 100);
-            introTitleHeader.classList.add("active");
             introTitle.classList.add(imgSrc.alt);
             introEnter.classList.add(imgSrc.alt);
             introTitle.innerHTML = imgSrc.title;
+            introTitleHeader.classList.add("active");
         }
 
         function hideIntroTitle() {
@@ -239,9 +239,9 @@ function setIntroImg() {
             //     // introTitleHeader.classList.add("active");
             //     introTitleHeader.classList.remove("active");
             // }, 100);
-            introTitleHeader.classList.remove("active");
             introTitle.classList.remove(introTitle.classList.item(introTitle.classList.length - 1));
             introEnter.classList.remove(introEnter.classList.item(introEnter.classList.length - 1));
+            introTitleHeader.classList.remove("active");
         }
     }
 }
