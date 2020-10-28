@@ -129,7 +129,7 @@
                 <nav class="container_nav group">
                     <div class="filter_container">
                         <!-- 태그 검색으로 대체 -->
-                        <div class="filter_list">
+                        <!-- <div class="filter_list">
                             <a href="#" class="action">
                                 구분
                                 <span>+</span>
@@ -154,7 +154,7 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </div> -->
                         <!-- 태그 검색으로 대체 -->
                     </div>
                 </nav>
