@@ -36,13 +36,13 @@
 
     <div id="overlay" class="overlay"></div>
     <!-- @yield ('content') -->
-    <section class="article_main">
+    <section class="article_main about_main">
+        <header class="container_header articles_header">
+            <img src="static/img/flat_table_icon.svg" alt="flat_table_icon">
+            <h1>평상으로부터</h1>
+        </header>
         <div class="main">
             <div class="article_container container">
-                <header class="container_header articles_header">
-                    <img src="static/img/flat_table_icon.svg" alt="flat_table_icon">
-                    <h1>평상으로부터</h1>
-                </header>
                 <div class="article_pics">
                     <?php
                         if (count($imgList) > 0) {
