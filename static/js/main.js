@@ -228,10 +228,10 @@ function setIntroImg() {
             // setTimeout(function() {
             //     introTitleHeader.classList.add("active");
             // }, 100);
-            introTitle.classList.add(imgSrc.alt);
-            introEnter.classList.add(imgSrc.alt);
-            introTitle.innerHTML = imgSrc.title;
             setTimeout(function() {
+                introTitle.classList.add(imgSrc.alt);
+                introEnter.classList.add(imgSrc.alt);
+                introTitle.innerHTML = imgSrc.title;
                 introTitleHeader.classList.add("active");
             }, 100);
         }
