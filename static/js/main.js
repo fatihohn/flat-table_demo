@@ -55,9 +55,9 @@ function goToList() {
     let overlay = document.getElementById("overlay");
 
 
-    if(isIndex === "yes") {
-        if(scrollTag !== "") {
-            if(window.pageYOffset == 0) {
+    if (isIndex === "yes") {
+        if (scrollTag !== "") {
+            if (window.pageYOffset == 0) {
                 window.scrollBy(0, pageHeight);
             }
             // window.scrollBy(0, pageHeight);
@@ -68,7 +68,7 @@ function goToList() {
                 overlay.classList.remove("active");
                 menuBtn.classList.remove("active");
             }
-            if(window.pageYOffset == 0) {
+            if (window.pageYOffset == 0) {
                 window.scrollBy(0, pageHeight);
             }
         });
@@ -231,7 +231,9 @@ function setIntroImg() {
             introTitle.classList.add(imgSrc.alt);
             introEnter.classList.add(imgSrc.alt);
             introTitle.innerHTML = imgSrc.title;
-            introTitleHeader.classList.add("active");
+            setTimeout(function() {
+                introTitleHeader.classList.add("active");
+            }, 100);
         }
 
         function hideIntroTitle() {
