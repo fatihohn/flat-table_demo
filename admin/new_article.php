@@ -490,7 +490,7 @@
                     console.log("file loaded");
                     var imgSource = document.querySelector('#image_to_compress');
                     var canvas = document.getElementById("canvas");
-                        console.log(file.size*1000000 + "MB");
+                        console.log(file.size/1000000 + "MB");
                         percentage = 74/(file.size/100000000 + 100);
                         console.log(percentage*100);
                     reader.addEventListener("load", function () {
@@ -562,7 +562,7 @@
                                         resetInputValue("file-container", newFileList);
                                         resetCanvas(imgSource,  canvas);
                                         sentFileList.push(file.name);
-                                        console.log(file.size*1000000 + "MB");
+                                        console.log(file.size/1000000 + "MB");
 
                                         console.log("fileList:" + fileList.length + ", sentFileList:" + sentFileList.length + ", newFileList:" + newFileList.length + ", inputFileList:" + inputFileList.length);
                                      
