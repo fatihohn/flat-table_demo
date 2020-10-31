@@ -525,7 +525,7 @@
                                         percentage = 75/(file.size/1000000 + 100);
                                         // percentage = ((Math.pow(1-canvasRes/imgRes, 2))*20)/(file.size/1000000 + 100);
                                     } else if(imgRes/canvasRes > 1.1 && imgRes/canvasRes <= 2.2) {
-                                        percentage = (20 + (Math.pow(imgRes/canvasRes, 2))*10)/(file.size/150000 + 100);
+                                        percentage = (30 + (Math.pow(imgRes/canvasRes, 2))*10)/(file.size/150000 + 100);
                                     } else {
                                         // percentage = ((Math.pow(canvasRes/imgRes, 2))*20)/(file.size/100000000 + 100);
                                         percentage = 95/(file.size/1000000 + 100);
