@@ -44,23 +44,6 @@
                                 <input type="text" id="hashtags" placeholder="태그" autocomplete="off">
                                 <div class="tag-container"></div>
                                 <input id="category_container" type="hidden" name="categories" value="" />
-
-                                <div class="tag_container">
-                                    <div class="tag_list_wrap"></div>
-                                    <div class="tag_input_wrap">
-                                        <div class="tag_input">
-                                            <input id="tags" type="text" placeholder="연관태그를 입력해주세요. (최대 5개)" value="">
-                                            <input id="tag_vault" type="hidden" name="tag_vault" value="">
-                                        </div>
-                                    </div>
-                                    <!-- <div class="tag_finder_wrap">
-                                        <ul class="tag_finder">
-                                            <li class="tag_finder_item">
-                                                <button type="button" class="tag_finder_btn">#SDK빔프로젝터</button>
-                                            </li>
-                                        </ul>
-                                    </div> -->
-                                </div>
                             </p>
                         </div>
                     </header>
@@ -72,8 +55,7 @@
                         <input id="file-input" type="file" accept="image/jpg, image/jpeg, image/png" multiple="">
                     </div>
                     
-                    <img src="" id="image_to_compress" style="display: none;">
-                        <canvas id="canvas" height="2400" width="2400" style="display: none;"></canvas>
+                    
                     <input id="file-container" type="hidden" name="imgs" value="">
                 </div>
                 <div class="article_text">
@@ -252,159 +234,6 @@
 
     </script>
    
-
-
-
-   <script>
-       //hashtag related
-       (function () {
-           var tagInput, tagVault;
-           var showExistingTags, addTags, renderTagList, addTagDelBtn, limitInput, setTagVault, selectExistingTag;
-           var tagListWrap, tagListUl, tagDelBtn, tagContainer, tagFinderBtn;
-           var tagList = [];
-               tagListWrap = document.querySelector(".tag_list_wrap");
-               tagListUl = document.createElement("ul");
-               tagInput = document.querySelector("#tags");
-               tagVault = document.querySelector("#tag_vault");
-               tagContainer = document.querySelector(".tag_container");
-               tagFinderBtn = document.querySelectorAll(".tag_finder_btn");
-
-            document.onkeypress = function(e) {
-                if(e.keyCode == 13) {
-                    e.preventDefault();
-                }
-            }
-
-            tagInput.onkeypress = function(e) {                 
-                if(e.code == "Enter" || e.code == "Space" || e.code == "Comma") {
-                    // if(e.keycode == "13" || e.keycode == "32") {
-                        e.preventDefault();
-                        if(tagInput.value !== "" && !tagList.includes(tagInput.value)) {
-                            addTags(tagInput.value);
-                            tagListWrap.appendChild(tagListUl);
-                            renderTagList(addTagDelBtn);
-                            limitInput(); 
-                        } else {
-                            tagInput.value = "";
-                            if(tagContainer.children[2]) {
-                                tagContainer.children[2].remove();
-                            }
-                        }
-                }
-            }
-
-            tagInput.onkeyup = function(e) {
-                if(e.code !== "Enter" || e.code !== "Space" || e.code !== "Comma") {
-                    if(tagInput.value !== "") {
-                        showExistingTags(tagInput.value, selectExistingTag);
-                    } else {
-                        tagContainer.children[2].remove();
-                    }
-                } 
-            }
-
-            addTags = function (val) {
-                tagList.push(val);
-                tagInput.value = "";
-            };
-
-            showExistingTags = function (val, callback) {
-                (function () {
-                    var finderWrap = document.createElement("div");
-                    var finder = new XMLHttpRequest();
-    
-                    finder.open("POST", "tag_finder.php?str=" + val, true);
-                    finder.send();
-                    finder.onreadystatechange = function() {
-                        if (finder.readyState == 4 && finder.status == 200) {
-                            finderWrap.classList.add("tag_finder_wrap");
-                            finderWrap.innerHTML = finder.responseText;
-    
-                            if(val.length > 0) {
-                                if(!tagContainer.children[2]) {
-                                    tagContainer.appendChild(finderWrap);
-                                } else {
-                                    tagContainer.children[2].remove();
-                                    tagContainer.appendChild(finderWrap);
-                                    tagContainer.children[2].innerHTML = finder.responseText;
-                                }
-                            } else {
-                                tagContainer.children[2].remove();
-                            }
-                        }
-                    }
-                    callback();
-                })();
-            };
-
-            selectExistingTag = function () {
-                tagFinderBtn.forEach((btn) => {
-                    btn.onclick = function () {
-                        console.log("clicked");
-                    }
-                });
-            }
-            // selectExistingTag();//////how to trigger this????
-
-
-
-
-
-
-
-
-            renderTagList = function(callback) {
-                var tagListItem = document.createElement("li");
-                tagDelBtn = document.querySelectorAll(".tag_del");
-
-                tagListItem.classList.add("tag_list_item");
-                tagListUl.classList.add("tag_list");
-                if(tagList.length > 0) {
-                    tagList.forEach((tags) => {
-                        tagListItem.innerHTML = "";
-                        tagListItem.innerHTML = `<button type="button" class="tag_element">#` + tags + `</button>
-                                            <button type="button" class="tag_del"></button>`;
-                        tagListUl.appendChild(tagListItem);
-                    });
-                }
-                setTagVault();
-
-                callback();
-            }
-
-            addTagDelBtn = function() {
-                var tagDelBtn = document.querySelectorAll(".tag_del");
-                tagDelBtn.forEach((btn) => {
-                    btn.onclick = function() {
-                        var tagStr = btn.previousElementSibling.innerHTML;
-                            tagStr = tagStr.slice(1, tagStr.length);
-                        var tagIdx = tagList.indexOf(tagStr);
-                        // console.log(tagIdx);
-                        tagList.splice(tagIdx, 1)
-                        btn.parentElement.remove();
-                        limitInput(); 
-                        setTagVault();
-                    }
-                });
-            }
-
-            limitInput = function () {
-                if(tagList.length > 4) {
-                    tagInput.style.visibility = "hidden";
-                    tagListWrap.style.maxWidth = "100%";
-                } else {
-                    tagInput.style.visibility = "visible";
-                    tagListWrap.style.maxWidth = "592px";
-                }
-            }
-
-            setTagVault = function () {
-                tagVault.value = tagList.toString();
-            }
-
-        })();
-    </script>
-
     <script>
         //file transfer, render list
         var fileList = [];//전송 준비용
@@ -426,12 +255,7 @@
             fileInput.addEventListener('change', function (evnt) {
                 fileList = [];
                 for (var i = 0; i < fileInput.files.length; i++) {
-                    if(allowedType.includes(fileInput.files[i].type)) {
-                        fileList.push(fileInput.files[i]);
-                        inputFileList.push(fileInput.files[i]);
-                    } else {
-                        console.log("not an image");
-                    }
+                    fileList.push(fileInput.files[i]);
                 }
                 sendFileList();
                 organizePics();
@@ -468,162 +292,33 @@
             };
             
             sendFileList = function() {
-                // for (const file of fileList) {
-                //     sendFile(file);
-                //     sentFileList.push(file.name);
-                // };
-                if(inputFileList.length > sentFileList.length) {
-                        if(inputFileList[sentFileList.length]) {
-                            sendFile(inputFileList[sentFileList.length]);
-                        }
-                    }
+                for (const file of fileList) {
+                    sendFile(file);
+                    sentFileList.push(file.name);
+                };
             };
 
-
-            ///////------------------COMPRESS AND SEND IMAGE----------------------/////
             sendFile = function (file) {
-                    var reader = new FileReader();
-                    var formData = new FormData();
-                    var request = new XMLHttpRequest();
-                    var percentage;
-                    console.log("file loaded");
-                    var imgSource = document.querySelector('#image_to_compress');
-                    var canvas = document.getElementById("canvas");
-                        console.log(file.size);
-                        percentage = 93/(file.size/100000000 + 100);
-                        console.log(percentage*100);
-                    reader.addEventListener("load", function () {
-                        console.log("loading image");
-                        if(reader.result.startsWith("data:image")) {
-                            imgSource.src = reader.result;
-                            imgSource.onload = function () {
-                                console.log("image loaded");
-                                var ctx = canvas.getContext("2d");
-                                if(imgSource.width > imgSource.height) {
-                                    canvas.height = canvas.width * (imgSource.height / imgSource.width);
-                                } else {
-                                    canvas.width = canvas.height * (imgSource.width / imgSource.height);
-                                }
-                                // var oc = document.createElement('canvas'),octx = oc.getContext('2d');
-                                // // oc.width = imgSource.width * percentage;
-                                // // oc.height = imgSource.height * percentage;
-                                // if(imgSource.width > canvas.width || imgSource.height > canvas.height) {
-                                //     oc.width = canvas.width;
-                                //     oc.height = canvas.height;
-                                // } else {
-                                //     oc.width = imgSource.width;
-                                //     oc.height = imgSource.height;
-                                // }
-                                // canvas.width = oc.width;
-                                // canvas.height = oc.height;
-                                // octx.drawImage(imgSource, 0, 0, oc.width, oc.height);
-                                // octx.drawImage(oc, 0, 0, oc.width, oc.height);
-                                // ctx.drawImage(oc, 0, 0, oc.width, oc.height,0, 0, canvas.width, canvas.height);
-                                
-
-
-                                if(imgSource.width > canvas.width || imgSource.height > canvas.height) {
-                                    imgWidth = canvas.width;
-                                    imgHeight = canvas.height;
-                                } else {
-                                    imgWidth = imgSource.width;
-                                    imgHeight = imgSource.height;
-                                }
-                                canvas.width = imgWidth;
-                                canvas.height = imgHeight;
-                                ctx.drawImage(imgSource, 0, 0, imgSource.width, imgSource.height,0, 0, canvas.width, canvas.height);
-                                console.log("img drawn on canvas");
-                                canvas.toBlob(function(blob) {
-                                    var compressedImg = new File([blob], file.name, {lastModified: file.lastModified, type: "image/jpeg"});//blob->file
-                                    console.log("file from blob");
-                                    sendImgToServer(compressedImg);
-                                }, "image/jpeg", percentage);
-                            }
-
+                var formData = new FormData();
+                var request = new XMLHttpRequest();
+                formData.append('file', file);
+                request.open("POST", './upload_image.php');
+                request.send(formData);
+                request.onreadystatechange = function() { // 요청에 대한 콜백
+                    if (request.readyState === request.DONE) { // 요청이 완료되면
+                        if (request.status === 200 || request.status === 201) {
+                            newFileList.push(request.responseText); // 바뀐 이름 stack
+                            // console.log(newFileList.length + ':' + sentFileList.length);
+                            // if(newFileList.length === sentFileList.length) {
+                                renderFileList();
+                                resetInputValue("file-container", newFileList);
+                            // }
+                        } else {
+                            console.error(request.responseText);
                         }
-                    }, false);
-                    if (file) {
-                        reader.readAsDataURL(file);
                     }
-
-                    function sendImgToServer(file) {
-                        formData.append('file', file);
-                        request.open("POST", './upload_image.php');
-                        request.send(formData);
-                        request.onreadystatechange = function() { // 요청에 대한 콜백
-                            if (request.readyState === request.DONE) { // 요청이 완료되면
-                                if (request.status === 200 || request.status === 201) {
-                                    console.log("got server response data");
-                                    pushToNewFileList(afterPushToNewFileList);
-                                    
-                                    function afterPushToNewFileList() {
-                                        renderFileList();
-                                        resetInputValue("file-container", newFileList);
-                                        resetCanvas(imgSource,  canvas);
-                                        sentFileList.push(file.name);
-                                        console.log(file.size);
-
-                                        console.log("fileList:" + fileList.length + ", sentFileList:" + sentFileList.length + ", newFileList:" + newFileList.length + ", inputFileList:" + inputFileList.length);
-                                     
-                                        if(inputFileList.length >= sentFileList.length) {
-                                            if(inputFileList[sentFileList.length]) {
-                                                sendFile(inputFileList[sentFileList.length]);
-                                            }
-                                        }
-                                    }
-                                    function pushToNewFileList (callback) {
-                                        newFileList.push(request.responseText); // 바뀐 이름 stack
-                                        callback();
-                                    }
-                                } else {
-                                    console.error(request.responseText);
-                                }
-                            }
-                        };
-                    }
-
-                    function resetCanvas(img, canvas) {
-                        img.src = "";
-                        // canvas.width = 2000;
-                        // canvas.height = 2000;
-                        canvas.width = 2400;
-                        canvas.height = 2400;
-                        // canvas.width = 1100;
-                        // canvas.height = 1100;
-                        // canvas.width = 1200;
-                        // canvas.height = 1200;
-                        // canvas.width = 640;
-                        // canvas.height = 640;
-                        reader = "";
-                        console.log("reset canvas");
-                    }
-                        
-
-                    
-                    
                 };
-                ///////------------------COMPRESS AND SEND IMAGE----------------------/////
-            // sendFile = function (file) {
-            //     var formData = new FormData();
-            //     var request = new XMLHttpRequest();
-            //     formData.append('file', file);
-            //     request.open("POST", './upload_image.php');
-            //     request.send(formData);
-            //     request.onreadystatechange = function() { // 요청에 대한 콜백
-            //         if (request.readyState === request.DONE) { // 요청이 완료되면
-            //             if (request.status === 200 || request.status === 201) {
-            //                 newFileList.push(request.responseText); // 바뀐 이름 stack
-            //                 // console.log(newFileList.length + ':' + sentFileList.length);
-            //                 // if(newFileList.length === sentFileList.length) {
-            //                     renderFileList();
-            //                     resetInputValue("file-container", newFileList);
-            //                 // }
-            //             } else {
-            //                 console.error(request.responseText);
-            //             }
-            //         }
-            //     };
-            // };
+            };
         })();
         
         //drag&drop sorting
