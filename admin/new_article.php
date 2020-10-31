@@ -522,7 +522,7 @@
                                     // percentage = 74/(file.size/100000000 + 100);
                                     // percentage = 99*(Math.round(canvasRes/imgRes))/(file.size/1500000 + 100);
                                     if(imgRes > canvasRes) {
-                                        percentage = ((Math.pow(imgRes/canvasRes, 2))*10)/(file.size/100000000 + 100);
+                                        percentage = ((Math.pow(imgRes/canvasRes, 2))*20)/(file.size/100000000 + 100);
                                     } else {
                                         percentage = 75/(file.size/100000000 + 100);
                                     }
