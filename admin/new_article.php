@@ -516,7 +516,8 @@
                                     console.log(file.size/1000000 + "MB");
                                     // console.log(Math.round(imgRes));
                                     console.log(file);
-                                    console.log(imgRes/canvasRes);
+                                    // console.log(imgRes/canvasRes);
+                                    console.log((imgRes/canvasRes)*(1000000/file.size));
                                     // console.log(Math.round(canvasRes/imgRes));
                                     // console.log(canvasRes/imgRes);
                                     // percentage = 74/(file.size/100000000 + 100);
