@@ -424,6 +424,7 @@
             
 
             fileInput.addEventListener('change', function (evnt) {
+                var allowedType = ["image/jpeg", "image/jpg", "image/png"];
                 fileList = [];
                 for (var i = 0; i < fileInput.files.length; i++) {
                     if(allowedType.includes(fileInput.files[i].type)) {
