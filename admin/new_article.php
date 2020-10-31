@@ -521,7 +521,7 @@
                                     console.log(canvasRes/imgRes);
                                     // percentage = 74/(file.size/100000000 + 100);
                                     // percentage = 99*(Math.round(canvasRes/imgRes))/(file.size/1500000 + 100);
-                                    percentage = 95*(canvasRes/imgRes)/(file.size/1000000 + 100);
+                                    percentage = 100*(canvasRes/imgRes)/(file.size/1000000 + 100);
                                     // percentage = 75/(file.size/5000000 + 100);
                                     // percentage = 95/(file.size/500000 + 100);
                                     console.log(percentage*100);
