@@ -534,7 +534,7 @@
                                     // } 
                                     
                                     // percentage = (Math.sqrt((imgRes/canvasRes), 2) + 100)/(file.size/5000000 + 100);
-                                    percentage = ((imgRes/canvasRes) + 100)/(file.size/100000 + 100);
+                                    percentage = ((imgRes/canvasRes)*2 + 100)/(file.size/100000 + 100);
                                     
 
                                     // percentage = 75/(file.size/5000000 + 100);
