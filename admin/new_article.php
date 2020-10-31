@@ -517,7 +517,8 @@
                                     // console.log(Math.round(imgRes));
                                     console.log(file);
                                     console.log(Math.round(canvasRes));
-                                    console.log(Math.round(canvasRes/imgRes));
+                                    // console.log(Math.round(canvasRes/imgRes));
+                                    console.log(canvasRes/imgRes);
                                     // percentage = 74/(file.size/100000000 + 100);
                                     percentage = 99*(Math.round(canvasRes/imgRes))/(file.size/1500000 + 100);
                                     // percentage = 75/(file.size/5000000 + 100);
