@@ -41,9 +41,9 @@
                                 <!-- <a href="#">
                                     주민모임형
                                 </a> -->
-                                <input type="text" id="hashtags" placeholder="태그" autocomplete="off">
-                                <div class="tag-container"></div>
-                                <input id="category_container" type="hidden" name="categories" value="" />
+                                <!-- <input type="text" id="hashtags" placeholder="태그" autocomplete="off"> -->
+                                <!-- <div class="tag-container"></div>
+                                <input id="category_container" type="hidden" name="categories" value="" /> -->
 
                                 <div class="tag_container">
                                     <div class="tag_list_wrap"></div>
