@@ -283,13 +283,16 @@
                tagContainer = document.querySelector(".tag_container");
                tagFinderBtn = document.querySelectorAll(".tag_finder_btn");
 
-            document.onkeypress = function(e) {
+            // document.onkeypress = function(e) {
+            //     if(e.keyCode == 13) {
+            //         e.preventDefault();
+            //     }
+            // }
+
+            tagInput.onkeypress = function(e) {                 
                 if(e.keyCode == 13) {
                     e.preventDefault();
                 }
-            }
-
-            tagInput.onkeypress = function(e) {                 
                 if(e.code == "Enter" || e.code == "Space" || e.code == "Comma") {
                     // if(e.keycode == "13" || e.keycode == "32") {
                         e.preventDefault();
