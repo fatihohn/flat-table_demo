@@ -3,114 +3,42 @@ if (!file_exists('../uploads')) {
  
     mkdir('../uploads', 0777);
 }
-// //image compression
-// function compressImage($source, $destination, $quality) { 
-//     // Get image info 
-//     $imgInfo = getimagesize($source); 
-//     $mime = $imgInfo['mime']; 
-     
-//     // Create a new image from file 
-//     switch($mime){ 
-//         case 'image/jpeg': 
-//             $image = imagecreatefromjpeg($source); 
-//             break; 
-//         case 'image/png': 
-//             $image = imagecreatefrompng($source); 
-//             break; 
-//         case 'image/gif': 
-//             $image = imagecreatefromgif($source); 
-//             break; 
-//         default: 
-//             $image = imagecreatefromjpeg($source); 
-//     } 
-     
-//     // Save image 
-//     imagejpeg($image, $destination, $quality); 
-     
-//     // Return compressed image 
-//     return $destination; 
-// } 
- 
- 
-// // File upload path 
-// $uploadPath = "../uploads/"; 
- 
-// // If file upload form is submitted 
-// $status = $statusMsg = ''; 
-// // if(isset($_POST["submit"])){ 
-//     $status = 'error'; 
-//     if(!empty($_FILES["file"]["name"])) { 
-//         // File info 
-//         // $fileName = basename($_FILES["file"]["name"]); 
-//         // $imageUploadPath = $uploadPath . $fileName; 
-//         $temp = explode(".", $_FILES["file"]["name"]);
-//         $newFileName = round(microtime(true)) . '-' . $temp[0] . '.' . end($temp);
-//         $imageUploadPath = $uploadPath . $newFileName; 
-//         $fileType = pathinfo($imageUploadPath, PATHINFO_EXTENSION); 
-         
-//         // Allow certain file formats 
-//         $allowTypes = array('jpg','png','jpeg','gif','JPG','PNG','JPEG','GIF'); 
-//         if(in_array($fileType, $allowTypes)){ 
-//             // Image temp source 
-//             $imageTemp = $_FILES["file"]["tmp_name"]; 
-             
-//             // Compress size and upload image 
-//             $compressedImage = compressImage($imageTemp, $imageUploadPath, 60); 
-//             // move_uploaded_file($imageTemp, 'uploads/'.$newFileName);
-//             if($compressedImage){ 
-//                 $status = 'success'; 
-//                 $statusMsg = "Image compressed successfully."; 
-//             }else{ 
-//                 $statusMsg = "Image compress failed!"; 
-//             } 
-//         }else{ 
-//             $statusMsg = 'Sorry, only JPG, JPEG, PNG, & GIF files are allowed to upload.'; 
-//         } 
-//     }else{ 
-//         $statusMsg = 'Please select an image file to upload.'; 
-//     } 
-// // } 
- 
-// // Display status message 
-// // echo $statusMsg; 
-
-// //image compression end
 //image compression
-// function compressImage($source, $destination, $quality) { 
-//     // Get image info 
-//     $imgInfo = getimagesize($source); 
-//     $mime = $imgInfo['mime']; 
+function compressImage($source, $destination, $quality) { 
+    // Get image info 
+    $imgInfo = getimagesize($source); 
+    $mime = $imgInfo['mime']; 
      
-//     // Create a new image from file 
-//     switch($mime){ 
-//         case 'image/jpeg': 
-//             $image = imagecreatefromjpeg($source); 
-//             break; 
-//         case 'image/png': 
-//             $image = imagecreatefrompng($source); 
-//             break; 
-//         case 'image/gif': 
-//             $image = imagecreatefromgif($source); 
-//             break; 
-//         default: 
-//             $image = imagecreatefromjpeg($source); 
-//     } 
+    // Create a new image from file 
+    switch($mime){ 
+        case 'image/jpeg': 
+            $image = imagecreatefromjpeg($source); 
+            break; 
+        case 'image/png': 
+            $image = imagecreatefrompng($source); 
+            break; 
+        case 'image/gif': 
+            $image = imagecreatefromgif($source); 
+            break; 
+        default: 
+            $image = imagecreatefromjpeg($source); 
+    } 
      
-//     // Save image 
-//     imagejpeg($image, $destination, $quality); 
+    // Save image 
+    imagejpeg($image, $destination, $quality); 
      
-//     // Return compressed image 
-//     return $destination; 
-// } 
+    // Return compressed image 
+    return $destination; 
+} 
  
  
 // File upload path 
-$uploadPath = "uploads/"; 
+$uploadPath = "../uploads/"; 
  
 // If file upload form is submitted 
 $status = $statusMsg = ''; 
 // if(isset($_POST["submit"])){ 
-    // $status = 'error'; 
+    $status = 'error'; 
     if(!empty($_FILES["file"]["name"])) { 
         // File info 
         // $fileName = basename($_FILES["file"]["name"]); 
@@ -130,12 +58,12 @@ $status = $statusMsg = '';
             // $compressedImage = compressImage($imageTemp, $imageUploadPath, 60); 
             // move_uploaded_file($imageTemp, 'uploads/'.$newFileName);
             move_uploaded_file($imageTemp, $imageUploadPath);
-            // if($compressedImage){ 
-            //     $status = 'success'; 
-            //     $statusMsg = "Image compressed successfully."; 
-            // }else{ 
-            //     $statusMsg = "Image compress failed!"; 
-            // } 
+            if($compressedImage){ 
+                $status = 'success'; 
+                $statusMsg = "Image compressed successfully."; 
+            }else{ 
+                $statusMsg = "Image compress failed!"; 
+            } 
         }else{ 
             $statusMsg = 'Sorry, only JPG, JPEG, PNG, & GIF files are allowed to upload.'; 
         } 
@@ -148,6 +76,79 @@ $status = $statusMsg = '';
 // echo $statusMsg; 
 
 //image compression end
+// //image compression
+// // function compressImage($source, $destination, $quality) { 
+// //     // Get image info 
+// //     $imgInfo = getimagesize($source); 
+// //     $mime = $imgInfo['mime']; 
+     
+// //     // Create a new image from file 
+// //     switch($mime){ 
+// //         case 'image/jpeg': 
+// //             $image = imagecreatefromjpeg($source); 
+// //             break; 
+// //         case 'image/png': 
+// //             $image = imagecreatefrompng($source); 
+// //             break; 
+// //         case 'image/gif': 
+// //             $image = imagecreatefromgif($source); 
+// //             break; 
+// //         default: 
+// //             $image = imagecreatefromjpeg($source); 
+// //     } 
+     
+// //     // Save image 
+// //     imagejpeg($image, $destination, $quality); 
+     
+// //     // Return compressed image 
+// //     return $destination; 
+// // } 
+ 
+ 
+// // File upload path 
+// $uploadPath = "uploads/"; 
+ 
+// // If file upload form is submitted 
+// $status = $statusMsg = ''; 
+// // if(isset($_POST["submit"])){ 
+//     // $status = 'error'; 
+//     if(!empty($_FILES["file"]["name"])) { 
+//         // File info 
+//         // $fileName = basename($_FILES["file"]["name"]); 
+//         // $imageUploadPath = $uploadPath . $fileName; 
+//         $temp = explode(".", $_FILES["file"]["name"]);
+//         $newFileName = round(microtime(true)) . '-' . $temp[0] . '.' . end($temp);
+//         $imageUploadPath = $uploadPath . $newFileName; 
+//         $fileType = pathinfo($imageUploadPath, PATHINFO_EXTENSION); 
+         
+//         // Allow certain file formats 
+//         $allowTypes = array('jpg','png','jpeg','gif','JPG','PNG','JPEG','GIF'); 
+//         if(in_array($fileType, $allowTypes)){ 
+//             // Image temp source 
+//             $imageTemp = $_FILES["file"]["tmp_name"]; 
+             
+//             // Compress size and upload image 
+//             // $compressedImage = compressImage($imageTemp, $imageUploadPath, 60); 
+//             // move_uploaded_file($imageTemp, 'uploads/'.$newFileName);
+//             move_uploaded_file($imageTemp, $imageUploadPath);
+//             // if($compressedImage){ 
+//             //     $status = 'success'; 
+//             //     $statusMsg = "Image compressed successfully."; 
+//             // }else{ 
+//             //     $statusMsg = "Image compress failed!"; 
+//             // } 
+//         }else{ 
+//             $statusMsg = 'Sorry, only JPG, JPEG, PNG, & GIF files are allowed to upload.'; 
+//         } 
+//     }else{ 
+//         $statusMsg = 'Please select an image file to upload.'; 
+//     } 
+// // } 
+ 
+// // Display status message 
+// // echo $statusMsg; 
+
+// //image compression end
 
 echo $newFileName;
 ?>
