@@ -105,7 +105,7 @@ if (!file_exists('../uploads')) {
  
  
 // File upload path 
-$uploadPath = "/uploads/"; 
+$uploadPath = "uploads/"; 
  
 // If file upload form is submitted 
 $status = $statusMsg = ''; 
