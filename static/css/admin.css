@@ -395,5 +395,6 @@ button {
 @media all and (max-width: 1080px) {
     #file-list-display figure button {
         position: absolute;
+        right: 10px;
     }
 }
