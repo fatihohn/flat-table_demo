@@ -487,7 +487,7 @@
                     var formData = new FormData();
                     var request = new XMLHttpRequest();
                     var percentage;
-                    console.log("file loaded");
+                    // console.log("file loaded");
                     var imgSource = document.querySelector('#image_to_compress');
                     var canvas = document.getElementById("canvas");
                     // // var imgRes = Math.round(imgSource.width * imgSource.height)/1000000000;
@@ -505,7 +505,7 @@
                     //     // percentage = 95/(file.size/500000 + 100);
                     //     console.log(percentage*100);
                     reader.addEventListener("load", function () {
-                        console.log("loading image");
+                        // console.log("loading image");
                         if(reader.result.startsWith("data:image")) {
                             imgSource.src = reader.result;
                             imgSource.onload = function () {
@@ -515,9 +515,9 @@
                                 var canvasRes = canvas.width * 2;
                                     console.log(file.size/1000000 + "MB");
                                     // console.log(Math.round(imgRes));
-                                    console.log(file);
+                                    // console.log(file);
                                     // console.log(imgRes/canvasRes);
-                                    console.log((imgRes/canvasRes)*(1000000/file.size));
+                                    // console.log((imgRes/canvasRes)*(1000000/file.size));
                                     // console.log(Math.round(canvasRes/imgRes));
                                     // console.log(canvasRes/imgRes);
                                     // percentage = 74/(file.size/100000000 + 100);
@@ -546,7 +546,7 @@
                                     // percentage = 75/(file.size/5000000 + 100);
                                     // percentage = 95/(file.size/500000 + 100);
                                     console.log(percentage*100);
-                                console.log("image loaded");
+                                // console.log("image loaded");
                                 var ctx = canvas.getContext("2d");
                                 if(imgSource.width > imgSource.height) {
                                     canvas.height = canvas.width * (imgSource.height / imgSource.width);
@@ -581,10 +581,10 @@
                                 canvas.width = imgWidth;
                                 canvas.height = imgHeight;
                                 ctx.drawImage(imgSource, 0, 0, imgSource.width, imgSource.height,0, 0, canvas.width, canvas.height);
-                                console.log("img drawn on canvas");
+                                // console.log("img drawn on canvas");
                                 canvas.toBlob(function(blob) {
                                     var compressedImg = new File([blob], file.name, {lastModified: file.lastModified, type: "image/jpeg"});//blob->file
-                                    console.log("file from blob");
+                                    // console.log("file from blob");
                                     sendImgToServer(compressedImg);
                                 }, "image/jpeg", percentage);
                             }
@@ -602,7 +602,7 @@
                         request.onreadystatechange = function() { // 요청에 대한 콜백
                             if (request.readyState === request.DONE) { // 요청이 완료되면
                                 if (request.status === 200 || request.status === 201) {
-                                    console.log("got server response data");
+                                    // console.log("got server response data");
                                     pushToNewFileList(afterPushToNewFileList);
                                     
                                     function afterPushToNewFileList() {
@@ -612,7 +612,7 @@
                                         sentFileList.push(file.name);
                                         console.log(file.size/1000000 + "MB");
 
-                                        console.log("fileList:" + fileList.length + ", sentFileList:" + sentFileList.length + ", newFileList:" + newFileList.length + ", inputFileList:" + inputFileList.length);
+                                        // console.log("fileList:" + fileList.length + ", sentFileList:" + sentFileList.length + ", newFileList:" + newFileList.length + ", inputFileList:" + inputFileList.length);
                                      
                                         if(inputFileList.length >= sentFileList.length) {
                                             if(inputFileList[sentFileList.length]) {
