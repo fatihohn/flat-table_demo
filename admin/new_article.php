@@ -513,7 +513,7 @@
                                 // var canvasRes = Math.round(Math.pow(canvas.width, 2))/1000000000;
                                 var imgRes = imgSource.width + imgSource.height;
                                 var canvasRes = canvas.width * 2;
-                                    console.log(file.size/1000000 + "MB");
+                                    // console.log(file.size/1000000 + "MB");
                                     // console.log(Math.round(imgRes));
                                     // console.log(file);
                                     // console.log(imgRes/canvasRes);
@@ -545,7 +545,7 @@
 
                                     // percentage = 75/(file.size/5000000 + 100);
                                     // percentage = 95/(file.size/500000 + 100);
-                                    console.log(percentage*100);
+                                    // console.log(percentage*100);
                                 // console.log("image loaded");
                                 var ctx = canvas.getContext("2d");
                                 if(imgSource.width > imgSource.height) {
@@ -644,7 +644,7 @@
                         // canvas.width = 640;
                         // canvas.height = 640;
                         reader = "";
-                        console.log("reset canvas");
+                        // console.log("reset canvas");
                     }
                         
 
