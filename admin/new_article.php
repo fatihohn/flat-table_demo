@@ -562,7 +562,7 @@
                                         resetInputValue("file-container", newFileList);
                                         resetCanvas(imgSource,  canvas);
                                         sentFileList.push(file.name);
-                                        console.log(file.size);
+                                        console.log(file.size*1000000 + "MB");
 
                                         console.log("fileList:" + fileList.length + ", sentFileList:" + sentFileList.length + ", newFileList:" + newFileList.length + ", inputFileList:" + inputFileList.length);
                                      
