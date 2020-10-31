@@ -162,7 +162,7 @@
                         }
                     }
                     
-                    if(articleImgs[m].childNodes[1].width > articleImgs[m].childNodes[1].height) {
+                    if(articleImgs[m].childNodes[1].width*1.2 > articleImgs[m].childNodes[1].height) {
                         articleImgs[m].style.maxWidth = "96.5%";
                         articleImgs[m].style.height = "auto";
                         // articleImgs[m].style.height = "100%";//mobile test
@@ -490,19 +490,8 @@
                     // console.log("file loaded");
                     var imgSource = document.querySelector('#image_to_compress');
                     var canvas = document.getElementById("canvas");
-                    // // var imgRes = Math.round(imgSource.width * imgSource.height)/1000000000;
-                    // // var canvasRes = Math.round(Math.pow(canvas.width, 2))/1000000000;
-                    // var imgRes = imgSource.width + imgSource.height;
-                    // var canvasRes = canvas.width * 2;
                     //     console.log(file.size/1000000 + "MB");
-                    //     // console.log(Math.round(imgRes));
-                    //     console.log(file);
-                    //     console.log(Math.round(canvasRes));
-                    //     console.log(Math.round(canvasRes/imgRes));
                     //     // percentage = 74/(file.size/100000000 + 100);
-                    //     percentage = 99*(Math.round(canvasRes/imgRes))/(file.size/1500000 + 100);
-                    //     // percentage = 75/(file.size/5000000 + 100);
-                    //     // percentage = 95/(file.size/500000 + 100);
                     //     console.log(percentage*100);
                     reader.addEventListener("load", function () {
                         // console.log("loading image");
@@ -513,28 +502,6 @@
                                 // var canvasRes = Math.round(Math.pow(canvas.width, 2))/1000000000;
                                 var imgRes = imgSource.width + imgSource.height;
                                 var canvasRes = canvas.width * 2;
-                                    // console.log(file.size/1000000 + "MB");
-                                    // console.log(Math.round(imgRes));
-                                    // console.log(file);
-                                    // console.log(imgRes/canvasRes);
-                                    // console.log((imgRes/canvasRes)*(1000000/file.size));
-                                    // console.log(Math.round(canvasRes/imgRes));
-                                    // console.log(canvasRes/imgRes);
-                                    // percentage = 74/(file.size/100000000 + 100);
-                                    // percentage = 99*(Math.round(canvasRes/imgRes))/(file.size/1500000 + 100);
-
-
-                                    // if(imgRes/canvasRes > 2.2) {
-                                    //     percentage = 75/(file.size/1000000 + 100);
-                                    //     // percentage = ((Math.pow(1-canvasRes/imgRes, 2))*20)/(file.size/1000000 + 100);
-                                    // } else if(imgRes/canvasRes > 1.1 && imgRes/canvasRes <= 2.2) {
-                                    //     percentage = (30 + (Math.pow(imgRes/canvasRes, 2))*20)/(file.size/100000 + 100);
-                                    // } else {
-                                    //     // percentage = ((Math.pow(canvasRes/imgRes, 2))*20)/(file.size/100000000 + 100);
-                                    //     percentage = 95/(file.size/1000000 + 100);
-                                    // } 
-                                    
-                                    // percentage = (Math.sqrt((imgRes/canvasRes), 2) + 100)/(file.size/5000000 + 100);
                                     var compressRate = ((imgRes/canvasRes)*(1000000/file.size) + 100)/(file.size/100000 + 100);
                                     if(compressRate > 1) {
                                         percentage = 1;
@@ -543,8 +510,6 @@
                                     }
                                     
 
-                                    // percentage = 75/(file.size/5000000 + 100);
-                                    // percentage = 95/(file.size/500000 + 100);
                                     // console.log(percentage*100);
                                 // console.log("image loaded");
                                 var ctx = canvas.getContext("2d");
