@@ -491,9 +491,9 @@
                     var imgSource = document.querySelector('#image_to_compress');
                     var canvas = document.getElementById("canvas");
                         console.log(file.size/1000000 + "MB");
-                        // percentage = 74/(file.size/100000000 + 100);
+                        percentage = 74/(file.size/100000000 + 100);
                         // percentage = 75/(file.size/5000000 + 100);
-                        percentage = 95/(file.size/500000 + 100);
+                        // percentage = 95/(file.size/500000 + 100);
                         console.log(percentage*100);
                     reader.addEventListener("load", function () {
                         console.log("loading image");
