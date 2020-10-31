@@ -1,5 +1,5 @@
 <?php
-    include_once 'bbps_db_conn.php';
+    include_once '../bbps_db_conn.php';
 
     $str = $_GET['str'];
 
