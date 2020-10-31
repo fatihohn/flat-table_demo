@@ -38,6 +38,13 @@
 
 /*----------------- scrollbar conf--------------- */
 
+button {
+    background-color: transparent;
+    cursor: pointer;
+    outline: none;
+    border: none;
+}
+
 .title>.actions.login_link {
     position: absolute;
     right: 0;
