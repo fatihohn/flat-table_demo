@@ -391,3 +391,9 @@ button {
 /* trix-editor {
     border: none;
 } */
+
+@media all and (max-width: 1080px) {
+    #file-list-display figure button {
+        position: absolute;
+    }
+}
