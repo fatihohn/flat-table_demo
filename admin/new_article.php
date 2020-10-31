@@ -490,25 +490,39 @@
                     console.log("file loaded");
                     var imgSource = document.querySelector('#image_to_compress');
                     var canvas = document.getElementById("canvas");
-                    // var imgRes = Math.round(imgSource.width * imgSource.height)/1000000000;
-                    // var canvasRes = Math.round(Math.pow(canvas.width, 2))/1000000000;
-                    var imgRes = imgSource.width + imgSource.height;
-                    var canvasRes = canvas.width * 2;
-                        console.log(file.size/1000000 + "MB");
-                        // console.log(Math.round(imgRes));
-                        console.log(file);
-                        console.log(Math.round(canvasRes));
-                        console.log(Math.round(canvasRes/imgRes));
-                        // percentage = 74/(file.size/100000000 + 100);
-                        percentage = 99*(Math.round(canvasRes/imgRes))/(file.size/1500000 + 100);
-                        // percentage = 75/(file.size/5000000 + 100);
-                        // percentage = 95/(file.size/500000 + 100);
-                        console.log(percentage*100);
+                    // // var imgRes = Math.round(imgSource.width * imgSource.height)/1000000000;
+                    // // var canvasRes = Math.round(Math.pow(canvas.width, 2))/1000000000;
+                    // var imgRes = imgSource.width + imgSource.height;
+                    // var canvasRes = canvas.width * 2;
+                    //     console.log(file.size/1000000 + "MB");
+                    //     // console.log(Math.round(imgRes));
+                    //     console.log(file);
+                    //     console.log(Math.round(canvasRes));
+                    //     console.log(Math.round(canvasRes/imgRes));
+                    //     // percentage = 74/(file.size/100000000 + 100);
+                    //     percentage = 99*(Math.round(canvasRes/imgRes))/(file.size/1500000 + 100);
+                    //     // percentage = 75/(file.size/5000000 + 100);
+                    //     // percentage = 95/(file.size/500000 + 100);
+                    //     console.log(percentage*100);
                     reader.addEventListener("load", function () {
                         console.log("loading image");
                         if(reader.result.startsWith("data:image")) {
                             imgSource.src = reader.result;
                             imgSource.onload = function () {
+                                // var imgRes = Math.round(imgSource.width * imgSource.height)/1000000000;
+                                // var canvasRes = Math.round(Math.pow(canvas.width, 2))/1000000000;
+                                var imgRes = imgSource.width + imgSource.height;
+                                var canvasRes = canvas.width * 2;
+                                    console.log(file.size/1000000 + "MB");
+                                    // console.log(Math.round(imgRes));
+                                    console.log(file);
+                                    console.log(Math.round(canvasRes));
+                                    console.log(Math.round(canvasRes/imgRes));
+                                    // percentage = 74/(file.size/100000000 + 100);
+                                    percentage = 99*(Math.round(canvasRes/imgRes))/(file.size/1500000 + 100);
+                                    // percentage = 75/(file.size/5000000 + 100);
+                                    // percentage = 95/(file.size/500000 + 100);
+                                    console.log(percentage*100);
                                 console.log("image loaded");
                                 var ctx = canvas.getContext("2d");
                                 if(imgSource.width > imgSource.height) {
