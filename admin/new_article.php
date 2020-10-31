@@ -534,7 +534,12 @@
                                     // } 
                                     
                                     // percentage = (Math.sqrt((imgRes/canvasRes), 2) + 100)/(file.size/5000000 + 100);
-                                    percentage = ((imgRes/canvasRes)*3 + 100)/(file.size/100000 + 100);
+                                    var compressRate = ((imgRes/canvasRes)*(1000000/file.size) + 100)/(file.size/100000 + 100);
+                                    if(compressRate > 1) {
+                                        percentage = 1;
+                                    } else {
+                                        percentage = compressRate;
+                                    }
                                     
 
                                     // percentage = 75/(file.size/5000000 + 100);
