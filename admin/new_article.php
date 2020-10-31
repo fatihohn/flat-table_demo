@@ -490,8 +490,8 @@
                     console.log("file loaded");
                     var imgSource = document.querySelector('#image_to_compress');
                     var canvas = document.getElementById("canvas");
-                    var imgRes = Math.round(imgSource.width * imgSource.height);
-                    var canvasRes = Math.round(Math.pow(canvas.width, 2));
+                    var imgRes = Math.round(imgSource.width * imgSource.height)/1000000;
+                    var canvasRes = Math.round(Math.pow(canvas.width, 2))/1000000;
                         console.log(file.size/1000000 + "MB");
                         console.log(Math.round(canvasRes/imgRes));
                         // percentage = 74/(file.size/100000000 + 100);
