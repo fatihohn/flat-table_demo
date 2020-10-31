@@ -187,7 +187,7 @@
                         articleImgs[m].childNodes[1].classList.add("verti");
                     }
 
-                    
+
 
 
 
@@ -310,7 +310,8 @@
             tagInput.onkeyup = function(e) {
                 if(e.code !== "Enter" || e.code !== "Space" || e.code !== "Comma") {
                     if(tagInput.value !== "") {
-                        showExistingTags(tagInput.value, selectExistingTag);
+                        // showExistingTags(tagInput.value, selectExistingTag);
+                        showExistingTags(tagInput.value);
                     } else {
                         tagContainer.children[2].remove();
                     }
@@ -322,7 +323,8 @@
                 tagInput.value = "";
             };
 
-            showExistingTags = function (val, callback) {
+            // showExistingTags = function (val, callback) {
+            showExistingTags = function (val) {
                 (function () {
                     var finderWrap = document.createElement("div");
                     var finder = new XMLHttpRequest();
@@ -347,7 +349,7 @@
                             }
                         }
                     }
-                    callback();
+                    // callback();
                 })();
             };
 
