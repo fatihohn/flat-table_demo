@@ -162,23 +162,37 @@
                         }
                     }
                     
+                    // if(articleImgs[m].childNodes[1].width*1.2 > articleImgs[m].childNodes[1].height) {
+                    //     articleImgs[m].style.maxWidth = "96.5%";
+                    //     articleImgs[m].style.height = "auto";
+                    //     articleImgs[m].style.margin = "10px 0.75%";
+                    //     // articleImgs[m].style.height = "100%";//mobile test
+                    //     articleImgs[m].childNodes[1].style.height = "auto";
+                    //     articleImgs[m].childNodes[1].style.width = "100%";
+                    // } else {
+                    //     articleImgs[m].style.maxWidth = "47.5%";
+                    //     articleImgs[m].style.height = "auto";
+                    //     articleImgs[m].style.margin = "10px 0.5%";
+                    //     // articleImgs[m].style.height = "100%";//mobile test
+                    //     articleImgs[m].childNodes[1].style.height = "auto";
+                    //     articleImgs[m].childNodes[1].style.width = "100%";
+                    //     // articleImgs[m].style.display = "inline-flex";
+                    //     // articleImgs[m].style.display = "inline-block";
+                    // }
                     if(articleImgs[m].childNodes[1].width*1.2 > articleImgs[m].childNodes[1].height) {
-                        articleImgs[m].style.maxWidth = "96.5%";
-                        articleImgs[m].style.height = "auto";
-                        // articleImgs[m].style.height = "100%";//mobile test
-                        articleImgs[m].childNodes[1].style.height = "auto";
-                        articleImgs[m].childNodes[1].style.width = "100%";
-                        articleImgs[m].style.margin = "10px 0.75%";
+                        articleImgs[m].classList.add("hori");
+                        articleImgs[m].childNodes[1].classList.add("hori");
                     } else {
-                        articleImgs[m].style.maxWidth = "47.5%";
-                        articleImgs[m].style.height = "auto";
-                        // articleImgs[m].style.height = "100%";//mobile test
-                        articleImgs[m].childNodes[1].style.height = "auto";
-                        articleImgs[m].childNodes[1].style.width = "100%";
-                        articleImgs[m].style.margin = "10px 0.5%";
-                        // articleImgs[m].style.display = "inline-flex";
-                        // articleImgs[m].style.display = "inline-block";
+                        articleImgs[m].classList.add("verti");
+                        articleImgs[m].childNodes[1].classList.add("verti");
                     }
+
+                    
+
+
+
+
+
                 // } else if(window.innerWidth <= 1080 && window.innerWidth >= 720) {
                 //     if(m > 0 && document.querySelectorAll(".article_pics_mobile figure").length < document.querySelectorAll(".article_pics figure").length - 1) {
                 //         replaceImg(articleImgs[m]);
