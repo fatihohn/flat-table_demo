@@ -44,13 +44,14 @@
 
     // $new_tags = array();
     $old_tags = array();
-    // $old_tags_id = array();
+    $old_tags_id_list = array();
+    $new_tags_id_list = array();
 
     $sql_old_tags = "SELECT tag_name FROM tags";
     $result_old_tags = mysqli_query($conn, $sql_old_tags);
     while($rows_old_tags = $result_old_tags->fetch_assoc()) {
         array_push($old_tags, array($rows_old_tags['tag_name'], $rows_old_tags['id']));
-        // array_push($old_tags_id, $rows_old_tags['id']);
+        // array_push($old_tags_id_list, $rows_old_tags['id']);
     }
 
     // if(count($tag_vault) > 0) {//태그 입력이 있다면
@@ -98,24 +99,7 @@
             'no'
         )";
 
-
-
-
-
-
-
-
-
-
-
     $result = mysqli_query($conn, $sql);
-
-
-
-
-
-
-
 
 
     if($result === false){
@@ -127,7 +111,8 @@
     else{//새 article이 만들어지면
         $sql_new_article_id = "SELECT id FROM articles ORDER BY id DESC LIMIT 1";//새로 만들어진 article의 id도 불러오고
         $result_new_article_id = mysqli_query($conn, $sql_new_article_id);
-        $row_new_article_id = $result_new_article_id->fetch_assoc();
+        // $row_new_article_id = $result_new_article_id->fetch_assoc();
+        $row_new_article_id = mysqli_fetch_assoc($result_new_article_id);
         $new_article_id = $row_new_article_id['id'];
         if(count($tag_vault) > 0) {//태그 입력이 있다면
             foreach($tag_vault as $tag_input) {//-------------------------------------각각 쿼리하는게 아니라, 한데 모아서 쿼리하는 방식으로 변경할 것.
@@ -139,11 +124,15 @@
                         $row_old_tag_id = mysqli_fetch_assoc($result_old_tag_id);
                         $old_tag_id = $row_old_tag_id['id'];
         
-                        $sql_old_tag_relation = "INSERT INTO article_tag_map (article_id, tag_id) VALUES ('{$new_article_id}', '{$old_tag_id}')";//태그 맵 DB에 old 태그와 article의 id값을 저장한다
-                        $result_old_tag_relation = mysqli_query($conn, $sql_old_tag_relation);
-                        if($result_old_tag_relation) {
-                            echo("<script>alert('평상이 생성되었습니다.');location.href='index.php?q=ok';</script>");
-                        }
+
+                        array_push($old_tags_id_list, $old_tag_id);
+                        // $sql_old_tag_relation = "INSERT INTO article_tag_map (article_id, tag_id) VALUES ('{$new_article_id}', '{$old_tag_id}')";//태그 맵 DB에 old 태그와 article의 id값을 저장한다
+                        // $result_old_tag_relation = mysqli_query($conn, $sql_old_tag_relation);
+
+
+                        // if($result_old_tag_relation) {
+                        //     echo("<script>alert('평상이 생성되었습니다.');location.href='index.php?q=ok';</script>");
+                        // }
                     }
                 } else {//새로운 태그라면
                     $sql_new_tag_input = "INSERT INTO tags (tag_name) VALUES ('{$tag_input}')";//새로운 태그 저장
@@ -157,15 +146,46 @@
                             $row_new_tag_id = mysqli_fetch_assoc($result_new_tag_id);
                             $new_tag_id = $row_new_tag_id['id'];
                             
-                            $sql_new_tag_relation = "INSERT INTO article_tag_map (article_id, tag_id) VALUES ('{$new_article_id}', '{$new_tag_id}')";//태그 맵 DB에 new 태그와 article의 id값을 저장한다
-                            $result_new_tag_relation = mysqli_query($conn, $sql_new_tag_relation);
-                            if($result_new_tag_relation) {
-                                echo("<script>alert('평상이 생성되었습니다.');location.href='index.php?q=ok';</script>");
-                            }
+
+                            array_push($new_tags_id_list, $new_tag_id);
+
+
+                            // $sql_new_tag_relation = "INSERT INTO article_tag_map (article_id, tag_id) VALUES ('{$new_article_id}', '{$new_tag_id}')";//태그 맵 DB에 new 태그와 article의 id값을 저장한다
+                            // $result_new_tag_relation = mysqli_query($conn, $sql_new_tag_relation);
+
+
+                            // if($result_new_tag_relation) {
+                            //     echo("<script>alert('평상이 생성되었습니다.');location.href='index.php?q=ok';</script>");
+                            // }
                         }
                     }
                 }
+                if(count($old_tags_id_list) > 0) {
+                    $old_tag_relation_val = array();
+                    $sql_old_tag_relation = "INSERT INTO article_tag_map (article_id, tag_id) VALUES";
+                    for($i=0; $i < count($sql_old_tag_list); $i++) {
+                        array_push($old_tag_relation_val, "('{$new_article_id}', '{$sql_old_tag_list[i]}')");
+                    }
+                    $sql_old_tag_relation = $sql_old_tag_relation." ".implode(",", $old_tag_relation_val);
+                    // foreach($old_tags_id_list as $old_id) {
+                    //     $sql_old_tag_relation = "INSERT INTO article_tag_map (article_id, tag_id) VALUES ('{$new_article_id}', '{$old_id}')";//태그 맵 DB에 old 태그와 article의 id값을 저장한다
+                    //     $result_old_tag_relation = mysqli_query($conn, $sql_old_tag_relation);
+                    // }
+                }
+                if(count($new_tags_id_list) > 0) {
+                    $new_tag_relation_val = array();
+                    $sql_new_tag_relation = "INSERT INTO article_tag_map (article_id, tag_id) VALUES";
+                    for($i=0; $i < count($sql_new_tag_list); $i++) {
+                        array_push($new_tag_relation_val, "('{$new_article_id}', '{$sql_new_tag_list[i]}')");
+                    }
+                    $sql_new_tag_relation = $sql_new_tag_relation." ".implode(",", $new_tag_relation_val);
+                    // foreach($old_tags_id_list as $old_id) {
+                    //     $sql_old_tag_relation = "INSERT INTO article_tag_map (article_id, tag_id) VALUES ('{$new_article_id}', '{$old_id}')";//태그 맵 DB에 old 태그와 article의 id값을 저장한다
+                    //     $result_old_tag_relation = mysqli_query($conn, $sql_old_tag_relation);
+                    // }
+                }
             }
+
         } else {
             echo("<script>alert('평상이 생성되었습니다.');location.href='index.php?q=ok';</script>");
         }
