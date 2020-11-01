@@ -107,8 +107,7 @@
         echo '<br>';
         echo mysqli_error($conn);
         error_log(mysqli_error($conn));
-    }
-    else{//새 article이 만들어지면
+    } else{//새 article이 만들어지면
         $sql_new_article_id = "SELECT id FROM articles ORDER BY id DESC LIMIT 1";//새로 만들어진 article의 id도 불러오고
         $result_new_article_id = mysqli_query($conn, $sql_new_article_id);
         // $row_new_article_id = $result_new_article_id->fetch_assoc();
@@ -185,6 +184,8 @@
                     // }
                 }
             }
+            echo("<script>alert('평상이 생성되었습니다.');location.href='index.php?q=ok';</script>");
+
 
         } else {
             echo("<script>alert('평상이 생성되었습니다.');location.href='index.php?q=ok';</script>");
