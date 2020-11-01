@@ -160,32 +160,32 @@
                         }
                     }
                 }
-                if(count($old_tags_id_list) > 0) {
-                    $old_tag_relation_val = array();
-                    $sql_old_tag_relation = "INSERT INTO article_tag_map (article_id, tag_id) VALUES";
-                    for($i=0; $i < count($sql_old_tag_list); $i++) {
-                        array_push($old_tag_relation_val, "('{$new_article_id}', '{$sql_old_tag_list[i]}')");
-                    }
-                    $sql_old_tag_relation = $sql_old_tag_relation." ".implode(",", $old_tag_relation_val);
-                    $result_old_tag_relation = mysqli_query($conn, $sql_old_tag_relation);
-                    // foreach($old_tags_id_list as $old_id) {
-                    //     $sql_old_tag_relation = "INSERT INTO article_tag_map (article_id, tag_id) VALUES ('{$new_article_id}', '{$old_id}')";//태그 맵 DB에 old 태그와 article의 id값을 저장한다
-                    //     $result_old_tag_relation = mysqli_query($conn, $sql_old_tag_relation);
-                    // }
+            }
+            if(count($old_tags_id_list) > 0) {
+                $old_tag_relation_val = array();
+                $sql_old_tag_relation = "INSERT INTO article_tag_map (article_id, tag_id) VALUES";
+                for($i=0; $i < count($sql_old_tag_list); $i++) {
+                    array_push($old_tag_relation_val, "('{$new_article_id}', '{$sql_old_tag_list[i]}')");
                 }
-                if(count($new_tags_id_list) > 0) {
-                    $new_tag_relation_val = array();
-                    $sql_new_tag_relation = "INSERT INTO article_tag_map (article_id, tag_id) VALUES";
-                    for($i=0; $i < count($sql_new_tag_list); $i++) {
-                        array_push($new_tag_relation_val, "('{$new_article_id}', '{$sql_new_tag_list[i]}')");
-                    }
-                    $sql_new_tag_relation = $sql_new_tag_relation." ".implode(",", $new_tag_relation_val);
-                    $result_new_tag_relation = mysqli_query($conn, $sql_new_tag_relation);
-                    // foreach($old_tags_id_list as $old_id) {
-                    //     $sql_old_tag_relation = "INSERT INTO article_tag_map (article_id, tag_id) VALUES ('{$new_article_id}', '{$old_id}')";//태그 맵 DB에 old 태그와 article의 id값을 저장한다
-                    //     $result_old_tag_relation = mysqli_query($conn, $sql_old_tag_relation);
-                    // }
+                $sql_old_tag_relation = $sql_old_tag_relation." ".implode(",", $old_tag_relation_val);
+                $result_old_tag_relation = mysqli_query($conn, $sql_old_tag_relation);
+                // foreach($old_tags_id_list as $old_id) {
+                //     $sql_old_tag_relation = "INSERT INTO article_tag_map (article_id, tag_id) VALUES ('{$new_article_id}', '{$old_id}')";//태그 맵 DB에 old 태그와 article의 id값을 저장한다
+                //     $result_old_tag_relation = mysqli_query($conn, $sql_old_tag_relation);
+                // }
+            }
+            if(count($new_tags_id_list) > 0) {
+                $new_tag_relation_val = array();
+                $sql_new_tag_relation = "INSERT INTO article_tag_map (article_id, tag_id) VALUES";
+                for($i=0; $i < count($sql_new_tag_list); $i++) {
+                    array_push($new_tag_relation_val, "('{$new_article_id}', '{$sql_new_tag_list[i]}')");
                 }
+                $sql_new_tag_relation = $sql_new_tag_relation." ".implode(",", $new_tag_relation_val);
+                $result_new_tag_relation = mysqli_query($conn, $sql_new_tag_relation);
+                // foreach($old_tags_id_list as $old_id) {
+                //     $sql_old_tag_relation = "INSERT INTO article_tag_map (article_id, tag_id) VALUES ('{$new_article_id}', '{$old_id}')";//태그 맵 DB에 old 태그와 article의 id값을 저장한다
+                //     $result_old_tag_relation = mysqli_query($conn, $sql_old_tag_relation);
+                // }
             }
             echo("<script>alert('평상이 생성되었습니다.');location.href='index.php?q=ok';</script>");
 
