@@ -231,10 +231,10 @@ function setIntroImg() {
             // }, 100);
             introTitle.classList.add(imgSrc.alt);
             introEnter.classList.add(imgSrc.alt);
+            // setTimeout(function() {
+            // }, 600);
             setTimeout(function() {
                 introTitle.innerHTML = imgSrc.title;
-            }, 100);
-            setTimeout(function() {
                 introTitleHeader.classList.add("active");
             }, 600);
         }
