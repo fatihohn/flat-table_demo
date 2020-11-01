@@ -308,8 +308,10 @@
                             limitInput(); 
                         } else {
                             tagInput.value = "";
-                            if(tagContainer.children[2]) {
-                                tagContainer.children[2].remove();
+                            // if(tagContainer.children[2]) {
+                            if(tagContainer.querySelector(".tag_finder_wrap")) {
+                                // tagContainer.children[2].remove();
+                                tagContainer.querySelector(".tag_finder_wrap").remove();
                             }
                         }
                 }
@@ -321,7 +323,8 @@
                         showExistingTags(tagInput.value, selectExistingTag);
                         // showExistingTags(tagInput.value);
                     } else {
-                        tagContainer.children[2].remove();
+                        // tagContainer.children[2].remove();
+                        tagContainer.querySelector(".tag_finder_wrap").remove();
                     }
                 } 
             }
@@ -362,8 +365,8 @@
                                 }
                             }
                         }
-                    }
                     callback();
+                    }
                 })();
             };
 
@@ -376,7 +379,7 @@
             // }
             // selectExistingTag();//////how to trigger this????
             selectExistingTag = function () {
-               tagFinderBtn = document.querySelectorAll(".tag_finder_btn");
+                tagFinderBtn = document.querySelectorAll(".tag_finder_btn");
                 tagFinderBtn.forEach((btn) => {
                     btn.onclick = function () {
                         console.log("clicked");
