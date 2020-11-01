@@ -58,12 +58,12 @@ $status = $statusMsg = '';
             // $compressedImage = compressImage($imageTemp, $imageUploadPath, 60); 
             // move_uploaded_file($imageTemp, 'uploads/'.$newFileName);
             move_uploaded_file($imageTemp, $imageUploadPath);
-            if($compressedImage){ 
-                $status = 'success'; 
-                $statusMsg = "Image compressed successfully."; 
-            }else{ 
-                $statusMsg = "Image compress failed!"; 
-            } 
+            // if($compressedImage){ 
+            //     $status = 'success'; 
+            //     $statusMsg = "Image compressed successfully."; 
+            // }else{ 
+            //     $statusMsg = "Image compress failed!"; 
+            // } 
         }else{ 
             $statusMsg = 'Sorry, only JPG, JPEG, PNG, & GIF files are allowed to upload.'; 
         } 

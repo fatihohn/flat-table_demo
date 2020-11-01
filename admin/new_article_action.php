@@ -9,8 +9,8 @@
     $table_address = $_POST['address'];
     $table_address = mysqli_real_escape_string($conn, $table_address);
 
-    $categories = $_POST['categories'];
-    $categories = mysqli_real_escape_string($conn, $categories);
+    // $categories = $_POST['categories'];
+    // $categories = mysqli_real_escape_string($conn, $categories);
 
     $imgs = $_POST['imgs'];
     $imgs = mysqli_real_escape_string($conn, $imgs);
