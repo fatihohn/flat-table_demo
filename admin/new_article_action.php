@@ -109,11 +109,13 @@
         echo mysqli_error($conn);
         error_log(mysqli_error($conn));
     } else{//새 article이 만들어지면
-        $sql_new_article_id = "SELECT id FROM articles ORDER BY id DESC LIMIT 1";//새로 만들어진 article의 id도 불러오고
+        $sql_new_article_id = "SELECT * FROM articles ORDER BY id DESC LIMIT 1";//새로 만들어진 article의 id도 불러오고
         $result_new_article_id = mysqli_query($conn, $sql_new_article_id);
         // $row_new_article_id = $result_new_article_id->fetch_assoc();
         $row_new_article_id = mysqli_fetch_assoc($result_new_article_id);
         $new_article_id = $row_new_article_id['id'];
+
+
         if(count($tag_vault) > 0) {//태그 입력이 있다면
             foreach($tag_vault as $tag_input) {//-------------------------------------각각 쿼리하는게 아니라, 한데 모아서 쿼리하는 방식으로 변경할 것.
                 if(in_array($tag_input, $old_tags)) {//전에 입력됐던 태그가 있다면
