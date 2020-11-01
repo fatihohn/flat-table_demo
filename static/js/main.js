@@ -232,9 +232,9 @@ function setIntroImg() {
             introTitle.classList.add(imgSrc.alt);
             introEnter.classList.add(imgSrc.alt);
             introTitle.innerHTML = imgSrc.title;
-            setTimeout(function() {
-                introTitleHeader.classList.add("active");
-            }, 600);
+            introTitleHeader.classList.add("active");
+            // setTimeout(function() {
+            // }, 600);
         }
 
         function hideIntroTitle() {
