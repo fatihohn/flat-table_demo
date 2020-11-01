@@ -132,10 +132,10 @@
         if(count($tag_vault) > 0) {//태그 입력이 있다면
             foreach($tag_vault as $tag_input) {
                 if(in_array($tag_input, $old_tags)) {//전에 입력됐던 태그가 있다면
-                    $sql_tag_input_id = "SELECT id FROM tags WHERE tag_name = $tag_input";//태그의 id값을 구해서
-                    $result_tag_input_id = mysqli_query($conn, $sql_tag_input_id);
-                    $row_tag_input_id = $result_tag_input_id->fetch_assoc();
-                    $old_tag_id = $row_tag_input_id['id'];
+                    $sql_old_tag_id = "SELECT * FROM tags WHERE tag_name = $tag_input";//태그의 id값을 구해서
+                    $result_old_tag_id = mysqli_query($conn, $sql_old_tag_id);
+                    $row_old_tag_id = $result_old_tag_id->fetch_assoc();
+                    $old_tag_id = $row_old_tag_id['id'];
 
     
                     $sql_old_tag_relation = "INSERT INTO article_tag_map (article_id, tag_id) VALUES ('{$new_article_id}', '{$old_tag_id}')";//태그 맵 DB에 old 태그와 article의 id값을 저장한다
@@ -145,7 +145,7 @@
                     $result_new_tag_input = mysqli_query($conn, $sql_new_tag_input);
                     
                     if($result_new_tag_input) {
-                        $sql_new_tag_id = "SELECT id FROM tags WHERE tag_name = $tag_input";//저장된 태그의 id 불러오기
+                        $sql_new_tag_id = "SELECT * FROM tags WHERE tag_name = $tag_input";//저장된 태그의 id 불러오기
                         $result_new_tag_id = mysqli_query($conn, $sql_new_tag_id);
                         $row_new_tag_id = $result_new_tag_id->fetch_assoc();
                         $new_tag_id = $row_new_tag_id['id'];
