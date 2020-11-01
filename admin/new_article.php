@@ -113,6 +113,16 @@
                                 </span>
                             </p>
                         </div>
+                        <div class="article_fieldwork_date">
+                            <p class="fieldwork_date">
+                                <span>
+                                    <label for="fieldwork_date">
+                                        현지조사
+                                        <input id="fieldwork_date" type="date" name="fieldwork_date" required>
+                                    </label>
+                                </span>
+                            </p>
+                        </div>
                         <div class="article_flag">
                             <p class="flag">
                                 <span>
@@ -130,7 +140,7 @@
                             <a href="">Facebook</a>
                             <a href="">Tweeter</a>
                         </div> -->
-                        <input type="hidden" name="about" value="no">
+                        <!-- <input type="hidden" name="about" value="no"> -->
                         <input type="hidden" name="username" value="<?=$username?>">
                         <input class="article_submit" type="submit">
                     </footer>

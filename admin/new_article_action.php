@@ -30,27 +30,67 @@
     $flag = $_POST['flag'];
     $flag = mysqli_real_escape_string($conn, $flag);
 
-    $about = $_POST['about'];
-    $about = mysqli_real_escape_string($conn, $about);
+    $fieldwork_date = $_POST['fieldwork_date'];
+    $fieldwork_date = mysqli_real_escape_string($conn, $fieldwork_date);
+
+    // $about = $_POST['about'];
+    // $about = mysqli_real_escape_string($conn, $about);
+
+
+    $tag_vault = $_POST['tag_vault'];
+    $tag_vault = mysqli_real_escape_string($conn, $tag_vault);
+
+    $tag_vault = explode(",", $tag_vault);
+
+    $new_tags = array();
+    $old_tags = array();
+
+
+    $sql_new_tags = 
+        "INSERT INTO tags (tagname) VALUES ('{$}'), ('{$}'), ('{$}');
+        ";
+
+
+
+
 
     $sql = 
         "INSERT INTO articles
-            (username, title, table_address, categories, imgs, comment, content, photographer, words, flag, about)
+            (username, title, table_address, imgs, comment, content, photographer, words, flag, fieldwork_date, about)
         VALUES(
             '{$username}',
             '{$title}',
             '{$table_address}',
-            '{$categories}',
             '{$imgs}',
             '{$comment}',
             '{$content}',
             '{$photographer}',
             '{$words}',
             '{$flag}',
-            '{$about}'
-            )";
+            '{$fieldwork_date}',
+            'no'
+        )";
+
+
+
+
+
+
+
+
+
+
 
     $result = mysqli_query($conn, $sql);
+
+
+
+
+
+
+
+
+
     if($result === false){
         echo '저장실패. 관리자에게 문의해주세요';
         echo '<br>';

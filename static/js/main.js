@@ -159,6 +159,7 @@ function setIntroImg() {
         //     showIntroTitle(slideImgSrc[0]);
 
         // }, 800);
+
         setTimeout(function() {
             showIntroTitle(slideImgSrc[0]);
         }, 600);
@@ -228,10 +229,10 @@ function setIntroImg() {
             // setTimeout(function() {
             //     introTitleHeader.classList.add("active");
             // }, 100);
+            introTitle.classList.add(imgSrc.alt);
+            introEnter.classList.add(imgSrc.alt);
+            introTitle.innerHTML = imgSrc.title;
             setTimeout(function() {
-                introTitle.classList.add(imgSrc.alt);
-                introEnter.classList.add(imgSrc.alt);
-                introTitle.innerHTML = imgSrc.title;
                 introTitleHeader.classList.add("active");
             }, 600);
         }
