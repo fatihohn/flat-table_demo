@@ -130,7 +130,7 @@
         $row_new_article_id = $result_new_article_id->fetch_assoc();
         $new_article_id = $row_new_article_id['id'];
         if(count($tag_vault) > 0) {//태그 입력이 있다면
-            foreach($tag_vault as $tag_input) {
+            foreach($tag_vault as $tag_input) {//-------------------------------------각각 쿼리하는게 아니라, 한데 모아서 쿼리하는 방식으로 변경할 것.
                 if(in_array($tag_input, $old_tags)) {//전에 입력됐던 태그가 있다면
                     $sql_old_tag_id = "SELECT * FROM tags WHERE tag_name = $tag_input";//태그의 id값을 구해서
                     $result_old_tag_id = mysqli_query($conn, $sql_old_tag_id);
