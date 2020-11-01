@@ -131,7 +131,7 @@
 
 
                         // $sql_old_tag_relation = "INSERT INTO articles_tags_map (article_id, tag_id) VALUES ('{$new_article_id}', '{$old_tag_id}')";//태그 맵 DB에 old 태그와 article의 id값을 저장한다
-                        $sql_old_tag_relation = "INSERT INTO articles_tags_map SET tag_id = $old_tag_id, article_fk = LAST_INSERT_ID()";
+                        $sql_old_tag_relation = "INSERT INTO articles_tags_map SET tag_fk = $old_tag_id, article_fk = LAST_INSERT_ID()";
                         $result_old_tag_relation = mysqli_query($conn, $sql_old_tag_relation);
 
 
@@ -156,7 +156,7 @@
 
 
                             // $sql_new_tag_relation = "INSERT INTO articles_tags_map (article_id, tag_id) VALUES ('{$new_article_id}', '{$new_tag_id}')";//태그 맵 DB에 new 태그와 article의 id값을 저장한다
-                            $sql_new_tag_relation = "INSERT INTO articles_tags_map SET tag_id = $new_tag_id, article_fk = LAST_INSERT_ID()";
+                            $sql_new_tag_relation = "INSERT INTO articles_tags_map SET tag_fk = $new_tag_id, article_fk = LAST_INSERT_ID()";
                             $result_new_tag_relation = mysqli_query($conn, $sql_new_tag_relation);
 
 
