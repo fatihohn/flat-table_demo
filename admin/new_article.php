@@ -382,7 +382,9 @@
                 tagFinderBtn = document.querySelectorAll(".tag_finder_btn");
                 tagFinderBtn.forEach((btn) => {
                     btn.onclick = function () {
-                        console.log("clicked");
+                        // console.log("clicked");
+                        console.log(btn.innerHTML.slice(1, btn.innerHTML.length));
+
                     }
                 });
             }
