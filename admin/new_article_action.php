@@ -187,10 +187,11 @@
                 //     $result_old_tag_relation = mysqli_query($conn, $sql_old_tag_relation);
                 // }
             }
+            $conn->close();
             echo("<script>alert('평상이 생성되었습니다.');location.href='index.php?q=ok';</script>");
 
-
         } else {
+            $conn>close();
             echo("<script>alert('평상이 생성되었습니다.');location.href='index.php?q=ok';</script>");
         }
     }
