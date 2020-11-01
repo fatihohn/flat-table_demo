@@ -385,6 +385,11 @@
                         // console.log("clicked");
                         console.log(btn.innerHTML.slice(1, btn.innerHTML.length));
 
+                        var tagFinderVal = btn.innerHTML.slice(1, btn.innerHTML.length);
+                        addTags(tagFinderVal);
+                        tagListWrap.appendChild(tagListUl);
+                        renderTagList(addTagDelBtn);
+                        limitInput();
                     }
                 });
             }
