@@ -141,6 +141,9 @@
         
                         $sql_old_tag_relation = "INSERT INTO article_tag_map (article_id, tag_id) VALUES ('{$new_article_id}', '{$old_tag_id}')";//태그 맵 DB에 old 태그와 article의 id값을 저장한다
                         $result_old_tag_relation = mysqli_query($conn, $sql_old_tag_relation);
+                        if($result_old_tag_relation) {
+                            echo("<script>alert('평상이 생성되었습니다.');location.href='index.php?q=ok';</script>");
+                        }
                     }
                 } else {//새로운 태그라면
                     $sql_new_tag_input = "INSERT INTO tags (tag_name) VALUES ('{$tag_input}')";//새로운 태그 저장
@@ -156,10 +159,14 @@
                             
                             $sql_new_tag_relation = "INSERT INTO article_tag_map (article_id, tag_id) VALUES ('{$new_article_id}', '{$new_tag_id}')";//태그 맵 DB에 new 태그와 article의 id값을 저장한다
                             $result_new_tag_relation = mysqli_query($conn, $sql_new_tag_relation);
+                            if($result_new_tag_relation) {
+                                echo("<script>alert('평상이 생성되었습니다.');location.href='index.php?q=ok';</script>");
+                            }
                         }
                     }
                 }
             }
+        } else {
+            echo("<script>alert('평상이 생성되었습니다.');location.href='index.php?q=ok';</script>");
         }
-        echo("<script>alert('평상이 생성되었습니다.');location.href='index.php?q=ok';</script>");
     }
