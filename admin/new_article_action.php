@@ -50,7 +50,8 @@
     $sql_old_tags = "SELECT tag_name FROM tags";
     $result_old_tags = mysqli_query($conn, $sql_old_tags);
     while($rows_old_tags = $result_old_tags->fetch_assoc()) {
-        array_push($old_tags, array($rows_old_tags['tag_name'], $rows_old_tags['id']));
+        // array_push($old_tags, array($rows_old_tags['tag_name'], $rows_old_tags['id']));
+        array_push($old_tags, $rows_old_tags['tag_name']);
         // array_push($old_tags_id_list, $rows_old_tags['id']);
     }
 
