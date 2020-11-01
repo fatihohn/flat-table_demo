@@ -386,11 +386,18 @@
                         // console.log(btn.innerHTML.slice(1, btn.innerHTML.length));
 
                         var tagFinderVal = btn.innerHTML.slice(1, btn.innerHTML.length);
-                        addTags(tagFinderVal);
-                        tagListWrap.appendChild(tagListUl);
-                        renderTagList(addTagDelBtn);
-                        limitInput();
-                        tagContainer.querySelector(".tag_finder_wrap").remove();
+                        if(!tagList.includes(tagFinderVal)) {
+                            addTags(tagFinderVal);
+                            tagListWrap.appendChild(tagListUl);
+                            renderTagList(addTagDelBtn);
+                            limitInput();
+                            tagContainer.querySelector(".tag_finder_wrap").remove();
+                        } else {
+                            tagInput.value = "";
+                            if(tagContainer.querySelector(".tag_finder_wrap")) {
+                                tagContainer.querySelector(".tag_finder_wrap").remove();
+                            }
+                        }
                     }
                 });
             }
