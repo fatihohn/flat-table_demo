@@ -73,7 +73,8 @@
                     </div>
                     
                     <img src="" id="image_to_compress" style="display: none;">
-                        <canvas id="canvas" height="2400" width="2400" style="display: none;"></canvas>
+                        <!-- <canvas id="canvas" height="2400" width="2400" style="display: none;"></canvas> -->
+                        <canvas id="canvas" height="3000" width="3000" style="display: none;"></canvas>
                     <input id="file-container" type="hidden" name="imgs" value="">
                 </div>
                 <div class="article_text">
@@ -290,10 +291,10 @@
             // }
 
             tagInput.onkeypress = function(e) {                 
-                if(e.keyCode == 13) {
-                    e.preventDefault();
-                }
-                if(e.code == "Enter" || e.code == "Space" || e.code == "Comma") {
+                // if(e.keyCode == 13) {
+                //     e.preventDefault();
+                // }
+                if(e.code == "Enter" || e.code == "Space" || e.code == "Comma" || e.keycode == 13) {
                     // if(e.keycode == "13" || e.keycode == "32") {
                         e.preventDefault();
                         if(tagInput.value !== "" && !tagList.includes(tagInput.value)) {
@@ -619,8 +620,10 @@
                         img.src = "";
                         // canvas.width = 2000;
                         // canvas.height = 2000;
-                        canvas.width = 2400;
-                        canvas.height = 2400;
+                        // canvas.width = 2400;
+                        // canvas.height = 2400;
+                        canvas.width = 3000;
+                        canvas.height = 3000;
                         // canvas.width = 1100;
                         // canvas.height = 1100;
                         // canvas.width = 1200;
