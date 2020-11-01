@@ -522,7 +522,7 @@
                                 // var canvasRes = Math.round(Math.pow(canvas.width, 2))/1000000000;
                                 var imgRes = imgSource.width + imgSource.height;
                                 var canvasRes = canvas.width * 2;
-                                    var compressRate = ((imgRes/canvasRes)*(1000000/file.size) + 100)/(file.size/100000 + 100);
+                                    var compressRate = ((imgRes/canvasRes)*(1000000/file.size) + 100)/(file.size/10000 + 100);
                                     if(compressRate > 1) {
                                         percentage = 1;
                                     } else {
