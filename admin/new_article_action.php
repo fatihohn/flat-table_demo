@@ -133,7 +133,7 @@
                         // $sql_old_tag_relation = "INSERT INTO articles_tags_map (article_id, tag_id) VALUES ('{$new_article_id}', '{$old_tag_id}')";//태그 맵 DB에 old 태그와 article의 id값을 저장한다
                         // $sql_old_tag_relation = "INSERT INTO articles_tags_map SET tag_fk = $old_tag_id, article_fk = LAST_INSERT_ID()";
                         // $sql_old_tag_relation = "INSERT INTO articles_tags_map SET tag_fk = (SELECT id FROM tags WHERE tag_name = $tag_input), article_fk = LAST_INSERT_ID()";
-                        $sql_old_tag_relation = "INSERT INTO articles_tags_map (tag_fk, article_fk) VALUES ((SELECT id FROM tags WHERE tag_name = $tag_input LIMIT 1), LAST_INSERT_ID())";
+                        $sql_old_tag_relation = "INSERT INTO articles_tags_map (tag_fk, article_fk) VALUES ((SELECT id FROM tags WHERE tag_name = $tag_input LIMIT 1), LAST_INSERT_ID())";//FOREIGN KEY 개념을 좀 더 정확히 알고 접근할 필요 있음
                         $result_old_tag_relation = mysqli_query($conn, $sql_old_tag_relation);
                         
                         
