@@ -390,6 +390,7 @@
                         tagListWrap.appendChild(tagListUl);
                         renderTagList(addTagDelBtn);
                         limitInput();
+                        tagContainer.querySelector(".tag_finder_wrap").remove();
                     }
                 });
             }
