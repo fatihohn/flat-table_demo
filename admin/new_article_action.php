@@ -167,7 +167,7 @@
             }
             if(count($old_tags_id_list) > 0) {
                 $old_tag_relation_val = array();
-                $sql_old_tag_relation = "INSERT INTO article_tag_map (article_id, tag_id) VALUES";
+                $sql_old_tag_relation = "INSERT INTO article_tag_map (@article_id, @tag_id) VALUES";
                 for($i=0; $i < count($sql_old_tag_list); $i++) {
                     array_push($old_tag_relation_val, "('{$new_article_id}', '{$sql_old_tag_list[$i]}')");
                 }
@@ -180,7 +180,7 @@
             }
             if(count($new_tags_id_list) > 0) {
                 $new_tag_relation_val = array();
-                $sql_new_tag_relation = "INSERT INTO article_tag_map (article_id, tag_id) VALUES";
+                $sql_new_tag_relation = "INSERT INTO article_tag_map (@article_id, @tag_id) VALUES";
                 for($i=0; $i < count($sql_new_tag_list); $i++) {
                     array_push($new_tag_relation_val, "('{$new_article_id}', '{$sql_new_tag_list[$i]}')");
                 }
