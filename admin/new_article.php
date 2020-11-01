@@ -282,13 +282,17 @@
                tagInput = document.querySelector("#tags");
                tagVault = document.querySelector("#tag_vault");
                tagContainer = document.querySelector(".tag_container");
-               tagFinderBtn = document.querySelectorAll(".tag_finder_btn");
+            //    tagFinderBtn = document.querySelectorAll(".tag_finder_btn");
 
             // document.onkeypress = function(e) {
             //     if(e.keyCode == 13) {
             //         e.preventDefault();
             //     }
             // }
+
+
+            
+
 
             tagInput.onkeypress = function(e) {                 
                 // if(e.keyCode == 13) {
@@ -314,8 +318,8 @@
             tagInput.onkeyup = function(e) {
                 if(e.code !== "Enter" || e.code !== "Space" || e.code !== "Comma") {
                     if(tagInput.value !== "") {
-                        // showExistingTags(tagInput.value, selectExistingTag);
-                        showExistingTags(tagInput.value);
+                        showExistingTags(tagInput.value, selectExistingTag);
+                        // showExistingTags(tagInput.value);
                     } else {
                         tagContainer.children[2].remove();
                     }
@@ -327,8 +331,8 @@
                 tagInput.value = "";
             };
 
-            // showExistingTags = function (val, callback) {
-            showExistingTags = function (val) {
+            showExistingTags = function (val, callback) {
+            // showExistingTags = function (val) {
                 (function () {
                     var finderWrap = document.createElement("div");
                     var finder = new XMLHttpRequest();
@@ -341,31 +345,44 @@
                             finderWrap.innerHTML = finder.responseText;
     
                             if(val.length > 0) {
-                                if(!tagContainer.children[2]) {
+                                // if(!tagContainer.children[2]) {
+                                if(!tagContainer.querySelector(".tag_finder_wrap")) {
                                     tagContainer.appendChild(finderWrap);
                                 } else {
-                                    tagContainer.children[2].remove();
+                                    // tagContainer.children[2].remove();
+                                    tagContainer.querySelector(".tag_finder_wrap").remove();
                                     tagContainer.appendChild(finderWrap);
-                                    tagContainer.children[2].innerHTML = finder.responseText;
+                                    // tagContainer.children[2].innerHTML = finder.responseText;
+                                    tagContainer.querySelector(".tag_finder_wrap").innerHTML = finder.responseText;
                                 }
                             } else {
-                                tagContainer.children[2].remove();
+                                // tagContainer.children[2].remove();
+                                if(tagContainer.querySelector(".tag_finder_wrap")) {
+                                    tagContainer.querySelector(".tag_finder_wrap").remove();
+                                }
                             }
                         }
                     }
-                    // callback();
+                    callback();
                 })();
             };
 
+            // selectExistingTag = function () {
+            //     tagFinderBtn.forEach((btn) => {
+            //         btn.onclick = function () {
+            //             console.log("clicked");
+            //         }
+            //     });
+            // }
+            // selectExistingTag();//////how to trigger this????
             selectExistingTag = function () {
+               tagFinderBtn = document.querySelectorAll(".tag_finder_btn");
                 tagFinderBtn.forEach((btn) => {
                     btn.onclick = function () {
                         console.log("clicked");
                     }
                 });
             }
-            // selectExistingTag();//////how to trigger this????
-
 
 
 
