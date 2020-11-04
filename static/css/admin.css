@@ -376,7 +376,8 @@ button {
     padding: 0px 1rem;
 }
 
-.tag_finder_btn:hover {
+.tag_finder_btn:hover,
+.tag_finder_item.selected .tag_finder_btn {
     background: rgb(244, 244, 250);
 }
 
