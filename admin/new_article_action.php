@@ -117,61 +117,96 @@
 
 
         if(count($tag_vault) > 0) {//태그 입력이 있다면
-            foreach($tag_vault as $tag_input) {//-------------------------------------각각 쿼리하는게 아니라, 한데 모아서 쿼리하는 방식으로 변경할 것.
-                if(in_array($tag_input, $old_tags)) {//전에 입력됐던 태그가 있다면
-                    // $sql_old_tag_id = "SELECT * FROM tags WHERE tag_name = $tag_input";//태그의 id값을 구해서
-                    // $result_old_tag_id = mysqli_query($conn, $sql_old_tag_id);
-                    // // $row_old_tag_id = $result_old_tag_id->fetch_assoc();
-                    // if($result_old_tag_id) {
-                    //     $row_old_tag_id = mysqli_fetch_assoc($result_old_tag_id);
-                    //     $old_tag_id = $row_old_tag_id['id'];
-        
 
-                    //     array_push($old_tags_id_list, $old_tag_id);
+            for($i = 0; $i < count($tag_vault); $i++) {
+                if(in_array($tag_vault[$i], $old_tags)) {//전에 입력됐던 태그가 있다면
+                    ?>
+                    <script>
+                        console.log("old: "+"<?=$tag_vault[$i]?>")
+                    </script>
+                    <?php
+                    $sql_old_tag_relation = "INSERT INTO article_tag_map SET 
+                        tag_id = (SELECT id FROM tags WHERE tag_name = '$tag_vault[$i]'), 
+                        article_id = (SELECT MAX(id) FROM articles)";//태그 테이블 맵핑
+                    $result_old_tag_relation = mysqli_query($conn, $sql_old_tag_relation);
+                   
+                } else {//새로운 태그라면
+                    $sql_new_tag_vault[$i] = "INSERT INTO tags (tag_name) VALUES ('{$tag_vault[$i]}')";//새로운 태그 저장
+                    $result_new_tag_vault[$i] = mysqli_query($conn, $sql_new_tag_vault[$i]);
+                    
+                    if($result_new_tag_vault[$i]) {
+                        ?>
+                        <script>
+                            console.log("new: "+"<?=$tag_vault[$i]?>")
+                        </script>
+                        <?php
+                        $sql_new_tag_relation = "INSERT INTO article_tag_map SET 
+                            tag_id = (SELECT MAX(id) FROM tags), 
+                            article_id = (SELECT MAX(id) FROM articles)";//태그 테이블 맵핑
+                        $result_new_tag_relation = mysqli_query($conn, $sql_new_tag_relation);
 
-
-                        // $sql_old_tag_relation = "INSERT INTO articles_tags_map (article_id, tag_id) VALUES ('{$new_article_id}', '{$old_tag_id}')";//태그 맵 DB에 old 태그와 article의 id값을 저장한다
-                        // $sql_old_tag_relation = "INSERT INTO articles_tags_map SET tag_fk = $old_tag_id, article_fk = LAST_INSERT_ID()";
-                        // $sql_old_tag_relation = "INSERT INTO articles_tags_map SET tag_fk = (SELECT id FROM tags WHERE tag_name = $tag_input), article_fk = LAST_INSERT_ID()";
-                        $sql_old_tag_relation = "INSERT INTO articles_tags_map (tag_fk, article_fk) VALUES ((SELECT id FROM tags WHERE tag_name = $tag_input LIMIT 1), LAST_INSERT_ID())";//FOREIGN KEY 개념을 좀 더 정확히 알고 접근할 필요 있음
-                        $result_old_tag_relation = mysqli_query($conn, $sql_old_tag_relation);
-                        
-                        
-                        // if($result_old_tag_relation) {
-                            //     echo("<script>alert('평상이 생성되었습니다.');location.href='index.php?q=ok';</script>");
-                            // }
-                        // }
-                    } else {//새로운 태그라면
-                        $sql_new_tag_input = "INSERT INTO tags (tag_name) VALUES ('{$tag_input}')";//새로운 태그 저장
-                        $result_new_tag_input = mysqli_query($conn, $sql_new_tag_input);
-                        
-                        if($result_new_tag_input) {
-                            $sql_new_tag_id = "SELECT * FROM tags WHERE tag_name = $tag_input";//저장된 태그의 id 불러오기
-                            $result_new_tag_id = mysqli_query($conn, $sql_new_tag_id);
-                            // $row_new_tag_id = $result_new_tag_id->fetch_assoc();
-                            if($result_new_tag_id) {
-                                // $row_new_tag_id = mysqli_fetch_assoc($result_new_tag_id);
-                                // $new_tag_id = $row_new_tag_id['id'];
-                                
-                                
-                                // array_push($new_tags_id_list, $new_tag_id);
-                                
-                                
-                                // $sql_new_tag_relation = "INSERT INTO articles_tags_map (article_id, tag_id) VALUES ('{$new_article_id}', '{$new_tag_id}')";//태그 맵 DB에 new 태그와 article의 id값을 저장한다
-                                // $sql_new_tag_relation = "INSERT INTO articles_tags_map SET tag_fk = $new_tag_id, article_fk = LAST_INSERT_ID()";
-                                // $sql_old_tag_relation = "INSERT INTO articles_tags_map SET tag_fk = (SELECT id FROM tags WHERE tag_name = $tag_input), article_fk = LAST_INSERT_ID()";
-                                // $sql_old_tag_relation = "INSERT INTO articles_tags_map SET tag_fk = LAST_INSERT_ID(), article_fk = LAST_INSERT_ID()";
-                                $sql_new_tag_relation = "INSERT INTO articles_tags_map (tag_fk, article_fk) VALUES (LAST_INSERT_ID(), LAST_INSERT_ID())";
-                            $result_new_tag_relation = mysqli_query($conn, $sql_new_tag_relation);
-
-
-                            // if($result_new_tag_relation) {
-                            //     echo("<script>alert('평상이 생성되었습니다.');location.href='index.php?q=ok';</script>");
-                            // }
-                        }
                     }
                 }
             }
+
+
+
+
+            // foreach($tag_vault as $tag_input) {//-------------------------------------각각 쿼리하는게 아니라, 한데 모아서 쿼리하는 방식으로 변경할 것.
+            //     if(in_array($tag_input, $old_tags)) {//전에 입력됐던 태그가 있다면
+            //         // $sql_old_tag_id = "SELECT * FROM tags WHERE tag_name = $tag_input";//태그의 id값을 구해서
+            //         // $result_old_tag_id = mysqli_query($conn, $sql_old_tag_id);
+            //         // // $row_old_tag_id = $result_old_tag_id->fetch_assoc();
+            //         // if($result_old_tag_id) {
+            //         //     $row_old_tag_id = mysqli_fetch_assoc($result_old_tag_id);
+            //         //     $old_tag_id = $row_old_tag_id['id'];
+        
+
+            //         //     array_push($old_tags_id_list, $old_tag_id);
+
+
+            //             // $sql_old_tag_relation = "INSERT INTO articles_tags_map (article_id, tag_id) VALUES ('{$new_article_id}', '{$old_tag_id}')";//태그 맵 DB에 old 태그와 article의 id값을 저장한다
+            //             // $sql_old_tag_relation = "INSERT INTO articles_tags_map SET tag_fk = $old_tag_id, article_fk = LAST_INSERT_ID()";
+            //             // $sql_old_tag_relation = "INSERT INTO articles_tags_map SET tag_fk = (SELECT id FROM tags WHERE tag_name = $tag_input), article_fk = LAST_INSERT_ID()";
+            //             $sql_old_tag_relation = "INSERT INTO articles_tags_map (tag_fk, article_fk) VALUES ((SELECT id FROM tags WHERE tag_name = $tag_input LIMIT 1), LAST_INSERT_ID())";//FOREIGN KEY 개념을 좀 더 정확히 알고 접근할 필요 있음
+            //             $result_old_tag_relation = mysqli_query($conn, $sql_old_tag_relation);
+                        
+                        
+            //             // if($result_old_tag_relation) {
+            //                 //     echo("<script>alert('평상이 생성되었습니다.');location.href='index.php?q=ok';</script>");
+            //                 // }
+            //             // }
+            //         } else {//새로운 태그라면
+            //             $sql_new_tag_input = "INSERT INTO tags (tag_name) VALUES ('{$tag_input}')";//새로운 태그 저장
+            //             $result_new_tag_input = mysqli_query($conn, $sql_new_tag_input);
+                        
+            //             if($result_new_tag_input) {
+            //                 $sql_new_tag_id = "SELECT * FROM tags WHERE tag_name = $tag_input";//저장된 태그의 id 불러오기
+            //                 $result_new_tag_id = mysqli_query($conn, $sql_new_tag_id);
+            //                 // $row_new_tag_id = $result_new_tag_id->fetch_assoc();
+            //                 if($result_new_tag_id) {
+            //                     // $row_new_tag_id = mysqli_fetch_assoc($result_new_tag_id);
+            //                     // $new_tag_id = $row_new_tag_id['id'];
+                                
+                                
+            //                     // array_push($new_tags_id_list, $new_tag_id);
+                                
+                                
+            //                     // $sql_new_tag_relation = "INSERT INTO articles_tags_map (article_id, tag_id) VALUES ('{$new_article_id}', '{$new_tag_id}')";//태그 맵 DB에 new 태그와 article의 id값을 저장한다
+            //                     // $sql_new_tag_relation = "INSERT INTO articles_tags_map SET tag_fk = $new_tag_id, article_fk = LAST_INSERT_ID()";
+            //                     // $sql_old_tag_relation = "INSERT INTO articles_tags_map SET tag_fk = (SELECT id FROM tags WHERE tag_name = $tag_input), article_fk = LAST_INSERT_ID()";
+            //                     // $sql_old_tag_relation = "INSERT INTO articles_tags_map SET tag_fk = LAST_INSERT_ID(), article_fk = LAST_INSERT_ID()";
+            //                     $sql_new_tag_relation = "INSERT INTO articles_tags_map (tag_fk, article_fk) VALUES (LAST_INSERT_ID(), LAST_INSERT_ID())";
+            //                 $result_new_tag_relation = mysqli_query($conn, $sql_new_tag_relation);
+
+
+            //                 // if($result_new_tag_relation) {
+            //                 //     echo("<script>alert('평상이 생성되었습니다.');location.href='index.php?q=ok';</script>");
+            //                 // }
+            //             }
+            //         }
+            //     }
+            // }
 
 
             // if(count($old_tags_id_list) > 0) {
@@ -205,10 +240,10 @@
 
 
             echo("<script>alert('평상이 생성되었습니다.');location.href='index.php?q=ok';</script>");
-            $conn->close();
+            // $conn->close();
 
         } else {
             echo("<script>alert('평상이 생성되었습니다.');location.href='index.php?q=ok';</script>");
-            $conn>close();
+            // $conn>close();
         }
     }
