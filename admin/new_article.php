@@ -688,6 +688,7 @@
                             if(!tagFinder.querySelector(".selected")) {
                                 // tagFinder.firstChild.classList.add("selected");
                                 tagFinder.firstElementChild.classList.add("selected");
+                                console.log(tagFinder.firstElementChild);
                             // } else if(tagFinder.querySelector(".selected") && tagFinder.querySelector(".selected").nextSibling) {
                             } else if(tagFinder.querySelector(".selected") && tagFinder.querySelector(".selected").nextElementSibling) {
                                 // tagFinder.querySelector(".selected").nextSibling.classList.add("selected");
@@ -703,6 +704,7 @@
                             if(!tagFinder.querySelector(".selected")) {
                                 // tagFinder.lastChild.classList.add("selected");
                                 tagFinder.lastElementChild.classList.add("selected");
+                                console.log(tagFinder.lastElementChild);
                             // } else if(tagFinder.querySelector(".selected") && tagFinder.querySelector(".selected").previousSibling) {
                             } else if(tagFinder.querySelector(".selected") && tagFinder.querySelector(".selected").previousElementSibling) {
                                 // tagFinder.querySelector(".selected").previousSibling.classList.add("selected");
