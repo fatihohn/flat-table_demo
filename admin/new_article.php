@@ -491,8 +491,8 @@
                         if(e.keycode == 40 || e.code == "ArrowDown") {
                             e.preventDefault();
                             if(!tagFinder.querySelector(".selected")) {
-                                tagFinder.firstChild.classList.add("selected"); 
-                                // tagFinder.firstElementChild.classList.add("selected");
+                                // tagFinder.firstChild.classList.add("selected"); 
+                                tagFinder.firstElementChild.classList.add("selected");
                             // } else if(tagFinder.querySelector(".selected") && tagFinder.querySelector(".selected").nextSibling) {
                             } else if(tagFinder.querySelector(".selected") && tagFinder.querySelector(".selected").nextElementSibling) {
                                 // tagFinder.querySelector(".selected").nextSibling.classList.add("selected");
