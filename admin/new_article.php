@@ -469,7 +469,7 @@
 
         })();
     </script> -->
-
+<!-- 
     <script>
        //hashtag related
        (function () {
@@ -663,7 +663,199 @@
             }
 
         })();
+    </script> -->
+
+    <script>
+       //hashtag related
+       (function () {
+           var tagInput, tagVault;
+           var showExistingTags, addTags, renderTagList, addTagDelBtn, limitInput, setTagVault, selectExistingTag;
+           var tagListWrap, tagListUl, tagDelBtn, tagContainer, tagFinderBtn;
+           var tagList = [];
+               tagListWrap = document.querySelector(".tag_list_wrap");
+               tagListUl = document.createElement("ul");
+               tagInput = document.querySelector("#tags");
+               tagVault = document.querySelector("#tag_vault");
+               tagContainer = document.querySelector(".tag_container");
+               tagFinderBtn = document.querySelectorAll(".tag_finder_btn");
+
+            tagInput.addEventListener("keydown", function(e) {
+                var tagFinder = document.querySelector(".tag_finder");
+                if(e.keycode == 40 || e.code == "ArrowDown" || e.keycode == 38 || e.code == "ArrowUp") {
+                    if(tagFinder) {
+                        if(e.keycode == 40 || e.code == "ArrowDown") {
+                            e.preventDefault();
+                            if(!tagFinder.querySelector(".selected")) {
+                                tagFinder.firstChild.classList.add("selected");
+                            } else if(tagFinder.querySelector(".selected") && tagFinder.querySelector(".selected").nextSibling) {
+                                tagFinder.querySelector(".selected").nextSibling.classList.add("selected");
+                                tagFinder.querySelector(".selected").classList.remove("selected");
+                            } else {
+                                tagFinder.querySelector(".selected").classList.remove("selected");
+                                tagFinder.firstChild.classList.add("selected");
+                            }
+                        } else if(e.keycode == 38 || e.code == "ArrowUp") {
+                            e.preventDefault();
+                            if(!tagFinder.querySelector(".selected")) {
+                                tagFinder.lastChild.classList.add("selected");
+                            } else if(tagFinder.querySelector(".selected") && tagFinder.querySelector(".selected").previousSibling) {
+                                tagFinder.querySelector(".selected").previousSibling.classList.add("selected");
+                                tagFinder.querySelectorAll(".selected")[1].classList.remove("selected");
+                            } else {
+                                tagFinder.querySelector(".selected").classList.remove("selected");
+                                tagFinder.lastChild.classList.add("selected");
+                            }
+                        }
+                        tagInput.value = tagFinder.querySelector(".selected .tag_finder_btn").innerHTML.slice(1, tagFinder.querySelector(".selected .tag_finder_btn").innerHTML.length);
+                    }
+                }
+            });
+
+            
+
+            tagInput.onkeypress = function(e) {       
+                if(e.code == "Enter" || e.code == "Space" || e.code == "Comma" || e.keycode == 13) {
+                    e.preventDefault();
+                    console.log("tag added");
+                    if(tagInput.value !== "" && !tagList.includes(tagInput.value)) {
+                        addTags(tagInput.value);
+                        tagListWrap.appendChild(tagListUl);
+                        renderTagList(addTagDelBtn);
+                        limitInput(); 
+                    } else {
+                        tagInput.value = "";
+                    }
+                    if(tagContainer.querySelector(".tag_finder_wrap")) {
+                        tagContainer.querySelector(".tag_finder_wrap").remove();
+                    }
+                }
+            }
+
+            tagInput.onkeyup = function(e) {
+                if(e.code !== "Enter" && e.code !== "Space" && e.code !== "Comma" && e.code !== "ArrowDown" && e.code !== "ArrowUp") {
+                    if(tagInput.value !== "") {
+                        showExistingTags(tagInput.value, selectExistingTag);
+                    } else {
+                        if(tagContainer.querySelector(".tag_finder_wrap")) {
+                            tagContainer.querySelector(".tag_finder_wrap").remove();   
+                        }
+                    }
+                }
+            }
+
+            addTags = function (val) {
+                tagList.push(val);
+                tagInput.value = "";
+            }
+
+            showExistingTags = function (val, callback) {
+                (function () {
+                    var finderWrap = document.createElement("div");
+                    var finder = new XMLHttpRequest();
+    
+                    finder.open("POST", "tag_finder.php?str=" + val, true);
+                    finder.send();
+                    finder.onreadystatechange = function() {
+                        if (finder.readyState == 4 && finder.status == 200) {
+                            finderWrap.classList.add("tag_finder_wrap");
+                            finderWrap.innerHTML = finder.responseText;
+    
+                            if(val.length > 0) {
+                                if(!tagContainer.querySelector(".tag_finder_wrap") && finder.responseText !== '<ul class="tag_finder"></ul>') {
+                                    console.log(finder.responseText);
+                                    tagContainer.appendChild(finderWrap);
+                                } else {
+                                    tagContainer.querySelector(".tag_finder_wrap").remove();
+                                    tagContainer.appendChild(finderWrap);
+                                    tagContainer.querySelector(".tag_finder_wrap").innerHTML = finder.responseText;
+                                }
+                            } else {
+                                if(tagContainer.querySelector(".tag_finder_wrap")) {
+                                    tagContainer.querySelector(".tag_finder_wrap").remove();
+                                }
+                            }
+                        }
+                        callback();
+                    }
+                })();
+            }
+
+            selectExistingTag = function () {
+                tagFinderBtn = document.querySelectorAll(".tag_finder_btn");
+                tagFinderBtn.forEach((btn) => {
+                    btn.onclick = function () {
+                        var tagFinderVal = btn.innerHTML.slice(1, btn.innerHTML.length);
+                        if(!tagList.includes(tagFinderVal)) {
+                            addTags(tagFinderVal);
+                            tagListWrap.appendChild(tagListUl);
+                            renderTagList(addTagDelBtn);
+                            limitInput();
+                            tagContainer.querySelector(".tag_finder_wrap").remove();
+                        } else {
+                            tagInput.value = "";
+                        }
+                        if(tagContainer.querySelector(".tag_finder_wrap")) {
+                            tagContainer.querySelector(".tag_finder_wrap").remove();
+                        }
+                    }
+                });
+            }
+
+            renderTagList = function(callback) {
+                var tagListItem = document.createElement("li");
+                tagDelBtn = document.querySelectorAll(".tag_del");
+
+                tagListItem.classList.add("tag_list_item");
+                tagListUl.classList.add("tag_list");
+                if(tagList.length > 0) {
+                    tagList.forEach((tags) => {
+                        tagListItem.innerHTML = "";
+                        tagListItem.innerHTML = `<button type="button" class="tag_element">#` + tags + `</button>
+                                            <button type="button" class="tag_del"></button>`;
+                        tagListUl.appendChild(tagListItem);
+                    });
+                }
+                setTagVault();
+
+                callback();
+            }
+
+            addTagDelBtn = function() {
+                var tagDelBtn = document.querySelectorAll(".tag_del");
+                tagDelBtn.forEach((btn) => {
+                    btn.onclick = function() {
+                        var tagStr = btn.previousElementSibling.innerHTML;
+                            tagStr = tagStr.slice(1, tagStr.length);
+                        var tagIdx = tagList.indexOf(tagStr);
+                        // console.log(tagIdx);
+                        tagList.splice(tagIdx, 1)
+                        btn.parentElement.remove();
+                        limitInput(); 
+                        setTagVault();
+                    }
+                });
+            }
+
+            limitInput = function () {
+                if(tagList.length > 4) {
+                    tagInput.style.visibility = "hidden";
+                    tagListWrap.style.maxWidth = "100%";
+                } else {
+                    tagInput.style.visibility = "visible";
+                    tagListWrap.style.maxWidth = "592px";
+                }
+            }
+
+            setTagVault = function () {
+                tagVault.value = tagList.toString();
+            }
+
+        })();
     </script>
+
+
+
+
 
     <script>
         //input check related
