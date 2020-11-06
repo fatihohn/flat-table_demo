@@ -505,8 +505,8 @@
                         } else if(e.keycode == 38 || e.code == "ArrowUp") {
                             e.preventDefault();
                             if(!tagFinder.querySelector(".selected")) {
-                                tagFinder.lastChild.classList.add("selected");
-                                // tagFinder.lastElementChild.classList.add("selected");
+                                // tagFinder.lastChild.classList.add("selected");
+                                tagFinder.lastElementChild.classList.add("selected");
                             // } else if(tagFinder.querySelector(".selected") && tagFinder.querySelector(".selected").previousSibling) {
                             } else if(tagFinder.querySelector(".selected") && tagFinder.querySelector(".selected").previousElementSibling) {
                                 // tagFinder.querySelector(".selected").previousSibling.classList.add("selected");
