@@ -688,7 +688,7 @@
                             if(!tagFinder.querySelector(".selected")) {
                                 // tagFinder.firstChild.classList.add("selected");
                                 tagFinder.firstElementChild.classList.add("selected");
-                                console.log(tagFinder.firstElementChild);
+                                console.log(tagFinder.firstChild);
                             // } else if(tagFinder.querySelector(".selected") && tagFinder.querySelector(".selected").nextSibling) {
                             } else if(tagFinder.querySelector(".selected") && tagFinder.querySelector(".selected").nextElementSibling) {
                                 // tagFinder.querySelector(".selected").nextSibling.classList.add("selected");
@@ -713,7 +713,7 @@
                             } else {
                                 tagFinder.querySelector(".selected").classList.remove("selected");
                                 // tagFinder.lastChild.classList.add("selected");
-                                tagFinder.lastElementChild.classList.add("selected");
+                                tagFinder.lastChild.classList.add("selected");
                             }
                         }
                         tagInput.value = tagFinder.querySelector(".selected .tag_finder_btn").innerHTML.slice(1, tagFinder.querySelector(".selected .tag_finder_btn").innerHTML.length);
