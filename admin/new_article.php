@@ -31,7 +31,7 @@
         <div class="main">
             <div class="article_container container">
                     <header class="article_header">
-                        <input type="text" name="title" placeholder="제목" required/>
+                        <input id="title" type="text" name="title" placeholder="제목" required/>
                         <div class="article_info">
                             <p class="article_address">
                                 <!-- {{-- 경기도 동두천시 상봉암동 153-15 --}} -->
