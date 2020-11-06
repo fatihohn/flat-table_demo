@@ -762,7 +762,7 @@
     
                             if(val.length > 0) {
                                 if(!tagContainer.querySelector(".tag_finder_wrap") && finder.responseText !== '<ul class="tag_finder"></ul>') {
-                                    console.log(finder.responseText);
+                                    // console.log(finder.responseText);
                                     tagContainer.appendChild(finderWrap);
                                 } else {
                                     tagContainer.querySelector(".tag_finder_wrap").remove();
