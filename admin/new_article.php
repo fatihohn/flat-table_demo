@@ -567,7 +567,7 @@
     
                             if(val.length > 0) {
                                 if(!tagContainer.querySelector(".tag_finder_wrap") && finder.responseText !== '<ul class="tag_finder"></ul>') {
-                                    console.log(finder.responseText);
+                                    // console.log(finder.responseText);
                                     tagContainer.appendChild(finderWrap);
                                 } else {
                                     tagContainer.querySelector(".tag_finder_wrap").remove();
@@ -657,6 +657,79 @@
 
         })();
     </script>
+
+    <script>
+        //input check related
+        (function () {
+            //number check
+            var priceInput, checkStrNum;
+            var quantityInput, checkStrLen;
+            var titleInput;
+            var tagInput;
+            var addComma;
+
+            tagInput = document.querySelector("#tags");
+            tagInput.addEventListener("keydown", function() {
+                    checkStrLen(9, tagInput);
+                });
+
+            titleInput = document.querySelector("#title");
+            titleInput.addEventListener("keydown", function() {
+                checkStrLen(40, titleInput);
+            });
+            
+            addComma = function(input) {
+                var inputNum = input.value;
+                inputNum = inputNum.split(",");
+                let i = 0;
+                let outputNum = "";
+                while(i < inputNum.length) {
+                    outputNum = outputNum.concat(inputNum[i].toString());
+                    i++;
+                }
+                outputNum = parseInt(outputNum);
+                nfObject = new Intl.NumberFormat();
+                if(!isNaN(outputNum)) {
+                    input.value = nfObject.format(outputNum.toString());
+                }
+            };
+
+            checkStrLen = function (len, input) {
+                // console.log(input.value.length + ":" + len);
+
+                if(input.value.toString().match(/[\u3131-\uD79D]/ugi)) {
+                    if(input.value.length >= len) {
+                        input.addEventListener("input", function() {
+                            input.value = input.value.substr(0, len);
+                        });
+                    } else {
+                        input.onkeydown = function(e) {
+                            return true;
+                        }
+                    }
+                } else {
+                    if(input.value.toString().length >= len) {
+                        input.addEventListener("input", function() {
+                            input.value = input.value.toString().substr(0, len);
+                        });
+                    } else {
+                        input.onkeydown = function(e) {
+                            return true;
+                        }
+                    }
+                }
+            };
+
+            checkStrNum = function (regx, input) {
+                if(input.value.match(regx)) {
+                    // alert("숫자만 입력해주세요");
+                    input.value = input.value.replace(regx,'');
+                }
+            };
+        })();
+    </script>
+
+
 
     <script>
         //file transfer, render list
