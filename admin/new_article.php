@@ -514,7 +514,8 @@
                                 tagFinder.querySelectorAll(".selected")[1].classList.remove("selected");
                             } else {
                                 tagFinder.querySelector(".selected").classList.remove("selected");
-                                tagFinder.lastChild.classList.add("selected");
+                                // tagFinder.lastChild.classList.add("selected");
+                                tagFinder.lastElementChild.classList.add("selected");
                             }
                         }
                         tagInput.value = tagFinder.querySelector(".selected .tag_finder_btn").innerHTML.slice(1, tagFinder.querySelector(".selected .tag_finder_btn").innerHTML.length);
