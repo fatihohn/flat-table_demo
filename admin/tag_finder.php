@@ -18,9 +18,9 @@
             echo '<button type="button" class="tag_finder_btn">#'.$row_tag_finder['tag_name'].'</button>';
             echo '</li>';
             ?>
-            <script>
-            console.log("<?=$row_tag_finder['tag_name']?>");
-            </script>
+            <!-- <script>
+            console.log("<?//=$row_tag_finder['tag_name']?>");
+            </script> -->
             <?php
             }
         }
