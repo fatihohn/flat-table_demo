@@ -820,8 +820,7 @@
                 if(tagList.length > 0) {
                     tagList.forEach((tags) => {
                         tagListItem.innerHTML = "";
-                        tagListItem.innerHTML = `<button type="button" class="tag_element">#` + tags + `</button>
-                                            <button type="button" class="tag_del"></button>`;
+                        tagListItem.innerHTML = '<button type="button" class="tag_element">#' + tags + '</button><button type="button" class="tag_del"></button>';
                         tagListUl.appendChild(tagListItem);
                     });
                 }
