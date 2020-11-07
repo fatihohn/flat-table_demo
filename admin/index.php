@@ -39,7 +39,7 @@
         //     array_push($article_with_hashtag, $row_hashtag_article['article_id']);
         // }
         for($ii; $ii < mysqli_fetch_length($conn, $sql_hashtag_article); $ii++) {
-            array_push($article_with_hashtag, mysqli_fetch_assoc($result_hashtag_article)['article_id'][$ii]);
+            array_push($article_with_hashtag, mysqli_fetch_assoc($result_hashtag_article)['article_id']);
         }
 
         $article_with_hashtag_str = join(",", $article_with_hashtag);
