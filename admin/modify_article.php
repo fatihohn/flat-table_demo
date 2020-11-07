@@ -532,7 +532,7 @@
                 tagVault.value = tagList.toString();
             }
 
-            if(articleTagList.length > 0) {
+            if(articleTagList !== "") {
                 console.log(articleTagList);
                 articleTagList.forEach((tag) => {
                     addTags(tag);
