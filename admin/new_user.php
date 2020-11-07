@@ -56,16 +56,18 @@
                 
                             </div>    
                         </p>
-                        <button id="join" class="login_btn" type="submit" value="회원가입">
-                            <p class="gg-batang">
-                                회원가입
-                            </p>
-                        </button>
-                        <button class="cancel_btn login_btn" name="cancel">
-                            <a href = "javascript:history.back()">
-                                취소
-                            </a>
-                        </button>
+                        <div class="new_user_btn">
+                            <button id="join" class="login_btn" type="submit" value="회원가입">
+                                <p class="gg-batang">
+                                    회원가입
+                                </p>
+                            </button>
+                            <button class="cancel_btn login_btn" name="cancel">
+                                <a href = "javascript:history.back()">
+                                    취소
+                                </a>
+                            </button>
+                        </div>
                     </form>
                 </div>
             </div>
