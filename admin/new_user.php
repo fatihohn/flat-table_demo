@@ -30,7 +30,7 @@
                 <div class="container_login">
                     <form class='login_form new_user_form' method='post' action='new_user_action.php'>
                         <!-- @csrf -->
-                        <p>Email: <input class="createGrid2" type="email" name="email" placeholder="이메일" required></p>
+                        <p>Email: <input class="login_input" type="email" name="email" placeholder="이메일" required></p>
                         <p>ID: <input class="login_input" name="username" type="text" required></p>
                         <p>
                             <div class="createGrid3" id="userConf"></div>
