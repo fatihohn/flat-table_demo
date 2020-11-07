@@ -644,7 +644,7 @@
                         }
                     }
                     sendFileList();
-
+                    organizePics();
                 });
 
                 renderFileList = function () {
@@ -655,10 +655,6 @@
                         newFileList.forEach(function (newFileName, index) {
                             if(newFileName !== "") {
                             var fileDisplayEl = document.createElement('li');
-                            // fileDisplayEl.innerHTML = '<img src="./uploads/' + newFileName + '"><button type="button" class="article_img_figure_del"></button>';
-                            // fileDisplayEl.innerHTML = '<img src="img_path.php?q=' + newFileName + '"><button type="button" class="article_img_figure_del"></button>';
-                            // fileDisplayEl.innerHTML = '<img src="http://192.168.0.29/uploads/' + newFileName + '"><button type="button" class="article_img_figure_del"></button>';
-                            // fileDisplayEl.innerHTML = '<img src="http://<?=$img_server?>/' + dir + '/' + newFileName + '"><button type="button" class="article_img_figure_del"></button>';
                             fileDisplayEl.innerHTML = `
                         <img src="../uploads/` + newFileName + `"><button type="button" class="article_img_figure_del"></button>`;
                             fileDisplayEl.setAttribute("class", 'article_img_figure ' + newFileName.split(".")[0]);
@@ -805,22 +801,6 @@
                                 } else {
                                     canvas.width = canvas.height * (imgSource.width / imgSource.height);
                                 }
-                                // var oc = document.createElement('canvas'),octx = oc.getContext('2d');
-                                // // oc.width = imgSource.width * percentage;
-                                // // oc.height = imgSource.height * percentage;
-                                // if(imgSource.width > canvas.width || imgSource.height > canvas.height) {
-                                //     oc.width = canvas.width;
-                                //     oc.height = canvas.height;
-                                // } else {
-                                //     oc.width = imgSource.width;
-                                //     oc.height = imgSource.height;
-                                // }
-                                // canvas.width = oc.width;
-                                // canvas.height = oc.height;
-                                // octx.drawImage(imgSource, 0, 0, oc.width, oc.height);
-                                // octx.drawImage(oc, 0, 0, oc.width, oc.height);
-                                // ctx.drawImage(oc, 0, 0, oc.width, oc.height,0, 0, canvas.width, canvas.height);
-                                
 
 
                                 if(imgSource.width > canvas.width || imgSource.height > canvas.height) {
@@ -839,8 +819,6 @@
                                     fileNameBody = file.name.split(".");
                                     fileNameBody.pop();
                                     fileNameBody.join();
-                                    // var compressedImg = new File([blob], file.name, {lastModified: file.lastModified, type: "image/jpeg"});//blob->file
-                                    // var compressedImg = new File([blob], file.name.split(".")[0] + ".jpg", {lastModified: file.lastModified, type: "image/jpeg"});//blob->file
                                     var compressedImg = new File([blob], fileNameBody + ".jpg", {lastModified: file.lastModified, type: "image/jpeg"});//blob->file
                                     console.log("file from blob");
                                     sendImgToServer(compressedImg);
@@ -954,6 +932,7 @@
                         let pImgDir = pImgSrcArr[pImgSrcArr.length - 1];
                         newFileList.push(pImgDir);
                         resetInputValue("file-container", newFileList);
+                        organizePics();
                     }
                 }
             });
@@ -990,17 +969,17 @@
 
 
 
-
+<!-- 
 
     <script>
         //file transfer, render list
         var fileList = [];//전송 준비용
         var newFileList = [];//디스플레이->저장용
         var sentFileList = [];//전송 확인용
-        newFileList = "<?=$imgs?>";//디스플레이->저장용
+        newFileList = "<?//=$imgs?>";//디스플레이->저장용
         newFileList = newFileList.toString();
         newFileList = newFileList.split(",");
-        sentFileList = "<?=$imgs?>";//전송 확인용
+        sentFileList = "<?//=$imgs?>";//전송 확인용
         sentFileList = sentFileList.toString();
         sentFileList = sentFileList.split(",");
         var resetInputValue;
@@ -1132,6 +1111,6 @@
 
 
 
-    </script>
+    </script> -->
 </body>
 </html>

@@ -1039,7 +1039,8 @@
                         fileList.push(fileInput.files[i]);
                         inputFileList.push(fileInput.files[i]);
                     } else {
-                        console.log("not an image");
+                        // console.log("not an image");
+                        alert(fileInput.files[i].name + "는 올바른 형식의 파일이 아닙니다. JPG나 PNG 파일을 선택해주세요.");
                     }
                 }
                 sendFileList();
@@ -1255,12 +1256,12 @@
 
                     function resetCanvas(img, canvas) {
                         img.src = "";
-                        // canvas.width = 2000;
-                        // canvas.height = 2000;
+                        canvas.width = 2000;
+                        canvas.height = 2000;
                         // canvas.width = 2400;
                         // canvas.height = 2400;
-                        canvas.width = 3000;
-                        canvas.height = 3000;
+                        // canvas.width = 3000;
+                        // canvas.height = 3000;
                         // canvas.width = 1100;
                         // canvas.height = 1100;
                         // canvas.width = 1200;
