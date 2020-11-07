@@ -22,14 +22,14 @@
         //get articles with hashtag
         $article_with_hashtag = array();
         
-        $sql_hashtag_article = "SELECT * FROM article_tag_map WHERE tag_id = '$hashTag_id'";
+        $sql_hashtag_article = "SELECT * FROM article_tag_map WHERE tag_id = $hashTag_id";
         $result_hashtag_article = mysqli_query($sql_hashtag_article);
         // $row_hashtag_article = mysqli_fetch_assoc($result_hashtag_article);
 
         while($row_hashtag_article = $result_hashtag_article->fetch_assoc()) {
             array_push($article_with_hashtag, $row_hashtag_article['id']);
         }
-        $sql_article_data_all = "SELECT * FROM articles WHERE about!= 'on' AND id IN ($article_with_hashtag) ";
+        $sql_article_data_all = "SELECT * FROM articles WHERE about!= 'on' AND `id` IN ($article_with_hashtag) ";
     } else {
         $sql_article_data_all = "SELECT * FROM articles WHERE about != 'on'";
     }
