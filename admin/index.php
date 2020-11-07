@@ -13,7 +13,7 @@
 
 
     // $rows_article_all = mysqli_fetch_assoc($result_article_data_all);
-    if($hashTag !== "") {
+    if(isset($hashTag)) {
         $sql_get_hashtag_id = "SELECT id FROM tags WHERE tag_name = $hashTag LIMIT 1";
         $result_get_hashtag_id = mysqli_query($sql_get_hashtag_id);
         $row_get_hashtag_id = mysqli_fetch_assoc($result_get_hashtag_id);
