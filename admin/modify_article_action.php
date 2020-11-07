@@ -92,7 +92,7 @@
         if(count($tag_vault) > 0) {//태그 입력이 있다면
 
             for ($i = 0; $i < count($tag_vault); $i++) {
-                if (!in_array($tag_vault[$i], $item_tag_list)) {//기존에 맵핑된 태그가 아닌 경우
+                if (!in_array($tag_vault[$i], $article_tag_list)) {//기존에 맵핑된 태그가 아닌 경우
                     if (in_array($tag_vault[$i], $old_tags)) {//전에 입력됐던 태그가 있다면
                         ?>
                         <script>
