@@ -39,6 +39,17 @@
 
     $tag_vault = explode(",", $tag_vault);
 
+    $article_tag_list = array();
+
+    $sql_get_tags = "SELECT * FROM article_tag_map WHERE article_id = $q";
+    $result_get_tags = mysqli_query($conn, $sql_get_tags);
+    while($row_get_tags = $result_get_tags->fetch_assoc()) {
+        $sql_get_tag_names = "SELECT tag_name FROM tags WHERE id = {$row_get_tags['tag_id']}";
+        $result_get_tag_names = mysqli_query($conn, $sql_get_tag_names);
+        $row_get_tag_names = mysqli_fetch_assoc($result_get_tag_names);
+        array_push($article_tag_list, $row_get_tag_names['tag_name']);
+    }
+
     // $new_tags = array();
     $old_tags = array();
     $old_tags_id_list = array();
@@ -126,6 +137,17 @@
                             $result_new_tag_relation = mysqli_query($conn, $sql_new_tag_relation);
                         }
                     }
+                } else {//기존에 맵핑된 태그인 경우
+                    // if(!in_array($article_tag_list, $tag_vault[$i]))
+                    foreach($article_tag_list as $mapped_tag) {
+                        if(!in_array($mapped_tag, $tag_vault)) {//원래 맵핑된 태그가 새로 입력된 리스트에 없는 경우
+                            $sql_unmap_tag_relation = "DELETE FROM article_tag_map WHERE 
+                                tag_id = (SELECT id FROM tags WHERE tag_name = '$mapped_tag'),
+                                article_id = (SELECT id FROM articles WHERE id = $q)";//태그 맵핑 삭제
+                            $result_unmap_tag_relation = mysqli_query($conn, $sql_unmap_tag_relation);
+                        }
+                    }
+
                 }
             }
             echo("<script>alert('평상이 수정되었습니다.');location.href='article.php?q=$q';</script>");
