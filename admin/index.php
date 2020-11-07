@@ -6,7 +6,7 @@
 
     $hashTag = $_GET['tag'];
 
-    $sql_get_hashtag_id = "SELECT id FROM tags WHERE tag_name = $hashTag";
+    $sql_get_hashtag_id = "SELECT id FROM tags WHERE tag_name = $hashTag LIMIT 1";
     $result_get_hashtag_id = mysqli_query($sql_get_hashtag_id);
     $row_get_hashtag_id = mysqli_fetch_assoc($result_get_hashtag_id);
     $hashTag_id = $row_get_hashtag_id['id'];
