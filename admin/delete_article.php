@@ -1,3 +1,17 @@
+<?php include 'header.php'?>
+    <?php
+    if($sessionUser) {
+        $username = $sessionUser;
+    } else {
+        ?>
+        <script>
+            alert("로그인하세요");
+            location.href='index.php';
+        </script>
+        <?php
+    }
+    ?>
+
 <?php
 $URL = "./index.php";
     include_once '../bbps_db_conn.php';
