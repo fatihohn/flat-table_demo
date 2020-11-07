@@ -53,7 +53,7 @@
             </script>
             <?php
         if(count($article_with_hashtag) > 0) {
-            $sql_article_data_all .=  "AND `id` IN ($article_with_hashtag)";
+            $sql_article_data_all .=  "AND `id` IN ($article_with_hashtag_str)";
         }
     } else {
         $sql_article_data_all = "SELECT * FROM articles WHERE about != 'on'";
