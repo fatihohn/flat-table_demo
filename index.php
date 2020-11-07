@@ -171,6 +171,18 @@
                                 $articleTitle = $rows_article_all["title"];
                                 $articleComment = $rows_article_all["comment"];
                                 $articleImgList = explode(",", $rows_article_all["imgs"]);
+
+
+                                $article_tag_list = array();
+
+                                $sql_get_tags = "SELECT * FROM article_tag_map WHERE article_id = $articleId";
+                                $result_get_tags = mysqli_query($conn, $sql_get_tags);
+                                while($row_get_tags = $result_get_tags->fetch_assoc()) {
+                                    $sql_get_tag_names = "SELECT tag_name FROM tags WHERE id = {$row_get_tags['tag_id']}";
+                                    $result_get_tag_names = mysqli_query($conn, $sql_get_tag_names);
+                                    $row_get_tag_names = mysqli_fetch_assoc($result_get_tag_names);
+                                    array_push($article_tag_list, $row_get_tag_names['tag_name']);
+                                }
                                 // $articleTags = ["임시", "태그", "골목"];
 
                                 // echo '<img class="slide_img_src" title="'.$frontArticleTitle.'" src="/uploads/'.$frontArticleImg.'" alt="'.$frontArticleTitle.'">';
@@ -191,14 +203,19 @@
                                         </figure>
                                         <div class="article_content">
                                             <aside class="meta">
-                                                <p>
-                                                    <a class="'.$articleId.'" onclick="showArticle(this.className)" class="category">
-                                                        종류
-                                                    </a>
-                                                    <a class="'.$articleId.'" onclick="showArticle(this.className)" class="category">
-                                                        무엇
-                                                    </a>
-                                                </p>
+                                                <p>'
+                                                    // <a class="'.$articleId.'" onclick="showArticle(this.className)" class="category">
+                                                    //     종류
+                                                    // </a>
+                                                    // <a class="'.$articleId.'" onclick="showArticle(this.className)" class="category">
+                                                    //     무엇
+                                                    // </a>
+                                                    foreach($article_tag_list as $tag) {
+                                                        echo '<a class="'.$articleId.'" onclick="showArticle(this.className)" class="category">';
+                                                        echo    "#".$tag." ";
+                                                        echo '</a>';
+                                                    }
+                                echo            '</p>
                                             </aside>
                                             <h1 class="article_title">
                                                 <a class="'.$articleId.'" onclick="showArticle(this.className)">
