@@ -175,7 +175,7 @@
                                 $articleComment = $rows_article_all["comment"];
                                 $articleImgList = explode(",", $rows_article_all["imgs"]);
 
-                                $item_tag_list = array();
+                                $article_tag_list = array();
 
                                 $sql_get_tags = "SELECT * FROM article_tag_map WHERE article_id = $articleId";
                                 $result_get_tags = mysqli_query($conn, $sql_get_tags);
@@ -183,7 +183,7 @@
                                     $sql_get_tag_names = "SELECT tag_name FROM tags WHERE id = {$row_get_tags['tag_id']}";
                                     $result_get_tag_names = mysqli_query($conn, $sql_get_tag_names);
                                     $row_get_tag_names = mysqli_fetch_assoc($result_get_tag_names);
-                                    array_push($item_tag_list, $row_get_tag_names['tag_name']);
+                                    array_push($article_tag_list, $row_get_tag_names['tag_name']);
                                 }
                                 // $articleTags = ["임시", "태그", "골목"];
 
@@ -212,7 +212,7 @@
                                                     // <a class="'.$articleId.'" onclick="showArticle(this.className)" class="category">
                                                     //     무엇
                                                     // </a>
-                                                    foreach($item_tag_list as $tag) {
+                                                    foreach($article_tag_list as $tag) {
                                                         echo '<a class="'.$articleId.'" onclick="showArticle(this.className)" class="category">';
                                                         echo "#".$tag." ";
                                                             // 종류
