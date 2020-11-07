@@ -686,24 +686,24 @@
                         if(e.keycode == 40 || e.code == "ArrowDown") {
                             e.preventDefault();
                             if(!tagFinder.querySelector(".selected")) {
-                                tagFinder.firstChild.classList.add("selected");
-                            } else if(tagFinder.querySelector(".selected") && tagFinder.querySelector(".selected").nextSibling) {
-                                tagFinder.querySelector(".selected").nextSibling.classList.add("selected");
+                                tagFinder.firstElementChild.classList.add("selected");
+                            } else if(tagFinder.querySelector(".selected") && tagFinder.querySelector(".selected").nextElementSibling) {
+                                tagFinder.querySelector(".selected").nextElementSibling.classList.add("selected");
                                 tagFinder.querySelector(".selected").classList.remove("selected");
                             } else {
                                 tagFinder.querySelector(".selected").classList.remove("selected");
-                                tagFinder.firstChild.classList.add("selected");
+                                tagFinder.firstElementChild.classList.add("selected");
                             }
                         } else if(e.keycode == 38 || e.code == "ArrowUp") {
                             e.preventDefault();
                             if(!tagFinder.querySelector(".selected")) {
-                                tagFinder.lastChild.classList.add("selected");
-                            } else if(tagFinder.querySelector(".selected") && tagFinder.querySelector(".selected").previousSibling) {
-                                tagFinder.querySelector(".selected").previousSibling.classList.add("selected");
+                                tagFinder.lastElementChild.classList.add("selected");
+                            } else if(tagFinder.querySelector(".selected") && tagFinder.querySelector(".selected").previousElementSibling) {
+                                tagFinder.querySelector(".selected").previousElementSibling.classList.add("selected");
                                 tagFinder.querySelectorAll(".selected")[1].classList.remove("selected");
                             } else {
                                 tagFinder.querySelector(".selected").classList.remove("selected");
-                                tagFinder.lastChild.classList.add("selected");
+                                tagFinder.lastElementChild.classList.add("selected");
                             }
                         }
                         tagInput.value = tagFinder.querySelector(".selected .tag_finder_btn").innerHTML.slice(1, tagFinder.querySelector(".selected .tag_finder_btn").innerHTML.length);
