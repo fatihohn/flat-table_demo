@@ -284,7 +284,10 @@ document.querySelector(".slide_title a").addEventListener("click", function() {
 
 // })();
 
-
+var showArticleWithTag;
+showArticleWithTag = function(tag) {
+    location.href = "index.php?q=ok&tag=" + tag;
+}
 
 
 //end FRONT
