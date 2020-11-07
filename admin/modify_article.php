@@ -605,13 +605,396 @@
     </script>
 
 
+<script>
+        //image related
+        (function () {
+            var fileList = [];//전송 준비용
+            var newFileList = [];//디스플레이->저장용
+            var sentFileList = [];//전송 확인용
+            newFileList = "<?=$imgs?>";//디스플레이->저장용
+            newFileList = newFileList.toString();
+            newFileList = newFileList.split(",");
+            sentFileList = "<?=$imgs?>";//전송 확인용
+            sentFileList = sentFileList.toString();
+            sentFileList = sentFileList.split(",");
+            // var inputFileList = [];//입력된 모든 파일
+            var inputFileList = newFileList.slice(0, newFileList.length);//입력된 모든 : 초기 로딩 속도 개선파일: newFileList 복제
+            var resetInputValue;
+            var deleteImg;
+            var delBtn;
+            var setThumbImg;
+            var imgList;
+
+            (function () {
+                var fileInput = document.getElementById('file-input');
+                var fileListDisplay = document.getElementById('file-list-display');
+                var renderFileList, sendFile, sendFileList;
+                
+
+                fileInput.addEventListener('change', function (evnt) {
+                    var allowedType = ["image/jpeg", "image/jpg", "image/png"];
+                    fileList = [];
+                    for (var i = 0; i < fileInput.files.length; i++) {
+                        if(allowedType.includes(fileInput.files[i].type)) {
+                            fileList.push(fileInput.files[i]);
+                            inputFileList.push(fileInput.files[i]);
+                        } else {
+                            // console.log("not an image");
+                            alert(fileInput.files[i].name + "는 올바른 형식의 파일이 아닙니다. JPG나 PNG 파일을 선택해주세요.");
+                        }
+                    }
+                    sendFileList();
+
+                });
+
+                renderFileList = function () {
+                    var prodImgs = document.querySelectorAll(".article_img_figure");
+                    for(const pImg of prodImgs) {
+                        pImg.remove();
+                    }
+                        newFileList.forEach(function (newFileName, index) {
+                            if(newFileName !== "") {
+                            var fileDisplayEl = document.createElement('li');
+                            // fileDisplayEl.innerHTML = '<img src="./uploads/' + newFileName + '"><button type="button" class="article_img_figure_del"></button>';
+                            // fileDisplayEl.innerHTML = '<img src="img_path.php?q=' + newFileName + '"><button type="button" class="article_img_figure_del"></button>';
+                            // fileDisplayEl.innerHTML = '<img src="http://192.168.0.29/uploads/' + newFileName + '"><button type="button" class="article_img_figure_del"></button>';
+                            // fileDisplayEl.innerHTML = '<img src="http://<?=$img_server?>/' + dir + '/' + newFileName + '"><button type="button" class="article_img_figure_del"></button>';
+                            fileDisplayEl.innerHTML = `
+                        <img src="../uploads/` + newFileName + `"><button type="button" class="article_img_figure_del"></button>`;
+                            fileDisplayEl.setAttribute("class", 'article_img_figure ' + newFileName.split(".")[0]);
+                            fileListDisplay.appendChild(fileDisplayEl);
+                            }
+                        });
+
+                    //image delete
+                    delBtn = document.querySelectorAll(".article_img_figure_del");
+                    for(let i = 0; i < delBtn.length; i++) {
+                        delBtn[i].addEventListener("click", function() {
+                            var newFileListIdArr = delBtn[i].parentElement.querySelector("img").src.split("/");
+                            var newFileListId = newFileListIdArr[newFileListIdArr.length - 1];
+                            delete newFileList[newFileList.indexOf(newFileListId)];
+                            delBtn[i].parentElement.remove();
+                            resetInputValue("file-container", newFileList);
+                        });
+                    }
+
+                };
+                renderFileList();
+                // renderFileList("thumbs");//기존 이미지는 thumbs 폴더에서 불러오기: 초기 로딩 속도 개선
+                // renderFileList("uploads");
+                
+                sendFileList = function() {
+                    // console.log(inputFileList);
+                    // console.log(sentFileList);
+                    if(inputFileList.length > sentFileList.length) {
+                        if(inputFileList[sentFileList.length]) {
+                            sendFile(inputFileList[sentFileList.length]);
+                        }
+                    }
+                };
+
+             
+                
+                ///////------------------COMPRESS AND SEND IMAGE----------------------/////
+                sendFile = function (file) {
+                    var reader = new FileReader();
+                    var formData = new FormData();
+                    var request = new XMLHttpRequest();
+                    var compressRate, maxQuality, anchorSize, imgQuality, percentage;
+                    console.log("file loaded");
+                    // var imgSource = document.querySelector('#image_to_compress');
+                    // var canvas = document.getElementById("canvas");
+                    var imgSource = document.createElement('img');
+                    var canvas = document.createElement('canvas');
+                        canvas.setAttribute("class", "canvas");
+                        canvas.width = 3000;
+                        canvas.height = 3000;
+                        canvas.style.display = "none";
+
+                        imgSource.setAttribute("class", "imgSource");
+                        imgSource.style.display = "none";
+                        console.log(file.size);
+                        // percentage = 95/(file.size/100000000 + 100);
+                        // console.log(percentage*100);
+                    reader.addEventListener("load", function () {
+                        console.log("loading image");
+                        if(reader.result.startsWith("data:image")) {
+                            imgSource.src = reader.result;
+                            imgSource.onload = function () {
+                                console.log("image loaded");
+
+                                // var imgRes = imgSource.width + imgSource.height;
+                                // var canvasRes = canvas.width * 2;
+                                //     // compressRate = ((imgRes/canvasRes)*(1000000/file.size) + 100)/(file.size/80000 + 100);
+                                //     compressRate = ((imgRes/canvasRes)*(1000000/file.size) + 100)/(file.size/1000000 + 100);
+                                //     if(compressRate > 1) {
+                                //         percentage = 0.95;
+                                //     } else {
+                                //         percentage = compressRate;
+                                //     }
+
+
+                                var imgRes = Math.sqrt(imgSource.width * imgSource.height);
+                                var originalImgQuality = Math.sqrt(file.size);
+                                var canvasRes = Math.sqrt(canvas.width*canvas.height);
+                                var imgResRt = logationTwo(imgRes, 2);
+
+
+                                function logationTwo (num, logN) {
+                                    var logation = Math.sqrt(num);
+                                    var n = 0;
+                                    // for(let n; n < logN; n++) {
+                                    //     logation = Math.sqrt(logation);
+                                    // }
+                                    while(n < logN-1) {
+                                        logation = Math.sqrt(logation);
+                                        n++;
+                                    }
+                                    return logation;
+                                }
+
+
+                                // anchorSize = 8;
+                                anchorSize = 3;
+                                if(originalImgQuality > 1000) {
+
+                                    maxQuality = 99;
+                                    // imgQuality = (originalImgQuality/Math.sqrt(canvasRes * imgRes)) * anchorSize;
+                                    // imgQuality = (originalImgQuality/Math.sqrt(canvasRes * imgRes)) * (anchorSize*imgResRt/2);
+                                    imgQuality = ((originalImgQuality*2)/(Math.sqrt(canvasRes * imgRes)/1.5)) * (Math.floor(1000*Math.pow(imgResRt/8, 4))/1000 * anchorSize);
+                                    // imgQuality = ((originalImgQuality*2)/(Math.sqrt(canvasRes * imgRes*30)/1.5)) * (Math.floor(1000*Math.pow(imgResRt/8, 4))/1000);
+                                } else {
+                                    maxQuality = 95;
+                                    imgQuality = 0;
+                                }
+                                compressRate = maxQuality/(imgQuality + 100);
+
+                                if(compressRate >= 1) {
+                                    percentage = 0.95;
+                                } else {
+                                    percentage = compressRate;
+                                }
+
+
+
+                                    // // // compressRate = ((imgRes/canvasRes)*(1000000/file.size) + 100)/(file.size/80000 + 100);
+                                    // // compressRate = ((imgRes/canvasRes)*(1000000/file.size) + 100)/(file.size/1000000 + 100);
+                                    // if(compressRate > 1) {
+                                    //     percentage = 0.95;
+                                    // } else {
+                                    //     percentage = compressRate;
+                                    // }
+
+
+
+
+
+
+                                    // console.log(imgRes);
+                                    // console.log(compressRate);
+                                    // console.log(canvasRes);
+                                    console.log("imgQuality: "+imgQuality);
+                                    console.log("originalImgQuality: "+originalImgQuality);
+                                    console.log("imgResRt: "+Math.floor(1000*Math.pow(imgResRt/8, 4))/1000);
+                                    console.log("percentage: "+percentage*100 + "%");
+
+
+                                var ctx = canvas.getContext("2d");
+                                if(imgSource.width > imgSource.height) {
+                                    canvas.height = canvas.width * (imgSource.height / imgSource.width);
+                                } else {
+                                    canvas.width = canvas.height * (imgSource.width / imgSource.height);
+                                }
+                                // var oc = document.createElement('canvas'),octx = oc.getContext('2d');
+                                // // oc.width = imgSource.width * percentage;
+                                // // oc.height = imgSource.height * percentage;
+                                // if(imgSource.width > canvas.width || imgSource.height > canvas.height) {
+                                //     oc.width = canvas.width;
+                                //     oc.height = canvas.height;
+                                // } else {
+                                //     oc.width = imgSource.width;
+                                //     oc.height = imgSource.height;
+                                // }
+                                // canvas.width = oc.width;
+                                // canvas.height = oc.height;
+                                // octx.drawImage(imgSource, 0, 0, oc.width, oc.height);
+                                // octx.drawImage(oc, 0, 0, oc.width, oc.height);
+                                // ctx.drawImage(oc, 0, 0, oc.width, oc.height,0, 0, canvas.width, canvas.height);
+                                
+
+
+                                if(imgSource.width > canvas.width || imgSource.height > canvas.height) {
+                                    imgWidth = canvas.width;
+                                    imgHeight = canvas.height;
+                                } else {
+                                    imgWidth = imgSource.width;
+                                    imgHeight = imgSource.height;
+                                }
+                                canvas.width = imgWidth;
+                                canvas.height = imgHeight;
+                                ctx.drawImage(imgSource, 0, 0, imgSource.width, imgSource.height,0, 0, canvas.width, canvas.height);
+                                console.log("img drawn on canvas");
+                                canvas.toBlob(function(blob) {
+                                    var fileNameBody;
+                                    fileNameBody = file.name.split(".");
+                                    fileNameBody.pop();
+                                    fileNameBody.join();
+                                    // var compressedImg = new File([blob], file.name, {lastModified: file.lastModified, type: "image/jpeg"});//blob->file
+                                    // var compressedImg = new File([blob], file.name.split(".")[0] + ".jpg", {lastModified: file.lastModified, type: "image/jpeg"});//blob->file
+                                    var compressedImg = new File([blob], fileNameBody + ".jpg", {lastModified: file.lastModified, type: "image/jpeg"});//blob->file
+                                    console.log("file from blob");
+                                    sendImgToServer(compressedImg);
+                                }, "image/jpeg", percentage);
+                            }
+
+                        }
+                    }, false);
+                    if (file) {
+                        reader.readAsDataURL(file);
+                    }
+
+                    function sendImgToServer(file) {
+                        formData.append('file', file);
+                        request.open("POST", './upload_image.php?q='+'<?=$wi_id?>');
+                        request.send(formData);
+                        request.onreadystatechange = function() { // 요청에 대한 콜백
+                            if (request.readyState === request.DONE) { // 요청이 완료되면
+                                if (request.status === 200 || request.status === 201) {
+                                    console.log("got server response data");
+                                    pushToNewFileList(afterPushToNewFileList);
+                                    
+                                    function afterPushToNewFileList() {
+                                        // renderFileList("uploads");
+                                        renderFileList();
+                                        resetInputValue("file-container", newFileList);
+                                        resetCanvas(imgSource,  canvas);
+                                        sentFileList.push(file.name);
+                                        console.log(file.size);
+
+                                        console.log("fileList:" + fileList.length + ", sentFileList:" + sentFileList.length + ", newFileList:" + newFileList.length + ", inputFileList:" + inputFileList.length);
+                                     
+                                        if(inputFileList.length >= sentFileList.length) {
+                                            if(inputFileList[sentFileList.length]) {
+                                                sendFile(inputFileList[sentFileList.length]);
+                                            }
+                                        }
+                                    }
+                                    function pushToNewFileList (callback) {
+                                        newFileList.push(request.responseText); // 바뀐 이름 stack
+                                        callback();
+                                    }
+                                } else {
+                                    console.error(request.responseText);
+                                }
+                            }
+                        };
+                    }
+
+                    function resetCanvas(img, canvas) {
+                        img.src = "";
+                        canvas.width = 2000;
+                        canvas.height = 2000;
+                        // canvas.width = 1100;
+                        // canvas.height = 1100;
+                        // canvas.width = 1200;
+                        // canvas.height = 1200;
+                        // canvas.width = 640;
+                        // canvas.height = 640;
+                        reader = "";
+                        console.log("reset canvas");
+                    }
+                        
+
+                    
+                    
+                };
+                ///////------------------COMPRESS AND SEND IMAGE----------------------/////
+                                
+                // ////<<<<<<<<ORIGINAL CODE>>>>>>>>>>>>////
+                //     sendFile = function (file) {
+                //         var formData = new FormData();
+                //         var request = new XMLHttpRequest();
+                //         formData.append('file', file);
+                //         request.open("POST", './upload_image.php');
+                //         request.send(formData);
+                //         request.onreadystatechange = function() { // 요청에 대한 콜백
+                //             if (request.readyState === request.DONE) { // 요청이 완료되면
+                //                 if (request.status === 200 || request.status === 201) {
+                //                     newFileList.push(request.responseText); // 바뀐 이름 stack
+                //                     // console.log(newFileList.length + ':' + sentFileList.length);
+                //                     // if(newFileList.length === sentFileList.length) {
+                //                         renderFileList();
+                //                         resetInputValue("file-container", newFileList);
+                //                     // }
+                //                 } else {
+                //                     console.error(request.responseText);
+                //                 }
+                //             }
+                //         };
+                //     };
+                // ////<<<<<<<<ORIGINAL CODE>>>>>>>>>>>>////
+            
+
+
+
+
+            })();
+            
+            //drag&drop sorting
+            var imgDisplay = document.getElementById("file-list-display");
+            var sortable = new Sortable(imgDisplay, {
+                draggable: ".article_img_figure",
+                onEnd:function (evt) {
+                    var sortedImgs = document.querySelectorAll(".article_img_figure");
+                    newFileList = [];
+                    for(let pImg of sortedImgs) {
+                        // let pImgSrc = pImg.firstChild.src;
+                        let pImgSrc = pImg.querySelector("img").src;
+                        let pImgSrcArr = pImgSrc.split("/");
+                        let pImgDir = pImgSrcArr[pImgSrcArr.length - 1];
+                        newFileList.push(pImgDir);
+                        resetInputValue("file-container", newFileList);
+                    }
+                }
+            });
+
+            //fill form input
+            resetInputValue = function(id, val) {
+                document.getElementById(id).value = val;
+                setThumbImg("article_img_figure");
+            }
+            //set thumbImg
+            setThumbImg = function(cls) {
+                imgList = document.querySelectorAll("." + cls);
+                var thumbTag = document.createElement('div');
+                    thumbTag.innerHTML = '대표이미지';
+                    thumbTag.setAttribute("class", 'thumb_img');
+                for(let iii = 1; iii < imgList.length; iii++) {
+                    if(imgList[iii].querySelector(".thumb_img")) {
+                        imgList[iii].querySelector(".thumb_img").remove();
+                    }
+                }
+                if(imgList[0]) {
+                    if(imgList[0].querySelector(".thumb_img")) {
+                        imgList[0].querySelector(".thumb_img").remove();
+                    }
+                    imgList[0].appendChild(thumbTag);
+                }
+            }
+            setThumbImg("article_img_figure");
+        })();
+        
+
+
+    </script>
+
 
 
 
 
     <script>
-//file transfer, render list
-var fileList = [];//전송 준비용
+        //file transfer, render list
+        var fileList = [];//전송 준비용
         var newFileList = [];//디스플레이->저장용
         var sentFileList = [];//전송 확인용
         newFileList = "<?=$imgs?>";//디스플레이->저장용
@@ -747,139 +1130,6 @@ var fileList = [];//전송 준비용
         setThumbImg("article_img_figure");
 
 
-
-
-
-
-// //------NEW ARTICLE CODE----------------------------------------------------------------------------//
-//         //file transfer, render list
-//         var fileList = [];//전송 준비용
-//         var newFileList = [];//디스플레이->저장용
-//         var sentFileList = [];//전송 확인용
-//         var resetInputValue;
-//         var deleteImg;
-//         var delBtn;
-//         var setThumbImg;
-//         var imgList;
-
-//         (function () {
-//             var fileInput = document.getElementById('file-input');
-//             var fileListDisplay = document.getElementById('file-list-display');
-//             var renderFileList, sendFile, sendFileList;
-            
-
-//             fileInput.addEventListener('change', function (evnt) {
-//                 fileList = [];
-//                 for (var i = 0; i < fileInput.files.length; i++) {
-//                     fileList.push(fileInput.files[i]);
-//                 }
-//                 sendFileList();
-//                 organizePics();
-//             });
-
-//             renderFileList = function () {
-//                 var prodImgs = document.querySelectorAll(".article_img_figure");
-//                 for(const pImg of prodImgs) {
-//                     pImg.remove();
-//                 }
-//                     // console.log(newFileList);
-//                     newFileList.forEach(function (newFileName, index) {
-//                         if(newFileName !== "") {
-//                         var fileDisplayEl = document.createElement('figure');
-//                         fileDisplayEl.innerHTML = `
-//                         <img src="../uploads/` + newFileName + `"><button type="button" class="article_img_figure_del"></button>`;
-//                         fileDisplayEl.setAttribute("class", 'article_img_figure ' + newFileName.split(".")[0]);
-//                         fileListDisplay.appendChild(fileDisplayEl);
-//                         }
-//                     });
-
-//                 //image delete
-//                 delBtn = document.querySelectorAll(".article_img_figure_del");
-//                 for(let i = 0; i < delBtn.length; i++) {
-//                     delBtn[i].addEventListener("click", function() {
-//                         var newFileListIdArr = delBtn[i].parentElement.querySelector("img").src.split("/");
-//                         var newFileListId = newFileListIdArr[newFileListIdArr.length - 1];
-//                         delete newFileList[newFileList.indexOf(newFileListId)];
-//                         delBtn[i].parentElement.remove();
-//                         resetInputValue("file-container", newFileList);
-//                     });
-//                 }
-
-//             };
-            
-//             sendFileList = function() {
-//                 for (const file of fileList) {
-//                     sendFile(file);
-//                     sentFileList.push(file.name);
-//                 };
-//             };
-
-//             sendFile = function (file) {
-//                 var formData = new FormData();
-//                 var request = new XMLHttpRequest();
-//                 formData.append('file', file);
-//                 request.open("POST", './upload_image.php');
-//                 request.send(formData);
-//                 request.onreadystatechange = function() { // 요청에 대한 콜백
-//                     if (request.readyState === request.DONE) { // 요청이 완료되면
-//                         if (request.status === 200 || request.status === 201) {
-//                             newFileList.push(request.responseText); // 바뀐 이름 stack
-//                             // console.log(newFileList.length + ':' + sentFileList.length);
-//                             // if(newFileList.length === sentFileList.length) {
-//                                 renderFileList();
-//                                 resetInputValue("file-container", newFileList);
-//                             // }
-//                         } else {
-//                             console.error(request.responseText);
-//                         }
-//                     }
-//                 };
-//             };
-//         })();
-        
-//         //drag&drop sorting
-//         var imgDisplay = document.getElementById("file-list-display");
-//         var sortable = new Sortable(imgDisplay, {
-//             draggable: ".article_img_figure",
-//             onEnd:function (evt) {
-//                 var sortedImgs = document.querySelectorAll(".article_img_figure");
-//                 newFileList = [];
-//                 for(let pImg of sortedImgs) {
-//                     // let pImgSrc = pImg.firstChild.src;
-//                     let pImgSrc = pImg.querySelector("img").src;
-//                     let pImgSrcArr = pImgSrc.split("/");
-//                     let pImgDir = pImgSrcArr[pImgSrcArr.length - 1];
-//                     newFileList.push(pImgDir);
-//                     resetInputValue("file-container", newFileList);
-//                     organizePics();
-//                 }
-//             }
-//         });
-
-//         //fill form input
-//         resetInputValue = function(id, val) {
-//             document.getElementById(id).value = val;
-//             setThumbImg("article_img_figure");
-//         }
-//         //set thumbImg
-//         setThumbImg = function(cls) {
-//             imgList = document.querySelectorAll("." + cls);
-//             var thumbTag = document.createElement('div');
-//                 thumbTag.innerHTML = '대표이미지';
-//                 thumbTag.setAttribute("class", 'thumb_img');
-//             for(let iii = 1; iii < imgList.length; iii++) {
-//                 if(imgList[iii].querySelector(".thumb_img")) {
-//                     imgList[iii].querySelector(".thumb_img").remove();
-//                 }
-//             }
-//             if(imgList[0]) {
-//                 if(imgList[0].querySelector(".thumb_img")) {
-//                     imgList[0].querySelector(".thumb_img").remove();
-//                 }
-//                 imgList[0].appendChild(thumbTag);
-//             }
-//         }
-        
 
 
     </script>

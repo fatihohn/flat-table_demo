@@ -72,9 +72,9 @@
                         <input id="file-input" type="file" accept="image/jpg, image/jpeg, image/png" multiple="">
                     </div>
                     
-                    <img src="" id="image_to_compress" style="display: none;">
+                        <!-- <img src="" id="image_to_compress" style="display: none;"> -->
                         <!-- <canvas id="canvas" height="2400" width="2400" style="display: none;"></canvas> -->
-                        <canvas id="canvas" height="3000" width="3000" style="display: none;"></canvas>
+                        <!-- <canvas id="canvas" height="3000" width="3000" style="display: none;"></canvas> -->
                     <input id="file-container" type="hidden" name="imgs" value="">
                 </div>
                 <div class="article_text">
@@ -1096,8 +1096,17 @@
                     var request = new XMLHttpRequest();
                     var percentage;
                     // console.log("file loaded");
-                    var imgSource = document.querySelector('#image_to_compress');
-                    var canvas = document.getElementById("canvas");
+                    // var imgSource = document.querySelector('#image_to_compress');
+                    // var canvas = document.getElementById("canvas");
+                    var imgSource = document.createElement('img');
+                    var canvas = document.createElement('canvas');
+                        canvas.setAttribute("class", "canvas");
+                        canvas.width = 3000;
+                        canvas.height = 3000;
+                        canvas.style.display = "none";
+
+                        imgSource.setAttribute("class", "imgSource");
+                        imgSource.style.display = "none";
                     //     console.log(file.size/1000000 + "MB");
                     //     // percentage = 74/(file.size/100000000 + 100);
                     //     console.log(percentage*100);
@@ -1106,17 +1115,57 @@
                         if(reader.result.startsWith("data:image")) {
                             imgSource.src = reader.result;
                             imgSource.onload = function () {
-                                // var imgRes = Math.round(imgSource.width * imgSource.height)/1000000000;
-                                // var canvasRes = Math.round(Math.pow(canvas.width, 2))/1000000000;
-                                var imgRes = imgSource.width + imgSource.height;
-                                var canvasRes = canvas.width * 2;
-                                    var compressRate = ((imgRes/canvasRes)*(1000000/file.size) + 100)/(file.size/80000 + 100);
-                                    if(compressRate > 1) {
-                                        percentage = 1;
-                                    } else {
-                                        percentage = compressRate;
+                                // // var imgRes = Math.round(imgSource.width * imgSource.height)/1000000000;
+                                // // var canvasRes = Math.round(Math.pow(canvas.width, 2))/1000000000;
+                                // var imgRes = imgSource.width + imgSource.height;
+                                // var canvasRes = canvas.width * 2;
+                                //     var compressRate = ((imgRes/canvasRes)*(1000000/file.size) + 100)/(file.size/80000 + 100);
+                                //     if(compressRate > 1) {
+                                //         percentage = 1;
+                                //     } else {
+                                //         percentage = compressRate;
+                                //     }
+                                var imgRes = Math.sqrt(imgSource.width * imgSource.height);
+                                var originalImgQuality = Math.sqrt(file.size);
+                                var canvasRes = Math.sqrt(canvas.width*canvas.height);
+                                var imgResRt = logationTwo(imgRes, 2);
+
+
+                                function logationTwo (num, logN) {
+                                    var logation = Math.sqrt(num);
+                                    var n = 0;
+                                    // for(let n; n < logN; n++) {
+                                    //     logation = Math.sqrt(logation);
+                                    // }
+                                    while(n < logN-1) {
+                                        logation = Math.sqrt(logation);
+                                        n++;
                                     }
-                                    
+                                    return logation;
+                                }
+
+
+                                // anchorSize = 8;
+                                anchorSize = 3;
+                                if(originalImgQuality > 1000) {
+
+                                    maxQuality = 99;
+                                    // imgQuality = (originalImgQuality/Math.sqrt(canvasRes * imgRes)) * anchorSize;
+                                    // imgQuality = (originalImgQuality/Math.sqrt(canvasRes * imgRes)) * (anchorSize*imgResRt/2);
+                                    imgQuality = ((originalImgQuality*2)/(Math.sqrt(canvasRes * imgRes)/1.5)) * (Math.floor(1000*Math.pow(imgResRt/8, 4))/1000 * anchorSize);
+                                    // imgQuality = ((originalImgQuality*2)/(Math.sqrt(canvasRes * imgRes*30)/1.5)) * (Math.floor(1000*Math.pow(imgResRt/8, 4))/1000);
+                                } else {
+                                    maxQuality = 95;
+                                    imgQuality = 0;
+                                }
+                                compressRate = maxQuality/(imgQuality + 100);
+
+                                if(compressRate >= 1) {
+                                    percentage = 0.95;
+                                } else {
+                                    percentage = compressRate;
+                                }
+
 
                                     // console.log(percentage*100);
                                 // console.log("image loaded");
