@@ -161,7 +161,8 @@
                                 관리:
                             </span>
                             <a href="modify_article.php?q=<?=$q?>">수정</a>
-                            <a href="delete_article.php?q=<?=$q?>">삭제</a>
+                            <!-- <a href="delete_article.php?q=<?=$q?>">삭제</a> -->
+                            <a onclick="articleDel('<?=$q?>')">삭제</a>
                         </div>
                     </footer>
                 </div>
@@ -267,6 +268,18 @@
                 }
             }, 300);
         });
+    </script>
+    <script>
+    //delete related
+    function articleDel(str) {
+    let delConfirm = confirm('삭제 후 복원이 불가능합니다. 삭제하시겠습니까?');
+    if (delConfirm == true) {
+            location.href = './delete_article.php?q=' + str;
+            alert('삭제중입니다')
+        } else {
+            alert('취소되었습니다');
+        }
+    }
     </script>
 </body>
 </html>
