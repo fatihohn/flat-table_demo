@@ -77,13 +77,13 @@
                         </p>
                         <p class="category">
                             <div class="tag_container">
-                                <div class="tag_list_wrap"></div>
                                 <div class="tag_input_wrap">
                                     <div class="tag_input">
                                         <input id="tags" type="text" placeholder="연관태그를 입력해주세요. (최대 5개)" value="" />
                                         <input id="tag_vault" type="hidden" name="tag_vault" value="" />
                                     </div>
                                 </div>
+                                <div class="tag_list_wrap"></div>
                             </div>
                         </p>
                     </div>
