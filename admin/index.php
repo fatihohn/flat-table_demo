@@ -4,7 +4,7 @@
     $scrollTag = $_GET['q'];
 
 
-    $hashTag = strval($_GET['tag']);
+    $hashTag = $_GET['tag'];
 
     
 
