@@ -942,7 +942,7 @@
 
             titleInput = document.querySelector("#title");
             titleInput.addEventListener("keydown", function() {
-                checkStrLen(40, titleInput);
+                checkStrLen(20, titleInput);
             });
 
             addressInput = document.querySelector("#address");
