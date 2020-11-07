@@ -170,26 +170,26 @@
             aboutInput = document.querySelector("#about");
             // aboutVal = aboutInput.value;
             flagInput.addEventListener("change", function(e) {
-                if(flagInput.checked !== true && flagInput.disabled !== true) {
+                if(e.target.checked !== true && e.target.disabled !== true) {
                     // e.preventDefault();
-                    flagInput.checked == true;
+                    e.target.checked == true;
                     aboutInput.checked == false;
                     aboutInput.disabled == true;
-                } else if(flagInput.checked == true && flagInput.disabled !== true) {
+                } else if(e.target.checked == true && e.target.disabled !== true) {
                     // e.preventDefault();
-                    flagInput.checked == false;
+                    e.target.checked == false;
                     aboutInput.disabled == false;
                 }
             });
             aboutInput.addEventListener("change", function(e) {
-                if(aboutInput.checked !== true && aboutInput.disbled !== true) {
+                if(e.target.checked !== true && e.target.disbled !== true) {
                     // e.preventDefault();
-                    aboutInput.checked == true;
+                    e.target.checked == true;
                     flagInput.checked == false;
                     flagInput.disbled == true;
-                } else if(aboutInput.checked == true && aboutInput.disabled !== true) {
+                } else if(e.target.checked == true && e.target.disabled !== true) {
                     // e.preventDefault();
-                    aboutInput.checked == false;
+                    e.target.checked == false;
                     flagInput.disabled == false;
                 }
                 
