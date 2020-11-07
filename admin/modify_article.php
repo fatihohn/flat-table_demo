@@ -532,13 +532,14 @@
                 tagVault.value = tagList.toString();
             }
 
-
-            articleTagList.forEach((tag) => {
-                addTags(tag);
-                tagListWrap.appendChild(tagListUl);
-                renderTagList(addTagDelBtn);
-                limitInput(); 
-            });
+            if(articleTagList.length > 0) {
+                articleTagList.forEach((tag) => {
+                    addTags(tag);
+                    tagListWrap.appendChild(tagListUl);
+                    renderTagList(addTagDelBtn);
+                    limitInput(); 
+                });
+            }
 
         })();
     </script>
