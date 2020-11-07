@@ -35,7 +35,7 @@
                         <p>
                             <div class="createGrid3" id="userConf"></div>
                             <div>
-                                <p>
+                                <p style="font-size:0.8rem;">
                                 (영문, 숫자 조합 7자 이상)
                                 </p>
                             </div>
@@ -45,7 +45,7 @@
                         <p>
                             <div class="createGrid3" id="pwConf"></div>
                             <div>
-                                <p style="font-size:0.8rem; margin-top:10px; margin-left:30px">
+                                <p style="font-size:0.8rem;">
                 
                                     * 8자 이상 영문(대소문자)+숫자+특수문자 중 2종류 이상을 조합하여 사용할 수 있습니다.
                                     <br>

@@ -389,6 +389,10 @@ button {
     color: rgb(255, 80, 88);
 }
 
+.new_user_form {
+    text-align: left;
+}
+
 
 /*hashTagRelated*/
 
