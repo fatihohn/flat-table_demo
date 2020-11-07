@@ -42,6 +42,11 @@
         }
     } else {
         $sql_article_data_all = "SELECT * FROM articles WHERE about != 'on'";
+            ?>
+            <script>
+                console.log("<?=$article_with_hashtag?>");
+            </script>
+            <?php
     }
     
     $result_article_data_all = $conn->query($sql_article_data_all);
