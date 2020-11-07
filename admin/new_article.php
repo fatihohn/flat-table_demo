@@ -170,7 +170,7 @@
             aboutInput = document.querySelector("#about");
             // aboutVal = aboutInput.value;
             flagInput.addEventListener("click", function(e) {
-                e.preventDefault();
+                // e.preventDefault();
                 if(flagInput.checked !== true && flagInput.disabled !== true) {
                     flagInput.checked == true;
                     aboutInput.checked == false;
@@ -181,7 +181,7 @@
                 }
             });
             aboutInput.addEventListener("click", function(e) {
-                e.preventDefault();
+                // e.preventDefault();
                 if(aboutInput.checked !== true && aboutInput.disbled !== true) {
                     aboutInput.checked == true;
                     flagInput.checked == false;
