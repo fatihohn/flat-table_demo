@@ -182,7 +182,7 @@
             }
             aboutVal = "<?=$about?>";
             aboutInput = document.querySelector("#about");
-            if(aboutVal == "on") {
+            if(aboutVal !== "no") {
                 aboutInput.checked = true;
             }
             aboutInput.disabled = true;
