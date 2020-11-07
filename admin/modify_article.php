@@ -70,7 +70,7 @@
         <div class="main">
             <div class="article_container container">
                     <header class="article_header">
-                        <input type="text" name="title" placeholder="제목" value="<?=$title?>" required/>
+                        <input id="title" type="text" name="title" placeholder="제목" value="<?=$title?>" required/>
                         <div class="article_info">
                             <p class="article_address">
                                 <!-- {{-- 경기도 동두천시 상봉암동 153-15 --}} -->
@@ -533,7 +533,7 @@
             }
 
 
-            itemTagList.forEach((tag) => {
+            articleTagList.forEach((tag) => {
                 addTags(tag);
                 tagListWrap.appendChild(tagListUl);
                 renderTagList(addTagDelBtn);
