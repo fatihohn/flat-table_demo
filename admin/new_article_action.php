@@ -108,7 +108,7 @@
         echo '<br>';
         echo mysqli_error($conn);
         error_log(mysqli_error($conn));
-    } else{//새 article이 만들어지면
+    } else {//새 article이 만들어지면
         // $sql_new_article_id = "SELECT * FROM articles ORDER BY id DESC LIMIT 1";//새로 만들어진 article의 id도 불러오고
         // $result_new_article_id = mysqli_query($conn, $sql_new_article_id);
         // // $row_new_article_id = $result_new_article_id->fetch_assoc();
@@ -120,11 +120,6 @@
 
             for($i = 0; $i < count($tag_vault); $i++) {
                 if(in_array($tag_vault[$i], $old_tags)) {//전에 입력됐던 태그가 있다면
-                    ?>
-                    <script>
-                        console.log("old: "+"<?=$tag_vault[$i]?>")
-                    </script>
-                    <?php
                     $sql_old_tag_relation = "INSERT INTO article_tag_map SET 
                         tag_id = (SELECT id FROM tags WHERE tag_name = '$tag_vault[$i]'), 
                         article_id = (SELECT MAX(id) FROM articles)";//태그 테이블 맵핑
@@ -135,11 +130,6 @@
                     $result_new_tag_vault[$i] = mysqli_query($conn, $sql_new_tag_vault[$i]);
                     
                     if($result_new_tag_vault[$i]) {
-                        ?>
-                        <script>
-                            console.log("new: "+"<?=$tag_vault[$i]?>")
-                        </script>
-                        <?php
                         $sql_new_tag_relation = "INSERT INTO article_tag_map SET 
                             tag_id = (SELECT MAX(id) FROM tags), 
                             article_id = (SELECT MAX(id) FROM articles)";//태그 테이블 맵핑
