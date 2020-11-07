@@ -5,7 +5,7 @@
 
 
 
-    $sql_article_data_all = "SELECT * FROM articles WHERE about = 'no'";
+    $sql_article_data_all = "SELECT * FROM articles WHERE about != 'on'";
     $result_article_data_all = $conn->query($sql_article_data_all);
     // $rows_article_all = mysqli_fetch_assoc($result_article_data_all);
 
