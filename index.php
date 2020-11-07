@@ -203,7 +203,7 @@
                                         </figure>
                                         <div class="article_content">
                                             <aside class="meta">
-                                                <p>'
+                                                <p>';
                                                     // <a class="'.$articleId.'" onclick="showArticle(this.className)" class="category">
                                                     //     종류
                                                     // </a>
