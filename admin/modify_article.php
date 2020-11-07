@@ -163,7 +163,7 @@
                             <a href="">Facebook</a>
                             <a href="">Tweeter</a>
                         </div> -->
-                        <input id="about_input" type="hidden" name="about" value="no">
+                        <!-- <input id="about_input" type="hidden" name="about" value="no"> -->
                         <input type="hidden" name="username" value="<?=$username?>">
                         <input type="hidden" name="id" value="<?=$q?>">
                         <input class="article_submit" type="submit">
