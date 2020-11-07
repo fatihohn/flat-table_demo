@@ -170,23 +170,25 @@
             aboutInput = document.querySelector("#about");
             // aboutVal = aboutInput.value;
             flagInput.addEventListener("click", function(e) {
-                // e.preventDefault();
                 if(flagInput.checked !== true && flagInput.disabled !== true) {
+                    e.preventDefault();
                     flagInput.checked == true;
                     aboutInput.checked == false;
                     aboutInput.disabled == true;
                 } else if(flagInput.checked == true && flagInput.disabled !== true) {
+                    e.preventDefault();
                     flagInput.checked == false;
                     aboutInput.disabled == false;
                 }
             });
             aboutInput.addEventListener("click", function(e) {
-                // e.preventDefault();
                 if(aboutInput.checked !== true && aboutInput.disbled !== true) {
+                    e.preventDefault();
                     aboutInput.checked == true;
                     flagInput.checked == false;
                     flagInput.disbled == true;
                 } else if(aboutInput.checked == true && aboutInput.disabled !== true) {
+                    e.preventDefault();
                     aboutInput.checked == false;
                     flagInput.disabled == false;
                 }
