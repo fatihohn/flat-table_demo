@@ -175,7 +175,7 @@
                     flagInput.checked == true;
                     aboutInput.checked == false;
                     aboutInput.disabled == true;
-                } else if(flatInput.checked == true && flagInput.disabled !== true) {
+                } else if(flagInput.checked == true && flagInput.disabled !== true) {
                     flagInput.checked == false;
                     aboutInput.disabled == false;
                 }
