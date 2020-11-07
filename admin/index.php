@@ -36,7 +36,7 @@
         $sql_hashtag_article = "SELECT * FROM article_tag_map WHERE tag_id = $hashTag_id";
         $result_hashtag_article = mysqli_query($conn, $sql_hashtag_article);
         while($row_hashtag_article = $result_hashtag_article->fetch_assoc()) {
-            array_push($article_with_hashtag, $row_hashtag_article['article_id']);
+            array_push($article_with_hashtag, "'".$row_hashtag_article['article_id']."'");
         }
         // for($ii; $ii < mysqli_fetch_length($conn, $sql_hashtag_article); $ii++) {
         //     array_push($article_with_hashtag, mysqli_fetch_assoc($result_hashtag_article)['article_id']);
@@ -53,7 +53,7 @@
             </script>
             <?php
         if(count($article_with_hashtag) > 0) {
-            $sql_article_data_all .=  "AND `id` IN ('$article_with_hashtag_str')";
+            $sql_article_data_all .=  "AND `id` IN ($article_with_hashtag_str)";
         }
     } else {
         $sql_article_data_all = "SELECT * FROM articles WHERE about != 'on'";
