@@ -25,7 +25,7 @@
     // $rows_article_all = mysqli_fetch_assoc($result_article_data_all);
     if(isset($hashTag)) {
         $hashTag = mysqli_real_escape_string($conn, $hashTag);
-        $sql_get_hashtag_id = "SELECT * FROM tags WHERE tag_name = $hashTag LIMIT 1";
+        $sql_get_hashtag_id = "SELECT * FROM tags WHERE tag_name = '$hashTag' LIMIT 1";
         $result_get_hashtag_id = mysqli_query($conn, $sql_get_hashtag_id);
         $row_get_hashtag_id = mysqli_fetch_assoc($result_get_hashtag_id);
         $hashTag_id = intval($row_get_hashtag_id['id']);
@@ -39,7 +39,7 @@
         //     array_push($article_with_hashtag, $row_hashtag_article['article_id']);
         // }
         for($ii; $ii < mysqli_fetch_length($conn, $sql_hashtag_article); $ii++) {
-            array_push($article_with_hashtag, mysqli_fetch_assoc($result_hashtag_article)[$ii]['article_id']);
+            array_push($article_with_hashtag, mysqli_fetch_assoc($result_hashtag_article)['article_id'][$ii]);
         }
 
         $article_with_hashtag_str = join(",", $article_with_hashtag);
