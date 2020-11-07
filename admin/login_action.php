@@ -55,7 +55,13 @@
                 </script>
                 <?php
             } else {
-                echo "session fail";
+                // echo "session fail";
+                ?>      
+                <script>
+                        alert("로그인 권한이 없습니다. 관리자에게 문의하세요.");
+                        location.replace("index.php");
+                </script>
+                <?php
             }
         } else {
             ?>             
