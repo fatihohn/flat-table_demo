@@ -76,7 +76,124 @@
     <?php include 'footer.php'?>
 
     <script src="/static/js/main.js"></script>
-        
+    <script>
+        //아이디 중복체크
+        (function() {
+            if (document.getElementById("username")) {
+                function checkId() {
+                    let userid = document.getElementById("username").value;
+
+                    if (userid) {
+
+                        if (userid == "") {
+                            document.getElementById("userConf").innerHTML = "";
+                            return;
+                        }
+                        if (window.XMLHttpRequest) { // code for IE7+, Firefox, Chrome, Opera, Safari
+                            xmlhttp = new XMLHttpRequest();
+                        } else { // code for IE6, IE5
+                            xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+                        }
+                        xmlhttp.onreadystatechange = function() {
+                            if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+                                document.getElementById("userConf").innerHTML = xmlhttp.responseText;
+                            }
+                        }
+                        xmlhttp.open("POST", "admin_checkId.php?q=" + userid, true);
+                        xmlhttp.send();
+                    } else {
+                        alert("아이디를 입력하세요");
+                    }
+
+                }
+
+                document.getElementById("username").addEventListener("change", checkId);
+            }
+        })();
+
+
+        //비밀번호 체크
+        (function() {
+            if (document.getElementById("pwOne") && document.getElementById("pwTwo")) {
+                function checkPw() {
+                    let pwOne = document.getElementById("pwOne").value;
+                    let pwTwo = document.getElementById("pwTwo").value;
+
+                    if (pwTwo) {
+
+                        if (pwOne == "") {
+                            document.getElementById("pwConf").innerHTML = "";
+                            return;
+                        } else if (pwOne === pwTwo) {
+                            document.getElementById("pwConf").innerHTML = "비밀번호가 일치합니다.";
+                            document.getElementById("pwConf").style.color = "green";
+                        } else {
+                            document.getElementById("pwConf").innerHTML = "비밀번호가 일치하지 않습니다.";
+                            document.getElementById("pwConf").style.color = "red";
+
+                        }
+                    }
+
+                    function chekPassword() {
+
+                        let mbrId = document.getElementById("username").value; // id 값 입력
+
+                        let mbrPwd = pwOne; // pw 입력
+
+                        let check1 = /^(?=.*[a-zA-Z])(?=.*[0-9]).{8,16}$/.test(mbrPwd); //영문,숫자
+
+                        let check2 = /^(?=.*[a-zA-Z])(?=.*[^a-zA-Z0-9]).{8,16}$/.test(mbrPwd); //영문,특수문자
+
+                        let check3 = /^(?=.*[^a-zA-Z0-9])(?=.*[0-9]).{8,16}$/.test(mbrPwd); //특수문자, 숫자
+
+                        if (!(check1 || check2 || check3)) {
+
+                            document.getElementById("pwOne").value = "";
+                            document.getElementById("pwTwo").value = "";
+                            alert("사용할 수 없는 조합입니다.\n다시 입력해 주세요.");
+                            return false;
+
+
+                        }
+
+                        if (/(\w)\1\1/.test(mbrPwd)) {
+
+                            document.getElementById("pwOne").value = "";
+                            document.getElementById("pwTwo").value = "";
+                            alert('같은 문자를 3번 이상 사용하실 수 없습니다.\n다시 입력해 주세요.');
+                            return false;
+
+
+                        }
+
+                        if (mbrPwd.search(mbrId) > -1) {
+
+                            document.getElementById("pwOne").value = "";
+                            document.getElementById("pwTwo").value = "";
+                            alert("비밀번호에 아이디가 포함되었습니다.\n다시 입력해 주세요.");
+                            return false;
+
+
+                        }
+
+                        return true;
+
+                    }
+                    if (pwOne && pwTwo) {
+
+                        chekPassword();
+                    }
+
+
+
+
+                }
+
+                document.getElementById("pwOne").addEventListener("change", checkPw);
+                document.getElementById("pwTwo").addEventListener("change", checkPw);
+            }
+        })();
+    </script>
  
 <!-- <section id="bbdd_sc">
     <div id="bbdd_sc_wrap">
