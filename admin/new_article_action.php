@@ -33,8 +33,8 @@
     $fieldwork_date = $_POST['fieldwork_date'];
     $fieldwork_date = mysqli_real_escape_string($conn, $fieldwork_date);
 
-    // $about = $_POST['about'];
-    // $about = mysqli_real_escape_string($conn, $about);
+    $about = $_POST['about'];
+    $about = mysqli_real_escape_string($conn, $about);
 
 
     $tag_vault = $_POST['tag_vault'];
@@ -97,7 +97,7 @@
             '{$words}',
             '{$flag}',
             '{$fieldwork_date}',
-            'no'
+            '{$about}'
         )";
 
     $result = mysqli_query($conn, $sql);

@@ -132,6 +132,14 @@
                                     </label>
                                 </span>
                             </p>
+                            <p class="flag">
+                                <span>
+                                    <label for="about">
+                                        <input id="about" type="checkbox" name="about">
+                                        평상으로부터 (소개글)
+                                    </label>
+                                </span>
+                            </p>
                         </div>
                         <!-- <div class="article_share">
                             <span>
