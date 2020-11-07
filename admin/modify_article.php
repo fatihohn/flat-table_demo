@@ -76,7 +76,7 @@
                             <input id="address" type="text" name="address" placeholder="주소" value="<?=$address?>" required />
                         </p>
                         <p class="category">
-                            <!-- <div class="tag_container">
+                            <div class="tag_container">
                                 <div class="tag_list_wrap"></div>
                                 <div class="tag_input_wrap">
                                     <div class="tag_input">
@@ -84,7 +84,7 @@
                                         <input id="tag_vault" type="hidden" name="tag_vault" value="" />
                                     </div>
                                 </div>
-                            </div> -->
+                            </div>
                         </p>
                     </div>
                 </header>
