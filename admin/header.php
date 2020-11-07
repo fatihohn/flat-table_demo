@@ -13,7 +13,7 @@
             </a>
         </div>
         <div class="box actions login_link">
-            <a class="menu login" href="/admin_login">
+            <a class="menu login" href="login.php">
                 LogIn
             </a>
         </div>
