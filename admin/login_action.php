@@ -44,7 +44,10 @@
         //비밀번호가 맞다면 세션 생성
         if($row['password']==$password){
             $_SESSION['username'] = $username;
-            if(isset($_SESSION['username'])){
+            if($row['admin'] == "admin") {
+                $_SESSION['admin'] = "admin";
+            }
+            if(isset($_SESSION['username']) && isset($_SESSION['admin'])){
                 ?>      
                 <script>
                         alert("<?=$username;?>님 로그인 되었습니다.");
