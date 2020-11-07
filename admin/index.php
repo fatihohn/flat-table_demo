@@ -13,6 +13,13 @@
     // $sql_article_data_flag = $sql_article_data_all." WHERE flag = flag";
     $sql_article_data_flag = "SELECT * FROM articles WHERE about = 'no' AND flag = 'on'";
     $result_article_data_flag = $conn->query($sql_article_data_flag);
+
+
+
+
+    
+
+
 ?>
 
 <!DOCTYPE html>
@@ -167,6 +174,17 @@
                                 $articleTitle = $rows_article_all["title"];
                                 $articleComment = $rows_article_all["comment"];
                                 $articleImgList = explode(",", $rows_article_all["imgs"]);
+
+                                $item_tag_list = array();
+
+                                $sql_get_tags = "SELECT * FROM item_tag_map WHERE item_id = $articleId";
+                                $result_get_tags = mysqli_query($conn, $sql_get_tags);
+                                while($row_get_tags = $result_get_tags->fetch_assoc()) {
+                                    $sql_get_tag_names = "SELECT tag_name FROM tags WHERE id = {$row_get_tags['tag_id']}";
+                                    $result_get_tag_names = mysqli_query($conn, $sql_get_tag_names);
+                                    $row_get_tag_names = mysqli_fetch_assoc($result_get_tag_names);
+                                    array_push($item_tag_list, $row_get_tag_names['tag_name']);
+                                }
                                 // $articleTags = ["임시", "태그", "골목"];
 
                                 // echo '<img class="slide_img_src" title="'.$frontArticleTitle.'" src="/uploads/'.$frontArticleImg.'" alt="'.$frontArticleTitle.'">';
@@ -187,14 +205,20 @@
                                         </figure>
                                         <div class="article_content">
                                             <aside class="meta">
-                                                <p>
-                                                    <a class="'.$articleId.'" onclick="showArticle(this.className)" class="category">
-                                                        종류
-                                                    </a>
-                                                    <a class="'.$articleId.'" onclick="showArticle(this.className)" class="category">
-                                                        무엇
-                                                    </a>
-                                                </p>
+                                                <p>';
+                                                    // <a class="'.$articleId.'" onclick="showArticle(this.className)" class="category">
+                                                    //     종류
+                                                    // </a>
+                                                    // <a class="'.$articleId.'" onclick="showArticle(this.className)" class="category">
+                                                    //     무엇
+                                                    // </a>
+                                                    foreach($item_tag_list as $tag) {
+                                                        echo '<a class="'.$articleId.'" onclick="showArticle(this.className)" class="category">';
+                                                        echo "#".$tag." ";
+                                                            // 종류
+                                                        echo '</a>';
+                                                    }
+                                                '</p>
                                             </aside>
                                             <h1 class="article_title">
                                                 <a class="'.$articleId.'" onclick="showArticle(this.className)">
@@ -253,348 +277,7 @@
                                 </div>
                             </article>
                         </li>
-                        <li>
-                            <article class="article">
-                                <figure>
-                                    <a href="/admin_article.php" class="overlay">
-                                        <div class="center">
-                                            <p>
-                                                읽기
-                                            </p>
-                                        </div>
-                                    </a>
-                                    <a href="/admin_article.php">
-                                        <img src="https://www.doongdoong.org/uploads/thumbs/1593343384.jpeg" alt="" class="cover">
-                                    </a>
-                                </figure>
-                                <div class="article_content">
-                                    <aside class="meta">
-                                        <p>
-                                            <a href="/admin_article.php" class="category">
-                                                종류
-                                            </a>
-                                        </p>
-                                    </aside>
-                                    <h1 class="article_title">
-                                        <a href="/admin_article.php">
-                                            <span class="line">
-                                                성보주택 평상
-                                            </span>
-                                        </a>
-                                    </h1>
-                                    <div class="article_comment">
-                                        <p>
-                                            자전거 거치대를 개조해 만든 평상.
-                                        </p>
-
-                                    </div>
-                                </div>
-                            </article>
-                        </li>
-                        <li>
-                            <article class="article">
-                                <figure>
-                                    <a href="/admin_article.php" class="overlay">
-                                        <div class="center">
-                                            <p>
-                                                읽기
-                                            </p>
-                                        </div>
-                                    </a>
-                                    <a href="/admin_article.php">
-                                        <img src="https://www.doongdoong.org/uploads/thumbs/1593343384.jpeg" alt="" class="cover">
-                                    </a>
-                                </figure>
-                                <div class="article_content">
-                                    <aside class="meta">
-                                        <p>
-                                            <a href="/admin_article.php" class="category">
-                                                종류
-                                            </a>
-                                        </p>
-                                    </aside>
-                                    <h1 class="article_title">
-                                        <a href="/admin_article.php">
-                                            <span class="line">
-                                                성보주택 평상
-                                            </span>
-                                        </a>
-                                    </h1>
-                                    <div class="article_comment">
-                                        <p>
-                                            자전거 거치대를 개조해 만든 평상.
-                                        </p>
-
-                                    </div>
-                                </div>
-                            </article>
-                        </li>
-                        <li>
-                            <article class="article">
-                                <figure>
-                                    <a href="/admin_article.php" class="overlay">
-                                        <div class="center">
-                                            <p>
-                                                읽기
-                                            </p>
-                                        </div>
-                                    </a>
-                                    <a href="/admin_article.php">
-                                        <img src="https://www.doongdoong.org/uploads/thumbs/1593343384.jpeg" alt="" class="cover">
-                                    </a>
-                                </figure>
-                                <div class="article_content">
-                                    <aside class="meta">
-                                        <p>
-                                            <a href="/admin_article.php" class="category">
-                                                종류
-                                            </a>
-                                        </p>
-                                    </aside>
-                                    <h1 class="article_title">
-                                        <a href="/admin_article.php">
-                                            <span class="line">
-                                                성보주택 평상
-                                            </span>
-                                        </a>
-                                    </h1>
-                                    <div class="article_comment">
-                                        <p>
-                                            자전거 거치대를 개조해 만든 평상.
-                                        </p>
-
-                                    </div>
-                                </div>
-                            </article>
-                        </li>
-                        <li>
-                            <article class="article">
-                                <figure>
-                                    <a href="/admin_article.php" class="overlay">
-                                        <div class="center">
-                                            <p>
-                                                읽기
-                                            </p>
-                                        </div>
-                                    </a>
-                                    <a href="/admin_article.php">
-                                        <img src="https://www.doongdoong.org/uploads/thumbs/1593343384.jpeg" alt="" class="cover">
-                                    </a>
-                                </figure>
-                                <div class="article_content">
-                                    <aside class="meta">
-                                        <p>
-                                            <a href="/admin_article.php" class="category">
-                                                종류
-                                            </a>
-                                        </p>
-                                    </aside>
-                                    <h1 class="article_title">
-                                        <a href="/admin_article.php">
-                                            <span class="line">
-                                                성보주택 평상
-                                            </span>
-                                        </a>
-                                    </h1>
-                                    <div class="article_comment">
-                                        <p>
-                                            자전거 거치대를 개조해 만든 평상.
-                                        </p>
-
-                                    </div>
-                                </div>
-                            </article>
-                        </li>
-                        <li>
-                            <article class="article">
-                                <figure>
-                                    <a href="/admin_article.php" class="overlay">
-                                        <div class="center">
-                                            <p>
-                                                읽기
-                                            </p>
-                                        </div>
-                                    </a>
-                                    <a href="/admin_article.php">
-                                        <img src="https://www.doongdoong.org/uploads/thumbs/1593343384.jpeg" alt="" class="cover">
-                                    </a>
-                                </figure>
-                                <div class="article_content">
-                                    <aside class="meta">
-                                        <p>
-                                            <a href="/admin_article.php" class="category">
-                                                종류
-                                            </a>
-                                        </p>
-                                    </aside>
-                                    <h1 class="article_title">
-                                        <a href="/admin_article.php">
-                                            <span class="line">
-                                                성보주택 평상
-                                            </span>
-                                        </a>
-                                    </h1>
-                                    <div class="article_comment">
-                                        <p>
-                                            자전거 거치대를 개조해 만든 평상.
-                                        </p>
-
-                                    </div>
-                                </div>
-                            </article>
-                        </li>
-                        <li>
-                            <article class="article">
-                                <figure>
-                                    <a href="/admin_article.php" class="overlay">
-                                        <div class="center">
-                                            <p>
-                                                읽기
-                                            </p>
-                                        </div>
-                                    </a>
-                                    <a href="/admin_article.php">
-                                        <img src="https://www.doongdoong.org/uploads/thumbs/1593343384.jpeg" alt="" class="cover">
-                                    </a>
-                                </figure>
-                                <div class="article_content">
-                                    <aside class="meta">
-                                        <p>
-                                            <a href="/admin_article.php" class="category">
-                                                종류
-                                            </a>
-                                        </p>
-                                    </aside>
-                                    <h1 class="article_title">
-                                        <a href="/admin_article.php">
-                                            <span class="line">
-                                                성보주택 평상
-                                            </span>
-                                        </a>
-                                    </h1>
-                                    <div class="article_comment">
-                                        <p>
-                                            자전거 거치대를 개조해 만든 평상.
-                                        </p>
-
-                                    </div>
-                                </div>
-                            </article>
-                        </li>
-                        <li>
-                            <article class="article">
-                                <figure>
-                                    <a href="/admin_article.php" class="overlay">
-                                        <div class="center">
-                                            <p>
-                                                읽기
-                                            </p>
-                                        </div>
-                                    </a>
-                                    <a href="/admin_article.php">
-                                        <img src="https://www.doongdoong.org/uploads/thumbs/1593343384.jpeg" alt="" class="cover">
-                                    </a>
-                                </figure>
-                                <div class="article_content">
-                                    <aside class="meta">
-                                        <p>
-                                            <a href="/admin_article.php" class="category">
-                                                종류
-                                            </a>
-                                        </p>
-                                    </aside>
-                                    <h1 class="article_title">
-                                        <a href="/admin_article.php">
-                                            <span class="line">
-                                                성보주택 평상
-                                            </span>
-                                        </a>
-                                    </h1>
-                                    <div class="article_comment">
-                                        <p>
-                                            자전거 거치대를 개조해 만든 평상.
-                                        </p>
-
-                                    </div>
-                                </div>
-                            </article>
-                        </li>
-                        <li>
-                            <article class="article">
-                                <figure>
-                                    <a href="/admin_article.php" class="overlay">
-                                        <div class="center">
-                                            <p>
-                                                읽기
-                                            </p>
-                                        </div>
-                                    </a>
-                                    <a href="/admin_article.php">
-                                        <img src="https://www.doongdoong.org/uploads/thumbs/1593343384.jpeg" alt="" class="cover">
-                                    </a>
-                                </figure>
-                                <div class="article_content">
-                                    <aside class="meta">
-                                        <p>
-                                            <a href="/admin_article.php" class="category">
-                                                종류
-                                            </a>
-                                        </p>
-                                    </aside>
-                                    <h1 class="article_title">
-                                        <a href="/admin_article.php">
-                                            <span class="line">
-                                                성보주택 평상
-                                            </span>
-                                        </a>
-                                    </h1>
-                                    <div class="article_comment">
-                                        <p>
-                                            자전거 거치대를 개조해 만든 평상.
-                                        </p>
-
-                                    </div>
-                                </div>
-                            </article>
-                        </li>
-                        <li>
-                            <article class="article">
-                                <figure>
-                                    <a href="/admin_article.php" class="overlay">
-                                        <div class="center">
-                                            <p>
-                                                읽기
-                                            </p>
-                                        </div>
-                                    </a>
-                                    <a href="/admin_article.php">
-                                        <img src="https://www.doongdoong.org/uploads/thumbs/1593343384.jpeg" alt="" class="cover">
-                                    </a>
-                                </figure>
-                                <div class="article_content">
-                                    <aside class="meta">
-                                        <p>
-                                            <a href="/admin_article.php" class="category">
-                                                종류
-                                            </a>
-                                        </p>
-                                    </aside>
-                                    <h1 class="article_title">
-                                        <a href="/admin_article.php">
-                                            <span class="line">
-                                                성보주택 평상
-                                            </span>
-                                        </a>
-                                    </h1>
-                                    <div class="article_comment">
-                                        <p>
-                                            자전거 거치대를 개조해 만든 평상.
-                                        </p>
-
-                                    </div>
-                                </div>
-                            </article>
-                        </li> -->
+                         -->
                     </ul>
                 </div>
             </div>
