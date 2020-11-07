@@ -33,6 +33,18 @@
 </head>
 <body>
     <?php include 'header.php'?>
+    <?php
+    if($sessionUser) {
+        $username = $sessionUser;
+    } else {
+        ?>
+        <script>
+            alert("로그인하세요");
+            location.href='index.php';
+        </script>
+        <?php
+    }
+    ?>
     <?php include 'nav.php'?>
 
     <div id="overlay" class="overlay"></div>

@@ -9,16 +9,7 @@
     // $rows_user_data = mysqli_fetch_assoc($result_user_data);
     
     // $username = $rows_get_user['username'];
-    if($sessionUser) {
-        $username = $sessionUser;
-    } else {
-        ?>
-        <script>
-            alert("로그인하세요");
-            location.href='index.php';
-        </script>
-        <?php
-    }
+    
 ?>
 
 <!DOCTYPE html>
@@ -31,6 +22,18 @@
 </head>
 <body>
     <?php include 'header.php'?>
+    <?php
+    if($sessionUser) {
+        $username = $sessionUser;
+    } else {
+        ?>
+        <script>
+            alert("로그인하세요");
+            location.href='index.php';
+        </script>
+        <?php
+    }
+    ?>
     <?php include 'nav.php'?>
 
     <div id="overlay" class="overlay"></div>

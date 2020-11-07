@@ -3,13 +3,17 @@
 
 
     // $sessionUser = $_SESSION['username'];
-    $sessionUser = "tmp_name";
+    // $sessionUser = "tmp_name";
     // $sql_user_data = "SELECT * FROM user_data WHERE username= '$sessionUser'";
     // $result_user_data = $conn->query($sql_user_data);
     // $rows_user_data = mysqli_fetch_assoc($result_user_data);
     
     // $username = $rows_get_user['username'];
-    $username = $sessionUser;
+    
+    // $username = $sessionUser;
+
+
+    
 
 
     $q = intval($_GET["q"]);
@@ -61,6 +65,18 @@
 </head>
 <body>
     <?php include 'header.php'?>
+    <?php
+    if($sessionUser) {
+        $username = $sessionUser;
+    } else {
+        ?>
+        <script>
+            alert("로그인하세요");
+            location.href='index.php';
+        </script>
+        <?php
+    }
+    ?>
     <?php include 'nav.php'?>
 
     <div id="overlay" class="overlay"></div>
