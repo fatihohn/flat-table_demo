@@ -175,15 +175,17 @@
     <script>
         (function() {
             var flagVal, aboutVal, flagInput, aboutInput;
-            flagVal = "<?=$flag?>";
             flagInput = document.querySelector("#flag");
+            aboutInput = document.querySelector("#about");
+            flagVal = "<?=$flag?>";
+            aboutVal = "<?=$about?>";
             if(flagVal == "on") {
                 flagInput.checked = true;
+                aboutInput.checked = false;
             }
-            aboutVal = "<?=$about?>";
-            aboutInput = document.querySelector("#about");
-            if(aboutVal !== "no") {
+            if(aboutVal == "on") {
                 aboutInput.checked = true;
+                flagInput.checked = false;
             }
             aboutInput.disabled = true;
 
