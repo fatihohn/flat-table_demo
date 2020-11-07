@@ -42,7 +42,7 @@
         //     array_push($article_with_hashtag, mysqli_fetch_assoc($result_hashtag_article)['article_id']);
         // }
 
-        $article_with_hashtag_str = join(",", $article_with_hashtag);
+        $article_with_hashtag_str = join(", ", $article_with_hashtag);
         // $sql_article_data_all = "SELECT * FROM articles WHERE about!= 'on' AND `id` IN ($article_with_hashtag_str)";
         // $sql_article_data_all = "SELECT * FROM articles WHERE `id` IN ($article_with_hashtag_str)";
         
