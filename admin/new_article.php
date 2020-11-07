@@ -184,13 +184,17 @@
             flagInput.onchange =  function(e) {
                 if(flagInput.checked !== true && flagInput.disabled !== true) {
                     aboutInput.disabled = false;
-                    // e.preventDefault();
-                    // flagInput.checked = true;
                 } else if(flagInput.checked == true && flagInput.disabled !== true) {
                     aboutInput.checked = false;
                     aboutInput.disabled = true;
-                    // e.preventDefault();
-                    // flagInput.checked = false;
+                }
+            };
+            aboutInput.onchange =  function(e) {
+                if(aboutInput.checked !== true && aboutInput.disabled !== true) {
+                    flagInput.disabled = false;
+                } else if(aboutInput.checked == true && aboutInput.disabled !== true) {
+                    flagInput.checked = false;
+                    flagInput.disabled = true;
                 }
             };
             // aboutInput.onchange =  function(e) {
