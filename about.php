@@ -3,7 +3,7 @@
     
     // $q = intval($_GET["q"]);
 
-    $sql_article_data = "SELECT * FROM articles WHERE about = 'on'";
+    $sql_article_data = "SELECT * FROM articles WHERE about = 'on' ORDER BY id DESC LIMIT 1";
     $result_article_data = $conn->query($sql_article_data);
     $rows_article = mysqli_fetch_assoc($result_article_data);
 
