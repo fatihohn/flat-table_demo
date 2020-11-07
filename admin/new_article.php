@@ -184,25 +184,25 @@
             flagInput.onchange =  function(e) {
                 if(e.target.checked !== true && e.target.disabled !== true) {
                     // e.preventDefault();
-                    e.target.checked == true;
-                    aboutInput.checked == false;
-                    aboutInput.disabled == true;
+                    e.target.checked = true;
+                    aboutInput.checked = false;
+                    aboutInput.disabled = true;
                 } else if(e.target.checked == true && e.target.disabled !== true) {
                     // e.preventDefault();
-                    e.target.checked == false;
-                    aboutInput.disabled == false;
+                    e.target.checked = false;
+                    aboutInput.disabled = false;
                 }
             };
             aboutInput.onchange =  function(e) {
                 if(e.target.checked !== true && e.target.disbled !== true) {
                     // e.preventDefault();
-                    e.target.checked == true;
-                    flagInput.checked == false;
-                    flagInput.disbled == true;
+                    e.target.checked = true;
+                    flagInput.checked = false;
+                    flagInput.disbled = true;
                 } else if(e.target.checked == true && e.target.disabled !== true) {
                     // e.preventDefault();
-                    e.target.checked == false;
-                    flagInput.disabled == false;
+                    e.target.checked = false;
+                    flagInput.disabled = false;
                 }
                 
             };
