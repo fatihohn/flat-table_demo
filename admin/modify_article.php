@@ -15,7 +15,7 @@
         $username = $sessionUser;
         ?>
         <script>
-            console.log(<?=$username?>);
+            console.log("<?=$username?>");
         </script>
         <?php
     } else {
