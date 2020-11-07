@@ -11,5 +11,8 @@
             location.replace("<?=$URL?>");
         </script>
         <?php
+    } else {
+        echo mysqli_error($conn);
+        error_log(mysqli_error($conn));
     }
 ?>
