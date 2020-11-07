@@ -74,7 +74,7 @@
                         <div class="article_info">
                             <p class="article_address">
                                 <!-- {{-- 경기도 동두천시 상봉암동 153-15 --}} -->
-                                <input type="text" name="address" placeholder="주소" value="<?=$address?>" required />
+                                <input id="address" type="text" name="address" placeholder="주소" value="<?=$address?>" required />
                             </p>
                             <!-- <p class="category"> -->
                                 <!-- <a href="#">
