@@ -69,26 +69,26 @@
     <section class="article_main">
         <div class="main">
             <div class="article_container container">
-                    <header class="article_header">
-                        <input id="title" type="text" name="title" placeholder="제목" value="<?=$title?>" required/>
-                        <div class="article_info">
-                            <p class="article_address">
-                                <!-- {{-- 경기도 동두천시 상봉암동 153-15 --}} -->
-                                <input id="address" type="text" name="address" placeholder="주소" value="<?=$address?>" required />
-                            </p>
-                            <p class="category">
-                                <div class="tag_container">
-                                    <div class="tag_list_wrap"></div>
-                                    <div class="tag_input_wrap">
-                                        <div class="tag_input">
-                                            <input id="tags" type="text" placeholder="연관태그를 입력해주세요. (최대 5개)" value="">
-                                            <input id="tag_vault" type="hidden" name="tag_vault" value="">
-                                        </div>
+                <header class="article_header">
+                    <input id="title" type="text" name="title" placeholder="제목" value="<?=$title?>" required/>
+                    <div class="article_info">
+                        <p class="article_address">
+                            <!-- {{-- 경기도 동두천시 상봉암동 153-15 --}} -->
+                            <input id="address" type="text" name="address" placeholder="주소" value="<?=$address?>" required />
+                        </p>
+                        <p class="category">
+                            <div class="tag_container">
+                                <div class="tag_list_wrap"></div>
+                                <div class="tag_input_wrap">
+                                    <div class="tag_input">
+                                        <input id="tags" type="text" placeholder="연관태그를 입력해주세요. (최대 5개)" value="">
+                                        <input id="tag_vault" type="hidden" name="tag_vault" value="">
                                     </div>
                                 </div>
-                            </p>
-                        </div>
-                    </header>
+                            </div>
+                        </p>
+                    </div>
+                </header>
                 
                 <!-- <div class="article_pics"> -->
                 <div id="file-list-display" class="article_pics">
