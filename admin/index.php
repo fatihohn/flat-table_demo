@@ -206,16 +206,9 @@
                                         <div class="article_content">
                                             <aside class="meta">
                                                 <p>';
-                                                    // <a class="'.$articleId.'" onclick="showArticle(this.className)" class="category">
-                                                    //     종류
-                                                    // </a>
-                                                    // <a class="'.$articleId.'" onclick="showArticle(this.className)" class="category">
-                                                    //     무엇
-                                                    // </a>
                                                     foreach($article_tag_list as $tag) {
                                                         echo '<a class="'.$articleId.'" onclick="showArticle(this.className)" class="category">';
                                                         echo    "#".$tag." ";
-                                                            // 종류
                                                         echo '</a>';
                                                     }
                                 echo            '</p>

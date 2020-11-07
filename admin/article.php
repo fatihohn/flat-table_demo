@@ -21,6 +21,17 @@
     // $result_article_data_flag = $conn->query($sql_article_data_flag);
 
 
+    $article_tag_list = array();
+
+    $sql_get_tags = "SELECT * FROM article_tag_map WHERE article_id = $q";
+    $result_get_tags = mysqli_query($conn, $sql_get_tags);
+    while($row_get_tags = $result_get_tags->fetch_assoc()) {
+        $sql_get_tag_names = "SELECT tag_name FROM tags WHERE id = {$row_get_tags['tag_id']}";
+        $result_get_tag_names = mysqli_query($conn, $sql_get_tag_names);
+        $row_get_tag_names = mysqli_fetch_assoc($result_get_tag_names);
+        array_push($article_tag_list, $row_get_tag_names['tag_name']);
+    }
+
 
 
 ?>
@@ -50,9 +61,17 @@
                             <?=$address?>
                         </p>
                         <p class="category">
-                            <a href="#">
+                            <!-- <a href="#">
                                 주민모임형
-                            </a>
+                            </a> -->
+                            <?php
+                            foreach($article_tag_list as $tag) {
+                                echo '<a class="'.$q.'" onclick="showArticle(this.className)" class="category">';
+                                echo    "#".$tag." ";
+                                echo '</a>';
+                            }
+                            ?>
+
                         </p>
                     </div>
                     
