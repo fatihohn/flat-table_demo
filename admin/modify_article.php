@@ -707,8 +707,8 @@
                     var imgSource = document.createElement('img');
                     var canvas = document.createElement('canvas');
                         canvas.setAttribute("class", "canvas");
-                        canvas.width = 3000;
-                        canvas.height = 3000;
+                        canvas.width = 2000;
+                        canvas.height = 2000;
                         canvas.style.display = "none";
 
                         imgSource.setAttribute("class", "imgSource");
