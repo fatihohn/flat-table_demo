@@ -533,6 +533,7 @@
             }
 
             if(articleTagList.length > 0) {
+                console.log(articleTagList.length);
                 articleTagList.forEach((tag) => {
                     addTags(tag);
                     tagListWrap.appendChild(tagListUl);
