@@ -14,8 +14,8 @@
 
     // $rows_article_all = mysqli_fetch_assoc($result_article_data_all);
     if(isset($hashTag)) {
-        $hashTag = mysqli_real_escape_string($conn, $hashTag);
-        $sql_get_hashtag_id = "SELECT * FROM tags WHERE tag_name = '$hashTag' LIMIT 1";
+        // $hashTag = mysqli_real_escape_string($conn, $hashTag);
+        $sql_get_hashtag_id = "SELECT * FROM tags WHERE tag_name = $hashTag LIMIT 1";
         $result_get_hashtag_id = mysqli_query($conn, $sql_get_hashtag_id);
         $row_get_hashtag_id = mysqli_fetch_assoc($result_get_hashtag_id);
         $hashTag_id = intval($row_get_hashtag_id['id']);
@@ -29,12 +29,12 @@
             array_push($article_with_hashtag, $row_hashtag_article['article_id']);
         }
         $article_with_hashtag_str = join(",", $article_with_hashtag);
-        // $sql_article_data_all = "SELECT * FROM articles WHERE about!= 'on' AND `id` IN ($article_with_hashtag)";
-        // $sql_article_data_all = "SELECT * FROM articles WHERE `id` IN ($article_with_hashtag_str)";
-        $sql_article_data_all = "SELECT * FROM articles WHERE about!= 'on'";
-        if(count($article_with_hashtag) > 0) {
-            $sql_article_data_all .=  "AND `id` IN $article_with_hashtag";
-        }
+        $sql_article_data_all = "SELECT * FROM articles WHERE about!= 'on' AND `id` IN ($article_with_hashtag)";
+        // // $sql_article_data_all = "SELECT * FROM articles WHERE `id` IN ($article_with_hashtag_str)";
+        // $sql_article_data_all = "SELECT * FROM articles WHERE about!= 'on'";
+        // if(count($article_with_hashtag) > 0) {
+        //     $sql_article_data_all .=  "AND `id` IN $article_with_hashtag";
+        // }
     } else {
         $sql_article_data_all = "SELECT * FROM articles WHERE about != 'on'";
     }
