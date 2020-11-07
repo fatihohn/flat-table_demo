@@ -16,7 +16,7 @@
     if(isset($hashTag)) {
         $hashTag = mysqli_real_escape_string($conn, $hashTag);
         $sql_get_hashtag_id = "SELECT * FROM tags WHERE tag_name = '$hashTag' LIMIT 1";
-        $result_get_hashtag_id = mysqli_query($sql_get_hashtag_id);
+        $result_get_hashtag_id = mysqli_query($conn, $sql_get_hashtag_id);
         $row_get_hashtag_id = mysqli_fetch_assoc($result_get_hashtag_id);
         $hashTag_id = intval($row_get_hashtag_id['id']);
 
@@ -24,7 +24,7 @@
         $article_with_hashtag = array();
         
         $sql_hashtag_article = "SELECT * FROM article_tag_map WHERE tag_id = $hashTag_id";
-        $result_hashtag_article = mysqli_query($sql_hashtag_article);
+        $result_hashtag_article = mysqli_query($conn, $sql_hashtag_article);
         while($row_hashtag_article = $result_hashtag_article->fetch_assoc()) {
             array_push($article_with_hashtag, $row_hashtag_article['article_id']);
         }
