@@ -37,14 +37,21 @@
         $result_hashtag_article = mysqli_query($conn, $sql_hashtag_article);
         while($row_hashtag_article = $result_hashtag_article->fetch_assoc()) {
             array_push($article_with_hashtag, $row_hashtag_article['article_id']);
+            ?>
+            <script>
+                console.log("<?=$article_with_hashtag?>");
+            </script>
+            <?php
         }
+
         $article_with_hashtag_str = join(",", $article_with_hashtag);
         // $sql_article_data_all = "SELECT * FROM articles WHERE about!= 'on' AND `id` IN ($article_with_hashtag_str)";
         // $sql_article_data_all = "SELECT * FROM articles WHERE `id` IN ($article_with_hashtag_str)";
+        
         $sql_article_data_all = "SELECT * FROM articles WHERE about!= 'on'";
             ?>
             <script>
-                console.log("<?=$article_with_hashtag_str?>");
+                //console.log("<?//=$article_with_hashtag?>");
             </script>
             <?php
         if(count($article_with_hashtag) > 0) {
