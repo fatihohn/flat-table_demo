@@ -214,11 +214,11 @@
                                                     // </a>
                                                     foreach($article_tag_list as $tag) {
                                                         echo '<a class="'.$articleId.'" onclick="showArticle(this.className)" class="category">';
-                                                        echo "#".$tag." ";
+                                                        echo    "#".$tag." ";
                                                             // 종류
                                                         echo '</a>';
                                                     }
-                                                '</p>
+                                echo            '</p>
                                             </aside>
                                             <h1 class="article_title">
                                                 <a class="'.$articleId.'" onclick="showArticle(this.className)">
