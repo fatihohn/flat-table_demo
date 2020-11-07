@@ -8,7 +8,7 @@
 <body>
     <?php include 'header.php'?>
     <?php
-    if($sessionUser) {
+    if($sessionUser && $sessionAdmin == "admin") {
         $username = $sessionUser;
     } else {
         ?>
