@@ -178,6 +178,10 @@ button {
     outline: none;
 }
 
+.article_main .main .article_container .article_header {
+    max-width: 550px;
+}
+
 .article_header .article_info input {
     font-size: 1rem;
     width: 300px;
@@ -233,7 +237,7 @@ button {
 }
 
 .tag_container {
-    display: flex;
+    /* display: flex; */
     -webkit-box-align: center;
     align-items: center;
     /* height: 3rem; */
@@ -397,5 +401,8 @@ button {
     #file-list-display figure button {
         position: absolute;
         right: 10px;
+    }
+    .article_main .main .article_container .article_header {
+        max-width: 100%;
     }
 }
