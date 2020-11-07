@@ -80,7 +80,7 @@ button {
     border: 0px;
     border-bottom: 1px solid #D9D9D9;
     border-radius: 0px;
-    width: 100%;
+    /* width: 100%; */
 }
 
 .container_login .login_form .login_btn {
@@ -392,6 +392,10 @@ button {
 
 .new_user_form {
     text-align: left;
+}
+
+.new_user_form .login_input {
+    width: 100%;
 }
 
 .new_user_btn {
