@@ -32,21 +32,16 @@
         // $sql_article_data_all = "SELECT * FROM articles WHERE about!= 'on' AND `id` IN ($article_with_hashtag_str)";
         // $sql_article_data_all = "SELECT * FROM articles WHERE `id` IN ($article_with_hashtag_str)";
         $sql_article_data_all = "SELECT * FROM articles WHERE about!= 'on'";
-        if(count($article_with_hashtag) > 0) {
-            $sql_article_data_all .=  "AND `id` IN ($article_with_hashtag)";
             ?>
             <script>
                 console.log("<?=$article_with_hashtag?>");
             </script>
             <?php
+        if(count($article_with_hashtag) > 0) {
+            $sql_article_data_all .=  "AND `id` IN ($article_with_hashtag)";
         }
     } else {
         $sql_article_data_all = "SELECT * FROM articles WHERE about != 'on'";
-            ?>
-            <script>
-                console.log("<?=$article_with_hashtag?>");
-            </script>
-            <?php
     }
     
     $result_article_data_all = $conn->query($sql_article_data_all);
