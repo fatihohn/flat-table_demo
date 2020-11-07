@@ -1,10 +1,10 @@
 <?php
     include_once '../bbps_db_conn.php';
     
+    $hashTag = $_GET['tag'];
     $scrollTag = $_GET['q'];
 
 
-    $hashTag = $_GET['tag'];
 
     
 
