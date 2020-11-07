@@ -99,9 +99,12 @@
                             console.log("old: "+"<?=$tag_vault[$i]?>")
                         </script>
                         <?php
+                        // $sql_old_tag_relation = "INSERT INTO article_tag_map SET 
+                        //     tag_id = (SELECT id FROM tags WHERE tag_name = '$tag_vault[$i]'), 
+                        //     article_id = (SELECT MAX(id) FROM articles)";//태그 테이블 맵핑
                         $sql_old_tag_relation = "INSERT INTO article_tag_map SET 
                             tag_id = (SELECT id FROM tags WHERE tag_name = '$tag_vault[$i]'), 
-                            article_id = (SELECT MAX(id) FROM articles)";//태그 테이블 맵핑
+                            article_id = $q";//태그 테이블 맵핑
                         $result_old_tag_relation = mysqli_query($conn, $sql_old_tag_relation);
                     
                     } else {//새로운 태그라면
@@ -114,9 +117,12 @@
                                 console.log("new: "+"<?=$tag_vault[$i]?>")
                             </script>
                             <?php
+                            // $sql_new_tag_relation = "INSERT INTO article_tag_map SET 
+                            //     tag_id = (SELECT MAX(id) FROM tags), 
+                            //     article_id = (SELECT MAX(id) FROM articles)";//태그 테이블 맵핑
                             $sql_new_tag_relation = "INSERT INTO article_tag_map SET 
                                 tag_id = (SELECT MAX(id) FROM tags), 
-                                article_id = (SELECT MAX(id) FROM articles)";//태그 테이블 맵핑
+                                article_id = $q";//태그 테이블 맵핑
                             $result_new_tag_relation = mysqli_query($conn, $sql_new_tag_relation);
                         }
                     }
