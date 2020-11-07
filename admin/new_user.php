@@ -41,7 +41,7 @@
                             </div>
                         </p>
                         <p>PW: <input id="pwOne" class="login_input" name="password" type="password" required></p>
-                        <p>PW check: <input id="pwTwo" class="login_input" name="password_conf" type="password" required></p>
+                        <p>PW 확인: <input id="pwTwo" class="login_input" name="password_conf" type="password" required></p>
                         <p>
                             <div class="createGrid3" id="pwConf"></div>
                             <div>
@@ -99,7 +99,7 @@
                                 document.getElementById("userConf").innerHTML = xmlhttp.responseText;
                             }
                         }
-                        xmlhttp.open("POST", "admin_checkId.php?q=" + userid, true);
+                        xmlhttp.open("POST", "new_user_check_id.php?q=" + userid, true);
                         xmlhttp.send();
                     } else {
                         alert("아이디를 입력하세요");
