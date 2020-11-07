@@ -35,7 +35,7 @@
                         <div class="article_info">
                             <p class="article_address">
                                 <!-- {{-- 경기도 동두천시 상봉암동 153-15 --}} -->
-                                <input type="text" name="address" placeholder="주소" required />
+                                <input id="address" type="text" name="address" placeholder="주소" required />
                             </p>
                             <p class="category">
                                 <!-- <a href="#">
@@ -103,13 +103,13 @@
                             <p class="photo">
                                 사진
                                 <span>
-                                    <input type="text" name="photographer">
+                                    <input id="photographer" type="text" name="photographer">
                                 </span>
                             </p>
                             <p class="words">
                                 글
                                 <span>
-                                    <input type="text" name="words" required>
+                                    <input id="words" type="text" name="words" required>
                                 </span>
                             </p>
                         </div>
@@ -868,12 +868,27 @@
 
             tagInput = document.querySelector("#tags");
             tagInput.addEventListener("keydown", function() {
-                    checkStrLen(9, tagInput);
-                });
+                checkStrLen(9, tagInput);
+            });
 
             titleInput = document.querySelector("#title");
             titleInput.addEventListener("keydown", function() {
                 checkStrLen(40, titleInput);
+            });
+
+            addressInput = document.querySelector("#address");
+            addressInput.addEventListener("keydown", function() {
+                checkStrLen(125, addressInput);
+            });
+
+            photographerInput = document.querySelector("#photographer");
+            photographerInput.addEventListener("keydown", function() {
+                checkStrLen(12, photographerInput);
+            });
+
+            wordsInput = document.querySelector("#words");
+            wordsInput.addEventListener("keydown", function() {
+                checkStrLen(12, wordsInput);
             });
             
             addComma = function(input) {
