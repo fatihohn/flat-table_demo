@@ -177,7 +177,7 @@
 
                                 $item_tag_list = array();
 
-                                $sql_get_tags = "SELECT * FROM item_tag_map WHERE item_id = $articleId";
+                                $sql_get_tags = "SELECT * FROM article_tag_map WHERE article_id = $articleId";
                                 $result_get_tags = mysqli_query($conn, $sql_get_tags);
                                 while($row_get_tags = $result_get_tags->fetch_assoc()) {
                                     $sql_get_tag_names = "SELECT tag_name FROM tags WHERE id = {$row_get_tags['tag_id']}";
