@@ -163,6 +163,49 @@
 
     <script src="../static/js/main.js"></script>
     <script>
+        (function() {
+            var flagVal, aboutVal, flagInput, aboutInput;
+            flagInput = document.querySelector("#flag");
+            // flagVal = flagInput.value;
+            aboutInput = document.querySelector("#about");
+            // aboutVal = aboutInput.value;
+            flagInput.addEventListener("click", function(e) {
+                e.preventDefault();
+                if(flagInput.checked !== true && flagInput.disabled !== true) {
+                    flagInput.checked == true;
+                    aboutInput.checked == false;
+                    aboutInput.disabled == true;
+                } else if(flatInput.checked == true && flagInput.disabled !== true) {
+                    flagInput.checked == false;
+                    aboutInput.disabled == false;
+                }
+            });
+            aboutInput.addEventListener("click", function(e) {
+                e.preventDefault();
+                if(aboutInput.checked !== true && aboutInput.disbled !== true) {
+                    aboutInput.checked == true;
+                    flagInput.checked == false;
+                    flagInput.disbled == true;
+                } else if(aboutInput.checked == true && aboutInput.disabled !== true) {
+                    aboutInput.checked == false;
+                    flagInput.disabled == false;
+                }
+                
+            });
+            
+
+            // if(flagVal == "on") {
+            //     flagInput.checked = true;
+            // }
+            // if(aboutVal == "on") {
+            //     aboutInput.checked = true;
+            //     flagInput.checked = false;
+            //     flagInput.disabled = true;
+            // }
+            // aboutInput.disabled = true;
+        })();
+    </script>
+    <script>
         function organizePics() {
         let articleImgs = document.querySelectorAll(".article_pics figure");
         let mobileImgs = document.querySelector(".article_pics_mobile");

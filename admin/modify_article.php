@@ -32,7 +32,16 @@
     $words = $rows_article["words"];
     $flag = $rows_article["flag"];
 
+    $article_tag_list = array();
 
+    $sql_get_tags = "SELECT * FROM article_tag_map WHERE article_id = $q";
+    $result_get_tags = mysqli_query($conn, $sql_get_tags);
+    while($row_get_tags = $result_get_tags->fetch_assoc()) {
+        $sql_get_tag_names = "SELECT tag_name FROM tags WHERE id = {$row_get_tags['tag_id']}";
+        $result_get_tag_names = mysqli_query($conn, $sql_get_tag_names);
+        $row_get_tag_names = mysqli_fetch_assoc($result_get_tag_names);
+        array_push($article_tag_list, $row_get_tag_names['tag_name']);
+    }
 
 
 
@@ -157,12 +166,18 @@
     <script src="../static/js/main.js"></script>
     <script>
         (function() {
-            var flagVal, aboutInput;
+            var flagVal, aboutVal, flagInput, aboutInput;
             flagVal = "<?=$flag?>";
             flagInput = document.querySelector("#flag");
             if(flagVal == "on") {
                 flagInput.checked = true;
             }
+            aboutVal = "<?=$about?>";
+            aboutInput = document.querySelector("#about");
+            if(aboutVal == "on") {
+                aboutInput.checked = true;
+            }
+            aboutInput.disabled = true;
         })();
     </script>
     <script>
@@ -273,6 +288,299 @@
 
 
     </script>
+
+
+<script>
+       //hashtag related
+       (function () {
+           var tagInput, tagVault;
+           var showExistingTags, addTags, renderTagList, addTagDelBtn, limitInput, setTagVault, selectExistingTag;
+           var tagListWrap, tagListUl, tagDelBtn, tagContainer, tagFinderBtn;
+           var tagList = [];
+               tagListWrap = document.querySelector(".tag_list_wrap");
+               tagListUl = document.createElement("ul");
+               tagInput = document.querySelector("#tags");
+               tagVault = document.querySelector("#tag_vault");
+               tagContainer = document.querySelector(".tag_container");
+               tagFinderBtn = document.querySelectorAll(".tag_finder_btn");
+
+            var articleTagList = "<?=join(",",$article_tag_list)?>";
+            articleTagList = articleTagList.split(",");//to javascript array
+               
+
+            tagInput.addEventListener("keydown", function(e) {
+                var tagFinder = document.querySelector(".tag_finder");
+                if(e.keycode == 40 || e.code == "ArrowDown" || e.keycode == 38 || e.code == "ArrowUp") {
+                    if(tagFinder) {
+                        if(e.keycode == 40 || e.code == "ArrowDown") {
+                            e.preventDefault();
+                            if(!tagFinder.querySelector(".selected")) {
+                                tagFinder.firstElementChild.classList.add("selected");
+                            } else if(tagFinder.querySelector(".selected") && tagFinder.querySelector(".selected").nextElementSibling) {
+                                tagFinder.querySelector(".selected").nextElementSibling.classList.add("selected");
+                                tagFinder.querySelector(".selected").classList.remove("selected");
+                            } else {
+                                tagFinder.querySelector(".selected").classList.remove("selected");
+                                tagFinder.firstElementChild.classList.add("selected");
+                            }
+                        } else if(e.keycode == 38 || e.code == "ArrowUp") {
+                            e.preventDefault();
+                            if(!tagFinder.querySelector(".selected")) {
+                                tagFinder.lastElementChild.classList.add("selected");
+                            } else if(tagFinder.querySelector(".selected") && tagFinder.querySelector(".selected").previousElementSibling) {
+                                tagFinder.querySelector(".selected").previousElementSibling.classList.add("selected");
+                                tagFinder.querySelectorAll(".selected")[1].classList.remove("selected");
+                            } else {
+                                tagFinder.querySelector(".selected").classList.remove("selected");
+                                tagFinder.lastElementChild.classList.add("selected");
+                            }
+                        }
+                        tagInput.value = tagFinder.querySelector(".selected .tag_finder_btn").innerHTML.slice(1, tagFinder.querySelector(".selected .tag_finder_btn").innerHTML.length);
+                    }
+                }
+            });
+
+            
+
+            tagInput.onkeypress = function(e) {       
+                if(e.code == "Enter" || e.code == "Space" || e.code == "Comma" || e.keycode == 13) {
+                    e.preventDefault();
+                    console.log("tag added");
+                    if(tagInput.value !== "" && !tagList.includes(tagInput.value)) {
+                        addTags(tagInput.value);
+                        tagListWrap.appendChild(tagListUl);
+                        renderTagList(addTagDelBtn);
+                        limitInput(); 
+                    } else {
+                        tagInput.value = "";
+                    }
+                    if(tagContainer.querySelector(".tag_finder_wrap")) {
+                        tagContainer.querySelector(".tag_finder_wrap").remove();
+                    }
+                }
+            }
+
+            tagInput.onkeyup = function(e) {
+                if(e.code !== "Enter" && e.code !== "Space" && e.code !== "Comma" && e.code !== "ArrowDown" && e.code !== "ArrowUp") {
+                    if(tagInput.value !== "") {
+                        showExistingTags(tagInput.value, selectExistingTag);
+                    } else {
+                        if(tagContainer.querySelector(".tag_finder_wrap")) {
+                            tagContainer.querySelector(".tag_finder_wrap").remove();   
+                        }
+                    }
+                }
+            }
+
+            addTags = function (val) {
+                tagList.push(val);
+                tagInput.value = "";
+            }
+
+            showExistingTags = function (val, callback) {
+                (function () {
+                    var finderWrap = document.createElement("div");
+                    var finder = new XMLHttpRequest();
+    
+                    finder.open("POST", "tag_finder.php?str=" + val, true);
+                    finder.send();
+                    finder.onreadystatechange = function() {
+                        if (finder.readyState == 4 && finder.status == 200) {
+                            finderWrap.classList.add("tag_finder_wrap");
+                            finderWrap.innerHTML = finder.responseText;
+    
+                            if(val.length > 0) {
+                                if(!tagContainer.querySelector(".tag_finder_wrap") && finder.responseText !== '<ul class="tag_finder"></ul>') {
+                                    console.log(finder.responseText);
+                                    tagContainer.appendChild(finderWrap);
+                                } else {
+                                    tagContainer.querySelector(".tag_finder_wrap").remove();
+                                    tagContainer.appendChild(finderWrap);
+                                    tagContainer.querySelector(".tag_finder_wrap").innerHTML = finder.responseText;
+                                }
+                            } else {
+                                if(tagContainer.querySelector(".tag_finder_wrap")) {
+                                    tagContainer.querySelector(".tag_finder_wrap").remove();
+                                }
+                            }
+                        }
+                        callback();
+                    }
+                })();
+            }
+
+            selectExistingTag = function () {
+                tagFinderBtn = document.querySelectorAll(".tag_finder_btn");
+                tagFinderBtn.forEach((btn) => {
+                    btn.onclick = function () {
+                        var tagFinderVal = btn.innerHTML.slice(1, btn.innerHTML.length);
+                        if(!tagList.includes(tagFinderVal)) {
+                            addTags(tagFinderVal);
+                            tagListWrap.appendChild(tagListUl);
+                            renderTagList(addTagDelBtn);
+                            limitInput();
+                            tagContainer.querySelector(".tag_finder_wrap").remove();
+                        } else {
+                            tagInput.value = "";
+                        }
+                        if(tagContainer.querySelector(".tag_finder_wrap")) {
+                            tagContainer.querySelector(".tag_finder_wrap").remove();
+                        }
+                    }
+                });
+            }
+
+            renderTagList = function(callback) {
+                var tagListItem = document.createElement("li");
+                tagDelBtn = document.querySelectorAll(".tag_del");
+
+                tagListItem.classList.add("tag_list_item");
+                tagListUl.classList.add("tag_list");
+                if(tagList.length > 0) {
+                    tagList.forEach((tags) => {
+                        tagListItem.innerHTML = "";
+                        tagListItem.innerHTML = `<button type="button" class="tag_element">#` + tags + `</button>
+                                            <button type="button" class="tag_del"></button>`;
+                        tagListUl.appendChild(tagListItem);
+                    });
+                }
+                setTagVault();
+
+                callback();
+            }
+
+            addTagDelBtn = function() {
+                var tagDelBtn = document.querySelectorAll(".tag_del");
+                tagDelBtn.forEach((btn) => {
+                    btn.onclick = function() {
+                        var tagStr = btn.previousElementSibling.innerHTML;
+                            tagStr = tagStr.slice(1, tagStr.length);
+                        var tagIdx = tagList.indexOf(tagStr);
+                        // console.log(tagIdx);
+                        tagList.splice(tagIdx, 1)
+                        btn.parentElement.remove();
+                        limitInput(); 
+                        setTagVault();
+                    }
+                });
+            }
+
+            limitInput = function () {
+                if(tagList.length > 4) {
+                    tagInput.style.visibility = "hidden";
+                    tagListWrap.style.maxWidth = "100%";
+                } else {
+                    tagInput.style.visibility = "visible";
+                    tagListWrap.style.maxWidth = "592px";
+                }
+            }
+
+            setTagVault = function () {
+                tagVault.value = tagList.toString();
+            }
+
+
+            itemTagList.forEach((tag) => {
+                addTags(tag);
+                tagListWrap.appendChild(tagListUl);
+                renderTagList(addTagDelBtn);
+                limitInput(); 
+            });
+
+        })();
+    </script>
+
+    <script>
+        //input check related
+        (function () {
+            //number check
+            var priceInput, checkStrNum;
+            var quantityInput, checkStrLen;
+            var titleInput;
+            var tagInput;
+            var addComma;
+
+            tagInput = document.querySelector("#tags");
+            tagInput.addEventListener("keydown", function() {
+                checkStrLen(9, tagInput);
+            });
+
+            titleInput = document.querySelector("#title");
+            titleInput.addEventListener("keydown", function() {
+                checkStrLen(40, titleInput);
+            });
+
+            addressInput = document.querySelector("#address");
+            addressInput.addEventListener("keydown", function() {
+                checkStrLen(125, addressInput);
+            });
+
+            photographerInput = document.querySelector("#photographer");
+            photographerInput.addEventListener("keydown", function() {
+                checkStrLen(12, photographerInput);
+            });
+
+            wordsInput = document.querySelector("#words");
+            wordsInput.addEventListener("keydown", function() {
+                checkStrLen(12, wordsInput);
+            });
+            
+            addComma = function(input) {
+                var inputNum = input.value;
+                inputNum = inputNum.split(",");
+                let i = 0;
+                let outputNum = "";
+                while(i < inputNum.length) {
+                    outputNum = outputNum.concat(inputNum[i].toString());
+                    i++;
+                }
+                outputNum = parseInt(outputNum);
+                nfObject = new Intl.NumberFormat();
+                if(!isNaN(outputNum)) {
+                    input.value = nfObject.format(outputNum.toString());
+                }
+            };
+
+            checkStrLen = function (len, input) {
+                // console.log(input.value.length + ":" + len);
+
+                if(input.value.toString().match(/[\u3131-\uD79D]/ugi)) {
+                    if(input.value.length >= len) {
+                        input.addEventListener("input", function() {
+                            input.value = input.value.substr(0, len);
+                        });
+                    } else {
+                        input.onkeydown = function(e) {
+                            return true;
+                        }
+                    }
+                } else {
+                    if(input.value.toString().length >= len) {
+                        input.addEventListener("input", function() {
+                            input.value = input.value.toString().substr(0, len);
+                        });
+                    } else {
+                        input.onkeydown = function(e) {
+                            return true;
+                        }
+                    }
+                }
+            };
+
+            checkStrNum = function (regx, input) {
+                if(input.value.match(regx)) {
+                    // alert("숫자만 입력해주세요");
+                    input.value = input.value.replace(regx,'');
+                }
+            };
+        })();
+    </script>
+
+
+
+
+
+
     <script>
 //file transfer, render list
 var fileList = [];//전송 준비용
