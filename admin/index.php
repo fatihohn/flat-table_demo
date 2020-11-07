@@ -1,8 +1,8 @@
 <?php
     include_once '../bbps_db_conn.php';
     
-    $hashTag = $_GET['tag'];
     $scrollTag = $_GET['q'];
+    $hashTag = $_GET['tag'];
 
 
 
@@ -18,7 +18,7 @@
         $sql_get_hashtag_id = "SELECT * FROM tags WHERE tag_name = '$hashTag' LIMIT 1";
         $result_get_hashtag_id = mysqli_query($sql_get_hashtag_id);
         $row_get_hashtag_id = mysqli_fetch_assoc($result_get_hashtag_id);
-        $hashTag_id = $row_get_hashtag_id['id'];
+        $hashTag_id = intval($row_get_hashtag_id['id']);
 
         //get articles with hashtag
         $article_with_hashtag = array();
