@@ -169,7 +169,19 @@
             // flagVal = flagInput.value;
             aboutInput = document.querySelector("#about");
             // aboutVal = aboutInput.value;
-            flagInput.addEventListener("change", function(e) {
+            // flagInput.addEventListener("change", function(e) {
+            //     if(e.target.checked !== true && e.target.disabled !== true) {
+            //         // e.preventDefault();
+            //         e.target.checked == true;
+            //         aboutInput.checked == false;
+            //         aboutInput.disabled == true;
+            //     } else if(e.target.checked == true && e.target.disabled !== true) {
+            //         // e.preventDefault();
+            //         e.target.checked == false;
+            //         aboutInput.disabled == false;
+            //     }
+            // });
+            flagInput.onchange =  function(e) {
                 if(e.target.checked !== true && e.target.disabled !== true) {
                     // e.preventDefault();
                     e.target.checked == true;
@@ -180,8 +192,8 @@
                     e.target.checked == false;
                     aboutInput.disabled == false;
                 }
-            });
-            aboutInput.addEventListener("change", function(e) {
+            };
+            aboutInput.onchange =  function(e) {
                 if(e.target.checked !== true && e.target.disbled !== true) {
                     // e.preventDefault();
                     e.target.checked == true;
@@ -193,7 +205,7 @@
                     flagInput.disabled == false;
                 }
                 
-            });
+            };
             
 
             // if(flagVal == "on") {
