@@ -13,6 +13,11 @@
     <?php
     if($sessionUser) {
         $username = $sessionUser;
+        ?>
+        <script>
+            console.log(<?=$username?>);
+        </script>
+        <?php
     } else {
         ?>
         <script>
