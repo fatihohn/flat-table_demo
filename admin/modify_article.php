@@ -148,13 +148,13 @@
                             <p class="photo">
                                 사진
                                 <span>
-                                    <input type="text" name="photographer" value="<?=$photographer?>">
+                                    <input id="photographer" type="text" name="photographer" value="<?=$photographer?>">
                                 </span>
                             </p>
                             <p class="words">
                                 글
                                 <span>
-                                    <input type="text" name="words" value="<?=$words?>" required>
+                                    <input id="words" type="text" name="words" value="<?=$words?>" required>
                                 </span>
                             </p>
                         </div>
