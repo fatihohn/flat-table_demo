@@ -76,13 +76,38 @@
                                 <!-- {{-- 경기도 동두천시 상봉암동 153-15 --}} -->
                                 <input type="text" name="address" placeholder="주소" value="<?=$address?>" required />
                             </p>
+                            <!-- <p class="category"> -->
+                                <!-- <a href="#">
+                                    주민모임형
+                                </a> -->
+                                <!-- <input type="text" id="hashtags" placeholder="태그" autocomplete="off">
+                                <div class="tag-container"></div>
+                                <input id="category_container" type="hidden" name="categories" value="" />
+                            </p> -->
                             <p class="category">
                                 <!-- <a href="#">
                                     주민모임형
                                 </a> -->
-                                <input type="text" id="hashtags" placeholder="태그" autocomplete="off">
-                                <div class="tag-container"></div>
-                                <input id="category_container" type="hidden" name="categories" value="" />
+                                <!-- <input type="text" id="hashtags" placeholder="태그" autocomplete="off"> -->
+                                <!-- <div class="tag-container"></div>
+                                <input id="category_container" type="hidden" name="categories" value="" /> -->
+
+                                <div class="tag_container">
+                                    <div class="tag_list_wrap"></div>
+                                    <div class="tag_input_wrap">
+                                        <div class="tag_input">
+                                            <input id="tags" type="text" placeholder="연관태그를 입력해주세요. (최대 5개)" value="">
+                                            <input id="tag_vault" type="hidden" name="tag_vault" value="">
+                                        </div>
+                                    </div>
+                                    <!-- <div class="tag_finder_wrap">
+                                        <ul class="tag_finder">
+                                            <li class="tag_finder_item">
+                                                <button type="button" class="tag_finder_btn">#SDK빔프로젝터</button>
+                                            </li>
+                                        </ul>
+                                    </div> -->
+                                </div>
                             </p>
                         </div>
                     </header>
