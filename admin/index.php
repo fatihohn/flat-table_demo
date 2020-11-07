@@ -49,7 +49,7 @@
         $sql_article_data_all = "SELECT * FROM articles WHERE about!= 'on'";
             ?>
             <script>
-                console.log("<?=$article_with_hashtag[0]?>");
+                console.log("<?=$article_with_hashtag_str?>");
             </script>
             <?php
         if(count($article_with_hashtag) > 0) {
