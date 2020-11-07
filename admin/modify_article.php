@@ -532,15 +532,18 @@
                 tagVault.value = tagList.toString();
             }
 
-            if(articleTagList !== "") {
-                console.log(articleTagList);
+            // if(articleTagList !== "") {
+                // console.log(articleTagList);
                 articleTagList.forEach((tag) => {
-                    addTags(tag);
-                    tagListWrap.appendChild(tagListUl);
-                    renderTagList(addTagDelBtn);
-                    limitInput(); 
+                    console.log(tag);
+                    if(tag !== "") {
+                        addTags(tag);
+                        tagListWrap.appendChild(tagListUl);
+                        renderTagList(addTagDelBtn);
+                        limitInput();     
+                    }
                 });
-            }
+            // }
 
         })();
     </script>
