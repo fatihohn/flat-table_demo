@@ -1,4 +1,14 @@
-<?php
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <?php include 'head.php'?>
+    
+</head>
+<body>
+    <?php include 'header.php'?>
+    <?php
     include_once '../bbps_db_conn.php';
     
     $scrollTag = $_GET['q'];
@@ -51,19 +61,7 @@
     $result_article_data_flag = $conn->query($sql_article_data_flag);
     
 
-
-
-
-
-    
-
-
-?>
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <?php include 'head.php'?>
+    ?>
     <?php
     if($scrollTag !== "") {
     ?>
@@ -82,9 +80,6 @@
     <script>
         var isIndex = "yes";
     </script>
-</head>
-<body>
-    <?php include 'header.php'?>
     <?php include 'nav.php'?>
 
     <div id="overlay" class="overlay"></div>
