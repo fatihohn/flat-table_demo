@@ -169,7 +169,7 @@
             // flagVal = flagInput.value;
             aboutInput = document.querySelector("#about");
             // aboutVal = aboutInput.value;
-            flagInput.addEventListener("click", function(e) {
+            flagInput.addEventListener("change", function(e) {
                 if(flagInput.checked !== true && flagInput.disabled !== true) {
                     // e.preventDefault();
                     flagInput.checked == true;
@@ -181,7 +181,7 @@
                     aboutInput.disabled == false;
                 }
             });
-            aboutInput.addEventListener("click", function(e) {
+            aboutInput.addEventListener("change", function(e) {
                 if(aboutInput.checked !== true && aboutInput.disbled !== true) {
                     // e.preventDefault();
                     aboutInput.checked == true;
