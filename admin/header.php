@@ -1,3 +1,10 @@
+<?php
+include_once '../bbps_db_conn.php';
+session_start();
+$sessionUser = $_SESSION['username'];
+?>
+
+
 <div class="header">
     <div class="title header-margin">
         <div class="box actions">
@@ -13,9 +20,24 @@
             </a>
         </div>
         <div class="box actions login_link">
-            <a class="menu login" href="login.php">
+            <!-- <a class="menu login" href="login.php">
                 LogIn
-            </a>
+            </a> -->
+
+            <?php
+            if (isset($sessionUser)) {
+                echo '<a class="menu login logout" href="logout.php">';
+                echo    'LogOut';        
+                echo '</a>';    
+            } else {
+                echo '<a class="menu login" href="login.php">';
+                echo    'LogIn';        
+                echo '</a>';    
+            }
+            
+            ?>
+
+
         </div>
     </div>
 </div>
