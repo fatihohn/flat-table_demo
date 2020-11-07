@@ -31,6 +31,7 @@
     $photographer = $rows_article["photographer"];
     $words = $rows_article["words"];
     $flag = $rows_article["flag"];
+    $about = $rows_article["about"];
 
     $article_tag_list = array();
 
