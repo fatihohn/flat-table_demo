@@ -56,7 +56,7 @@
                 <?php
             } else {
                 // echo "session fail";
-                $_SESSION['username'] = FALSE;
+                $_SESSION['username'] = null;
                 ?>      
                 <script>
                         alert("로그인 권한이 없습니다. 관리자에게 문의하세요.");
