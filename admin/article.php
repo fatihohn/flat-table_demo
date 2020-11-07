@@ -161,7 +161,7 @@
                                 관리:
                             </span>
                             <a href="modify_article.php?q=<?=$q?>">수정</a>
-                            <!-- <a href="delete_article.php?q=<?=$q?>">삭제</a> -->
+                            <!-- <a href="delete_article.php?q=<?//=$q?>">삭제</a> -->
                             <a onclick="articleDel(<?=$q?>)">삭제</a>
                         </div>
                     </footer>
