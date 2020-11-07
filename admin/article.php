@@ -275,7 +275,9 @@
     let delConfirm = confirm('삭제 후 복원이 불가능합니다. 삭제하시겠습니까?');
     if (delConfirm == true) {
             location.href = 'delete_article.php?q=' + str;
-            alert('삭제중입니다')
+            console.log('delete_article.php?q=' + str);
+            alert('삭제중입니다');
+
         } else {
             alert('취소되었습니다');
         }
