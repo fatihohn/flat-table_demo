@@ -178,6 +178,23 @@
                 aboutInput.checked = true;
             }
             aboutInput.disabled = true;
+
+            flagInput.onchange =  function(e) {
+                if(flagInput.checked !== true && flagInput.disabled !== true) {
+                    aboutInput.disabled = false;
+                } else if(flagInput.checked == true && flagInput.disabled !== true) {
+                    aboutInput.checked = false;
+                    aboutInput.disabled = true;
+                }
+            };
+            aboutInput.onchange =  function(e) {
+                if(aboutInput.checked !== true && aboutInput.disabled !== true) {
+                    flagInput.disabled = false;
+                } else if(aboutInput.checked == true && aboutInput.disabled !== true) {
+                    flagInput.checked = false;
+                    flagInput.disabled = true;
+                }
+            };
         })();
     </script>
     <script>
