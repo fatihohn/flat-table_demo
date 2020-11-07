@@ -1,6 +1,6 @@
 <?php
 $URL = "./index.php";
-    include_once '../bbps_db_conn.php';
+    include '../bbps_db_conn.php';
     $q = intval($_GET['q']);
     $sql = "DELETE FROM articles WHERE id = $q";
     $result = mysqli_query($conn, $sql);
