@@ -31,7 +31,7 @@
                     <form class='login_form new_user_form' method='post' action='new_user_action.php'>
                         <!-- @csrf -->
                         <p>Email: <input class="login_input" type="email" name="email" required></p>
-                        <p>ID: <input class="login_input" name="username" type="text" required></p>
+                        <p>ID: <input id="username" class="login_input" name="username" type="text" required></p>
                         <p>
                             <div class="createGrid3" id="userConf"></div>
                             <div>
