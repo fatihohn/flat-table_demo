@@ -48,11 +48,13 @@
                     <?php
                         if (count($imgList) > 0) {
                             foreach ($imgList as $imgSrc) {
-                                echo '
-                                <figure>
-                                    <img src="/uploads/'.$imgSrc.'" alt="image">
-                                </figure>
-                                ';
+                                if($imgSrc !== "") {
+                                    echo '
+                                    <figure>
+                                        <img src="/uploads/'.$imgSrc.'" alt="image">
+                                    </figure>
+                                    ';
+                                }
                             }
                             // while($rows_article_flag = $result_article_data_flag->fetch_assoc()) {
                             //     $frontArticleTitle = $rows_article_flag["title"];

@@ -7,7 +7,7 @@
 <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
 
 <!-- Styles -->
-<!-- <link rel="stylesheet" href="../static/css/admin_important.css" type="text/css" media="all" /> -->
+<link rel="stylesheet" href="../static/css/admin_important.css" type="text/css" media="all" />
 <link rel="stylesheet" href="../static/css/layout.css" type="text/css" media="all" />
 <link rel="stylesheet" href="../static/css/admin.css" type="text/css" media="all" />
 <link rel="stylesheet" type="text/css" href="/trix-master/dist/trix.css">
