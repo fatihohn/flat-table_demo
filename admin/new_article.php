@@ -211,11 +211,11 @@
                     photographerInput.disabled = true;
                     wordsInput.disabled = true;
                     fieldworkInput.disabled = true;
-                    titleInput.value = "0";
-                    addressInput.value = "0";
+                    titleInput.value = "평상으로부터";
+                    addressInput.value = "소개글";
                     // tagInput.value = "0";
-                    photographerInput.value = "0";
-                    wordsInput.value = "0";
+                    photographerInput.value = "변방평상";
+                    wordsInput.value = "변방평상";
                     fieldworkInput.value = "0";
                 }
             };
