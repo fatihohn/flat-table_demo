@@ -37,6 +37,7 @@
     // $content = htmlspecialchars($content);
     $photographer = $rows_article["photographer"];
     $words = $rows_article["words"];
+    $fieldwork_date = $rows_article["fieldwork_date"];
 
     // // $sql_article_data_flag = $sql_article_data_all." WHERE flag = flag";
     // $sql_article_data_flag = "SELECT * FROM articles WHERE flag = flag";
@@ -142,6 +143,15 @@
                         </p> -->
                     </div>
                     <footer class="article_footer">
+                        <div class="article_date">
+                            <p class="fieldwork_date">
+                                현지조사
+                                <span>
+                                    <!-- 박상환 -->
+                                    <?=$fieldwork_date?>
+                                </span>
+                            </p>
+                        </div>
                         <div class="article_auth">
                             <p class="photo">
                                 사진
