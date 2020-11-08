@@ -165,6 +165,15 @@
     <script>
         (function() {
             var flagVal, aboutVal, flagInput, aboutInput;
+            var titleInput, addressInput, tagInput, photographerInput, wordsInput, fieldworkInput;
+            titleInput = document.querySelector("#title");
+            addressInput = document.querySelector("#address");
+            tagInput = document.querySelector("#tags");
+            photographerInput = document.querySelector("#photographer");
+            wordsInput = document.querySelector("#words");
+            fieldworkInput = document.querySelector("#fieldwork_date");
+
+
             flagInput = document.querySelector("#flag");
             // flagVal = flagInput.value;
             aboutInput = document.querySelector("#about");
@@ -195,6 +204,19 @@
                 } else if(aboutInput.checked == true && aboutInput.disabled !== true) {
                     flagInput.checked = false;
                     flagInput.disabled = true;
+
+                    titleInput.disabled = true;
+                    addressInput.disabled = true;
+                    tagInput.disabled = true;
+                    photographerInput.disabled = true;
+                    wordsInput.disabled = true;
+                    fieldworkInput.disabled = true;
+                    titleInput.value = "0";
+                    addressInput.value = "0";
+                    // tagInput.value = "0";
+                    photographerInput.value = "0";
+                    wordsInput.value = "0";
+                    fieldworkInput.value = "0";
                 }
             };
             // aboutInput.onchange =  function(e) {
