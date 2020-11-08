@@ -16,6 +16,9 @@
     $photographer = $rows_article["photographer"];
     $words = $rows_article["words"];
 
+    $fieldwork_date = date_create($rows_article["fieldwork_date"]);
+    $fieldwork_date = date_format($fieldwork_date, 'Y/m/d');
+
     // // $sql_article_data_flag = $sql_article_data_all." WHERE flag = flag";
     // $sql_article_data_flag = "SELECT * FROM articles WHERE flag = flag";
     // $result_article_data_flag = $conn->query($sql_article_data_flag);
@@ -125,6 +128,14 @@
                         </p> -->
                     </div>
                     <footer class="article_footer">
+                        <div class="article_date">
+                            <p class="fieldwork_date">
+                                현지조사
+                                <span>
+                                    <?=$fieldwork_date?>
+                                </span>
+                            </p>
+                        </div>
                         <div class="article_auth">
                             <p class="photo">
                                 사진
