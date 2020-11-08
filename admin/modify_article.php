@@ -209,6 +209,12 @@
             if(aboutVal == "on") {
                 aboutInput.checked = true;
                 flagInput.checked = false;
+                titleInput.disabled = true;
+                addressInput.disabled = true;
+                tagInput.disabled = true;
+                photographerInput.disabled = true;
+                wordsInput.disabled = true;
+                fieldworkInput.disabled = true;
             }
             aboutInput.disabled = true;
 
