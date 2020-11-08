@@ -38,7 +38,7 @@
     $photographer = $rows_article["photographer"];
     $words = $rows_article["words"];
     $fieldwork_date = $rows_article["fieldwork_date"];
-    $fieldwork_date->format('Y/m/d');
+    $fieldwork_date = date_format($fieldwork_date, 'Y/m/d');
 
     // // $sql_article_data_flag = $sql_article_data_all." WHERE flag = flag";
     // $sql_article_data_flag = "SELECT * FROM articles WHERE flag = flag";
