@@ -255,7 +255,7 @@
                                                     //     무엇
                                                     // </a>
                                                     foreach($article_tag_list as $tag) {
-                                                        echo '<a class="'.$articleId.'" onclick="showArticle(this.className)" class="category">';
+                                                        echo '<a class="'.$tag.'" onclick="showArticleWithTag(this.className)" class="category">';
                                                         echo    "#".$tag." ";
                                                         echo '</a>';
                                                     }
