@@ -190,6 +190,14 @@
     <script>
         (function() {
             var flagVal, aboutVal, flagInput, aboutInput;
+            var titleInput, addressInput, tagInput, photographerInput, wordsInput, fieldworkInput;
+            titleInput = document.querySelector("#title");
+            addressInput = document.querySelector("#address");
+            tagInput = document.querySelector("#tags");
+            photographerInput = document.querySelector("#photographer");
+            wordsInput = document.querySelector("#words");
+            fieldworkInput = document.querySelector("#fieldwork_date");
+
             flagInput = document.querySelector("#flag");
             aboutInput = document.querySelector("#about");
             flagVal = "<?=$flag?>";
@@ -215,9 +223,36 @@
             aboutInput.onchange =  function(e) {
                 if(aboutInput.checked !== true && aboutInput.disabled !== true) {
                     flagInput.disabled = false;
+
+                    titleInput.disabled = false;
+                    addressInput.disabled = false;
+                    tagInput.disabled = false;
+                    photographerInput.disabled = false;
+                    wordsInput.disabled = false;
+                    fieldworkInput.disabled = false;
+
+                    titleInput.value = "";
+                    addressInput.value = "";
+                    // tagInput.value = "0";
+                    photographerInput.value = "";
+                    wordsInput.value = "";
+                    fieldworkInput.value = "";
                 } else if(aboutInput.checked == true && aboutInput.disabled !== true) {
                     flagInput.checked = false;
                     flagInput.disabled = true;
+
+                    titleInput.disabled = true;
+                    addressInput.disabled = true;
+                    tagInput.disabled = true;
+                    photographerInput.disabled = true;
+                    wordsInput.disabled = true;
+                    fieldworkInput.disabled = true;
+                    titleInput.value = "평상으로부터";
+                    addressInput.value = "소개글";
+                    // tagInput.value = "0";
+                    photographerInput.value = "변방평상";
+                    wordsInput.value = "변방평상";
+                    fieldworkInput.value = "0";
                 }
             };
         })();
