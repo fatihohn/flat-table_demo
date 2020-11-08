@@ -27,6 +27,9 @@
     $words = $_POST['words'];
     $words = mysqli_real_escape_string($conn, $words);
     
+    $fieldwork_date = $_POST['fieldwork_da$fieldwork_date'];
+    $fieldwork_date = mysqli_real_escape_string($conn, $fieldwork_date);
+    
     $flag = $_POST['flag'];
     $flag = mysqli_real_escape_string($conn, $flag);
 
@@ -73,8 +76,8 @@
             `content` = '$content',
             `photographer` = '$photographer',
             `words` = '$words',
-            `flag` = '$flag',
             `fieldwork_date` = '$fieldwork_date',
+            `flag` = '$flag',
             `about` = '$about'
         WHERE `id` = '$q'";
         //     (username, title, table_address, categories, imgs, comment, content, photographer, words, flag, about)

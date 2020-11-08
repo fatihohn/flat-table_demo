@@ -47,6 +47,7 @@
     $content = htmlspecialchars($content);
     $photographer = $rows_article["photographer"];
     $words = $rows_article["words"];
+    $fieldwork_date = $rows_article["fieldwork_date"];
     $flag = $rows_article["flag"];
     $about = $rows_article["about"];
 
@@ -133,6 +134,16 @@
                                 글
                                 <span>
                                     <input id="words" type="text" name="words" value="<?=$words?>" required>
+                                </span>
+                            </p>
+                        </div>
+                        <div class="article_fieldwork_date">
+                            <p class="fieldwork_date">
+                                <span>
+                                    <label for="fieldwork_date">
+                                        현지조사
+                                        <input id="fieldwork_date" type="date" name="fieldwork_date" value="<?=$fieldwork_date?>" required>
+                                    </label>
                                 </span>
                             </p>
                         </div>
