@@ -147,7 +147,6 @@
                             <p class="fieldwork_date">
                                 현지조사
                                 <span>
-                                    <!-- 박상환 -->
                                     <?=$fieldwork_date?>
                                 </span>
                             </p>

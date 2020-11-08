@@ -28,7 +28,7 @@
     $words = mysqli_real_escape_string($conn, $words);
     
     $fieldwork_date = $_POST['fieldwork_da$fieldwork_date'];
-    $fieldwork_date = mysqli_real_escape_string($conn, $fieldwork_date);
+    // $fieldwork_date = mysqli_real_escape_string($conn, $fieldwork_date);
     
     $flag = $_POST['flag'];
     $flag = mysqli_real_escape_string($conn, $flag);
