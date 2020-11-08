@@ -201,6 +201,20 @@
             aboutInput.onchange =  function(e) {
                 if(aboutInput.checked !== true && aboutInput.disabled !== true) {
                     flagInput.disabled = false;
+
+                    titleInput.disabled = false;
+                    addressInput.disabled = false;
+                    tagInput.disabled = false;
+                    photographerInput.disabled = false;
+                    wordsInput.disabled = false;
+                    fieldworkInput.disabled = false;
+
+                    titleInput.value = "";
+                    addressInput.value = "";
+                    // tagInput.value = "0";
+                    photographerInput.value = "";
+                    wordsInput.value = "";
+                    fieldworkInput.value = "";
                 } else if(aboutInput.checked == true && aboutInput.disabled !== true) {
                     flagInput.checked = false;
                     flagInput.disabled = true;
