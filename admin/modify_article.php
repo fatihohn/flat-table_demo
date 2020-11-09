@@ -47,7 +47,7 @@
     $content = htmlspecialchars($content);
     $photographer = $rows_article["photographer"];
     $words = $rows_article["words"];
-    $fieldwork_date = date_format($rows_article["fieldwork_date"],"Y/m/d");
+    $fieldwork_date = date_format($rows_article["fieldwork_date"],"Y-m-d");
     $flag = $rows_article["flag"];
     $about = $rows_article["about"];
 
@@ -143,6 +143,9 @@
                                     <label for="fieldwork_date">
                                         현지조사
                                         <input id="fieldwork_date" type="date" name="fieldwork_date" value="<?=$fieldwork_date?>" required>
+                                        <script>
+                                            console.log("<?=$fieldwork_date?>")
+                                        </script>
                                     </label>
                                 </span>
                             </p>
