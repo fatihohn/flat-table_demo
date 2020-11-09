@@ -145,7 +145,7 @@
                     foreach($article_tag_list as $mapped_tag) {
                         if(!in_array($mapped_tag, $tag_vault)) {//원래 맵핑된 태그가 새로 입력된 리스트에 없는 경우
                             $sql_unmap_tag_relation = "DELETE FROM article_tag_map WHERE 
-                                tag_id = (SELECT id FROM tags WHERE tag_name = '$mapped_tag') 
+                                tag_id = (SELECT id FROM tags WHERE tag_name = '$mapped_tag') AND
                                 article_id = (SELECT id FROM articles WHERE id = '$q')";//태그 맵핑 삭제
                             $result_unmap_tag_relation = mysqli_query($conn, $sql_unmap_tag_relation);
                         }
