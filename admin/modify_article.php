@@ -49,6 +49,7 @@
     $words = $rows_article["words"];
     // $fieldwork_date = date_format($rows_article["fieldwork_date"],"Y-m-d");
     $fieldwork_date = $rows_article["fieldwork_date"];
+    $fieldwork_date = explode(" ",$fieldwork_date)[0];
     $flag = $rows_article["flag"];
     $about = $rows_article["about"];
 
