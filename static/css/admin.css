@@ -120,6 +120,7 @@ button {
     left: 0px;
     opacity: 0;
     /* margin: 20px 0; */
+    margin: 50px 0;
     cursor: pointer;
     font-size: 0px;
 }
@@ -410,5 +411,8 @@ button {
     }
     .article_main .main .article_container .article_header {
         max-width: 100%;
+    }
+    #file-list-display .locked input {
+        margin: 0;
     }
 }
