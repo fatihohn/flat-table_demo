@@ -615,7 +615,8 @@ em {
 
 .collection ul li {
     margin: 0 1% 2% 0;
-    width: 23.5%;
+    /* width: 23.5%; */
+    width: 23%;
     display: inline-block;
     vertical-align: top;
 }
