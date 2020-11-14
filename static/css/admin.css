@@ -223,7 +223,7 @@ button {
 
 
 .article_img_figure {
-    display: inline-flex !important;
+    /* display: inline-flex !important; */
     position: relative;
 }
 .article_img_figure img {
