@@ -34,7 +34,7 @@
     $flag = mysqli_real_escape_string($conn, $flag);
 
     $about = $_POST['about'];
-    // $about = mysqli_real_escape_string($conn, $about);
+    $about = mysqli_real_escape_string($conn, $about);
 
     $sql_about_val = "SELECT about FROM articles WHERE id = $q";
     $result_about_val = mysqli_query($conn, $sql_about_val);
@@ -85,8 +85,7 @@
             `photographer` = '$photographer',
             `words` = '$words',
             `fieldwork_date` = '$fieldwork_date',
-            `flag` = '$flag',
-            `about` = '$about'
+            `flag` = '$flag'
         WHERE `id` = '$q'";
         //     (username, title, table_address, categories, imgs, comment, content, photographer, words, flag, about)
         // VALUES(
