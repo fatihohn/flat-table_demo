@@ -303,6 +303,7 @@ showArticleWithTag = function(tag) {
 function shareBtnClick() {
     // let shareBtn = document.getElementById("share_btn");
     let shareBtn = document.querySelectorAll(".share_btn");
+
     function shareThings() {
         let urlBox = document.createElement('input');
         let currentUrl = window.location.href;
@@ -315,13 +316,37 @@ function shareBtnClick() {
         alert("링크가 복사되었습니다.")
     }
     let sb;
-    for(sb=0; sb < shareBtn.length; sb++) {
-        if(shareBtn) {
+    for (sb = 0; sb < shareBtn.length; sb++) {
+        if (shareBtn) {
             shareBtn[sb].addEventListener("click", shareThings);
         }
     }
 }
 shareBtnClick();
+
+
+function showExMap(address) {
+    // var addressArr = address.split("_");
+    // var addressKoArr = addressArr[0].split("(");
+    // var addressKo = addressKoArr[0];
+    // var addressLat = addressArr[1];
+    // var addressLng = addressArr[2];
+
+    // var naverMapURL = "https://map.naver.com/v5/search/" + province + "%20" + city + "%20" + dongOrRoad + "%20" + addressNumber + "/";
+    // var naverMapURL = "https://map.naver.com/v5/search/" + addressKo;
+    var naverMapURL = "https://map.naver.com/v5/search/" + address;
+
+    // var kakaoMapURL = "https://map.kakao.com/link/to/" + addressKo + "," + addressLat + "," + addressLng;
+    var kakaoMapURL = "https://map.kakao.com/link/to/" + address;
+    // var kakaoMapURL = "https://map.kakao.com/link/search/" + addressLat + "," + addressLng;
+    // var kakaoMapURL = "https://map.kakao.com/link/search/" + addressKo;
+
+    // var googleMapURL = "https://www.google.com/maps/place/" + placeLat + "," + placeLng;
+
+    // window.open(naverMapURL, "exNaverMap", "width=1200, height=800");
+    window.open(kakaoMapURL, "exKakaoMap", "width=1200, height=800");
+    // window.open(googleMapURL, "exGoogleMap", "width=600, height=800");
+}
 
 // //ARTICLE
 // function organizePics() {
