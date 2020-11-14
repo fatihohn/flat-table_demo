@@ -190,7 +190,7 @@
                     <img src="../static/img/flat_table_icon.svg" alt="flat_table_icon">
                     <h1>평상들</h1>
                     <?php
-                    if(isset($hashTag)) {
+                    if(isset($hashTag) && $hashTag !== "null") {
                         echo "<h2>#".$hashTag."</h2>";
                     }
                     ?>
