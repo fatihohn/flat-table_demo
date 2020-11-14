@@ -31,11 +31,11 @@
         
         // $query = "SELECT * FROM user_data WHERE username=?";
         $stmt = mysqli_stmt_init($conn);
-        $sql_get_hashtag_id = "SELECT * FROM tags WHERE tag_name LIKE '?%' LIMIT 1";
+        $sql_get_hashtag_id = "SELECT * FROM tags WHERE tag_name LIKE ? LIMIT 1";
         if (!mysqli_stmt_prepare($stmt, $sql_get_hashtag_id)) {
             echo "query error";
         } else {
-            mysqli_stmt_bind_param($stmt, "s", $hashTag);
+            mysqli_stmt_bind_param($stmt, "s", $hashTag."%");
             mysqli_stmt_execute($stmt);
             $result_get_hashtag_id = mysqli_stmt_get_result($stmt);
                 // mysqli_stmt_close();
