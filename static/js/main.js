@@ -74,6 +74,12 @@ function goToList() {
                 }
             });
         } else {
+            if (scrollTag !== "") {
+                if (window.pageYOffset == 0) {
+                    window.scrollBy(0, pageHeight);
+                }
+                // window.scrollBy(0, pageHeight);
+            }
             goToListBtn.addEventListener("click", function() {
                 // window.scrollBy(0, pageHeight);
                 // var indexURL = "index.php?q=ok&tag=null";
