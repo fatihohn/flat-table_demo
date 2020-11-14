@@ -55,7 +55,8 @@ function goToList() {
     let overlay = document.getElementById("overlay");
 
 
-    if (isIndex === "yes") {
+    if (isIndex === "yes" && hashTag == "") {
+        
         if (scrollTag !== "") {
             if (window.pageYOffset == 0) {
                 window.scrollBy(0, pageHeight);

@@ -100,6 +100,19 @@
         </script>
         <?php
     }
+    if($hashTag !== "") {
+    ?>
+        <script>
+            var hashTag = "<?=$hashTag?>";
+        </script>
+    <?php
+    } else {
+        ?>
+        <script>
+            var hashTag = "";
+        </script>
+        <?php
+    }
     ?>
     <script>
         var isIndex = "yes";
