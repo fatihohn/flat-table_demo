@@ -79,7 +79,7 @@
                             </a> -->
                             <?php
                             foreach($article_tag_list as $tag) {
-                                if($tag !== "") {
+                                if(trim($tag) !== "") {
                                     echo '<a class="'.$tag.'" onclick="showArticleWithTag(this.className)" class="category">';
                                     echo    "#".$tag." ";
                                     echo '</a>';
