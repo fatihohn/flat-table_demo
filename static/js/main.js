@@ -55,24 +55,33 @@ function goToList() {
     let overlay = document.getElementById("overlay");
 
 
-    if (isIndex === "yes" && hashTag == "") {
-        
-        if (scrollTag !== "") {
-            if (window.pageYOffset == 0) {
-                window.scrollBy(0, pageHeight);
+    if (isIndex === "yes") {
+        if(hashTag == "") {
+            if (scrollTag !== "") {
+                if (window.pageYOffset == 0) {
+                    window.scrollBy(0, pageHeight);
+                }
+                // window.scrollBy(0, pageHeight);
             }
-            // window.scrollBy(0, pageHeight);
+            goToListBtn.addEventListener("click", function() {
+                if (navigation.classList.contains("active")) {
+                    navigation.classList.remove("active");
+                    overlay.classList.remove("active");
+                    menuBtn.classList.remove("active");
+                }
+                if (window.pageYOffset == 0) {
+                    window.scrollBy(0, pageHeight);
+                }
+            });
+        } else {
+            goToListBtn.addEventListener("click", function() {
+                // window.scrollBy(0, pageHeight);
+                // var indexURL = "index.php?q=ok&tag=null";
+                var indexURL = "index.php?q=ok";
+                location.href = indexURL;
+                console.log(indexURL);
+            });
         }
-        goToListBtn.addEventListener("click", function() {
-            if (navigation.classList.contains("active")) {
-                navigation.classList.remove("active");
-                overlay.classList.remove("active");
-                menuBtn.classList.remove("active");
-            }
-            if (window.pageYOffset == 0) {
-                window.scrollBy(0, pageHeight);
-            }
-        });
     } else {
         goToListBtn.addEventListener("click", function() {
             // window.scrollBy(0, pageHeight);
