@@ -182,8 +182,8 @@
                         }
                     }
                     
-                    if(articleImgs[m].childNodes[1].width*1.2 > articleImgs[m].childNodes[1].height) {
-                        // articleImgs[m].style.maxWidth = "96.5%";
+                    // articleImgs[m].style.maxWidth = "96.5%";
+                        if(articleImgs[m].querySelector("img").width*1.2 > articleImgs[m].querySelector("img").height) {
                         // articleImgs[m].style.height = "auto";
                         // articleImgs[m].childNodes[1].style.height = "auto";
                         // articleImgs[m].childNodes[1].style.width = "100%";
@@ -205,7 +205,7 @@
                     if(m > 0 && document.querySelectorAll(".article_pics_mobile figure").length < document.querySelectorAll(".article_pics figure").length - 1) {
                         replaceImg(articleImgs[m]);
                         // if(articleImgs[m].childNodes[1].width*1.2 >= articleImgs[m].childNodes[1].height) {
-                        if(articleImgs[m].querySelector("img").width*1.2 >= articleImgs[m].querySelector("img").height) {
+                        if(articleImgs[m].querySelector("img").width*1.2 > articleImgs[m].querySelector("img").height) {
                             // document.querySelectorAll(".mobile_img")[m-1].style.maxWidth = "96.5%";
                             // document.querySelectorAll(".mobile_img")[m-1].style.width = "96.5%";
                             // document.querySelectorAll(".mobile_img")[m-1].style.height = "auto";
@@ -223,12 +223,12 @@
                             // document.querySelectorAll(".mobile_img")[m-1].style.margin = "10px 0.5%";
                             // document.querySelectorAll(".mobile_img")[m-1].style.display = "inline-flex";
 
-                            // if(document.querySelectorAll(".mobile_img")[m-1].classList.contains("hori")) {
-                            //     document.querySelectorAll(".mobile_img")[m-1].classList.remove("hori");
-                            //     document.querySelectorAll(".mobile_img img")[m-1].classList.remove("hori");
-                            // }
-                            document.querySelectorAll(".mobile_img")[m-1].classList.add("verti");
-                            document.querySelectorAll(".mobile_img img")[m-1].classList.add("verti");
+                            if(document.querySelectorAll(".mobile_img")[m-1].classList.contains("hori")) {
+                                document.querySelectorAll(".mobile_img")[m-1].classList.remove("hori");
+                                document.querySelectorAll(".mobile_img img")[m-1].classList.remove("hori");
+                            }
+                            // document.querySelectorAll(".mobile_img")[m-1].classList.add("verti");
+                            // document.querySelectorAll(".mobile_img img")[m-1].classList.add("verti");
                         }
                     }
                     
