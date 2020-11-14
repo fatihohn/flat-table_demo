@@ -196,8 +196,8 @@
                         // articleImgs[m].childNodes[1].style.width = "100%";
                         // articleImgs[m].style.margin = "10px 0.5%";
                         // articleImgs[m].style.display = "inline-flex";
-                        if(document.querySelectorAll(".mobile_img")[m-1].classList.contains("hori")) {
-                            document.querySelectorAll(".mobile_img")[m-1].classList.remove("hori");
+                        if(articleImgs[m].classList.contains("hori")) {
+                            articleImgs[m].classList.remove("hori");
                         }
                         articleImgs[m].classList.add("verti");
                     }
