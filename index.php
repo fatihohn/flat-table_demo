@@ -214,7 +214,14 @@
                                 $articleId = $rows_article_all["id"];
                                 $articleTitle = $rows_article_all["title"];
                                 $articleComment = $rows_article_all["comment"];
-                                $articleImgList = explode(",", $rows_article_all["imgs"]);
+                                $articleImgList = array();
+                                $articleImgListVault = explode(",", $rows_article_all["imgs"]);
+
+                                for($ai=0; $ai < count($articleImgListVault); $ai++) {
+                                    if($articleImgListVault[$ai] !== "") {
+                                        array_push($articleImgList, $articleImgListVault[$ai]);
+                                    }
+                                }
 
 
                                 $article_tag_list = array();
