@@ -76,7 +76,8 @@ function goToList() {
     } else {
         goToListBtn.addEventListener("click", function() {
             // window.scrollBy(0, pageHeight);
-            var indexURL = "index.php?q=ok&tag=null";
+            // var indexURL = "index.php?q=ok&tag=null";
+            var indexURL = "index.php?q=ok";
             location.href = indexURL;
             console.log(indexURL);
         });
