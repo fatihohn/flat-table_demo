@@ -191,7 +191,7 @@
                     <h1>평상들</h1>
                     <?php
                     if(isset($hashTag)) {
-                        echo "<h2>#".trim($hashTag)."</h2>";
+                        echo "<h2>#".$hashTag."</h2>";
                     }
                     ?>
                 </header>
