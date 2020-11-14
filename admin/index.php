@@ -270,9 +270,11 @@
                                             <aside class="meta">
                                                 <p>';
                                                     foreach($article_tag_list as $tag) {
-                                                        echo '<a class="'.$tag.'" onclick="showArticleWithTag(this.className)" class="category">';
-                                                        echo    "#".$tag." ";
-                                                        echo '</a>';
+                                                        if($tag !== "") {
+                                                            echo '<a class="'.$tag.'" onclick="showArticleWithTag(this.className)" class="category">';
+                                                            echo    "#".$tag." ";
+                                                            echo '</a>';
+                                                        }
                                                     }
                                 echo            '</p>
                                             </aside>
