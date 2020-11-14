@@ -206,6 +206,7 @@
                     <?php
                     if(isset($hashTag) && $hashTag !== "null") {
                         echo "<h2>#".$hashTag."</h2>";
+                        echo "<p>".count($article_with_hashtag)."개 평상</p>";
                     }
                     ?>
                 </header>
