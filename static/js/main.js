@@ -297,10 +297,14 @@ var tagSearchInput, tagSearchBtn;
 tagSearchBtn = document.querySelector(".tag_search_btn");
 tagSearchInput = document.querySelector(".tag_search");
 
-
+tagSearchInput.addEventListener("keyup", function(e) {
+    if (e.keycode == "Enter" || tagSearchInput.value) {
+        showArticleWithTag(tagSearchInput.value);
+    }
+})
 tagSearchBtn.onclick = function() {
-    if (tagSearchInput.innerText) {
-        showArticleWithTag(tagSearchInput.innerText);
+    if (tagSearchInput.value) {
+        showArticleWithTag(tagSearchInput.value);
     }
 }
 
