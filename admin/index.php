@@ -100,6 +100,7 @@
         </script>
         <?php
     }
+
     if($hashTag !== "") {
     ?>
         <script>
@@ -210,12 +211,11 @@
                 </header>
                 <nav class="container_nav group">
                     <div class="filter_container">
-
-                    <div class="filter_search filter_list">
-                        <!-- <form action="" class="tag_search"></form> -->
-                        <input type="text" class="tag_search">
-                        <button class="tag_search_btn">검색</button>
-                    </div>
+                        <div class="filter_search filter_list">
+                            <!-- <form action="" class="tag_search"></form> -->
+                            <input type="text" class="tag_search">
+                            <button class="tag_search_btn">검색</button>
+                        </div>
                         <!-- 태그 검색으로 대체 -->
                         <!-- <div class="filter_list">
                             <a href="#" class="action">

@@ -86,6 +86,20 @@
         </script>
         <?php
     }
+
+    if($hashTag !== "") {
+        ?>
+            <script>
+                var hashTag = "<?=$hashTag?>";
+            </script>
+        <?php
+        } else {
+            ?>
+            <script>
+                var hashTag = "";
+            </script>
+            <?php
+        }
     ?>
     <script>
         var isIndex = "yes";
@@ -175,9 +189,19 @@
                 <header class="container_header">
                     <img src="../static/img/flat_table_icon.svg" alt="flat_table_icon">
                     <h1>평상들</h1>
+                    <?php
+                    if(isset($hashTag) && $hashTag !== "null") {
+                        echo "<h2>#".$hashTag."</h2>";
+                    }
+                    ?>
                 </header>
                 <nav class="container_nav group">
                     <div class="filter_container">
+                        <div class="filter_search filter_list">
+                            <!-- <form action="" class="tag_search"></form> -->
+                            <input type="text" class="tag_search">
+                            <button class="tag_search_btn">검색</button>
+                        </div>
                         <!-- 태그 검색으로 대체 -->
                         <!-- <div class="filter_list">
                             <a href="#" class="action">
