@@ -223,6 +223,7 @@
                             // document.querySelectorAll(".mobile_img")[m-1].style.display = "inline-flex";
                             if(document.querySelectorAll(".mobile_img")[m-1].classList.contains("hori")) {
                                 document.querySelectorAll(".mobile_img")[m-1].classList.remove("hori");
+                                document.querySelectorAll(".mobile_img img")[m-1].classList.remove("hori");
                             }
                             document.querySelectorAll(".mobile_img")[m-1].classList.add("verti");
                             document.querySelectorAll(".mobile_img img")[m-1].classList.add("verti");
@@ -232,11 +233,13 @@
                 } else if(window.innerWidth < 720) {
                     if(m > 0 && document.querySelectorAll(".article_pics_mobile figure").length < document.querySelectorAll(".article_pics figure").length - 1) {
                         replaceImg(articleImgs[m]);
-                        if(document.querySelectorAll(".mobile_img")[m-1].classList.contains("hori")) {
+                        if(document.querySelectorAll(".mobile_img")[m-1].classList.contains("hori") || document.querySelectorAll(".mobile_img img")[m-1].classList.contains("hori")) {
                             document.querySelectorAll(".mobile_img")[m-1].classList.remove("hori");
+                            document.querySelectorAll(".mobile_img img")[m-1].classList.remove("hori");
                         }
-                        if(document.querySelectorAll(".mobile_img")[m-1].classList.contains("verti")) {
+                        if(document.querySelectorAll(".mobile_img")[m-1].classList.contains("verti") || document.querySelectorAll(".mobile_img img")[m-1].classList.contains("verti")) {
                             document.querySelectorAll(".mobile_img")[m-1].classList.remove("verti");
+                            document.querySelectorAll(".mobile_img img")[m-1].classList.remove("verti");
                         }
                         document.querySelectorAll(".mobile_img")[m-1].style.maxWidth = "100% !important";
                         document.querySelectorAll(".mobile_img")[m-1].style.height = "auto";
