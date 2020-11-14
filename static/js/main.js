@@ -297,12 +297,6 @@ var tagSearchInput, tagSearchBtn;
 tagSearchBtn = document.querySelector(".tag_search_btn");
 tagSearchInput = document.querySelector(".tag_search");
 
-<<<<<<< HEAD
-
-tagSearchBtn.onclick = function() {
-    if (tagSearchInput.innerText) {
-        showArticleWithTag(tagSearchInput.innerText);
-=======
 tagSearchInput.addEventListener("keyup", function(e) {
     if (e.code == "Enter" && tagSearchInput.value) {
         showArticleWithTag(tagSearchInput.value);
@@ -311,7 +305,6 @@ tagSearchInput.addEventListener("keyup", function(e) {
 tagSearchBtn.onclick = function() {
     if (tagSearchInput.value) {
         showArticleWithTag(tagSearchInput.value);
->>>>>>> 822e23a293e841970db53ba1f827b7aaaac8ea94
     }
 }
 
