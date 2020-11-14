@@ -572,7 +572,7 @@ em {
 
 
 .filter_list {
-    border-bottom: 1px solid #1a1a1a;
+    /* border-bottom: 1px solid #1a1a1a; */
     display: block;
     /* font-family: "p22-underground", sans-serif; */
     font-size: 11px;
