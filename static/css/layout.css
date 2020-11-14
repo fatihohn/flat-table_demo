@@ -1022,6 +1022,33 @@ em {
         display: block !important;
         height: auto;
     } */
+
+    .mobile_img.hori {
+        width: 96.5%;
+        max-width: 96.5%;
+        height: auto;
+        margin: 10px 0.25%;
+    }
+    .mobile_img.hori img {
+        width: 100%;
+        height: auto;
+    }
+
+    .mobile_img.verti {
+        width: 47.5%;
+        max-width: 47.5%;
+        height: auto;
+        margin: 10px 0.5%;
+        display: inline-flex;
+    }
+    .mobile_img.verti img {
+        width: 100%;
+        height: auto;
+    }
+
+
+
+
     .article_main .main .article_container .article_text {
         position: relative;
         padding-left: 0;
