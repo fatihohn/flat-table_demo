@@ -565,6 +565,7 @@ em {
     font-family: 'GyeonggiBatang', 'Nunito', sans-serif;
     /* background-color: #E5E5E5; */
     border-radius: 10px;
+    border: none;
 }
 .filter_container .tag_search_btn:hover {
     color:  #1a1a1a;
