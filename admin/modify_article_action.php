@@ -34,7 +34,7 @@
     $flag = mysqli_real_escape_string($conn, $flag);
 
     $about = $_POST['about'];
-    $about = mysqli_real_escape_string($conn, $about);
+    // $about = mysqli_real_escape_string($conn, $about);
 
 
     $tag_vault = $_POST['tag_vault'];
