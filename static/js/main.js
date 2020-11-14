@@ -346,6 +346,8 @@ function showExMap(address) {
     window.open(naverMapURL, "exNaverMap", "width=1200, height=800");
     // window.open(kakaoMapURL, "exKakaoMap", "width=1200, height=800");
     // window.open(googleMapURL, "exGoogleMap", "width=600, height=800");
+
+    console.log(address + " : " + naverMapURL);
 }
 
 // //ARTICLE
