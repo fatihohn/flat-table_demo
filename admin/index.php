@@ -205,7 +205,7 @@
                     <h1>평상들</h1>
                     <?php
                     if(isset($hashTag) && $hashTag !== "null") {
-                        echo "<h2>#".$hashTag."</h2>";
+                        echo "<span><h2>#".$hashTag."</h2></span>";
                         echo "<span>".count($article_with_hashtag)."개 평상</span>";
                     }
                     ?>
