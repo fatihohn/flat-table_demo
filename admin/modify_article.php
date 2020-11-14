@@ -84,7 +84,7 @@
                             <div class="tag_container">
                                 <div class="tag_input_wrap">
                                     <div class="tag_input">
-                                        <input id="tags" type="text" placeholder="연관태그를 입력해주세요. (최대 5개)" value="" />
+                                        <input id="tags" type="text" placeholder="연관태그를 입력해주세요. (최대 10개)" value="" />
                                         <input id="tag_vault" type="hidden" name="tag_vault" value="" />
                                     </div>
                                 </div>
@@ -555,7 +555,7 @@
             }
 
             limitInput = function () {
-                if(tagList.length > 4) {
+                if(tagList.length > 9) {
                     tagInput.style.visibility = "hidden";
                     tagListWrap.style.maxWidth = "100%";
                 } else {
