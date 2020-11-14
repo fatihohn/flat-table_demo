@@ -189,6 +189,11 @@
                 <header class="container_header">
                     <img src="../static/img/flat_table_icon.svg" alt="flat_table_icon">
                     <h1>평상들</h1>
+                    <?php
+                    if(isset($hashTag)) {
+                        echo "<h2>#".trim($hashTag)."</h2>";
+                    }
+                    ?>
                 </header>
                 <nav class="container_nav group">
                     <div class="filter_container">
