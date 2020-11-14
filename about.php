@@ -107,8 +107,9 @@
                             <span>
                                 공유:
                             </span>
-                            <a href="">Facebook</a>
-                            <a href="">Tweeter</a>
+                            <!-- <a href="">Facebook</a>
+                            <a href="">Tweeter</a> -->
+                            <a class="share_btn">Link</a>
                         </div>
                     </footer>
                 </div>
