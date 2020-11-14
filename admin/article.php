@@ -310,7 +310,7 @@
     if (delConfirm == true) {
             location.href = 'delete_article.php?q=' + str;
             console.log('delete_article.php?q=' + str);
-            alert('삭제중입니다');
+            // alert('삭제중입니다');
 
         } else {
             alert('취소되었습니다');
