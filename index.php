@@ -15,18 +15,19 @@
     // $rows_article_all = mysqli_fetch_assoc($result_article_data_all);
     if(isset($hashTag)) {
         $hashTag = mysqli_real_escape_string($conn, $hashTag);
-        $hashTagMeta = "%{$hashTag}%";
+        // $hashTagMeta = "%{$hashTag}%";
         // $hashTagMeta = $hashTag;
         // $sql_get_hashtag_id = "SELECT * FROM tags WHERE tag_name = '$hashTag' LIMIT 1";
         // $result_get_hashtag_id = mysqli_query($conn, $sql_get_hashtag_id);
         // $sql_get_hashtag_id = "SELECT * FROM tags WHERE tag_name LIKE CONCAT('%', ?, '%') LIMIT 1";
-        $sql_get_hashtag_id = "SELECT * FROM tags WHERE tag_name LIKE ? LIMIT 1";
+        // $sql_get_hashtag_id = "SELECT * FROM tags WHERE tag_name LIKE ? LIMIT 1";
+        $sql_get_hashtag_id = "SELECT * FROM tags WHERE tag_name = ? LIMIT 1";
         // $sql_get_hashtag_id = "SELECT * FROM tags WHERE tag_name LIKE '%' + ? + '%' LIMIT 1";
         $stmt = mysqli_stmt_init($conn);
         if (!mysqli_stmt_prepare($stmt, $sql_get_hashtag_id)) {
             echo "query error";
         } else {
-            mysqli_stmt_bind_param($stmt, "s", $hashTagMeta);
+            mysqli_stmt_bind_param($stmt, "s", $hashTag);
             mysqli_stmt_execute($stmt);
             $result_get_hashtag_id = mysqli_stmt_get_result($stmt);
                 // mysqli_stmt_close();
