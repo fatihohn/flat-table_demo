@@ -35,7 +35,7 @@
         if (!mysqli_stmt_prepare($stmt, $sql_get_hashtag_id)) {
             echo "query error";
         } else {
-            mysqli_stmt_bind_param($stmt, "s", $hashTag."%");
+            mysqli_stmt_bind_param($stmt, "s", $hashTag);
             mysqli_stmt_execute($stmt);
             $result_get_hashtag_id = mysqli_stmt_get_result($stmt);
                 // mysqli_stmt_close();
