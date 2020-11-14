@@ -76,6 +76,8 @@
         $sql_article_data_all = "SELECT * FROM articles WHERE about != 'on'";
     }
     
+
+    $sql_article_data_all .= " ORDER BY fieldwork_date";
     $result_article_data_all = $conn->query($sql_article_data_all);
 
     // $sql_article_data_flag = $sql_article_data_all." WHERE flag = flag";
