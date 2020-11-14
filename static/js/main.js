@@ -293,6 +293,16 @@ showArticleWithTag = function(tag) {
     location.href = "index.php?q=ok&tag=" + tag;
 }
 
+var tagSearchInput, tagSearchBtn;
+tagSearchBtn = document.querySelector(".tag_search_btn");
+tagSearchInput = document.querySelector(".tag_search");
+
+
+tagSearchBtn.onclick = function() {
+    if (tagSearchInput.innerText) {
+        showArticleWithTag(tagSearchInput.innerText);
+    }
+}
 
 //end FRONT
 
@@ -326,20 +336,9 @@ shareBtnClick();
 
 
 function showExMap(address) {
-    // var addressArr = address.split("_");
-    // var addressKoArr = addressArr[0].split("(");
-    // var addressKo = addressKoArr[0];
-    // var addressLat = addressArr[1];
-    // var addressLng = addressArr[2];
-
-    // var naverMapURL = "https://map.naver.com/v5/search/" + province + "%20" + city + "%20" + dongOrRoad + "%20" + addressNumber + "/";
-    // var naverMapURL = "https://map.naver.com/v5/search/" + addressKo;
     var naverMapURL = "https://map.naver.com/v5/search/" + address;
 
-    // var kakaoMapURL = "https://map.kakao.com/link/to/" + addressKo + "," + addressLat + "," + addressLng;
     var kakaoMapURL = "https://map.kakao.com/link/to/" + address;
-    // var kakaoMapURL = "https://map.kakao.com/link/search/" + addressLat + "," + addressLng;
-    // var kakaoMapURL = "https://map.kakao.com/link/search/" + addressKo;
 
     // var googleMapURL = "https://www.google.com/maps/place/" + placeLat + "," + placeLng;
 
