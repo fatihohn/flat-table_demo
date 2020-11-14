@@ -537,7 +537,7 @@ em {
 }
 
 .filter_container {
-/*     display: block; */
+    /*     display: block; */
     display: none;
     float: left;
     margin: 0 0 0 -10px;
@@ -808,6 +808,7 @@ em {
     letter-spacing: .05em;
     margin: 0;
     text-transform: uppercase;
+    cursor: pointer;
 }
 
 .article_main .main .article_container .article_pics {
@@ -1022,7 +1023,6 @@ em {
         display: block !important;
         height: auto;
     } */
-
     .mobile_img.hori {
         width: 96.5%;
         max-width: 96.5%;
@@ -1033,7 +1033,6 @@ em {
         width: 100%;
         height: auto;
     }
-
     .mobile_img.verti {
         width: 47.5%;
         max-width: 47.5%;
@@ -1045,10 +1044,6 @@ em {
         width: 100%;
         height: auto;
     }
-
-
-
-
     .article_main .main .article_container .article_text {
         position: relative;
         padding-left: 0;
