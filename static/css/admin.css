@@ -220,6 +220,47 @@ button {
 }
 
 
+
+.article_img_figure.hori {
+    max-width: 96.5%;
+    height: auto;
+    margin: 10px 0.75%;
+}
+
+.article_img_figure img.hori {
+    height: auto;
+    width: 100%;
+}
+
+.article_img_figure.verti {
+    max-width: 47.5%;
+    height: auto;
+    margin: 10px 0.5%;
+    display: inline-flex;
+}
+
+.article_img_figure img.verti {
+    height: auto;
+    width: 100%;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /*hashTagRelated*/
 
 .tag_wrap {
@@ -415,4 +456,9 @@ button {
     #file-list-display .locked input {
         margin: 0;
     }
+
+
+
+
+    
 }
