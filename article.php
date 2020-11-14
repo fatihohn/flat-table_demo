@@ -57,7 +57,7 @@
                         <?=$title?>
                     </h2>
                     <div class="article_info">
-                        <p class="article_address" onclick="showExMap(this.innerHTML)"><?=$address?></p>
+                        <p class="article_address" onclick="showExMap(this.innerHTML)"><?=trim($address)?></p>
                         <p class="category">
                             <!-- <a href="#">
                                 주민모임형
