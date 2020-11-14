@@ -58,7 +58,6 @@
                     </h2>
                     <div class="article_info">
                         <p class="article_address" onclick="showExMap(this.innerHTML)">
-                            <!-- 경기도 동두천시 상봉암동 153-15 -->
                             <?=$address?>
                         </p>
                         <p class="category">
