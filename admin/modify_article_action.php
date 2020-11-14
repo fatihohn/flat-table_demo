@@ -36,6 +36,14 @@
     $about = $_POST['about'];
     // $about = mysqli_real_escape_string($conn, $about);
 
+    $sql_about_val = "SELECT about FROM articles WHERE id = $q";
+    $result_about_val = mysqli_query($conn, $sql_about_val);
+    $row_about_val = mysqli_fetch_assoc($result_about_val);
+    $aboutVal = $row_about_val['about'];
+
+
+
+
 
     $tag_vault = $_POST['tag_vault'];
     $tag_vault = mysqli_real_escape_string($conn, $tag_vault);
@@ -153,13 +161,13 @@
 
                 }
             }
-            if($about === "on") {
+            if($aboutVal === "on") {
                 echo("<script>alert('소개글이 수정되었습니다.');location.href='about.php';</script>");
             } else {
                 echo("<script>alert('평상이 수정되었습니다.');location.href='article.php?q=$q';</script>");
             }
         } else {
-            if($about === "on") {
+            if($aboutVal === "on") {
                 echo("<script>alert('소개글이 수정되었습니다.');location.href='about.php';</script>");
             } else {
                 echo("<script>alert('평상이 수정되었습니다.');location.href='article.php?q=$q';</script>");
