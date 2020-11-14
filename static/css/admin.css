@@ -221,6 +221,18 @@ button {
 
 
 
+
+.article_img_figure {
+    display: inline-flex !important;
+    position: relative;
+}
+.article_img_figure img {
+    width: 100%;
+    height: auto;
+}
+
+
+
 .article_img_figure.hori {
     max-width: 96.5%;
     height: auto;
