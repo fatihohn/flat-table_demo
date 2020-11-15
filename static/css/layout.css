@@ -577,6 +577,7 @@ em {
     cursor: pointer;
     /* display: inline; */
     display: inline-block;
+    min-width: 20px;
 }
 .filter_container .tag_search_btn:hover {
     color:  #1a1a1a;
