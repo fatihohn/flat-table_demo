@@ -555,6 +555,7 @@ em {
 
 }
 .filter_container .tag_search {
+    max-width: 200px;
     border: none;
     border-bottom: 1px solid #c28c29;
     background: transparent;
