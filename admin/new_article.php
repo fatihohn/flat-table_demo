@@ -264,14 +264,42 @@
         let articleImgs = document.querySelectorAll(".article_pics figure");
         let mobileImgs = document.querySelector(".article_pics_mobile");
             for(let m=0; m < articleImgs.length; m++) {
+                // // articleImgs[m].style.display = "block";
+                // // articleImgs[m].style.visibility = "visible";
+                // // articleImgs[m].style.height = "auto";
+                // // articleImgs[m].style.display = "flex";
 
-                articleImgs[m].childNodes[1].onload = function() {
+
+
+                // articleImgs[m].style.display = "inline-flex !important";
+                // articleImgs[m].style.position = "relative";
+                // articleImgs[m].childNodes[1].style.width = "100%";
+                // if(window.innerWidth > 1080) {
+
+                // articleImgs[m].querySelector("img").onload = function() {}
                     if(mobileImgs.childNodes.length > 0) {
                         for(let n=0; n < mobileImgs.childNodes.length; n++) {
                             mobileImgs.childNodes[n].remove();
                         }
                     }
                     
+                    // if(articleImgs[m].childNodes[1].width*1.2 > articleImgs[m].childNodes[1].height) {
+                    //     articleImgs[m].style.maxWidth = "96.5%";
+                    //     articleImgs[m].style.height = "auto";
+                    //     articleImgs[m].style.margin = "10px 0.75%";
+                    //     // articleImgs[m].style.height = "100%";//mobile test
+                    //     articleImgs[m].childNodes[1].style.height = "auto";
+                    //     articleImgs[m].childNodes[1].style.width = "100%";
+                    // } else {
+                    //     articleImgs[m].style.maxWidth = "47.5%";
+                    //     articleImgs[m].style.height = "auto";
+                    //     articleImgs[m].style.margin = "10px 0.5%";
+                    //     // articleImgs[m].style.height = "100%";//mobile test
+                    //     articleImgs[m].childNodes[1].style.height = "auto";
+                    //     articleImgs[m].childNodes[1].style.width = "100%";
+                    //     // articleImgs[m].style.display = "inline-flex";
+                    //     // articleImgs[m].style.display = "inline-block";
+                    // }
                     if(articleImgs[m].childNodes[1].width*1.2 > articleImgs[m].childNodes[1].height) {
                         articleImgs[m].classList.add("hori");
                         articleImgs[m].childNodes[1].classList.add("hori");
@@ -280,8 +308,47 @@
                         articleImgs[m].childNodes[1].classList.add("verti");
                     }
 
-                }
-   
+
+
+
+
+
+
+                // } else if(window.innerWidth <= 1080 && window.innerWidth >= 720) {
+                //     if(m > 0 && document.querySelectorAll(".article_pics_mobile figure").length < document.querySelectorAll(".article_pics figure").length - 1) {
+                //         replaceImg(articleImgs[m]);
+                //         if(articleImgs[m].childNodes[1].width >= articleImgs[m].childNodes[1].height) {
+                //             document.querySelectorAll(".mobile_img")[m-1].style.maxWidth = "96.5%";
+                //             document.querySelectorAll(".mobile_img")[m-1].style.width = "96.5%";
+                //             document.querySelectorAll(".mobile_img")[m-1].style.height = "auto";
+                //             document.querySelectorAll(".mobile_img")[m-1].childNodes[0].style.width = "100%";
+                //             document.querySelectorAll(".mobile_img")[m-1].childNodes[0].style.height = "auto";
+                //             document.querySelectorAll(".mobile_img")[m-1].style.margin = "10px 0.25%";
+                //         } else {
+                //             document.querySelectorAll(".mobile_img")[m-1].style.maxWidth = "47.5%";
+                //             document.querySelectorAll(".mobile_img")[m-1].style.width = "47.5%";
+                //             document.querySelectorAll(".mobile_img")[m-1].style.height = "auto";
+                //             document.querySelectorAll(".mobile_img")[m-1].childNodes[0].style.width = "100%";
+                //             document.querySelectorAll(".mobile_img")[m-1].childNodes[0].style.height = "auto";
+                //             document.querySelectorAll(".mobile_img")[m-1].style.margin = "10px 0.5%";
+                //             document.querySelectorAll(".mobile_img")[m-1].style.display = "inline-flex";
+                //             // document.querySelectorAll(".mobile_img")[m-1].style.display = "inline-block";
+                //         }
+                //     }
+                    
+                // } else if(window.innerWidth < 720) {
+                //     if(m > 0 && document.querySelectorAll(".article_pics_mobile figure").length < document.querySelectorAll(".article_pics figure").length - 1) {
+                //         replaceImg(articleImgs[m]);
+                //         document.querySelectorAll(".mobile_img")[m-1].style.maxWidth = "100% !important";
+                //         document.querySelectorAll(".mobile_img")[m-1].style.height = "auto";
+                //         document.querySelectorAll(".mobile_img")[m-1].childNodes[0].style.width = "100% !important";
+                //         document.querySelectorAll(".mobile_img")[m-1].childNodes[0].style.height = "auto";
+                //         document.querySelectorAll(".mobile_img")[m-1].style.margin = "0 0 20px 0 !important";
+                //         document.querySelectorAll(".mobile_img")[m-1].style.display = "block";
+                        
+                //     }
+                // }
+                
             }
 
 
