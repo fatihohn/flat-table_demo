@@ -337,7 +337,7 @@ showMoreArticles = function(scrollTag, hashTag, row) {
     articleGetter.open("POST", "article_getter.php?q=" + scrollTag + "&tag=" + hashTag + "&row=" + row, true);
     articleGetter.send();
     articleGetter.onreadystatechange = function() {
-        if (articleGetter.readyState == 4 && finder.status == 200) {
+        if (articleGetter.readyState == 4 && articleGetter.status == 200) {
             articleContainer.innerHTML =  articleGetter.responseText;
         }
 
