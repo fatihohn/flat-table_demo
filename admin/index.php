@@ -395,11 +395,12 @@
                     plusRow = 3;
                 }
     
-                if(parseInt("<?=$articleRow?>") > 0) {
-                    currentRow = parseInt("<?=$articleRow?>") + plusRow;
-                } else {
-                    currentRow = currentRow + plusRow;
-                }
+                // if(parseInt("<?=$articleRow?>") > 0) {
+                //     currentRow = parseInt("<?=$articleRow?>") + plusRow;
+                // } else {
+                //     currentRow = currentRow + plusRow;
+                // }
+                currentRow = currentRow + plusRow;
                 console.log(currentRow);
                 // if(<?//=isset($articleRow)?>) {
                     showMoreArticles("<?=$scrollTag?>", "<?=$hashTag?>", plusRow, currentRow);
