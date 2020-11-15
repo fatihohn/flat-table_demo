@@ -539,7 +539,7 @@ em {
     cursor: pointer;
     display: inline-block;
     /* min-width: 50px; */
-    width: 100px;
+    width: 120px;
 }
 .more_article_btn:focus {
     outline: none;
