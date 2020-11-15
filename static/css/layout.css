@@ -869,7 +869,10 @@ em {
     max-width: 47.5%;
     height: auto;
     margin: 10px 0.5%;
+    display: -webkit-inline-flex !important;
+    display: -ms-inline-flexbox !important;
     display: inline-flex !important;
+    
 }
 
 .article_main .main .article_container .article_pics figure img.verti {
@@ -1063,6 +1066,8 @@ em {
         max-width: 47.5%;
         height: auto;
         margin: 10px 0.5%;
+        display: -webkit-inline-flex !important;
+        display: -ms-inline-flexbox !important;
         display: inline-flex !important;
     }
     .mobile_img.verti img {
