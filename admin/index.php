@@ -383,24 +383,24 @@
     <script>
         var currentRow = 8;
         window.onscroll = function() {
-            var plusRow;
-            if(window.innerWidth > 1899) {
-                plusRow = 8;
-            } else if(window.innerWidth > 820) {
-                plusRow = 4;
-            } else if(window.innerWidth > 720) {
-                plusRow = 3;
-            }
-
-            if(parseInt("<?=$articleRow?>") > 0) {
-                currentRow = parseInt("<?=$articleRow?>") + plusRow;
-            } else {
-                currentRow = currentRow + plusRow;
-            }
-            console.log(currentRow);
-
-
+            
+            
             if(window.pageYOffset + window.innerHeight == document.body.scrollHeight) {
+                var plusRow;
+                if(window.innerWidth > 1899) {
+                    plusRow = 8;
+                } else if(window.innerWidth > 820) {
+                    plusRow = 4;
+                } else if(window.innerWidth > 720) {
+                    plusRow = 3;
+                }
+    
+                if(parseInt("<?=$articleRow?>") > 0) {
+                    currentRow = parseInt("<?=$articleRow?>") + plusRow;
+                } else {
+                    currentRow = currentRow + plusRow;
+                }
+                console.log(currentRow);
                 // if(<?//=isset($articleRow)?>) {
                     showMoreArticles("<?=$scrollTag?>", "<?=$hashTag?>", plusRow, currentRow);
                     console.log(plusRow);
