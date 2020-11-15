@@ -211,10 +211,12 @@
             if(flagVal == "on") {
                 flagInput.checked = true;
                 aboutInput.checked = false;
+                aboutInput.disabled = true;
             }
             if(aboutVal == "on") {
                 aboutInput.checked = true;
                 flagInput.checked = false;
+                flagInput.disabled = true;
                 titleInput.disabled = true;
                 addressInput.disabled = true;
                 tagInput.disabled = true;
