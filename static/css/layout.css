@@ -561,7 +561,7 @@ em {
     background: transparent;
     font-family: 'GyeonggiBatang', 'Nunito', sans-serif;
     /* display: inline; */
-    display: inline-flex;
+    display: inline-block;
 }
 .filter_container .tag_search:focus {
     outline: none;
@@ -576,7 +576,7 @@ em {
     border: none;
     cursor: pointer;
     /* display: inline; */
-    display: inline-flex;
+    display: inline-block;
 }
 .filter_container .tag_search_btn:hover {
     color:  #1a1a1a;
