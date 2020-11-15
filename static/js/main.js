@@ -309,7 +309,9 @@ if (document.querySelector(".slide_title a")) {
 
 var showArticleWithTag;
 showArticleWithTag = function(tag) {
-    location.href = "index.php?q=ok&tag=" + tag;
+    if(tag.trim() !== "") {
+        location.href = "index.php?q=ok&tag=" + tag;
+    }
 }
 
 var tagSearchInput, tagSearchBtn;
