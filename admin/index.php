@@ -387,6 +387,20 @@
     <script>
         var currentRow, plusRow;
         var moreArticleBtn = document.querySelector(".more_article_btn");
+        if(window.innerWidth < 820 && window.innerWidth > 720) {
+                currentRow = 9;
+            } else {
+                currentRow = 8;
+            }
+            if(window.innerWidth > 1899) {
+                plusRow = 8;
+            } else if(window.innerWidth > 820) {
+                plusRow = 4;
+            } else if(window.innerWidth > 720) {
+                plusRow = 3;
+            } else {
+                plusRow = 2;
+            }
         window.onresize = function () {
             if(window.innerWidth < 820 && window.innerWidth > 720) {
                 currentRow = 9;
