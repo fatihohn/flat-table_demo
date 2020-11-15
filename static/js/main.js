@@ -340,7 +340,7 @@ showMoreArticles = function(scrollTag, hashTag, row, currentRow) {
     } else if(scrollTag !== "" && hashTag == "") {
         articleGetter.open("POST", "article_getter.php?q=" + scrollTag + "&row=" + row + currentRow, true);
     } else if(scrollTag == "" && hashTag == "") {
-        articleGetter.open("POST", "article_getter.php?row=" + row, true);
+        articleGetter.open("POST", "article_getter.php?row=" + row + currentRow, true);
     }
     articleGetter.send();
     articleGetter.onreadystatechange = function() {

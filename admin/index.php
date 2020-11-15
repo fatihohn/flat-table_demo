@@ -397,10 +397,12 @@
             } else {
                 currentRow = currentRow + plusRow;
             }
+            console.log(currentRow);
+
 
             if(window.pageYOffset + window.innerHeight == document.body.scrollHeight) {
                 // if(<?//=isset($articleRow)?>) {
-                    showMoreArticles("<?=$scrollTag?>", "<?=$hashTag?>", plusRow, currentRow + plusRow);
+                    showMoreArticles("<?=$scrollTag?>", "<?=$hashTag?>", plusRow, currentRow);
                     console.log(plusRow);
                     // if(parseInt("<?//=$articleRow?>") > 0) {
                     //     showMoreArticles("<?//=$scrollTag?>", "<?//=$hashTag?>", plusRow, currentRow + plusRow);
