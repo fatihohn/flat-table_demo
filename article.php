@@ -200,7 +200,7 @@
                         }
                         articleImgs[m].classList.add("verti");
                     }
-                } else if(window.innerWidth <= 1080 && window.innerWidth >= 720) {
+                } else if(window.innerWidth < 1081 && window.innerWidth > 719) {
                     if(m > 0 && document.querySelectorAll(".article_pics_mobile figure").length < document.querySelectorAll(".article_pics figure").length - 1) {
                         replaceImg(articleImgs[m]);
                         // if(articleImgs[m].childNodes[1].width*1.2 >= articleImgs[m].childNodes[1].height) {
@@ -242,12 +242,12 @@
                             document.querySelectorAll(".mobile_img")[m-1].classList.remove("verti");
                             document.querySelectorAll(".mobile_img img")[m-1].classList.remove("verti");
                         }
-                        document.querySelectorAll(".mobile_img")[m-1].style.maxWidth = "100% !important";
-                        document.querySelectorAll(".mobile_img")[m-1].style.height = "auto";
-                        document.querySelectorAll(".mobile_img")[m-1].childNodes[0].style.width = "100% !important";
-                        document.querySelectorAll(".mobile_img")[m-1].childNodes[0].style.height = "auto";
-                        document.querySelectorAll(".mobile_img")[m-1].style.margin = "0 0 20px 0 !important";
-                        document.querySelectorAll(".mobile_img")[m-1].style.display = "block";
+                        // document.querySelectorAll(".mobile_img")[m-1].style.maxWidth = "100% !important";
+                        // document.querySelectorAll(".mobile_img")[m-1].style.height = "auto";
+                        // document.querySelectorAll(".mobile_img")[m-1].childNodes[0].style.width = "100% !important";
+                        // document.querySelectorAll(".mobile_img")[m-1].childNodes[0].style.height = "auto";
+                        // document.querySelectorAll(".mobile_img")[m-1].style.margin = "0 0 20px 0 !important";
+                        // document.querySelectorAll(".mobile_img")[m-1].style.display = "block";
                         
                     }
                 }
