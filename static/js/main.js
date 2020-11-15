@@ -327,6 +327,42 @@ tagSearchBtn.onclick = function() {
     }
 }
 
+
+
+var showMoreArticles;
+showMoreArticles = function(scrollTag, hashTag, row) {
+    var articleContainer = document.querySelector(".collection.group ul");
+    var articleGetter = new XMLHttpRequest();
+
+    articleGetter.open("POST", "article_getter.php?q=" + scrollTag + "&tag=" + hashTag + "&row=" + row, true);
+    articleGetter.send();
+    articleGetter.onreadystatechange = function() {
+        if (finder.readyState == 4 && finder.status == 200) {
+            articleContainer.innerHTML =  articleGetter.responseText;
+        }
+
+        // callback();
+    }
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 //end FRONT
 
 

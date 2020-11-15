@@ -277,9 +277,7 @@
                                     $row_get_tag_names = mysqli_fetch_assoc($result_get_tag_names);
                                     array_push($article_tag_list, $row_get_tag_names['tag_name']);
                                 }
-                                // $articleTags = ["임시", "태그", "골목"];
-
-                                // echo '<img class="slide_img_src" title="'.$frontArticleTitle.'" src="/uploads/'.$frontArticleImg.'" alt="'.$frontArticleTitle.'">';
+                                
                                 echo '
                                 <li>
                                     <article class="article">
@@ -374,5 +372,24 @@
     <?php include 'footer.php'?>
 
     <script src="../static/js/main.js"></script>
+    <script>
+        window.onscroll = function() {
+            var plusRow;
+            if(window.innerWidth > 1899) {
+                plusRow = 8;
+            } else if(window.innerWidth > 820) {
+                plusRow = 4;
+            } else if(window.innerWidth > 720) {
+                plusRow = 3;
+            }
+            if(window.pageYOffset == document.body.scrollHeight) {
+                if(<?=$row?> > 0) {
+                    showMoreArticles("<?=$scrollTag?>", "<?=$hashTag?>", <?=$row?> + plusRow);
+                } else {
+                    showMoreArticles("<?=$scrollTag?>", "<?=$hashTag?>", plusRow);
+                }
+            }
+        };
+    </script>
 </body>
 </html>
