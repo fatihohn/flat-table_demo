@@ -391,10 +391,12 @@
                 plusRow = 3;
             }
             if(window.pageYOffset == document.body.scrollHeight) {
-                if(<?=$row?> !== null &&<?=$row?> !== "" && <?=$row?> > 0) {
-                    showMoreArticles("<?=$scrollTag?>", "<?=$hashTag?>", <?=$row?> + plusRow);
-                } else {
-                    showMoreArticles("<?=$scrollTag?>", "<?=$hashTag?>", plusRow);
+                if(<?=isset($row)?>) {
+                    if(<?=$row?> > 0) {
+                        showMoreArticles("<?=$scrollTag?>", "<?=$hashTag?>", <?=$row?> + plusRow);
+                    } else {
+                        showMoreArticles("<?=$scrollTag?>", "<?=$hashTag?>", plusRow);
+                    }
                 }
             }
         };
