@@ -317,15 +317,16 @@ showArticleWithTag = function(tag) {
 var tagSearchInput, tagSearchBtn;
 tagSearchBtn = document.querySelector(".tag_search_btn");
 tagSearchInput = document.querySelector(".tag_search");
-
-tagSearchInput.addEventListener("keyup", function(e) {
-    if ((e.code == "Enter" || e.keycode == 13) && tagSearchInput.value) {
-        showArticleWithTag(tagSearchInput.value);
-    }
-})
-tagSearchBtn.onclick = function() {
-    if (tagSearchInput.value) {
-        showArticleWithTag(tagSearchInput.value);
+if(tagSearchInput && tagSearchBtn) {
+    tagSearchInput.addEventListener("keyup", function(e) {
+        if ((e.code == "Enter" || e.keycode == 13) && tagSearchInput.value) {
+            showArticleWithTag(tagSearchInput.value);
+        }
+    })
+    tagSearchBtn.onclick = function() {
+        if (tagSearchInput.value) {
+            showArticleWithTag(tagSearchInput.value);
+        }
     }
 }
 
