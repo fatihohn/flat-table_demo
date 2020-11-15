@@ -199,8 +199,11 @@
                             // articleImgs[m].style.display = "inline-flex";
                             if(articleImgs[m].classList.contains("hori")) {
                                 articleImgs[m].classList.remove("hori");
+                                articleImgs[m].classList.add("verti");
+                            } else {
+                                articleImgs[m].classList.add("verti");
+
                             }
-                            articleImgs[m].classList.add("verti");
                         }
                     } else if(window.innerWidth < 1081 && window.innerWidth > 719) {
                         if(m > 0 && document.querySelectorAll(".article_pics_mobile figure").length < document.querySelectorAll(".article_pics figure").length - 1) {
