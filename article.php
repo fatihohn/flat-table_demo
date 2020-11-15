@@ -173,8 +173,8 @@
         let mobileImgs = document.querySelector(".article_pics_mobile");
             for(let m=0; m < articleImgs.length; m++) {
                 articleImgs[m].style.display = "block";
-                articleImgs[m].childNodes[1].style.width = "100%";
-                articleImgs[m].childNodes[1].onload = function() {
+                articleImgs[m].querySelector("img").style.width = "100%";
+                articleImgs[m].querySelector("img").onload = function() {
 
                     if(window.innerWidth > 1080) {
                         if(mobileImgs.childNodes.length > 0) {
