@@ -174,81 +174,84 @@
             for(let m=0; m < articleImgs.length; m++) {
                 articleImgs[m].style.display = "block";
                 articleImgs[m].childNodes[1].style.width = "100%";
-                if(window.innerWidth > 1080) {
-                    if(mobileImgs.childNodes.length > 0) {
-                        for(let n=0; n < mobileImgs.childNodes.length; n++) {
-                            mobileImgs.childNodes[n].remove();
-                        }
-                    }
-                    
-                    // articleImgs[m].style.maxWidth = "96.5%";
-                        if(articleImgs[m].querySelector("img").width*1.2 > articleImgs[m].querySelector("img").height) {
-                        // articleImgs[m].style.height = "auto";
-                        // articleImgs[m].childNodes[1].style.height = "auto";
-                        // articleImgs[m].childNodes[1].style.width = "100%";
-                        // articleImgs[m].style.margin = "10px 0.75%";
-                        articleImgs[m].classList.add("hori");
-                    } else {
-                        // articleImgs[m].style.maxWidth = "47.5%";
-                        // articleImgs[m].style.height = "auto";
-                        // articleImgs[m].childNodes[1].style.height = "auto";
-                        // articleImgs[m].childNodes[1].style.width = "100%";
-                        // articleImgs[m].style.margin = "10px 0.5%";
-                        // articleImgs[m].style.display = "inline-flex";
-                        if(articleImgs[m].classList.contains("hori")) {
-                            articleImgs[m].classList.remove("hori");
-                        }
-                        articleImgs[m].classList.add("verti");
-                    }
-                } else if(window.innerWidth < 1081 && window.innerWidth > 719) {
-                    if(m > 0 && document.querySelectorAll(".article_pics_mobile figure").length < document.querySelectorAll(".article_pics figure").length - 1) {
-                        replaceImg(articleImgs[m]);
-                        // if(articleImgs[m].childNodes[1].width*1.2 >= articleImgs[m].childNodes[1].height) {
-                        if(articleImgs[m].querySelector("img").width*1.2 > articleImgs[m].querySelector("img").height) {
-                            // document.querySelectorAll(".mobile_img")[m-1].style.maxWidth = "96.5%";
-                            // document.querySelectorAll(".mobile_img")[m-1].style.width = "96.5%";
-                            // document.querySelectorAll(".mobile_img")[m-1].style.height = "auto";
-                            // document.querySelectorAll(".mobile_img")[m-1].childNodes[0].style.width = "100%";
-                            // document.querySelectorAll(".mobile_img")[m-1].childNodes[0].style.height = "auto";
-                            // document.querySelectorAll(".mobile_img")[m-1].style.margin = "10px 0.25%";
-                            document.querySelectorAll(".mobile_img")[m-1].classList.add("hori");
-                            document.querySelectorAll(".mobile_img img")[m-1].classList.add("hori");
-                        } else {
-                            // document.querySelectorAll(".mobile_img")[m-1].style.maxWidth = "47.5%";
-                            // document.querySelectorAll(".mobile_img")[m-1].style.width = "47.5%";
-                            // document.querySelectorAll(".mobile_img")[m-1].style.height = "auto";
-                            // document.querySelectorAll(".mobile_img")[m-1].childNodes[0].style.width = "100%";
-                            // document.querySelectorAll(".mobile_img")[m-1].childNodes[0].style.height = "auto";
-                            // document.querySelectorAll(".mobile_img")[m-1].style.margin = "10px 0.5%";
-                            // document.querySelectorAll(".mobile_img")[m-1].style.display = "inline-flex";
+                articleImgs[m].onload = function() {
 
-                            if(document.querySelectorAll(".mobile_img")[m-1].classList.contains("hori")) {
+                    if(window.innerWidth > 1080) {
+                        if(mobileImgs.childNodes.length > 0) {
+                            for(let n=0; n < mobileImgs.childNodes.length; n++) {
+                                mobileImgs.childNodes[n].remove();
+                            }
+                        }
+                        
+                        // articleImgs[m].style.maxWidth = "96.5%";
+                            if(articleImgs[m].querySelector("img").width*1.2 > articleImgs[m].querySelector("img").height) {
+                            // articleImgs[m].style.height = "auto";
+                            // articleImgs[m].childNodes[1].style.height = "auto";
+                            // articleImgs[m].childNodes[1].style.width = "100%";
+                            // articleImgs[m].style.margin = "10px 0.75%";
+                            articleImgs[m].classList.add("hori");
+                        } else {
+                            // articleImgs[m].style.maxWidth = "47.5%";
+                            // articleImgs[m].style.height = "auto";
+                            // articleImgs[m].childNodes[1].style.height = "auto";
+                            // articleImgs[m].childNodes[1].style.width = "100%";
+                            // articleImgs[m].style.margin = "10px 0.5%";
+                            // articleImgs[m].style.display = "inline-flex";
+                            if(articleImgs[m].classList.contains("hori")) {
+                                articleImgs[m].classList.remove("hori");
+                            }
+                            articleImgs[m].classList.add("verti");
+                        }
+                    } else if(window.innerWidth < 1081 && window.innerWidth > 719) {
+                        if(m > 0 && document.querySelectorAll(".article_pics_mobile figure").length < document.querySelectorAll(".article_pics figure").length - 1) {
+                            replaceImg(articleImgs[m]);
+                            // if(articleImgs[m].childNodes[1].width*1.2 >= articleImgs[m].childNodes[1].height) {
+                            if(articleImgs[m].querySelector("img").width*1.2 > articleImgs[m].querySelector("img").height) {
+                                // document.querySelectorAll(".mobile_img")[m-1].style.maxWidth = "96.5%";
+                                // document.querySelectorAll(".mobile_img")[m-1].style.width = "96.5%";
+                                // document.querySelectorAll(".mobile_img")[m-1].style.height = "auto";
+                                // document.querySelectorAll(".mobile_img")[m-1].childNodes[0].style.width = "100%";
+                                // document.querySelectorAll(".mobile_img")[m-1].childNodes[0].style.height = "auto";
+                                // document.querySelectorAll(".mobile_img")[m-1].style.margin = "10px 0.25%";
+                                document.querySelectorAll(".mobile_img")[m-1].classList.add("hori");
+                                document.querySelectorAll(".mobile_img img")[m-1].classList.add("hori");
+                            } else {
+                                // document.querySelectorAll(".mobile_img")[m-1].style.maxWidth = "47.5%";
+                                // document.querySelectorAll(".mobile_img")[m-1].style.width = "47.5%";
+                                // document.querySelectorAll(".mobile_img")[m-1].style.height = "auto";
+                                // document.querySelectorAll(".mobile_img")[m-1].childNodes[0].style.width = "100%";
+                                // document.querySelectorAll(".mobile_img")[m-1].childNodes[0].style.height = "auto";
+                                // document.querySelectorAll(".mobile_img")[m-1].style.margin = "10px 0.5%";
+                                // document.querySelectorAll(".mobile_img")[m-1].style.display = "inline-flex";
+    
+                                if(document.querySelectorAll(".mobile_img")[m-1].classList.contains("hori")) {
+                                    document.querySelectorAll(".mobile_img")[m-1].classList.remove("hori");
+                                    document.querySelectorAll(".mobile_img img")[m-1].classList.remove("hori");
+                                }
+                                // document.querySelectorAll(".mobile_img")[m-1].classList.add("verti");
+                                // document.querySelectorAll(".mobile_img img")[m-1].classList.add("verti");
+                            }
+                        }
+                        
+                    } else if(window.innerWidth < 720) {
+                        if(m > 0 && document.querySelectorAll(".article_pics_mobile figure").length < document.querySelectorAll(".article_pics figure").length - 1) {
+                            replaceImg(articleImgs[m]);
+                            if(document.querySelectorAll(".mobile_img")[m-1].classList.contains("hori") || document.querySelectorAll(".mobile_img img")[m-1].classList.contains("hori")) {
                                 document.querySelectorAll(".mobile_img")[m-1].classList.remove("hori");
                                 document.querySelectorAll(".mobile_img img")[m-1].classList.remove("hori");
                             }
-                            // document.querySelectorAll(".mobile_img")[m-1].classList.add("verti");
-                            // document.querySelectorAll(".mobile_img img")[m-1].classList.add("verti");
+                            if(document.querySelectorAll(".mobile_img")[m-1].classList.contains("verti") || document.querySelectorAll(".mobile_img img")[m-1].classList.contains("verti")) {
+                                document.querySelectorAll(".mobile_img")[m-1].classList.remove("verti");
+                                document.querySelectorAll(".mobile_img img")[m-1].classList.remove("verti");
+                            }
+                            // document.querySelectorAll(".mobile_img")[m-1].style.maxWidth = "100% !important";
+                            // document.querySelectorAll(".mobile_img")[m-1].style.height = "auto";
+                            // document.querySelectorAll(".mobile_img")[m-1].childNodes[0].style.width = "100% !important";
+                            // document.querySelectorAll(".mobile_img")[m-1].childNodes[0].style.height = "auto";
+                            // document.querySelectorAll(".mobile_img")[m-1].style.margin = "0 0 20px 0 !important";
+                            // document.querySelectorAll(".mobile_img")[m-1].style.display = "block";
+                            
                         }
-                    }
-                    
-                } else if(window.innerWidth < 720) {
-                    if(m > 0 && document.querySelectorAll(".article_pics_mobile figure").length < document.querySelectorAll(".article_pics figure").length - 1) {
-                        replaceImg(articleImgs[m]);
-                        if(document.querySelectorAll(".mobile_img")[m-1].classList.contains("hori") || document.querySelectorAll(".mobile_img img")[m-1].classList.contains("hori")) {
-                            document.querySelectorAll(".mobile_img")[m-1].classList.remove("hori");
-                            document.querySelectorAll(".mobile_img img")[m-1].classList.remove("hori");
-                        }
-                        if(document.querySelectorAll(".mobile_img")[m-1].classList.contains("verti") || document.querySelectorAll(".mobile_img img")[m-1].classList.contains("verti")) {
-                            document.querySelectorAll(".mobile_img")[m-1].classList.remove("verti");
-                            document.querySelectorAll(".mobile_img img")[m-1].classList.remove("verti");
-                        }
-                        // document.querySelectorAll(".mobile_img")[m-1].style.maxWidth = "100% !important";
-                        // document.querySelectorAll(".mobile_img")[m-1].style.height = "auto";
-                        // document.querySelectorAll(".mobile_img")[m-1].childNodes[0].style.width = "100% !important";
-                        // document.querySelectorAll(".mobile_img")[m-1].childNodes[0].style.height = "auto";
-                        // document.querySelectorAll(".mobile_img")[m-1].style.margin = "0 0 20px 0 !important";
-                        // document.querySelectorAll(".mobile_img")[m-1].style.display = "block";
-                        
                     }
                 }
                 
