@@ -71,7 +71,7 @@
     }
     
 
-    $sql_article_data_all .= " ORDER BY fieldwork_date";
+    $sql_article_data_all .= " ORDER BY fieldwork_date ASC, id DESC";
     if(!isset($articleRow)) {
         $sql_article_data_all .= " LIMIT 8";
     } else {
