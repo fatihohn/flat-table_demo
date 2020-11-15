@@ -395,8 +395,8 @@
                     plusRow = 3;
                 }
     
-                // if(parseInt("<?=$articleRow?>") > 0) {
-                //     currentRow = parseInt("<?=$articleRow?>") + plusRow;
+                // if(parseInt("<?//=$articleRow?>") > 0) {
+                //     currentRow = parseInt("<?//=$articleRow?>") + plusRow;
                 // } else {
                 //     currentRow = currentRow + plusRow;
                 // }
