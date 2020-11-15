@@ -1071,6 +1071,10 @@ em {
         margin: 0 0 20px 0;
         display: block;
     }
+    .mobile_img img {
+        width: 100%;
+        height: auto;
+    }
     .mobile_img.hori {
         width: 96.5%;
         max-width: 96.5%;
