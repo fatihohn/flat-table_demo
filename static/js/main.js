@@ -346,6 +346,7 @@ showMoreArticles = function(scrollTag, hashTag, row) {
     articleGetter.onreadystatechange = function() {
         if (articleGetter.readyState == 4 && articleGetter.status == 200) {
             articleContainer.innerHTML =  articleGetter.responseText;
+            showReadArticle();
         }
 
         // callback();
