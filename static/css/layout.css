@@ -583,6 +583,9 @@ em {
 .filter_container .tag_search_btn:hover {
     color:  #1a1a1a;
 }
+.filter_container .tag_search_btn:focus {
+    outline: none;
+}
 
 
 .filter_list {
