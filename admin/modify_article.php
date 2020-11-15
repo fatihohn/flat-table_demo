@@ -228,7 +228,8 @@
 
             flagInput.onchange =  function(e) {
                 if(flagInput.checked !== true && flagInput.disabled !== true) {
-                    aboutInput.disabled = false;
+                    // aboutInput.disabled = false;
+                    aboutInput.disabled = true;
                 } else if(flagInput.checked == true && flagInput.disabled !== true) {
                     aboutInput.checked = false;
                     aboutInput.disabled = true;
@@ -236,7 +237,8 @@
             };
             aboutInput.onchange =  function(e) {
                 if(aboutInput.checked !== true && aboutInput.disabled !== true) {
-                    flagInput.disabled = false;
+                    // flagInput.disabled = false;
+                    flagInput.disabled = true;
 
                     titleInput.disabled = false;
                     addressInput.disabled = false;
