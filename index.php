@@ -403,11 +403,11 @@
                 plusRow = 2;
             }
         window.onresize = function() {
-            if(window.innerWidth < 820 && window.innerWidth > 720) {
-                currentRow = 9;
-            } else {
-                currentRow = 8;
-            }
+            // if(window.innerWidth < 820 && window.innerWidth > 720) {
+            //     currentRow = 9;
+            // } else {
+            //     currentRow = 8;
+            // }
             if(window.innerWidth > 1899) {
                 plusRow = 8;
             } else if(window.innerWidth > 820) {
