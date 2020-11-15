@@ -13,6 +13,7 @@
     
     $scrollTag = $_GET['q'];
     $hashTag = $_GET['tag'];
+    $articleRow = $_GET['row'];
 
 
 
@@ -80,6 +81,13 @@
     
 
     $sql_article_data_all .= " ORDER BY fieldwork_date";
+    if(!isset($articleRow)) {
+        $sql_article_data_all .= " LIMIT 8";
+    } else {
+        $sql_article_data_all .= " LIMIT ".$articleRow;
+    }
+
+
     $result_article_data_all = $conn->query($sql_article_data_all);
 
     // $sql_article_data_flag = $sql_article_data_all." WHERE flag = flag";
