@@ -331,6 +331,7 @@ tagSearchBtn.onclick = function() {
 
 var showMoreArticles;
 showMoreArticles = function(scrollTag, hashTag, row) {
+    console.log(scrollTag + " : " + hashtag + " : " + row)
     var articleContainer = document.querySelector(".collection.group ul");
     var articleGetter = new XMLHttpRequest();
     if(scrollTag !== "" && hashTag !== "") {
