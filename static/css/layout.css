@@ -556,7 +556,7 @@ em {
     border-bottom: 1px solid #c28c29;
     background: transparent;
     font-family: 'GyeonggiBatang', 'Nunito', sans-serif;
-    display: inline-block;
+    display: inline;
 }
 .filter_container .tag_search:focus {
     outline: none;
@@ -570,7 +570,7 @@ em {
     border-radius: 10px;
     border: none;
     cursor: pointer;
-    display: inline-block;
+    display: inline;
 }
 .filter_container .tag_search_btn:hover {
     color:  #1a1a1a;
