@@ -534,8 +534,8 @@ em {
     border: none;
     cursor: pointer;
     display: inline-block;
-    min-width: 50px;
-    width: 50px;
+    /* min-width: 50px; */
+    width: 100px;
 }
 
 
