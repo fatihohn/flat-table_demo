@@ -227,6 +227,7 @@
             }
             if(aboutVal == "on") {
                 aboutInput.checked = true;
+                aboutInput.disabled = true;
                 flagInput.checked = false;
                 flagInput.disabled = true;
                 titleInput.disabled = true;
