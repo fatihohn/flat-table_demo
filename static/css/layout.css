@@ -880,9 +880,10 @@ em {
     max-width: 47.5%;
     /* height: auto; */
     margin: 10px 0.5%;
-    display: -webkit-inline-flex !important;
+    /* display: -webkit-inline-flex !important;
     display: -ms-inline-flexbox !important;
-    display: inline-flex !important;
+    display: inline-flex !important; */
+    display: inline-block !important;
     flex-shrink: 0;
     
 }
