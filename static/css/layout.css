@@ -1068,25 +1068,26 @@ em {
     .mobile_img.hori {
         width: 96.5%;
         max-width: 96.5%;
-        height: auto;
+        /* height: auto; */
         margin: 10px 0.25%;
     }
     .mobile_img.hori img {
         width: 100%;
-        height: auto;
+        /* height: auto; */
     }
     .mobile_img.verti {
         width: 47.5%;
         max-width: 47.5%;
-        height: auto;
+        /* height: auto; */
         margin: 10px 0.5%;
-        display: -webkit-inline-flex !important;
+        /* display: -webkit-inline-flex !important;
         display: -ms-inline-flexbox !important;
-        display: inline-flex !important;
+        display: inline-flex !important; */
+        display: inline-block;
     }
     .mobile_img.verti img {
         width: 100%;
-        height: auto;
+        /* height: auto; */
     }
     .article_main .main .article_container .article_text {
         position: relative;
