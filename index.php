@@ -401,7 +401,7 @@
         } else if(window.innerWidth > 720) {
             plusRow = 3;
         } else {
-            plusRow = 1;
+            plusRow = 2;
         }
 
 

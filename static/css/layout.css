@@ -1174,6 +1174,9 @@ em {
     .collection ul li {
         width: 31%;
     }
+    .more_article {
+        text-align: center;
+    }
 }
 
 @media all and (max-width: 720px) {
