@@ -538,7 +538,8 @@ em {
 }
 
 .filter_container {
-    display: block;
+    /* display: block; */
+    display: flex;
     /* display: none; */
     float: left;
     margin: 0 0 0 -10px;
@@ -551,13 +552,15 @@ em {
     z-index: 500;
     font-size: 1.2rem;
     color: #1a1a1a;
+
 }
 .filter_container .tag_search {
     border: none;
     border-bottom: 1px solid #c28c29;
     background: transparent;
     font-family: 'GyeonggiBatang', 'Nunito', sans-serif;
-    display: inline;
+    /* display: inline; */
+    display: inline-flex;
 }
 .filter_container .tag_search:focus {
     outline: none;
@@ -571,7 +574,8 @@ em {
     border-radius: 10px;
     border: none;
     cursor: pointer;
-    display: inline;
+    /* display: inline; */
+    display: inline-flex;
 }
 .filter_container .tag_search_btn:hover {
     color:  #1a1a1a;
