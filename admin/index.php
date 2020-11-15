@@ -393,6 +393,8 @@
                     plusRow = 4;
                 } else if(window.innerWidth > 720) {
                     plusRow = 3;
+                } else {
+                    plusRow = 2;
                 }
     
                 // if(parseInt("<?//=$articleRow?>") > 0) {
