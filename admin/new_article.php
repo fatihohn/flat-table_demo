@@ -265,7 +265,7 @@
         let mobileImgs = document.querySelector(".article_pics_mobile");
             for(let m=0; m < articleImgs.length; m++) {
 
-                articleImgs[m].querySelector("img").onload = function() {
+                articleImgs[m].childNodes[1].onload = function() {
                     if(mobileImgs.childNodes.length > 0) {
                         for(let n=0; n < mobileImgs.childNodes.length; n++) {
                             mobileImgs.childNodes[n].remove();
