@@ -381,8 +381,9 @@
 
     <script src="../static/js/main.js"></script>
     <script>
+        var currentRow = 8;
         window.onscroll = function() {
-            var plusRow, currentRow;
+            var plusRow;
             if(window.innerWidth > 1899) {
                 plusRow = 8;
             } else if(window.innerWidth > 820) {
@@ -394,7 +395,7 @@
             if(parseInt("<?=$articleRow?>") > 0) {
                 currentRow = currentRow + parseInt("<?=$articleRow?>") + plusRow;
             } else {
-                currentRow = 8 + plusRow;
+                currentRow = currentRow + plusRow;
             }
 
             if(window.pageYOffset + window.innerHeight == document.body.scrollHeight) {
