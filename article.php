@@ -174,7 +174,7 @@
             for(let m=0; m < articleImgs.length; m++) {
                 articleImgs[m].style.display = "block";
                 articleImgs[m].childNodes[1].style.width = "100%";
-                articleImgs[m].onload = function() {
+                articleImgs[m].childNodes[1].onload = function() {
 
                     if(window.innerWidth > 1080) {
                         if(mobileImgs.childNodes.length > 0) {
