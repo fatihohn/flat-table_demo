@@ -391,9 +391,9 @@
                 plusRow = 3;
             }
             if(window.pageYOffset == document.body.scrollHeight) {
-                if(<?=isset($row)?>) {
-                    if(<?=$row?> > 0) {
-                        showMoreArticles("<?=$scrollTag?>", "<?=$hashTag?>", <?=$row?> + plusRow);
+                if(<?=isset($articleRow)?>) {
+                    if(<?=$articleRow?> > 0) {
+                        showMoreArticles("<?=$scrollTag?>", "<?=$hashTag?>", <?=$articleRow?> + plusRow);
                     } else {
                         showMoreArticles("<?=$scrollTag?>", "<?=$hashTag?>", plusRow);
                     }
