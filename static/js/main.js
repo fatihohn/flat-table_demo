@@ -333,8 +333,13 @@ var showMoreArticles;
 showMoreArticles = function(scrollTag, hashTag, row) {
     var articleContainer = document.querySelector(".collection.group ul");
     var articleGetter = new XMLHttpRequest();
-
-    articleGetter.open("POST", "article_getter.php?q=" + scrollTag + "&tag=" + hashTag + "&row=" + row, true);
+    if(scrollTag !== "" && hashTag !== "") {
+        articleGetter.open("POST", "article_getter.php?q=" + scrollTag + "&tag=" + hashTag + "&row=" + row, true);
+    } else if(scrollTag !== "" && hashTag == "") {
+        articleGetter.open("POST", "article_getter.php?q=" + scrollTag + "&row=" + row, true);
+    } else if(scrollTag == "" && hashtag == "") {
+        articleGetter.open("POST", "article_getter.php?row=" + row, true);
+    }
     articleGetter.send();
     articleGetter.onreadystatechange = function() {
         if (articleGetter.readyState == 4 && articleGetter.status == 200) {
