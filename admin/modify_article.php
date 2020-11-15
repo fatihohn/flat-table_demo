@@ -154,14 +154,20 @@
                             </p>
                         </div>
                         <div class="article_flag">
-                            <p class="flag">
-                                <span>
-                                    <label for="flag">
-                                        <input id="flag" type="checkbox" name="flag">
-                                        대표평상
-                                    </label>
-                                </span>
-                            </p>
+                            <?php
+                            if($about !== "on") {
+                                ?>
+                                <p class="flag">
+                                    <span>
+                                        <label for="flag">
+                                            <input id="flag" type="checkbox" name="flag">
+                                            대표평상
+                                        </label>
+                                    </span>
+                                </p>
+                                <?php
+                            }    
+                            ?>
                             <?php
                             if($about == "on") {
                                 ?>
