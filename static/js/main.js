@@ -338,7 +338,7 @@ showMoreArticles = function(scrollTag, hashTag, row) {
         articleGetter.open("POST", "article_getter.php?q=" + scrollTag + "&tag=" + hashTag + "&row=" + row, true);
     } else if(scrollTag !== "" && hashTag == "") {
         articleGetter.open("POST", "article_getter.php?q=" + scrollTag + "&row=" + row, true);
-    } else if(scrollTag == "" && hashtag == "") {
+    } else if(scrollTag == "" && hashTag == "") {
         articleGetter.open("POST", "article_getter.php?row=" + row, true);
     }
     articleGetter.send();
