@@ -524,9 +524,11 @@ em {
 
 .more_article {
     text-align: right;
+    background: transparent;
 }
 .more_article_btn {
     color: #c28c29;
+    background: transparent;
     font-size: 1.3rem;
     font-weight: 900;
     font-family: 'GyeonggiBatang', 'Nunito', sans-serif;
