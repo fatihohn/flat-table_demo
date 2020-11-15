@@ -392,9 +392,9 @@
             }
 
             if(parseInt("<?=$articleRow?>") > 0) {
-                currentRow = parseInt("<?=$articleRow?>") + plusRow;
+                currentRow = 8 + parseInt("<?=$articleRow?>") + plusRow;
             } else {
-                currentRow = 8;
+                currentRow = 8 + plusRow;
             }
 
             if(window.pageYOffset + window.innerHeight == document.body.scrollHeight) {
