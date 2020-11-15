@@ -534,6 +534,7 @@ em {
 
 .container_nav {
     margin: 0 0 50px 0;
+    display: block;
 }
 
 .filter_container {
@@ -643,6 +644,8 @@ em {
     margin: 0 1% 2% 0;
     /* width: 23.5%; */
     width: 23%;
+    display: -webkit-inline-block !important;
+    display: -ms-inline-block !important;
     display: inline-block;
     vertical-align: top;
 }
