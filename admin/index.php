@@ -402,11 +402,11 @@
                 // if(<?//=isset($articleRow)?>) {
                     showMoreArticles("<?=$scrollTag?>", "<?=$hashTag?>", plusRow, currentRow + plusRow);
                     console.log(plusRow);
-                    // if(parseInt("<?=$articleRow?>") > 0) {
-                    //     showMoreArticles("<?=$scrollTag?>", "<?=$hashTag?>", plusRow, currentRow + plusRow);
-                    //     console.log(plusRow + parseInt("<?=$articleRow?>"));
+                    // if(parseInt("<?//=$articleRow?>") > 0) {
+                    //     showMoreArticles("<?//=$scrollTag?>", "<?//=$hashTag?>", plusRow, currentRow + plusRow);
+                    //     console.log(plusRow + parseInt("<?//=$articleRow?>"));
                     // } else {
-                    //     showMoreArticles("<?=$scrollTag?>", "<?=$hashTag?>", plusRow, currentRow + plusRow);
+                    //     showMoreArticles("<?//=$scrollTag?>", "<?//=$hashTag?>", plusRow, currentRow + plusRow);
                     //     console.log(plusRow);
                     // }
                 // }
