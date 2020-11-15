@@ -523,7 +523,8 @@ em {
 }
 
 .more_article {
-    text-align: right;
+    /* text-align: right; */
+    text-align: center;
     background: transparent;
     min-width: 100px;
     width: 100%;
