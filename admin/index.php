@@ -391,13 +391,13 @@
                 plusRow = 3;
             }
             if(window.pageYOffset == document.body.scrollHeight) {
-                if(<?=isset($articleRow)?>) {
-                    if(<?=$articleRow?> > 0) {
-                        showMoreArticles("<?=$scrollTag?>", "<?=$hashTag?>", <?=$articleRow?> + plusRow);
+                // if(<?//=isset($articleRow)?>) {
+                    if(parseInt("<?=$articleRow?>") > 0) {
+                        showMoreArticles("<?=$scrollTag?>", "<?=$hashTag?>", parseInt("<?=$articleRow?>") + plusRow);
                     } else {
                         showMoreArticles("<?=$scrollTag?>", "<?=$hashTag?>", plusRow);
                     }
-                }
+                // }
             }
         };
     </script>
