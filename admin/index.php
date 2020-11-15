@@ -390,7 +390,7 @@
             } else if(window.innerWidth > 720) {
                 plusRow = 3;
             }
-            if(window.pageYOffset == document.body.scrollHeight) {
+            if(window.pageYOffset + window.innerHeight == document.body.scrollHeight) {
                 // if(<?//=isset($articleRow)?>) {
                     if(parseInt("<?=$articleRow?>") > 0) {
                         showMoreArticles("<?=$scrollTag?>", "<?=$hashTag?>", parseInt("<?=$articleRow?>") + plusRow);
