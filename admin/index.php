@@ -392,20 +392,22 @@
             }
 
             if(parseInt("<?=$articleRow?>") > 0) {
-                currentRow = 8 + parseInt("<?=$articleRow?>") + plusRow;
+                currentRow = currentRow + + plusRow;
             } else {
                 currentRow = 8 + plusRow;
             }
 
             if(window.pageYOffset + window.innerHeight == document.body.scrollHeight) {
                 // if(<?//=isset($articleRow)?>) {
-                    if(parseInt("<?=$articleRow?>") > 0) {
-                        showMoreArticles("<?=$scrollTag?>", "<?=$hashTag?>", plusRow, currentRow + plusRow);
-                        console.log(plusRow + parseInt("<?=$articleRow?>"));
-                    } else {
-                        showMoreArticles("<?=$scrollTag?>", "<?=$hashTag?>", plusRow, currentRow);
-                        console.log(plusRow);
-                    }
+                    showMoreArticles("<?=$scrollTag?>", "<?=$hashTag?>", plusRow, currentRow + plusRow);
+                    console.log(plusRow);
+                    // if(parseInt("<?=$articleRow?>") > 0) {
+                    //     showMoreArticles("<?=$scrollTag?>", "<?=$hashTag?>", plusRow, currentRow + plusRow);
+                    //     console.log(plusRow + parseInt("<?=$articleRow?>"));
+                    // } else {
+                    //     showMoreArticles("<?=$scrollTag?>", "<?=$hashTag?>", plusRow, currentRow + plusRow);
+                    //     console.log(plusRow);
+                    // }
                 // }
             }
         };
