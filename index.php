@@ -11,6 +11,8 @@
 
     $scrollTag = $_GET['q'];
     $hashTag = $_GET['tag'];
+    $articleRow = $_GET['row'];
+
 
     // $rows_article_all = mysqli_fetch_assoc($result_article_data_all);
     if(isset($hashTag)) {
