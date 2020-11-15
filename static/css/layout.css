@@ -604,6 +604,7 @@ em {
 }
 
 .filter_container .tag_search_btn {
+    background: transparent;
     color:  #c28c29;
     font-weight: 900;
     font-family: 'GyeonggiBatang', 'Nunito', sans-serif;
