@@ -156,9 +156,7 @@
                 </article>
             </li>';
         }
-        ?>
-        <button class="more_article_btn">더보기</button>
-        <?php
+        
     }
                         
 

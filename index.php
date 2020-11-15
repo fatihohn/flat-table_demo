@@ -332,9 +332,7 @@
                                     </article>
                                 </li>';
                             }
-                            ?>
-                            <button class="more_article_btn">더보기</button>
-                            <?php
+                            
                         }
                         ?>
                         <!-- <li>
@@ -375,6 +373,9 @@
                             </article>
                         </li> -->
                     </ul>
+                  
+                    <button class="more_article_btn">더보기</button>
+                   
                 </div>
             </div>
         </div>
