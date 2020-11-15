@@ -410,9 +410,9 @@
                 // var plusRow;
     
                 currentRow = currentRow + plusRow;
-                console.log(currentRow);
+                // console.log(currentRow);
                 showMoreArticles("<?=$scrollTag?>", "<?=$hashTag?>", currentRow);
-                console.log(plusRow);
+                // console.log(plusRow);
             }
         };
         window.addEventListener("touchmove",function() {
@@ -429,9 +429,9 @@
                 // }
     
                 currentRow = currentRow + plusRow;
-                console.log(currentRow);
+                // console.log(currentRow);
                 showMoreArticles("<?=$scrollTag?>", "<?=$hashTag?>", currentRow);
-                console.log(plusRow);
+                // console.log(plusRow);
             }
         });
 
@@ -447,7 +447,7 @@
             // }
 
             currentRow = currentRow + plusRow;
-            console.log(currentRow);
+            // console.log(currentRow);
             showMoreArticles("<?=$scrollTag?>", "<?=$hashTag?>", currentRow);
         }
     </script>
