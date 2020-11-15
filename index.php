@@ -332,6 +332,9 @@
                                     </article>
                                 </li>';
                             }
+                            ?>
+                            <button class="more_article_btn">더보기</button>
+                            <?php
                         }
                         ?>
                         <!-- <li>
@@ -381,7 +384,8 @@
 
     <script src="../static/js/main.js"></script>
     <script>
-        var currentRow;
+        var currentRow, plusRow;
+        var moreArticleBtn = document.querySelector(".more_article_btn");
         
         if(window.innerWidth < 820 && window.innerWidth > 720) {
             currentRow = 9;
@@ -392,7 +396,7 @@
 
         window.onscroll = function() {
             if(window.pageYOffset + window.innerHeight == document.body.scrollHeight) {
-                var plusRow;
+                // var plusRow;
                 if(window.innerWidth > 1899) {
                     plusRow = 8;
                 } else if(window.innerWidth > 820) {
@@ -411,7 +415,7 @@
         };
         window.addEventListener("touchmove",function() {
             if(window.pageYOffset + window.innerHeight == document.body.scrollHeight) {
-                var plusRow;
+                // var plusRow;
                 if(window.innerWidth > 1899) {
                     plusRow = 8;
                 } else if(window.innerWidth > 820) {
@@ -428,6 +432,22 @@
                 console.log(plusRow);
             }
         });
+
+        moreArticleBtn.onclick = function() {
+            if(window.innerWidth > 1899) {
+                plusRow = 8;
+            } else if(window.innerWidth > 820) {
+                plusRow = 4;
+            } else if(window.innerWidth > 720) {
+                plusRow = 3;
+            } else {
+                plusRow = 2;
+            }
+
+            currentRow = currentRow + plusRow;
+            console.log(currentRow);
+            showMoreArticles("<?=$scrollTag?>", "<?=$hashTag?>", currentRow);
+        }
     </script>
 </body>
 </html>
