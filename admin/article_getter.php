@@ -4,7 +4,7 @@
     // $str = $_GET['str'];
     $scrollTag = $_GET['q'];
     $hashTag = $_GET['tag'];
-    $articleRow = $_GET['row'];
+    $articleRow = 8 + intval($_GET['row']);
 
 
 
