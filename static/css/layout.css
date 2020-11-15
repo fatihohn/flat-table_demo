@@ -859,6 +859,7 @@ em {
 
 .article_main .main .article_container .article_pics figure img {
     width: 100%;
+    height: auto;
 }
 
 .article_main .main .article_container .article_pics figure.hori {
