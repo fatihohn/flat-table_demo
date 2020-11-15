@@ -525,6 +525,8 @@ em {
 .more_article {
     text-align: right;
     background: transparent;
+    min-width: 100px;
+    width: 100%;
 }
 .more_article_btn {
     color: #c28c29;
