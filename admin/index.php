@@ -381,7 +381,15 @@
 
     <script src="../static/js/main.js"></script>
     <script>
-        var currentRow = 8;
+        var currentRow;
+        
+        if(window.innerWidth < 820 && window.innerWidth > 720) {
+            currentRow = 9;
+        } else {
+            currentRow = 8;
+        }
+
+        
         window.onscroll = function() {
             
             

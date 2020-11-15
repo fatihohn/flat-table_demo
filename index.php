@@ -381,10 +381,16 @@
 
     <script src="../static/js/main.js"></script>
     <script>
-        var currentRow = 8;
+        var currentRow;
+        
+        if(window.innerWidth < 820 && window.innerWidth > 720) {
+            currentRow = 9;
+        } else {
+            currentRow = 8;
+        }
+
+
         window.onscroll = function() {
-            
-            
             if(window.pageYOffset + window.innerHeight == document.body.scrollHeight) {
                 var plusRow;
                 if(window.innerWidth > 1899) {
@@ -397,26 +403,31 @@
                     plusRow = 2;
                 }
     
-                // if(parseInt("<?//=$articleRow?>") > 0) {
-                //     currentRow = parseInt("<?//=$articleRow?>") + plusRow;
-                // } else {
-                //     currentRow = currentRow + plusRow;
-                // }
                 currentRow = currentRow + plusRow;
                 console.log(currentRow);
-                // if(<?//=isset($articleRow)?>) {
-                    showMoreArticles("<?=$scrollTag?>", "<?=$hashTag?>", currentRow);
-                    console.log(plusRow);
-                    // if(parseInt("<?//=$articleRow?>") > 0) {
-                    //     showMoreArticles("<?//=$scrollTag?>", "<?//=$hashTag?>", plusRow, currentRow + plusRow);
-                    //     console.log(plusRow + parseInt("<?//=$articleRow?>"));
-                    // } else {
-                    //     showMoreArticles("<?//=$scrollTag?>", "<?//=$hashTag?>", plusRow, currentRow + plusRow);
-                    //     console.log(plusRow);
-                    // }
-                // }
+                showMoreArticles("<?=$scrollTag?>", "<?=$hashTag?>", currentRow);
+                console.log(plusRow);
             }
         };
+        window.addEventListener("touchmove",function() {
+            if(window.pageYOffset + window.innerHeight == document.body.scrollHeight) {
+                var plusRow;
+                if(window.innerWidth > 1899) {
+                    plusRow = 8;
+                } else if(window.innerWidth > 820) {
+                    plusRow = 4;
+                } else if(window.innerWidth > 720) {
+                    plusRow = 3;
+                } else {
+                    plusRow = 2;
+                }
+    
+                currentRow = currentRow + plusRow;
+                console.log(currentRow);
+                showMoreArticles("<?=$scrollTag?>", "<?=$hashTag?>", currentRow);
+                console.log(plusRow);
+            }
+        });
     </script>
 </body>
 </html>
