@@ -903,8 +903,10 @@ em {
 }
 
 .article_main .main .article_container .article_pics figure {
-    width: 100%;
-    margin: auto 0;
+    /* width: 100%; */
+    /* margin: auto 0; */
+    width: 96.5%;
+    margin: 0 0 20px 5px;
 }
 
 .article_main .main .article_container .article_pics figure img {
