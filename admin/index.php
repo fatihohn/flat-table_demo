@@ -372,7 +372,10 @@
                         </li>
                          -->
                     </ul>
-                    <button class="more_article_btn">더보기</button>
+                    <!-- <button class="more_article_btn">더보기</button> -->
+                    <div class="more_article">
+                        <button class="more_article_btn">더보기</button>
+                    </div>
                 </div>
             </div>
         </div>

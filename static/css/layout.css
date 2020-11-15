@@ -522,6 +522,35 @@ em {
     color: #1a1a1a;
 }
 
+.more_article {
+    text-align: right;
+}
+.more_article_btn {
+    color: #c28c29;
+    font-size: 1.3rem;
+    font-weight: 900;
+    font-family: 'GyeonggiBatang', 'Nunito', sans-serif;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+    display: inline-block;
+    min-width: 50px;
+    width: 50px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 /*articles*/
 
