@@ -214,7 +214,12 @@
                     <div class="filter_container">
                         <div class="filter_search filter_list">
                             <!-- <form action="" class="tag_search"></form> -->
-                            <input type="text" class="tag_search"><button class="tag_search_btn">검색</button>
+                            <span>
+                                <input type="text" class="tag_search">
+                            </span>
+                            <span>
+                                <button class="tag_search_btn">검색</button>
+                            </span>
                         </div>
                         <!-- 태그 검색으로 대체 -->
                         <!-- <div class="filter_list">
