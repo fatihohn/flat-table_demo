@@ -291,6 +291,10 @@
         let mobileImgs = document.querySelector(".article_pics_mobile");
             for(let m=0; m < articleImgs.length; m++) {
                 articleImgs[m].style.display = "block";
+                if(m == 0) {
+                    articleImgs[m].style.width = "96.5% !important";
+                    articleImgs[m].style.margin = "0 0 20px 5px !important";
+                }
                 articleImgs[m].querySelector("img").style.width = "100%";
                 articleImgs[m].querySelector("img").onload = function() {
 
