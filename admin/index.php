@@ -397,7 +397,7 @@
                         console.log(plusRow + parseInt("<?=$articleRow?>"));
                     } else {
                         showMoreArticles("<?=$scrollTag?>", "<?=$hashTag?>", plusRow);
-                        console.log(plusRow));
+                        console.log(plusRow);
                     }
                 // }
             }
