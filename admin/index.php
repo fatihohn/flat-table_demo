@@ -382,7 +382,7 @@
     <script src="../static/js/main.js"></script>
     <script>
         window.onscroll = function() {
-            var plusRow;
+            var plusRow, currentRow;
             if(window.innerWidth > 1899) {
                 plusRow = 8;
             } else if(window.innerWidth > 820) {
@@ -390,13 +390,18 @@
             } else if(window.innerWidth > 720) {
                 plusRow = 3;
             }
+
+            if(parseInt("<?=$articleRow?>") > 0) {
+                currentRow = parseInt("<?=$articleRow?>") + plusRow
+            }
+
             if(window.pageYOffset + window.innerHeight == document.body.scrollHeight) {
                 // if(<?//=isset($articleRow)?>) {
                     if(parseInt("<?=$articleRow?>") > 0) {
-                        showMoreArticles("<?=$scrollTag?>", "<?=$hashTag?>", parseInt("<?=$articleRow?>") + plusRow);
+                        showMoreArticles("<?=$scrollTag?>", "<?=$hashTag?>", plusRow, currentRow + plusRow);
                         console.log(plusRow + parseInt("<?=$articleRow?>"));
                     } else {
-                        showMoreArticles("<?=$scrollTag?>", "<?=$hashTag?>", plusRow);
+                        showMoreArticles("<?=$scrollTag?>", "<?=$hashTag?>", plusRow, currentRow);
                         console.log(plusRow);
                     }
                 // }

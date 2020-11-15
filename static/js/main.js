@@ -330,14 +330,15 @@ tagSearchBtn.onclick = function() {
 
 
 var showMoreArticles;
-showMoreArticles = function(scrollTag, hashTag, row) {
-    console.log(scrollTag + " : " + hashTag + " : " + row)
+showMoreArticles = function(scrollTag, hashTag, row, currentRow) {
+    console.log(scrollTag + " : " + hashTag + " : " + row + " : " + currentRow);
+
     var articleContainer = document.querySelector(".collection.group ul");
     var articleGetter = new XMLHttpRequest();
     if(scrollTag !== "" && hashTag !== "") {
-        articleGetter.open("POST", "article_getter.php?q=" + scrollTag + "&tag=" + hashTag + "&row=" + row, true);
+        articleGetter.open("POST", "article_getter.php?q=" + scrollTag + "&tag=" + hashTag + "&row=" + row + currentRow, true);
     } else if(scrollTag !== "" && hashTag == "") {
-        articleGetter.open("POST", "article_getter.php?q=" + scrollTag + "&row=" + row, true);
+        articleGetter.open("POST", "article_getter.php?q=" + scrollTag + "&row=" + row + currentRow, true);
     } else if(scrollTag == "" && hashTag == "") {
         articleGetter.open("POST", "article_getter.php?row=" + row, true);
     }
