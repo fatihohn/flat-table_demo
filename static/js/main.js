@@ -330,17 +330,17 @@ tagSearchBtn.onclick = function() {
 
 
 var showMoreArticles;
-showMoreArticles = function(scrollTag, hashTag, row, currentRow) {
-    console.log(scrollTag + " : " + hashTag + " : " + row + " : " + currentRow);
+showMoreArticles = function(scrollTag, hashTag, row) {
+    console.log(scrollTag + " : " + hashTag + " : " + row);
 
     var articleContainer = document.querySelector(".collection.group ul");
     var articleGetter = new XMLHttpRequest();
     if(scrollTag !== "" && hashTag !== "") {
-        articleGetter.open("POST", "article_getter.php?q=" + scrollTag + "&tag=" + hashTag + "&row=" + row + currentRow, true);
+        articleGetter.open("POST", "article_getter.php?q=" + scrollTag + "&tag=" + hashTag + "&row=" + row, true);
     } else if(scrollTag !== "" && hashTag == "") {
-        articleGetter.open("POST", "article_getter.php?q=" + scrollTag + "&row=" + row + currentRow, true);
+        articleGetter.open("POST", "article_getter.php?q=" + scrollTag + "&row=" + row, true);
     } else if(scrollTag == "" && hashTag == "") {
-        articleGetter.open("POST", "article_getter.php?row=" + row + currentRow, true);
+        articleGetter.open("POST", "article_getter.php?row=" + row, true);
     }
     articleGetter.send();
     articleGetter.onreadystatechange = function() {
