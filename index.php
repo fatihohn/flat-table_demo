@@ -68,6 +68,13 @@
     
 
     $sql_article_data_all .= " ORDER BY fieldwork_date";
+    if(!isset($articleRow)) {
+        $sql_article_data_all .= " LIMIT 8";
+    } else {
+        $sql_article_data_all .= " LIMIT ".$articleRow;
+    }
+
+    
     $result_article_data_all = $conn->query($sql_article_data_all);
 
 
