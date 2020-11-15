@@ -392,7 +392,7 @@
             }
 
             if(parseInt("<?=$articleRow?>") > 0) {
-                currentRow = currentRow + + plusRow;
+                currentRow = currentRow + parseInt("<?=$articleRow?>") + plusRow;
             } else {
                 currentRow = 8 + plusRow;
             }
