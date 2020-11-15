@@ -394,8 +394,10 @@
                 // if(<?//=isset($articleRow)?>) {
                     if(parseInt("<?=$articleRow?>") > 0) {
                         showMoreArticles("<?=$scrollTag?>", "<?=$hashTag?>", parseInt("<?=$articleRow?>") + plusRow);
+                        console.log(plusRow + parseInt("<?=$articleRow?>"));
                     } else {
                         showMoreArticles("<?=$scrollTag?>", "<?=$hashTag?>", plusRow);
+                        console.log(plusRow));
                     }
                 // }
             }
