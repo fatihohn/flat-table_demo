@@ -242,12 +242,12 @@
                             document.querySelectorAll(".mobile_img")[m-1].classList.remove("verti");
                             document.querySelectorAll(".mobile_img img")[m-1].classList.remove("verti");
                         }
-                        // document.querySelectorAll(".mobile_img")[m-1].style.maxWidth = "100% !important";
-                        // document.querySelectorAll(".mobile_img")[m-1].style.height = "auto";
-                        // document.querySelectorAll(".mobile_img")[m-1].childNodes[0].style.width = "100% !important";
-                        // document.querySelectorAll(".mobile_img")[m-1].childNodes[0].style.height = "auto";
-                        // document.querySelectorAll(".mobile_img")[m-1].style.margin = "0 0 20px 0 !important";
-                        // document.querySelectorAll(".mobile_img")[m-1].style.display = "block";
+                        document.querySelectorAll(".mobile_img")[m-1].style.maxWidth = "100% !important";
+                        document.querySelectorAll(".mobile_img")[m-1].style.height = "auto";
+                        document.querySelectorAll(".mobile_img")[m-1].childNodes[0].style.width = "100% !important";
+                        document.querySelectorAll(".mobile_img")[m-1].childNodes[0].style.height = "auto";
+                        document.querySelectorAll(".mobile_img")[m-1].style.margin = "0 0 20px 0 !important";
+                        document.querySelectorAll(".mobile_img")[m-1].style.display = "block";
                         
                     }
                 }
