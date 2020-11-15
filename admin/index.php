@@ -393,20 +393,20 @@
         } else {
             currentRow = 8;
         }
+        if(window.innerWidth > 1899) {
+            plusRow = 8;
+        } else if(window.innerWidth > 820) {
+            plusRow = 4;
+        } else if(window.innerWidth > 720) {
+            plusRow = 3;
+        } else {
+            plusRow = 1;
+        }
 
 
         window.onscroll = function() {
             if(window.pageYOffset + window.innerHeight == document.body.scrollHeight) {
                 // var plusRow;
-                if(window.innerWidth > 1899) {
-                    plusRow = 8;
-                } else if(window.innerWidth > 820) {
-                    plusRow = 4;
-                } else if(window.innerWidth > 720) {
-                    plusRow = 3;
-                } else {
-                    plusRow = 2;
-                }
     
                 currentRow = currentRow + plusRow;
                 console.log(currentRow);
@@ -417,15 +417,15 @@
         window.addEventListener("touchmove",function() {
             if(window.pageYOffset + window.innerHeight == document.body.scrollHeight) {
                 // var plusRow;
-                if(window.innerWidth > 1899) {
-                    plusRow = 8;
-                } else if(window.innerWidth > 820) {
-                    plusRow = 4;
-                } else if(window.innerWidth > 720) {
-                    plusRow = 3;
-                } else {
-                    plusRow = 2;
-                }
+                // if(window.innerWidth > 1899) {
+                //     plusRow = 8;
+                // } else if(window.innerWidth > 820) {
+                //     plusRow = 4;
+                // } else if(window.innerWidth > 720) {
+                //     plusRow = 3;
+                // } else {
+                //     plusRow = 2;
+                // }
     
                 currentRow = currentRow + plusRow;
                 console.log(currentRow);
@@ -435,15 +435,15 @@
         });
 
         moreArticleBtn.onclick = function() {
-            if(window.innerWidth > 1899) {
-                plusRow = 8;
-            } else if(window.innerWidth > 820) {
-                plusRow = 4;
-            } else if(window.innerWidth > 720) {
-                plusRow = 3;
-            } else {
-                plusRow = 2;
-            }
+            // if(window.innerWidth > 1899) {
+            //     plusRow = 8;
+            // } else if(window.innerWidth > 820) {
+            //     plusRow = 4;
+            // } else if(window.innerWidth > 720) {
+            //     plusRow = 3;
+            // } else {
+            //     plusRow = 1;
+            // }
 
             currentRow = currentRow + plusRow;
             console.log(currentRow);
