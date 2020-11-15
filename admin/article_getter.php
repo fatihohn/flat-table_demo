@@ -75,7 +75,7 @@
     if(!isset($articleRow)) {
         $sql_article_data_all .= " LIMIT 8";
     } else {
-        $sql_article_data_all .= " LIMIT ".$articleRow;
+        $sql_article_data_all .= " LIMIT {$articleRow}";
     }
 
 
