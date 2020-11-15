@@ -539,6 +539,9 @@ em {
     /* min-width: 50px; */
     width: 100px;
 }
+.more_article_btn:focus {
+    outline: none;
+}
 
 
 
