@@ -81,6 +81,7 @@
     
 
     $sql_article_data_all .= " ORDER BY fieldwork_date ASC, id DESC";
+    $sql_article_data_all_count = $sql_article_data_all;
     if(!isset($articleRow)) {
         $sql_article_data_all .= " LIMIT 8";
     } else {
@@ -89,6 +90,7 @@
 
 
     $result_article_data_all = $conn->query($sql_article_data_all);
+    $result_article_data_all_count = $conn->query($sql_article_data_all_count);
 
     // $sql_article_data_flag = $sql_article_data_all." WHERE flag = flag";
     $sql_article_data_flag = "SELECT * FROM articles WHERE about != 'on' AND flag = 'on'";
@@ -385,8 +387,23 @@
 
     <script src="../static/js/main.js"></script>
     <script>
+        var allRowCount = <?=$result_article_data_all_count->num_rows?>;
+        var articleLi;
         var currentRow, plusRow;
         var moreArticleBtn = document.querySelector(".more_article_btn");
+
+
+
+        function showMoreRowBtn() {
+            articleLi = document.querySelectorAll(".article")
+            if(articleLi.length < allRowCount) {
+                moreArticleBtn.style.visibility = "visible";
+            } else {
+                moreArticleBtn.style.visibility = "hidden";
+            }
+        }
+
+
         if(window.innerWidth < 820 && window.innerWidth > 720) {
                 currentRow = 9;
             } else {
@@ -420,7 +437,7 @@
 
 
         window.onscroll = function() {
-            if(window.pageYOffset + window.innerHeight - 10 == document.body.scrollHeight) {
+            if(window.pageYOffset + window.innerHeight + 20 == document.body.scrollHeight) {
                 // var plusRow;
     
                 currentRow = currentRow + plusRow;
@@ -430,7 +447,7 @@
             }
         };
         window.addEventListener("touchmove",function() {
-            if(window.pageYOffset + window.innerHeight - 10 == document.body.scrollHeight) {
+            if(window.pageYOffset + window.innerHeight + 20 == document.body.scrollHeight) {
                 // var plusRow;
                 // if(window.innerWidth > 1899) {
                 //     plusRow = 8;
