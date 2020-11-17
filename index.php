@@ -68,6 +68,7 @@
     
 
     $sql_article_data_all .= " ORDER BY fieldwork_date ASC, id DESC";
+    $sql_article_data_all_count = $sql_article_data_all;
     if(!isset($articleRow)) {
         $sql_article_data_all .= " LIMIT 8";
     } else {
@@ -76,6 +77,7 @@
 
 
     $result_article_data_all = $conn->query($sql_article_data_all);
+    $result_article_data_all_count = $conn->query($sql_article_data_all_count);
 
 
     // $sql_article_data_flag = $sql_article_data_all." WHERE flag = flag";
@@ -337,8 +339,8 @@
                         ?>
                     </ul>
                     <?php
-                    if(count($result_article_data_all->num_rows) >= $articleRow) {
-                        echo count($result_article_data_all->num_rows)." : ".$articleRow;
+                    if(count($result_article_data_all_count) > $articleRow) {
+                        echo count($result_article_data_all_count)." : ".$articleRow;
                         ?>
                         <div class="more_article">
                             <button class="more_article_btn">더보기</button>
