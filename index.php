@@ -357,7 +357,7 @@
         var moreArticleBtn = document.querySelector(".more_article_btn");
 
 
-        console.log(allRowCount + " : " + articleLi.length);
+        // console.log(allRowCount + " : " + articleLi.length);
         if(articleLi.length < allRowCount) {
             moreArticleBtn.style.visibility = "visible";
         } else {
@@ -404,6 +404,7 @@
                 // console.log(currentRow);
                 showMoreArticles("<?=$scrollTag?>", "<?=$hashTag?>", currentRow);
                 // console.log(plusRow);
+                console.log(allRowCount + " : " + articleLi.length);
             }
         };
         window.addEventListener("touchmove",function() {
