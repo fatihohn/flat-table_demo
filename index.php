@@ -352,16 +352,19 @@
     <script src="../static/js/main.js"></script>
     <script>
         var allRowCount = <?=$result_article_data_all_count->num_rows?>;
-        var articleLi = document.querySelectorAll(".article");
+        var articleLi;
         var currentRow, plusRow;
         var moreArticleBtn = document.querySelector(".more_article_btn");
 
 
         // console.log(allRowCount + " : " + articleLi.length);
-        if(articleLi.length < allRowCount) {
-            moreArticleBtn.style.visibility = "visible";
-        } else {
-            moreArticleBtn.style.visibility = "hidden";
+        function showMoreRowBtn() {
+            articleLi = document.querySelectorAll(".article")
+            if(articleLi.length < allRowCount) {
+                moreArticleBtn.style.visibility = "visible";
+            } else {
+                moreArticleBtn.style.visibility = "hidden";
+            }
         }
 
         if(window.innerWidth < 820 && window.innerWidth > 720) {
@@ -402,7 +405,7 @@
     
                 currentRow = currentRow + plusRow;
                 // console.log(currentRow);
-                showMoreArticles("<?=$scrollTag?>", "<?=$hashTag?>", currentRow);
+                showMoreArticles("<?=$scrollTag?>", "<?=$hashTag?>", currentRow, showMoreRowBtn);
                 // console.log(plusRow);
                 console.log(allRowCount + " : " + articleLi.length);
             }
@@ -422,7 +425,7 @@
     
                 currentRow = currentRow + plusRow;
                 // console.log(currentRow);
-                showMoreArticles("<?=$scrollTag?>", "<?=$hashTag?>", currentRow);
+                showMoreArticles("<?=$scrollTag?>", "<?=$hashTag?>", currentRow, showMoreRowBtn);
                 // console.log(plusRow);
             }
         });
@@ -440,7 +443,7 @@
 
             currentRow = currentRow + plusRow;
             // console.log(currentRow);
-            showMoreArticles("<?=$scrollTag?>", "<?=$hashTag?>", currentRow);
+            showMoreArticles("<?=$scrollTag?>", "<?=$hashTag?>", currentRow, showMoreRowBtn);
         }
     </script>
 </body>

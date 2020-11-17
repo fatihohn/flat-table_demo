@@ -333,7 +333,7 @@ if(tagSearchInput && tagSearchBtn) {
 
 
 var showMoreArticles;
-showMoreArticles = function(scrollTag, hashTag, row) {
+showMoreArticles = function(scrollTag, hashTag, row, callback) {
     // console.log(scrollTag + " : " + hashTag + " : " + row);
 
     var articleContainer = document.querySelector(".collection.group ul");
@@ -352,10 +352,12 @@ showMoreArticles = function(scrollTag, hashTag, row) {
             showReadArticle();
         }
 
-        // callback();
+        callback();
     }
 
 }
+
+
 
 
 
