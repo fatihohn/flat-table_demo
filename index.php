@@ -335,47 +335,16 @@
                             
                         }
                         ?>
-                        <!-- <li>
-                            <article class="article">
-                                <figure>
-                                    <a href="/admin_article.php" class="overlay">
-                                        <div class="center">
-                                            <p>
-                                                읽기
-                                            </p>
-                                        </div>
-                                    </a>
-                                    <a href="/admin_article.php">
-                                        <img src="https://www.doongdoong.org/uploads/thumbs/1593343384.jpeg" alt="" class="cover">
-                                    </a>
-                                </figure>
-                                <div class="article_content">
-                                    <aside class="meta">
-                                        <p>
-                                            <a href="/admin_article.php" class="category">
-                                                종류
-                                            </a>
-                                        </p>
-                                    </aside>
-                                    <h1 class="article_title">
-                                        <a href="/admin_article.php">
-                                            <span class="line">
-                                                성보주택 평상
-                                            </span>
-                                        </a>
-                                    </h1>
-                                    <div class="article_comment">
-                                        <p>
-                                            자전거 거치대를 개조해 만든 평상. 자전거 거치대를 개조해 만든 평상. 자전거 거치대를 개조해 만든 평상. 자전거 거치대를 개조해 만든 평상. 자전거 거치대를 개조해 만든 평상. 자전거 거치대를 개조해 만든 평상. 자전거 거치대를 개조해 만든 평상. 자전거 거치대를 개조해 만든 평상. 자전거 거치대를 개조해 만든 평상.
-                                        </p>
-                                    </div>
-                                </div>
-                            </article>
-                        </li> -->
                     </ul>
-                    <div class="more_article">
-                        <button class="more_article_btn">더보기</button>
-                    </div>
+                    <?php
+                    if($result_article_data_all->num_rows >= $articleRow) {
+                        ?>
+                        <div class="more_article">
+                            <button class="more_article_btn">더보기</button>
+                        </div>
+                        <?php
+                    }
+                    ?>
                    
                 </div>
             </div>
@@ -421,7 +390,7 @@
 
 
         window.onscroll = function() {
-            if(window.pageYOffset + window.innerHeight == document.body.scrollHeight) {
+            if(window.pageYOffset + window.innerHeight - 10 == document.body.scrollHeight) {
                 // var plusRow;
     
                 currentRow = currentRow + plusRow;
@@ -431,7 +400,7 @@
             }
         };
         window.addEventListener("touchmove",function() {
-            if(window.pageYOffset + window.innerHeight == document.body.scrollHeight) {
+            if(window.pageYOffset + window.innerHeight - 10 == document.body.scrollHeight) {
                 // var plusRow;
                 // if(window.innerWidth > 1899) {
                 //     plusRow = 8;
