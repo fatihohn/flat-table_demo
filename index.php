@@ -72,7 +72,7 @@
     if(!isset($articleRow)) {
         $sql_article_data_all .= " LIMIT 8";
     } else {
-        $sql_article_data_all .= " LIMIT ".$articleRow;
+        $sql_article_data_all .= " LIMIT {$articleRow}";
     }
 
 
@@ -338,16 +338,9 @@
                         }
                         ?>
                     </ul>
-                    <?php
-                    if($result_article_data_all_count->num_rows > $articleRow) {
-                        // echo count($result_article_data_all_count)." : ".$articleRow;
-                        ?>
-                        <div class="more_article">
-                            <button class="more_article_btn">더보기</button>
-                        </div>
-                        <?php
-                    }
-                    ?>
+                    <div class="more_article">
+                        <button class="more_article_btn">더보기</button>
+                    </div>
                    
                 </div>
             </div>
@@ -358,8 +351,17 @@
 
     <script src="../static/js/main.js"></script>
     <script>
+        var allRowCount = <?=$result_article_data_all_count->num_rows?>;
+        var articleLi = document.querySelectorAll(".article");
         var currentRow, plusRow;
         var moreArticleBtn = document.querySelector(".more_article_btn");
+
+        if(articleLi < allRowCount) {
+            moreArticleBtn.style.visibility = "visible";
+        } else {
+            moreArticleBtn.style.visibility = "hidden";
+        }
+
         if(window.innerWidth < 820 && window.innerWidth > 720) {
                 currentRow = 9;
             } else {
