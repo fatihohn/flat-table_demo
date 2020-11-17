@@ -357,8 +357,8 @@
         var moreArticleBtn = document.querySelector(".more_article_btn");
 
 
-        console.log(allRowCount + " : " + articleLi);
-        if(articleLi < allRowCount) {
+        console.log(allRowCount + " : " + articleLi.length);
+        if(articleLi.length < allRowCount) {
             moreArticleBtn.style.visibility = "visible";
         } else {
             moreArticleBtn.style.visibility = "hidden";
