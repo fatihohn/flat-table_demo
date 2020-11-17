@@ -437,7 +437,7 @@
 
 
         window.onscroll = function() {
-            if(window.pageYOffset + window.innerHeight + 20 == document.body.scrollHeight) {
+            if(window.pageYOffset + window.innerHeight + 20 >= document.body.scrollHeight) {
                 // var plusRow;
     
                 currentRow = currentRow + plusRow;
@@ -447,7 +447,7 @@
             }
         };
         window.addEventListener("touchmove",function() {
-            if(window.pageYOffset + window.innerHeight + 20 == document.body.scrollHeight) {
+            if(window.pageYOffset + window.innerHeight + 20 >= document.body.scrollHeight) {
                 // var plusRow;
                 // if(window.innerWidth > 1899) {
                 //     plusRow = 8;
