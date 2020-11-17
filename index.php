@@ -338,7 +338,7 @@
                     </ul>
                     <?php
                     if(count($result_article_data_all->num_rows) >= $articleRow) {
-                        
+                        echo count($result_article_data_all->num_rows)." : ".$articleRow;
                         ?>
                         <div class="more_article">
                             <button class="more_article_btn">더보기</button>
