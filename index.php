@@ -407,7 +407,7 @@
                 // console.log(currentRow);
                 showMoreArticles("<?=$scrollTag?>", "<?=$hashTag?>", currentRow, showMoreRowBtn);
                 // console.log(plusRow);
-                console.log(allRowCount + " : " + articleLi.length);
+                // console.log(allRowCount + " : " + articleLi.length);
             }
         };
         window.addEventListener("touchmove",function() {
