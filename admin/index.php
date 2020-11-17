@@ -442,7 +442,7 @@
     
                 currentRow = currentRow + plusRow;
                 // console.log(currentRow);
-                    showMoreArticles("<?=$scrollTag?>", "<?=$hashTag?>", currentRow);
+                    showMoreArticles("<?=$scrollTag?>", "<?=$hashTag?>", currentRow, showMoreRowBtn);
                     // console.log(plusRow);
             }
         };
@@ -461,7 +461,7 @@
     
                 currentRow = currentRow + plusRow;
                 // console.log(currentRow);
-                showMoreArticles("<?=$scrollTag?>", "<?=$hashTag?>", currentRow);
+                showMoreArticles("<?=$scrollTag?>", "<?=$hashTag?>", currentRow, showMoreRowBtn);
                 // console.log(plusRow);
             }
         });
@@ -479,7 +479,7 @@
 
             currentRow = currentRow + plusRow;
             // console.log(currentRow);
-            showMoreArticles("<?=$scrollTag?>", "<?=$hashTag?>", currentRow);
+            showMoreArticles("<?=$scrollTag?>", "<?=$hashTag?>", currentRow, showMoreRowBtn);
         }
     </script>
 </body>
