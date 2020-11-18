@@ -212,9 +212,9 @@ ul {
 
 .intro .intro_slide .intro_slide_img .intro_slide_title h1 a {
     color: #fff;
-    /* color: rgba(0, 0, 0, 0); */
-    white-space: nowrap;
+    /* white-space: nowrap; */
     filter: drop-shadow(2px 4px 6px rgba(0, 0, 0, 0.2));
+    /* color: rgba(0, 0, 0, 0); */
     /* transition: -webkit-transform 1s .2s ease, opacity 1s .2s ease;
     transition: transform 1s .2s ease, opacity 1s .2s ease; */
 }
