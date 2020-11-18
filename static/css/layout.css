@@ -195,7 +195,7 @@ ul {
     margin: 0 auto;
     top: calc(100% - 300px);
     text-align: center;
-    max-width: 500px;
+    /* max-width: 500px; */
 }
 
 .intro .intro_slide .intro_slide_img .intro_slide_title h1 {
