@@ -250,7 +250,7 @@ function setIntroImg() {
         function showIntroTitle(imgSrc) {
             if (imgSrc.alt !== "") {
                 setTimeout(function() {
-                    addIntroTitleClass(imgSrc, addIntroTitleActive);
+                    addIntroTitleClass(imgSrc, addIntroTitleActive(imgSrc));
                 }, 600);
             }
             // function addIntroTitleClass(callback) {
