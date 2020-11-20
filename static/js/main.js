@@ -210,13 +210,6 @@ function setIntroImg() {
                     prevBtn.classList.add(parseInt(srcNumber) - 1);
                     nextBtn.classList.add("0");
                 }
-                // setTimeout(() => {
-                //     showIntroTitle(nextImg);
-                // }, 800);
-
-                // setTimeout(function() {
-                //     showIntroTitle(nextImg);
-                // }, 600);
                 setTimeout(function() {
                     callback(nextImg);
                 }, 600);
@@ -256,15 +249,6 @@ function setIntroImg() {
                     });
                 }, 600);
             }
-            // function addIntroTitleClass(callback) {
-            //         introTitle.classList.add(imgSrc.alt);
-            //         introEnter.classList.add(imgSrc.alt);
-            //     callback();
-            // }
-            // function addIntroTitleActive() {
-            //         introTitleHeader.classList.add("active");
-            //         introTitle.innerHTML = imgSrc.title;
-            // }
         }
         function showIntroTitleFast(imgSrc) {
             if (imgSrc.alt !== "") {
@@ -272,31 +256,20 @@ function setIntroImg() {
                         addIntroTitleActive(imgSrc)
                     });
             }
-            // function addIntroTitleClass(callback) {
-            //         introTitle.classList.add(imgSrc.alt);
-            //         introEnter.classList.add(imgSrc.alt);
-            //     callback();
-            // }
-            // function addIntroTitleActive() {
-            //         introTitleHeader.classList.add("active");
-            //         introTitle.innerHTML = imgSrc.title;
-            // }
         }
+
         function addIntroTitleClass(src, callback) {
                 introTitle.classList.add(src.alt);
                 introEnter.classList.add(src.alt);
             callback();
         }
+
         function addIntroTitleActive(src) {
                 introTitleHeader.classList.add("active");
                 introTitle.innerHTML = src.title;
         }
 
         function hideIntroTitle() {
-            // setTimeout(function() {
-            //     // introTitleHeader.classList.add("active");
-            //     introTitleHeader.classList.remove("active");
-            // }, 100);
             introTitle.classList.remove(introTitle.classList.item(introTitle.classList.length - 1));
             introEnter.classList.remove(introEnter.classList.item(introEnter.classList.length - 1));
             introTitleHeader.classList.remove("active");
