@@ -99,14 +99,14 @@ ul {
     width: 100%;
     left: 0;
     top: 0;
-    transition: all 1.5s .25s;
+    /* transition: all 1.5s .25s; */
 }
 
 .intro .intro_slide {
     height: calc(100% - 76px);
     padding: 50px 26px 26px;
-    transition: opacity 1.5s .25s, -webkit-transform 1.5s .25s;
-    transition: opacity 1.5s .25s, transform 1.5s .25s;
+    /* transition: opacity 1.5s .25s, -webkit-transform 1.5s .25s;
+    transition: opacity 1.5s .25s, transform 1.5s .25s; */
 }
 
 .intro .intro_slide .intro_slide_img {
