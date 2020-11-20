@@ -275,10 +275,10 @@ function setIntroImg() {
                 // // }, 600);
                 
                 
-                // addIntroTitleClass(addIntroTitleActive);
                 // addIntroTitleActive(addIntroTitleClass);
                 setTimeout(function() {
-                    addIntroTitleActive(addIntroTitleClass);
+                    addIntroTitleClass(addIntroTitleActive);
+                    // addIntroTitleActive(addIntroTitleClass);
                 }, 600);
             }
             
@@ -288,14 +288,14 @@ function setIntroImg() {
                     introTitle.classList.add(imgSrc.alt);
                     introEnter.classList.add(imgSrc.alt);
                 // }, 300);
-                // callback();
+                callback();
             }
             function addIntroTitleActive(callback) {
                 // setTimeout(function() {
                     introTitleHeader.classList.add("active");
                     introTitle.innerHTML = imgSrc.title;
                 // }, 300);
-                callback();
+                // callback();
             }
         }
 
