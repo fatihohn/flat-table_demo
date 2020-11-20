@@ -400,6 +400,7 @@
 
 
         window.onscroll = function() {
+            opacityByScroll();
             if(window.pageYOffset + window.innerHeight + 20 >= document.body.scrollHeight) {
                 // var plusRow;
     

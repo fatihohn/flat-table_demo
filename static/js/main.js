@@ -155,10 +155,10 @@ function opacityByScroll() {
         slideImg.style.opacity = 1 - scrollPosition / pageHeight;
     }
 }
-window.onscroll = function() {
-    opacityByScroll();
-    console.log("scroll");
-};
+// window.onscroll = function() {
+//     opacityByScroll();
+//     // console.log("scroll");
+// };
 
 function setIntroImg() {
     let introSlide = document.querySelector(".intro_slide_img");
