@@ -186,7 +186,7 @@ function setIntroImg() {
         //     }
         // }, 600);
         slideImgSrc[0].onload = function() {
-            showIntroTitle(slideImgSrc[0]);
+            showIntroTitleFast(slideImgSrc[0]);
         }
         prevBtn.onclick = function() {
             if (prevBtn.classList.item(2)) {
@@ -211,7 +211,7 @@ function setIntroImg() {
                     showNextImg(nextBtn.classList.item(2), showIntroTitle);
                 }
             // }, 600);
-            }, 800);
+            }, 600);
         }, 10000);
 
         function showNextImg(srcNumber, callback) {
@@ -241,7 +241,7 @@ function setIntroImg() {
                 // }, 600);
                 setTimeout(function() {
                     callback(nextImg);
-                }, 800);
+                }, 600);
             }
         }
 
@@ -273,7 +273,7 @@ function setIntroImg() {
                 // }, 600);
                 setTimeout(function() {
                     callback(prevImg);
-                }, 800);
+                }, 600);
             }
         }
 
@@ -293,26 +293,36 @@ function setIntroImg() {
                 
                 
                 // addIntroTitleActive(addIntroTitleClass);
-                // setTimeout(function() {
+                setTimeout(function() {
                     addIntroTitleClass(addIntroTitleActive);
                     // addIntroTitleActive(addIntroTitleClass);
-                // }, 600);
+                }, 600);
             }
+        
             
             
             function addIntroTitleClass(callback) {
-                // setTimeout(function() {
                     introTitle.classList.add(imgSrc.alt);
                     introEnter.classList.add(imgSrc.alt);
-                // }, 300);
                 callback();
             }
-            function addIntroTitleActive(callback) {
-                // setTimeout(function() {
+            function addIntroTitleActive() {
                     introTitleHeader.classList.add("active");
                     introTitle.innerHTML = imgSrc.title;
-                // }, 300);
-                // callback();
+            }
+        }
+        function showIntroTitleFast(imgSrc) {
+            if (imgSrc.alt !== "") {
+                    addIntroTitleClass(addIntroTitleActive);
+            }
+            function addIntroTitleClass(callback) {
+                    introTitle.classList.add(imgSrc.alt);
+                    introEnter.classList.add(imgSrc.alt);
+                callback();
+            }
+            function addIntroTitleActive() {
+                    introTitleHeader.classList.add("active");
+                    introTitle.innerHTML = imgSrc.title;
             }
         }
 
