@@ -872,6 +872,7 @@
                     } else {
                         e.returnValue = false;
                     }
+                    
                     if(tagFinder) {
                         if(e.key == "ArrowDown" || e.key == "Down") {
                             if(!tagFinder.querySelector(".selected")) {

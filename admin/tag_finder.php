@@ -12,7 +12,7 @@
         if (mysqli_num_rows($result_tag_finder) > 0) {
             while($row_tag_finder = $result_tag_finder->fetch_assoc()) {
             echo '<li class="tag_finder_item">';
-            echo '<button type="button" class="tag_finder_btn">#'.$row_tag_finder['tag_name'].'</button>';
+            echo '<button type="button" class="tag_finder_btn" value="'.$row_tag_finder['tag_name'].'">#'.$row_tag_finder['tag_name'].'</button>';
             echo '</li>';
             }
         }
