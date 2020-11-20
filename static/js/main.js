@@ -155,10 +155,6 @@ function opacityByScroll() {
         slideImg.style.opacity = 1 - scrollPosition / pageHeight;
     }
 }
-// window.onscroll = function() {
-//     opacityByScroll();
-//     // console.log("scroll");
-// };
 
 function setIntroImg() {
     let introSlide = document.querySelector(".intro_slide_img");
@@ -175,42 +171,24 @@ function setIntroImg() {
             slideImgSrc[i].classList.add(i);
         }
         introSlide.style.backgroundImage = "url('" + slideImgSrc[0].src + "')";
-        // setTimeout(() => {
-        //     showIntroTitle(slideImgSrc[0]);
-
-        // }, 800);
-
-        // setTimeout(function() {
-        //     if (slideImgSrc[0]) {
-        //         showIntroTitle(slideImgSrc[0]);
-        //     }
-        // }, 600);
         slideImgSrc[0].onload = function() {
             showIntroTitleFast(slideImgSrc[0]);
         }
         prevBtn.onclick = function() {
             if (prevBtn.classList.item(2)) {
-                // showPrevImg(prevBtn.classList.item(2));
-                // setTimeout(function() {
-                    showPrevImg(prevBtn.classList.item(2), showIntroTitle);
-                // }, 600);
+                showPrevImg(prevBtn.classList.item(2), showIntroTitle);
             }
         }
         nextBtn.onclick = function() {
             if (nextBtn.classList.item(2)) {
-                // showNextImg(nextBtn.classList.item(2));
-                // setTimeout(function() {
-                    showNextImg(nextBtn.classList.item(2), showIntroTitle);
-                // }, 600);
+                showNextImg(nextBtn.classList.item(2), showIntroTitle);
             }
         }
         setInterval(function() {
             setTimeout(function() {
                 if (nextBtn.classList.item(2)) {
-                    // showNextImg(nextBtn.classList.item(2));
                     showNextImg(nextBtn.classList.item(2), showIntroTitle);
                 }
-            // }, 600);
             }, 600);
         }, 10000);
 
@@ -263,14 +241,6 @@ function setIntroImg() {
                     prevBtn.classList.add(parseInt(srcNumber) - 1);
                     nextBtn.classList.add("0");
                 }
-                // setTimeout(() => {
-                //     showIntroTitle(prevImg);
-                // }, 800);
-
-
-                // setTimeout(function() {
-                //     showIntroTitle(prevImg);
-                // }, 600);
                 setTimeout(function() {
                     callback(prevImg);
                 }, 600);
@@ -278,52 +248,43 @@ function setIntroImg() {
         }
 
         function showIntroTitle(imgSrc) {
-            // setTimeout(function() {
-            //     introTitleHeader.classList.add("active");
-            // }, 100);
-            // setTimeout(function() {
-            // }, 600);
             if (imgSrc.alt !== "") {
-                // introTitle.classList.add(imgSrc.alt);
-                // introEnter.classList.add(imgSrc.alt);
-                // // setTimeout(function() {
-                // //     introTitle.innerHTML = imgSrc.title;
-                // //     introTitleHeader.classList.add("active");
-                // // }, 600);
-                
-                
-                // addIntroTitleActive(addIntroTitleClass);
                 setTimeout(function() {
                     addIntroTitleClass(addIntroTitleActive);
-                    // addIntroTitleActive(addIntroTitleClass);
                 }, 600);
             }
-        
-            
-            
-            function addIntroTitleClass(callback) {
-                    introTitle.classList.add(imgSrc.alt);
-                    introEnter.classList.add(imgSrc.alt);
-                callback();
-            }
-            function addIntroTitleActive() {
-                    introTitleHeader.classList.add("active");
-                    introTitle.innerHTML = imgSrc.title;
-            }
+            // function addIntroTitleClass(callback) {
+            //         introTitle.classList.add(imgSrc.alt);
+            //         introEnter.classList.add(imgSrc.alt);
+            //     callback();
+            // }
+            // function addIntroTitleActive() {
+            //         introTitleHeader.classList.add("active");
+            //         introTitle.innerHTML = imgSrc.title;
+            // }
         }
         function showIntroTitleFast(imgSrc) {
             if (imgSrc.alt !== "") {
                     addIntroTitleClass(addIntroTitleActive);
             }
-            function addIntroTitleClass(callback) {
-                    introTitle.classList.add(imgSrc.alt);
-                    introEnter.classList.add(imgSrc.alt);
-                callback();
-            }
-            function addIntroTitleActive() {
-                    introTitleHeader.classList.add("active");
-                    introTitle.innerHTML = imgSrc.title;
-            }
+            // function addIntroTitleClass(callback) {
+            //         introTitle.classList.add(imgSrc.alt);
+            //         introEnter.classList.add(imgSrc.alt);
+            //     callback();
+            // }
+            // function addIntroTitleActive() {
+            //         introTitleHeader.classList.add("active");
+            //         introTitle.innerHTML = imgSrc.title;
+            // }
+        }
+        function addIntroTitleClass(src, callback) {
+                introTitle.classList.add(src.alt);
+                introEnter.classList.add(src.alt);
+            callback();
+        }
+        function addIntroTitleActive(src) {
+                introTitleHeader.classList.add("active");
+                introTitle.innerHTML = src.title;
         }
 
         function hideIntroTitle() {
