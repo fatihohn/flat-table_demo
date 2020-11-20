@@ -157,6 +157,7 @@ function opacityByScroll() {
 }
 window.onscroll = function() {
     opacityByScroll();
+    console.log("scroll");
 };
 
 function setIntroImg() {
