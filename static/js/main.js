@@ -413,7 +413,7 @@ function showExMap(address) {
     if(window.innerWidth > 720) {
         naverMapURL = "https://map.naver.com/v5/search/" + address;
     } else {
-        naverMapURL = "https://m.map.naver.com/search2/search.nhn.?query=" + address + "&sm=hty&style=v5";
+        naverMapURL = "https://m.map.naver.com/search2/search.nhn?query=" + address + "&sm=hty&style=v5";
     }
 
     var kakaoMapURL = "https://map.kakao.com/link/to/" + address;
