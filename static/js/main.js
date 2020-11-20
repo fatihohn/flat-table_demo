@@ -28,7 +28,8 @@ manageNav();
 function showReadArticle() {
     let articles = document.querySelectorAll(".article");
     for (let j = 0; j < articles.length; j++) {
-        articles[j].childNodes[1].childNodes[1].style.transition = "all 1.2s ease 1s";
+        articles[j].childNodes[1].childNodes[1].style.transition = "opacity 1s 1.5s ease, visible .7s, color .7s";
+        
         articles[j].onmouseover = function() {
             articles[j].childNodes[3].style.background = "rgb(240, 230, 210)";
             articles[j].childNodes[1].childNodes[1].style.opacity = "0.9";
