@@ -279,7 +279,7 @@ function setIntroImg() {
                 // addIntroTitleActive(addIntroTitleClass);
                 setTimeout(function() {
                     addIntroTitleActive(addIntroTitleClass);
-                }, 300);
+                }, 600);
             }
             
             
