@@ -265,7 +265,7 @@ function setIntroImg() {
         }
         function showIntroTitleFast(imgSrc) {
             if (imgSrc.alt !== "") {
-                    addIntroTitleClass(imgSrc, addIntroTitleActive);
+                    addIntroTitleClass(imgSrc, addIntroTitleActive(imgSrc));
             }
             // function addIntroTitleClass(callback) {
             //         introTitle.classList.add(imgSrc.alt);
