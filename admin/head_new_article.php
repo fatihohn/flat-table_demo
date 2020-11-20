@@ -1,17 +1,17 @@
 <?php
-function isIE()  {
-    if($_SERVER['HTTP_USER_AGENT']) {//IE check
-        if (strpos($_SERVER['HTTP_USER_AGENT'], 'MSIE') !== FALSE || strpos($_SERVER['HTTP_USER_AGENT'], 'Trident') !== FALSE) {
-            $ie = 1;
-        } else {
-            $ie = 0;
-        }
-    } else {
-        $ie = 0;
-    }
-    return $ie;
-}
-$file_server = $_SERVER[HTTP_HOST];
+// function isIE()  {
+//     if($_SERVER['HTTP_USER_AGENT']) {//IE check
+//         if (strpos($_SERVER['HTTP_USER_AGENT'], 'MSIE') !== FALSE || strpos($_SERVER['HTTP_USER_AGENT'], 'Trident') !== FALSE) {
+//             $ie = 1;
+//         } else {
+//             $ie = 0;
+//         }
+//     } else {
+//         $ie = 0;
+//     }
+//     return $ie;
+// }
+// $file_server = $_SERVER[HTTP_HOST];
 
 ?>
 
