@@ -727,7 +727,8 @@ em {
 .collection .article figure .overlay {
     background: rgba(255, 255, 255, .88);
     color: #c28c29;
-    display: none;
+    /* display: none; */
+    visibility: hidden;
     left: 0;
     height: 100%;
     position: absolute;
@@ -735,6 +736,7 @@ em {
     text-decoration: none;
     top: 0;
     width: 100%;
+    transition: all 1s 1.5s ease;
 }
 
 
