@@ -1148,6 +1148,9 @@
         document.querySelector("trix-editor").onfocusout = function() {
             document.querySelector(".trix-button.trix-button--icon.trix-button--icon-attach").disabled = true;
         }
+        document.querySelector("trix-editor").oninput = function() {
+            document.querySelector(".trix-button.trix-button--icon.trix-button--icon-attach").disabled = true;
+        }
     </script>
     <script> //hashtag related
        (function () {
