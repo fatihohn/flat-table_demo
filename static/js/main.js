@@ -250,7 +250,10 @@ function setIntroImg() {
         function showIntroTitle(imgSrc) {
             if (imgSrc.alt !== "") {
                 setTimeout(function() {
-                    addIntroTitleClass(imgSrc, addIntroTitleActive(imgSrc));
+                    // addIntroTitleClass(imgSrc, addIntroTitleActive(imgSrc));
+                    addIntroTitleClass(imgSrc, function() {
+                        addIntroTitleActive(imgSrc);
+                    });
                 }, 600);
             }
             // function addIntroTitleClass(callback) {
@@ -265,7 +268,9 @@ function setIntroImg() {
         }
         function showIntroTitleFast(imgSrc) {
             if (imgSrc.alt !== "") {
-                    addIntroTitleClass(imgSrc, addIntroTitleActive(imgSrc));
+                    addIntroTitleClass(imgSrc, function() {
+                        addIntroTitleActive(imgSrc)
+                    });
             }
             // function addIntroTitleClass(callback) {
             //         introTitle.classList.add(imgSrc.alt);
