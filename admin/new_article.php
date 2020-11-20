@@ -3,7 +3,7 @@
 <head>
     <?php include 'head_new_article.php'?>
     
-    <script>// img/file attachment related
+    <!-- <script>// img/file attachment related
         (function() {
             var HOST = "trix_upload.php";
             var allowedType = []; // 첨부 가능 파일 형식 목록
@@ -23,7 +23,7 @@
             }
             maxImgFileSizeMb = maxImgFileSize/1000000;
 
-            document.querySelector(".trix-button.trix-button--icon.trix-button--icon-attach").disabled = true;
+            
             addEventListener("trix-file-accept", function(event) {//파일 선택창 액션(파일 첨부 전)
                 event.preventDefault();
                 return false;
@@ -253,7 +253,7 @@
 
                 function sendImgToServer (file) {
                     data.append("Content-Type", file.type);
-                    if(<?=isIE()?> == 1) {
+                    if(<?//=isIE()?> == 1) {
                         var fileNameBody;
                         fileNameBody = file.name.split(".");
                         fileNameBody.pop();
@@ -291,7 +291,7 @@
             }
             //case: 이미지 파일 업로드
         })();
-    </script>
+    </script> -->
 
 </head>
 <body>
@@ -1138,6 +1138,11 @@
         })();
     </script> -->
 
+
+
+    <script>
+        document.querySelector(".trix-button.trix-button--icon.trix-button--icon-attach").disabled = true;
+    </script>
     <script> //hashtag related
        (function () {
            var tagInput, tagVault;
