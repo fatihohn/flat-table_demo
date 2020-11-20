@@ -285,10 +285,10 @@ function setIntroImg() {
                 
                 
                 // addIntroTitleActive(addIntroTitleClass);
-                // setTimeout(function() {
+                setTimeout(function() {
                     addIntroTitleClass(addIntroTitleActive);
                     // addIntroTitleActive(addIntroTitleClass);
-                // }, 600);
+                }, 600);
             }
             
             
