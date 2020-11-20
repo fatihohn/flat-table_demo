@@ -24,26 +24,28 @@
             maxImgFileSizeMb = maxImgFileSize/1000000;
 
             addEventListener("trix-file-accept", function(event) {//파일 선택창 액션(파일 첨부 전)
-                if(event.file) {
-                    typeCheck(event.file);
-                    if(allowedTypeCheck && allowedFile.indexOf(event.file.type) !== -1) {
-                        if(event.file.size > maxFileSize) {
-                            event.preventDefault();
-                            alert(event.file.name + "의 크기가 너무 큽니다. " + maxFileSizeMb + "MB 이하의 파일을 선택해주세요.");
-                            return false;
-                        }
-                    } else if(allowedTypeCheck && allowedFile.indexOf(event.file.type) == -1) {
-                        if (event.file.size > maxImgFileSize) {
-                            event.preventDefault();
-                            alert(event.file.name + "의 크기가 너무 큽니다. " + maxImgFileSizeMb + "MB 이하의 사진을 선택해주세요.");
-                            return false;
-                        }
-                    } else {
-                        event.preventDefault();
-                        alert(event.file.name + "은 첨부할 수 있는 파일이 아닙니다. 이미지(JPG, PNG)나 문서(PDF) 파일을 선택해주세요.");
-                        return false;
-                    }
-                }
+                event.preventDefault();
+                return false;
+                // if(event.file) {
+                //     typeCheck(event.file);
+                //     if(allowedTypeCheck && allowedFile.indexOf(event.file.type) !== -1) {
+                //         if(event.file.size > maxFileSize) {
+                //             event.preventDefault();
+                //             alert(event.file.name + "의 크기가 너무 큽니다. " + maxFileSizeMb + "MB 이하의 파일을 선택해주세요.");
+                //             return false;
+                //         }
+                //     } else if(allowedTypeCheck && allowedFile.indexOf(event.file.type) == -1) {
+                //         if (event.file.size > maxImgFileSize) {
+                //             event.preventDefault();
+                //             alert(event.file.name + "의 크기가 너무 큽니다. " + maxImgFileSizeMb + "MB 이하의 사진을 선택해주세요.");
+                //             return false;
+                //         }
+                //     } else {
+                //         event.preventDefault();
+                //         alert(event.file.name + "은 첨부할 수 있는 파일이 아닙니다. 이미지(JPG, PNG)나 문서(PDF) 파일을 선택해주세요.");
+                //         return false;
+                //     }
+                // }
             });
 
             addEventListener("trix-attachment-add", function(event) {//파일 첨부 후 액션
@@ -108,7 +110,8 @@
                 xhr.addEventListener("load", function(event) {
                     var attributes = {
                         url: xhr.responseText,
-                        href: "http://<?=$file_server?>/files/" + xhr.responseText + "?content-disposition=attachment"
+                        // href: "http://<?//=$file_server?>/files/" + xhr.responseText + "?content-disposition=attachment"
+                        href: "http://pyeongsang.net/files/" + xhr.responseText + "?content-disposition=attachment"
                     }
                     successCallback(attributes);
                 })
