@@ -203,7 +203,7 @@ function setIntroImg() {
                 if (nextBtn.classList.item(2)) {
                     showNextImg(nextBtn.classList.item(2));
                 }
-            }, 300);
+            }, 600);
         }, 10000);
 
         function showNextImg(srcNumber) {
@@ -229,7 +229,7 @@ function setIntroImg() {
                 // }, 800);
                 setTimeout(function() {
                     showIntroTitle(nextImg);
-                }, 300);
+                }, 600);
             }
         }
 
@@ -256,7 +256,7 @@ function setIntroImg() {
                 // }, 800);
                 setTimeout(function() {
                     showIntroTitle(prevImg);
-                }, 300);
+                }, 600);
             }
         }
 
@@ -279,7 +279,7 @@ function setIntroImg() {
                 setTimeout(function() {
                     addIntroTitleClass(addIntroTitleActive);
                     // addIntroTitleActive(addIntroTitleClass);
-                }, 300);
+                }, 600);
             }
             
             
