@@ -1,8 +1,8 @@
 <?php
-include_once '../bbps_db_conn.php';
-session_start();
-$sessionUser = $_SESSION['username'];
-$sessionAdmin = $_SESSION['admin'];
+// include_once '../bbps_db_conn.php';
+// session_start();
+// $sessionUser = $_SESSION['username'];
+// $sessionAdmin = $_SESSION['admin'];
 ?>
 
 

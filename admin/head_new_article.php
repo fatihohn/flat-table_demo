@@ -1,4 +1,9 @@
 <?php
+include_once '../bbps_db_conn.php';
+session_start();
+$sessionUser = $_SESSION['username'];
+$sessionAdmin = $_SESSION['admin'];
+
 function isIE()  {
     if($_SERVER['HTTP_USER_AGENT']) {//IE check
         if (strpos($_SERVER['HTTP_USER_AGENT'], 'MSIE') !== FALSE || strpos($_SERVER['HTTP_USER_AGENT'], 'Trident') !== FALSE) {

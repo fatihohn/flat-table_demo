@@ -1,3 +1,10 @@
+<?php
+include_once '../bbps_db_conn.php';
+session_start();
+$sessionUser = $_SESSION['username'];
+$sessionAdmin = $_SESSION['admin'];
+?>
+
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
