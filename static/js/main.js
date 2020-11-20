@@ -273,23 +273,21 @@ function setIntroImg() {
                 // //     introTitle.innerHTML = imgSrc.title;
                 // //     introTitleHeader.classList.add("active");
                 // // }, 600);
-                // // setTimeout(function() {
-                //     introTitle.innerHTML = imgSrc.title;
-                //     introTitleHeader.classList.add("active");
-                // // }, 600);
-
-
+                
+                
                 addIntroTitleClass(addIntroTitleActive);
             }
-
-
+            
+            
             function addIntroTitleClass(callback) {
                 introTitle.classList.add(imgSrc.alt);
                 introEnter.classList.add(imgSrc.alt);
                 callback();
             }
             function addIntroTitleActive() {
-                introTitle.innerHTML = imgSrc.title;
+                setTimeout(function() {
+                    introTitle.innerHTML = imgSrc.title;
+                }, 100);
                 introTitleHeader.classList.add("active");
             }
         }
