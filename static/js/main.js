@@ -191,13 +191,17 @@ function setIntroImg() {
         prevBtn.onclick = function() {
             if (prevBtn.classList.item(2)) {
                 // showPrevImg(prevBtn.classList.item(2));
-                showPrevImg(prevBtn.classList.item(2), showIntroTitle);
+                setTimeout(function() {
+                    showPrevImg(prevBtn.classList.item(2), showIntroTitle);
+                }, 600);
             }
         }
         nextBtn.onclick = function() {
             if (nextBtn.classList.item(2)) {
                 // showNextImg(nextBtn.classList.item(2));
-                showNextImg(nextBtn.classList.item(2), showIntroTitle);
+                setTimeout(function() {
+                    showNextImg(nextBtn.classList.item(2), showIntroTitle);
+                }, 600);
             }
         }
         setInterval(function() {
@@ -234,9 +238,9 @@ function setIntroImg() {
                 // setTimeout(function() {
                 //     showIntroTitle(nextImg);
                 // }, 600);
-                setTimeout(function() {
+                // setTimeout(function() {
                     callback(nextImg);
-                }, 600);
+                // }, 600);
             }
         }
 
@@ -266,9 +270,9 @@ function setIntroImg() {
                 // setTimeout(function() {
                 //     showIntroTitle(prevImg);
                 // }, 600);
-                setTimeout(function() {
+                // setTimeout(function() {
                     callback(prevImg);
-                }, 600);
+                // }, 600);
             }
         }
 
