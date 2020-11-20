@@ -234,8 +234,9 @@ function setIntroImg() {
                 // setTimeout(function() {
                 //     showIntroTitle(nextImg);
                 // }, 600);
-
-                callback(nextImg);
+                setTimeout(function() {
+                    callback(nextImg);
+                }, 600);
             }
         }
 
@@ -265,7 +266,9 @@ function setIntroImg() {
                 // setTimeout(function() {
                 //     showIntroTitle(prevImg);
                 // }, 600);
-                callback(prevImg);
+                setTimeout(function() {
+                    callback(prevImg);
+                }, 600);
             }
         }
 
@@ -285,10 +288,10 @@ function setIntroImg() {
                 
                 
                 // addIntroTitleActive(addIntroTitleClass);
-                setTimeout(function() {
+                // setTimeout(function() {
                     addIntroTitleClass(addIntroTitleActive);
                     // addIntroTitleActive(addIntroTitleClass);
-                }, 600);
+                // }, 600);
             }
             
             
