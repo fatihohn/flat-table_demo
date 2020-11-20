@@ -203,7 +203,7 @@ function setIntroImg() {
                 if (nextBtn.classList.item(2)) {
                     showNextImg(nextBtn.classList.item(2));
                 }
-            }, 600);
+            }, 300);
         }, 10000);
 
         function showNextImg(srcNumber) {
