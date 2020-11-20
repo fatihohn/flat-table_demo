@@ -1,11 +1,294 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <?php include 'head_new_article.php'?>
-    <!-- jsDelivr :: Sortable :: Latest (https://www.jsdelivr.com/package/npm/sortablejs) -->
-    <script src="https://cdn.jsdelivr.net/npm/sortablejs@latest/Sortable.min.js"></script>
-    <!-- <script type="text/javascript" src="../trix-master/dist/attachments.js"></script> -->
+    
+    <script>// img/file attachment related
+        (function() {
+            var HOST = "trix_upload.php";
+            var allowedType = []; // 첨부 가능 파일 형식 목록
+            var allowedImg = ["image/jpeg", "image/jpg", "image/png"];
+            // var allowedFile = ["application/pdf", "application/x-hwp", "application/haansofthwp", "application/vnd.openxmlformats-officedocument.wordprocessingml.document", "application/msword"];
+            var allowedFile = ["application/pdf"];
+            allowedType = allowedImg.concat(allowedFile);
+
+            var maxImgFileSize, maxImgFileSizeMb, maxFileSize, maxFileSizeMb, allowedTypeCheck;
+
+            maxFileSize= 20000000;
+            maxFileSizeMb = maxFileSize/1000000;
+            if(<?=isIE()?> == 1) {
+                maxImgFileSize= 5000000;
+            } else {
+                maxImgFileSize= 15000000;
+            }
+            maxImgFileSizeMb = maxImgFileSize/1000000;
+
+            addEventListener("trix-file-accept", function(event) {//파일 선택창 액션(파일 첨부 전)
+                if(event.file) {
+                    typeCheck(event.file);
+                    if(allowedTypeCheck && allowedFile.indexOf(event.file.type) !== -1) {
+                        if(event.file.size > maxFileSize) {
+                            event.preventDefault();
+                            alert(event.file.name + "의 크기가 너무 큽니다. " + maxFileSizeMb + "MB 이하의 파일을 선택해주세요.");
+                            return false;
+                        }
+                    } else if(allowedTypeCheck && allowedFile.indexOf(event.file.type) == -1) {
+                        if (event.file.size > maxImgFileSize) {
+                            event.preventDefault();
+                            alert(event.file.name + "의 크기가 너무 큽니다. " + maxImgFileSizeMb + "MB 이하의 사진을 선택해주세요.");
+                            return false;
+                        }
+                    } else {
+                        event.preventDefault();
+                        alert(event.file.name + "은 첨부할 수 있는 파일이 아닙니다. 이미지(JPG, PNG)나 문서(PDF) 파일을 선택해주세요.");
+                        return false;
+                    }
+                }
+            });
+
+            addEventListener("trix-attachment-add", function(event) {//파일 첨부 후 액션
+                if(event.attachment.file) {
+                    typeCheck(event.attachment.file);
+                    if(allowedTypeCheck && allowedFile.indexOf(event.attachment.file.type) !== -1) {
+                        if(event.attachment.file.size <= maxFileSize) {
+                            uploadFileAttachment(event.attachment); // 일반 파일(pdf) 업로드
+                        } else {
+                            return false;
+                        }
+                    } else if(allowedTypeCheck && allowedFile.indexOf(event.attachment.file.type) == -1) {
+                        if (allowedTypeCheck && event.attachment.file.size <= maxImgFileSize) {
+                            uploadImgFileAttachment(event.attachment); /// 이미지 파일 업로드
+                        } else {
+                            return false;
+                        }
+                    } else {
+                        return false;
+                    }
+                }
+            });
+
+            function typeCheck(obj) { // 첨부 가능 파일 형식 체크
+                if (String.prototype.includes) {
+                    allowedTypeCheck = allowedType.includes(obj.type);
+                } else {
+                    allowedTypeCheck = (function() {
+                        if(allowedType.indexOf(obj.type) !== -1) {
+                            return true;
+                        } else {
+                            return false;
+                        }
+                    })();
+                }
+            }
+        
+            //case: 일반 파일 업로드
+            function uploadFileAttachment(attachment) {
+                uploadFile(attachment.file, setProgress, setAttributes);
+                
+                function setProgress(progress) {
+                    attachment.setUploadProgress(progress);
+                }
+                
+                function setAttributes(attributes) {
+                    attachment.setAttributes(attributes);
+                }
+            }
+            
+            function uploadFile(file, progressCallback, successCallback) {
+                var formData = createFormData(file);
+                var xhr = new XMLHttpRequest();
+                
+                xhr.open("POST", HOST, true);
+        
+                xhr.upload.addEventListener("progress", function(event) {
+                    var progress = event.loaded / event.total * 100;
+                    progressCallback(progress);
+                })
+                
+                xhr.addEventListener("load", function(event) {
+                    var attributes = {
+                        url: xhr.responseText,
+                        href: "http://<?=$file_server?>/files/" + xhr.responseText + "?content-disposition=attachment"
+                    }
+                    successCallback(attributes);
+                })
+                
+                xhr.send(formData);
+            }
+            
+            function createFormData(file) {
+                var data = new FormData();
+                data.append("Content-Type", file.type);
+                data.append("file", file);
+                return data;
+            }
+            //case: 일반 파일 업로드
+            
+            //case: 이미지 파일 업로드
+            function uploadImgFileAttachment(attachment) {
+                uploadImgFile(attachment.file, setProgress, setAttributes);
+        
+                function setProgress(progress) {
+                    attachment.setUploadProgress(progress);
+                }
+        
+                function setAttributes(attributes) {
+                    attachment.setAttributes(attributes);
+                }
+            }
+        
+            function uploadImgFile(file, progressCallback, successCallback) {
+                var formData = createImgFormData(file, progressCallback, successCallback);
+            }
+
+            function createImgFormData(file, progressCallback, successCallback) {
+                var xhr = new XMLHttpRequest();
+                var reader = new FileReader();
+                var data = new FormData();
+                var compressRate, maxQuality, anchorSize, imgQuality, percentage;
+                // console.log("file loaded");
+                var imgSource = document.createElement('img');
+                var canvas = document.createElement('canvas');
+                    canvas.setAttribute("class", "canvas");
+                    canvas.width = 2000;
+                    canvas.height = 2000;
+                    canvas.style.display = "none";
+
+                    imgSource.setAttribute("class", "imgSource");
+                    imgSource.style.display = "none";
+
+                    // console.log(file.size);
+                reader.addEventListener("load", function () {
+                    // console.log("loading image");
+                    if(reader.result.startsWith("data:image")) {
+                        imgSource.src = reader.result;
+                        imgSource.onload = function () {
+                            // console.log("image loaded");
+                            // console.log("compressing...");
+
+                            var imgRes = Math.sqrt(imgSource.width * imgSource.height);
+                            var originalImgQuality = Math.sqrt(file.size);
+                            var canvasRes = Math.sqrt(canvas.width*canvas.height);
+                            var imgResRt = getLogation(imgRes, 2);
+
+                            function getLogation (num, logN) {
+                                var logation = Math.sqrt(num);
+                                var n = 0;
+                                while(n < logN-1) {
+                                    logation = Math.sqrt(logation);
+                                    n++;
+                                }
+                                return logation;
+                            }
+
+                            anchorSize = 3;
+                            if(originalImgQuality > 1000) {
+                                maxQuality = 99;
+                                imgQuality = ((originalImgQuality*2)/(Math.sqrt(canvasRes * imgRes)/1.5)) * (Math.floor(1000*Math.pow(imgResRt/8, 4))/1000 * anchorSize);
+                            } else {
+                                maxQuality = 95;
+                                imgQuality = 0;
+                            }
+                            compressRate = maxQuality/(imgQuality + 100);
+
+                            if(compressRate >= 1) {
+                                percentage = 0.95;
+                            } else {
+                                percentage = compressRate;
+                            }
+                                // console.log("imgQuality: "+imgQuality);
+                                // console.log("originalImgQuality: "+originalImgQuality);
+                                // console.log("imgResRt: "+Math.floor(1000*Math.pow(imgResRt/8, 4))/1000);
+                                // console.log("percentage: "+percentage*100 + "%");
+
+                            var ctx = canvas.getContext("2d");
+                            if(imgSource.width > imgSource.height) {
+                                canvas.height = canvas.width * (imgSource.height / imgSource.width);
+                            } else {
+                                canvas.width = canvas.height * (imgSource.width / imgSource.height);
+                            }
+
+                            if(imgSource.width > canvas.width || imgSource.height > canvas.height) {
+                                imgWidth = canvas.width;
+                                imgHeight = canvas.height;
+                            } else {
+                                imgWidth = imgSource.width;
+                                imgHeight = imgSource.height;
+                            }
+
+                            canvas.width = imgWidth;
+                            canvas.height = imgHeight;
+                            ctx.drawImage(imgSource, 0, 0, imgSource.width, imgSource.height, 0, 0, canvas.width, canvas.height);
+                            // console.log("img drawn on canvas");
+                            canvas.toBlob(function(blob) {
+                                var fileNameBody;
+                                fileNameBody = file.name.split(".");
+                                fileNameBody.pop();
+                                fileNameBody.join();
+                                var compressedImg;
+                                        
+                                try {
+                                    compressedImg = new File([blob], fileNameBody + ".jpg", {lastModified: file.lastModified, type: "image/jpeg"});//blob->file, (*.*)->(*.jpg)
+                                } catch(err) {
+                                    compressedImg = blob;
+                                    compressedImg.type = "image/jpeg";
+                                    compressedImg.name = fileNameBody + ".jpg";
+                                    compressedImg.lastModifiedDate = file.lastModifiedDate;
+                                }
+                                // console.log("file from blob");
+                                sendImgToServer(compressedImg);
+                                
+                            }, "image/jpeg", percentage);
+                        }
+                    }
+                }, false);
+
+                if (file) {
+                    reader.readAsDataURL(file);
+                }
+
+                function sendImgToServer (file) {
+                    data.append("Content-Type", file.type);
+                    if(<?=isIE()?> == 1) {
+                        var fileNameBody;
+                        fileNameBody = file.name.split(".");
+                        fileNameBody.pop();
+                        fileNameBody.join();
+                        data.append('file', file, fileNameBody + ".jpg");
+                    } else {
+                        data.append('file', file);
+                    }
+
+                    xhr.open("POST", HOST, true);
+            
+                    xhr.upload.addEventListener("progress", function(event) {
+                        var progress = event.loaded / event.total * 100;
+                        progressCallback(progress);
+                    });
+            
+                    xhr.addEventListener("load", function(event) {
+                        var attributes = {
+                            url: xhr.responseText
+                        }
+                        successCallback(attributes);
+                    });
+                    xhr.send(data)
+                    // console.log("send compressed img to server");
+
+                    resetCanvas(imgSource,  canvas);
+                    return data;
+                }
+
+                function resetCanvas(img, canvas) {
+                    img.remove();
+                    canvas.remove();
+                    // console.log("reset canvas");
+                }
+            }
+            //case: 이미지 파일 업로드
+        })();
+    </script>
+
 </head>
 <body>
     <?php include 'header.php'?>
@@ -872,7 +1155,7 @@
                     } else {
                         e.returnValue = false;
                     }
-                    
+
                     if(tagFinder) {
                         if(e.key == "ArrowDown" || e.key == "Down") {
                             if(!tagFinder.querySelector(".selected")) {
