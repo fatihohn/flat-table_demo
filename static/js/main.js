@@ -250,7 +250,7 @@ function setIntroImg() {
         function showIntroTitle(imgSrc) {
             if (imgSrc.alt !== "") {
                 setTimeout(function() {
-                    addIntroTitleClass(addIntroTitleActive);
+                    addIntroTitleClass(imgSrc, addIntroTitleActive);
                 }, 600);
             }
             // function addIntroTitleClass(callback) {
@@ -265,7 +265,7 @@ function setIntroImg() {
         }
         function showIntroTitleFast(imgSrc) {
             if (imgSrc.alt !== "") {
-                    addIntroTitleClass(addIntroTitleActive);
+                    addIntroTitleClass(imgSrc, addIntroTitleActive);
             }
             // function addIntroTitleClass(callback) {
             //         introTitle.classList.add(imgSrc.alt);
