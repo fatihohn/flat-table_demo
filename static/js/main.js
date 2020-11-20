@@ -286,9 +286,9 @@ function setIntroImg() {
             }
             function addIntroTitleActive() {
                 setTimeout(function() {
-                    introTitle.innerHTML = imgSrc.title;
+                    introTitleHeader.classList.add("active");
                 }, 100);
-                introTitleHeader.classList.add("active");
+                introTitle.innerHTML = imgSrc.title;
             }
         }
 
