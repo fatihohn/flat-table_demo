@@ -127,7 +127,7 @@
     <aside class="intro">
         <div class="intro_slide">
             <!--대표 평상 이미지 목록-->
-                <div class="intro_slide_imgs" style="visibility:hidden; height:0;">
+                <div class="intro_slide_imgs" style="display:none; visibility:hidden; height:0;">
                     <?php
                     if ($result_article_data_flag->num_rows > 0) {
                         while($rows_article_flag = $result_article_data_flag->fetch_assoc()) {
