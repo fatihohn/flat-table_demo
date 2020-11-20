@@ -23,6 +23,7 @@
             }
             maxImgFileSizeMb = maxImgFileSize/1000000;
 
+            document.querySelector(".trix-button.trix-button--icon.trix-button--icon-attach").disabled = true;
             addEventListener("trix-file-accept", function(event) {//파일 선택창 액션(파일 첨부 전)
                 event.preventDefault();
                 return false;
