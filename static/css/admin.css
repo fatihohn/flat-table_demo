@@ -258,7 +258,9 @@ button {
 }
 
 
-
+.trix-button.trix-button--icon.trix-button--icon-attach {
+    visibility: hidden;
+}
 
 
 
