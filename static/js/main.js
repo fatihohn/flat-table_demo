@@ -275,15 +275,16 @@ function setIntroImg() {
                 // // }, 600);
                 
                 
-                addIntroTitleClass(addIntroTitleActive);
+                // addIntroTitleClass(addIntroTitleActive);
+                addIntroTitleActive(addIntroTitleClass);
             }
             
             
             function addIntroTitleClass(callback) {
-                setTimeout(function() {
+                // setTimeout(function() {
                     introTitle.classList.add(imgSrc.alt);
                     introEnter.classList.add(imgSrc.alt);
-                }, 300);
+                // }, 300);
                 callback();
             }
             function addIntroTitleActive() {
