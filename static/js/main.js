@@ -229,7 +229,7 @@ function setIntroImg() {
                 // }, 800);
                 setTimeout(function() {
                     showIntroTitle(nextImg);
-                }, 600);
+                }, 300);
             }
         }
 
@@ -256,7 +256,7 @@ function setIntroImg() {
                 // }, 800);
                 setTimeout(function() {
                     showIntroTitle(prevImg);
-                }, 600);
+                }, 300);
             }
         }
 
@@ -279,7 +279,7 @@ function setIntroImg() {
                 setTimeout(function() {
                     addIntroTitleClass(addIntroTitleActive);
                     // addIntroTitleActive(addIntroTitleClass);
-                }, 600);
+                }, 300);
             }
             
             
