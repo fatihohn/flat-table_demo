@@ -190,23 +190,26 @@ function setIntroImg() {
         }
         prevBtn.onclick = function() {
             if (prevBtn.classList.item(2)) {
-                showPrevImg(prevBtn.classList.item(2));
+                // showPrevImg(prevBtn.classList.item(2));
+                showPrevImg(prevBtn.classList.item(2), showIntroTitle);
             }
         }
         nextBtn.onclick = function() {
             if (nextBtn.classList.item(2)) {
-                showNextImg(nextBtn.classList.item(2));
+                // showNextImg(nextBtn.classList.item(2));
+                showNextImg(nextBtn.classList.item(2), showIntroTitle);
             }
         }
         setInterval(function() {
             setTimeout(function() {
                 if (nextBtn.classList.item(2)) {
-                    showNextImg(nextBtn.classList.item(2));
+                    // showNextImg(nextBtn.classList.item(2));
+                    showNextImg(nextBtn.classList.item(2), showIntroTitle);
                 }
             }, 600);
         }, 10000);
 
-        function showNextImg(srcNumber) {
+        function showNextImg(srcNumber, callback) {
             let nextImg = document.querySelector(".slide_img_src." + CSS.escape(srcNumber));
             if (nextImg) {
                 hideIntroTitle();
@@ -227,13 +230,16 @@ function setIntroImg() {
                 // setTimeout(() => {
                 //     showIntroTitle(nextImg);
                 // }, 800);
-                setTimeout(function() {
-                    showIntroTitle(nextImg);
-                }, 600);
+
+                // setTimeout(function() {
+                //     showIntroTitle(nextImg);
+                // }, 600);
+
+                callback(nextImg);
             }
         }
 
-        function showPrevImg(srcNumber) {
+        function showPrevImg(srcNumber, callback) {
             let prevImg = document.querySelector(".slide_img_src." + CSS.escape(srcNumber));
             if (prevImg) {
                 hideIntroTitle();
@@ -254,9 +260,12 @@ function setIntroImg() {
                 // setTimeout(() => {
                 //     showIntroTitle(prevImg);
                 // }, 800);
-                setTimeout(function() {
-                    showIntroTitle(prevImg);
-                }, 600);
+
+
+                // setTimeout(function() {
+                //     showIntroTitle(prevImg);
+                // }, 600);
+                callback(prevImg);
             }
         }
 
