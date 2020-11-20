@@ -399,7 +399,7 @@
 <script>
        //hashtag related
        (function () {
-           var tagInput, tagVault;
+            var tagInput, tagVault;
            var showExistingTags, addTags, renderTagList, addTagDelBtn, limitInput, setTagVault, selectExistingTag;
            var tagListWrap, tagListUl, tagDelBtn, tagContainer, tagFinderBtn;
            var tagList = [];
@@ -416,10 +416,15 @@
 
             tagInput.addEventListener("keydown", function(e) {
                 var tagFinder = document.querySelector(".tag_finder");
-                if(e.keycode == 40 || e.code == "ArrowDown" || e.keycode == 38 || e.code == "ArrowUp") {
+                if(e.key == "ArrowDown" || e.key == "Down" || e.key == "ArrowUp" || e.key == "Up") {
+                    if(e.preventDefault) {
+                        e.preventDefault();
+                    } else {
+                        e.returnValue = false;
+                    }
+                    
                     if(tagFinder) {
-                        if(e.keycode == 40 || e.code == "ArrowDown") {
-                            e.preventDefault();
+                        if(e.key == "ArrowDown" || e.key == "Down") {
                             if(!tagFinder.querySelector(".selected")) {
                                 tagFinder.firstElementChild.classList.add("selected");
                             } else if(tagFinder.querySelector(".selected") && tagFinder.querySelector(".selected").nextElementSibling) {
@@ -429,8 +434,7 @@
                                 tagFinder.querySelector(".selected").classList.remove("selected");
                                 tagFinder.firstElementChild.classList.add("selected");
                             }
-                        } else if(e.keycode == 38 || e.code == "ArrowUp") {
-                            e.preventDefault();
+                        } else if(e.key == "ArrowUp" || e.key == "Up") {
                             if(!tagFinder.querySelector(".selected")) {
                                 tagFinder.lastElementChild.classList.add("selected");
                             } else if(tagFinder.querySelector(".selected") && tagFinder.querySelector(".selected").previousElementSibling) {
@@ -441,33 +445,30 @@
                                 tagFinder.lastElementChild.classList.add("selected");
                             }
                         }
-                        tagInput.value = tagFinder.querySelector(".selected .tag_finder_btn").innerHTML.slice(1, tagFinder.querySelector(".selected .tag_finder_btn").innerHTML.length);
+                        tagInput.value = tagFinder.querySelector(".selected .tag_finder_btn").value;
+                    }
+                }
+
+                if(e.key == "Enter" || (e.key == "Spacebar" || e.code == "Space") || e.key == ",") {
+                    if(e.preventDefault) {
+                        e.preventDefault();
+                    } else {
+                        e.returnValue = false;
                     }
                 }
             });
 
             
 
-            tagInput.onkeypress = function(e) {       
-                if(e.code == "Enter" || e.code == "Space" || e.code == "Comma" || e.keycode == 13) {
-                    e.preventDefault();
-                    console.log("tag added");
-                    if(tagInput.value !== "" && !tagList.includes(tagInput.value)) {
-                        addTags(tagInput.value);
-                        tagListWrap.appendChild(tagListUl);
-                        renderTagList(addTagDelBtn);
-                        limitInput(); 
+            tagInput.addEventListener("keyup", function(e) {
+                if(e.key == "Enter" || (e.code == "Space" || e.key == "Spacebar") || e.key == "," || (e.code == "ArrowDown" || e.key == "Down") || (e.key == "Up" || e.code == "ArrowUp")) {
+               
+                    if(e.preventDefault) {
+                        e.preventDefault();
                     } else {
-                        tagInput.value = "";
+                        e.returnValue = false;
                     }
-                    if(tagContainer.querySelector(".tag_finder_wrap")) {
-                        tagContainer.querySelector(".tag_finder_wrap").remove();
-                    }
-                }
-            }
-
-            tagInput.onkeyup = function(e) {
-                if(e.code !== "Enter" && e.code !== "Space" && e.code !== "Comma" && e.code !== "ArrowDown" && e.code !== "ArrowUp") {
+                } else {
                     if(tagInput.value !== "") {
                         showExistingTags(tagInput.value, selectExistingTag);
                     } else {
@@ -475,8 +476,46 @@
                             tagContainer.querySelector(".tag_finder_wrap").remove();   
                         }
                     }
+                    
                 }
-            }
+
+                if(e.key == "Enter" || (e.key == "Spacebar" || e.code == "Space") || e.key == ",") {
+                    if(e.preventDefault) {
+                        e.preventDefault();
+                    } else {
+                        e.returnValue = false;
+                    }
+                    console.log("tag added");
+                    console.log(tagList);
+
+                    var tagListCheck;
+                    if (String.prototype.includes) {//IE compatibility
+                        tagListCheck = tagList.includes(tagInput.value);
+                    } else {
+                        tagListCheck = (function() {
+                            if(tagList.indexOf(tagInput.value) !== -1) {
+                                return true;
+                            } else {
+                                return false;
+                            }
+                        })();
+                    }
+                    if(tagInput.value !== "" && !tagListCheck) {
+                        addTags(tagInput.value);
+                        tagListWrap.appendChild(tagListUl);
+                        renderTagList(addTagDelBtn);
+                        limitInput(); 
+                    } else {
+                        tagInput.value = "";
+                    }
+
+                    if(tagContainer.querySelector(".tag_finder_wrap")) {
+                        tagContainer.querySelector(".tag_finder_wrap").remove();
+                    }
+                }
+
+                
+            });
 
             addTags = function (val) {
                 tagList.push(val);
@@ -484,43 +523,55 @@
             }
 
             showExistingTags = function (val, callback) {
-                (function () {
-                    var finderWrap = document.createElement("div");
-                    var finder = new XMLHttpRequest();
-    
-                    finder.open("POST", "tag_finder.php?str=" + val, true);
-                    finder.send();
-                    finder.onreadystatechange = function() {
-                        if (finder.readyState == 4 && finder.status == 200) {
-                            finderWrap.classList.add("tag_finder_wrap");
-                            finderWrap.innerHTML = finder.responseText;
-    
-                            if(val.length > 0) {
-                                if(!tagContainer.querySelector(".tag_finder_wrap") && finder.responseText !== '<ul class="tag_finder"></ul>') {
-                                    console.log(finder.responseText);
-                                    tagContainer.appendChild(finderWrap);
-                                } else {
-                                    tagContainer.querySelector(".tag_finder_wrap").remove();
-                                    tagContainer.appendChild(finderWrap);
-                                    tagContainer.querySelector(".tag_finder_wrap").innerHTML = finder.responseText;
-                                }
+                var finderWrap = document.createElement("div");
+                var finder = new XMLHttpRequest();
+
+                finder.open("POST", "tag_finder.php?str=" + val, true);
+                finder.send();
+                finder.onreadystatechange = function() {
+                    if (finder.readyState == 4 && finder.status == 200) {
+                        finderWrap.classList.add("tag_finder_wrap");
+                        finderWrap.innerHTML = finder.responseText;
+
+                        if(val.length > 0) {
+                            if(!tagContainer.querySelector(".tag_finder_wrap") && finder.responseText.indexOf(val) == -1) {
+                            } else if(tagContainer.querySelector(".tag_finder_wrap") && finder.responseText.indexOf(val) == -1) {
+                                tagContainer.querySelector(".tag_finder_wrap").remove();
                             } else {
                                 if(tagContainer.querySelector(".tag_finder_wrap")) {
                                     tagContainer.querySelector(".tag_finder_wrap").remove();
                                 }
+                                tagContainer.appendChild(finderWrap);
+                                tagContainer.querySelector(".tag_finder_wrap").innerHTML = finder.responseText;
+                            }
+                        } else {
+                            if(tagContainer.querySelector(".tag_finder_wrap")) {
+                                tagContainer.querySelector(".tag_finder_wrap").remove();
                             }
                         }
-                        callback();
                     }
-                })();
+                    callback();
+                }
             }
 
             selectExistingTag = function () {
                 tagFinderBtn = document.querySelectorAll(".tag_finder_btn");
-                tagFinderBtn.forEach((btn) => {
+                tagFinderBtn.forEach(function(btn) {
                     btn.onclick = function () {
                         var tagFinderVal = btn.innerHTML.slice(1, btn.innerHTML.length);
-                        if(!tagList.includes(tagFinderVal)) {
+                        var tagFinderValCheck;
+                        if (String.prototype.includes) { //IE compatibility 
+                            tagFinderValCheck = tagList.includes(tagFinderVal);
+                        } else {
+                            tagFinderValCheck = (function() {
+                                if(tagList.indexOf(tagFinderVal) !== -1) {
+                                    return true;
+                                } else {
+                                    return false;
+                                }
+                            })();
+                        }
+                        if(!tagFinderValCheck) {
                             addTags(tagFinderVal);
                             tagListWrap.appendChild(tagListUl);
                             renderTagList(addTagDelBtn);
@@ -543,10 +594,9 @@
                 tagListItem.classList.add("tag_list_item");
                 tagListUl.classList.add("tag_list");
                 if(tagList.length > 0) {
-                    tagList.forEach((tags) => {
+                    tagList.forEach(function(tags) {
                         tagListItem.innerHTML = "";
-                        tagListItem.innerHTML = `<button type="button" class="tag_element">#` + tags + `</button>
-                                            <button type="button" class="tag_del"></button>`;
+                        tagListItem.innerHTML = '<button type="button" class="tag_element">#' + tags + '</button><button type="button" class="tag_del"></button>';
                         tagListUl.appendChild(tagListItem);
                     });
                 }
@@ -556,13 +606,12 @@
             }
 
             addTagDelBtn = function() {
-                var tagDelBtn = document.querySelectorAll(".tag_del");
-                tagDelBtn.forEach((btn) => {
+                tagDelBtn = document.querySelectorAll(".tag_del");
+                tagDelBtn.forEach(function(btn) {
                     btn.onclick = function() {
                         var tagStr = btn.previousElementSibling.innerHTML;
                             tagStr = tagStr.slice(1, tagStr.length);
                         var tagIdx = tagList.indexOf(tagStr);
-                        // console.log(tagIdx);
                         tagList.splice(tagIdx, 1)
                         btn.parentElement.remove();
                         limitInput(); 
@@ -572,7 +621,7 @@
             }
 
             limitInput = function () {
-                if(tagList.length > 9) {
+                if(tagList.length >= 5) {
                     tagInput.style.visibility = "hidden";
                     tagListWrap.style.maxWidth = "100%";
                 } else {
@@ -585,9 +634,7 @@
                 tagVault.value = tagList.toString();
             }
 
-            // if(articleTagList !== "") {
-                // console.log(articleTagList);
-                articleTagList.forEach((tag) => {
+                articleTagList.forEach(function(tag) {
                     console.log(tag);
                     if(tag !== "") {
                         addTags(tag);
