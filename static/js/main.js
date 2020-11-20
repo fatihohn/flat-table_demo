@@ -285,7 +285,7 @@ function setIntroImg() {
                     introTitle.classList.add(imgSrc.alt);
                     introEnter.classList.add(imgSrc.alt);
                 // }, 300);
-                callback();
+                // callback();
             }
             function addIntroTitleActive(callback) {
                 // setTimeout(function() {
