@@ -180,11 +180,14 @@ function setIntroImg() {
 
         // }, 800);
 
-        setTimeout(function() {
-            if (slideImgSrc[0]) {
-                showIntroTitle(slideImgSrc[0]);
-            }
-        }, 600);
+        // setTimeout(function() {
+        //     if (slideImgSrc[0]) {
+        //         showIntroTitle(slideImgSrc[0]);
+        //     }
+        // }, 600);
+        slideImgSrc[0].onload = function() {
+            showIntroTitle(slideImgSrc[0]);
+        }
         prevBtn.onclick = function() {
             if (prevBtn.classList.item(2)) {
                 showPrevImg(prevBtn.classList.item(2));
