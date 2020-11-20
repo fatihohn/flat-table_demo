@@ -204,7 +204,7 @@ function setIntroImg() {
                     showNextImg(nextBtn.classList.item(2));
                 }
             }, 600);
-        }, 5000);
+        }, 10000);
 
         function showNextImg(srcNumber) {
             let nextImg = document.querySelector(".slide_img_src." + CSS.escape(srcNumber));
@@ -280,15 +280,17 @@ function setIntroImg() {
             
             
             function addIntroTitleClass(callback) {
-                introTitle.classList.add(imgSrc.alt);
-                introEnter.classList.add(imgSrc.alt);
+                setTimeout(function() {
+                    introTitle.classList.add(imgSrc.alt);
+                    introEnter.classList.add(imgSrc.alt);
+                }, 300);
                 callback();
             }
             function addIntroTitleActive() {
-                setTimeout(function() {
+                // setTimeout(function() {
                     introTitleHeader.classList.add("active");
                     introTitle.innerHTML = imgSrc.title;
-                }, 300);
+                // }, 300);
             }
         }
 
