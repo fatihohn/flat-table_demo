@@ -6,11 +6,11 @@ header('Access-Control-Allow-Credentials: true');
 
 // $mb_id = $_GET['q'];
 
-if (!file_exists('/var/www/html/files')) {
-    mkdir('/var/www/html/files', 0777);
+if (!file_exists('../files')) {
+    mkdir('../files', 0777);
 }
 
-$uploadPath = "/var/www/html/files/";
+$uploadPath = "../files/";
     $status = $statusMsg = ''; 
     if(!empty($_FILES["file"]["name"])) { 
         // File info 
