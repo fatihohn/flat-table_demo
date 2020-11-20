@@ -736,7 +736,7 @@ em {
     text-decoration: none;
     top: 0;
     width: 100%;
-    transition: all 1s 1.5s ease;
+    transition: all 300ms ease;
 }
 
 
