@@ -287,11 +287,12 @@ function setIntroImg() {
                 // }, 300);
                 callback();
             }
-            function addIntroTitleActive() {
+            function addIntroTitleActive(callback) {
                 // setTimeout(function() {
                     introTitleHeader.classList.add("active");
                     introTitle.innerHTML = imgSrc.title;
                 // }, 300);
+                callback();
             }
         }
 
