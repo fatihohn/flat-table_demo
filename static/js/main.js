@@ -267,16 +267,30 @@ function setIntroImg() {
             // setTimeout(function() {
             // }, 600);
             if (imgSrc.alt !== "") {
-                introTitle.classList.add(imgSrc.alt);
-                introEnter.classList.add(imgSrc.alt);
-                // setTimeout(function() {
+                // introTitle.classList.add(imgSrc.alt);
+                // introEnter.classList.add(imgSrc.alt);
+                // // setTimeout(function() {
+                // //     introTitle.innerHTML = imgSrc.title;
+                // //     introTitleHeader.classList.add("active");
+                // // }, 600);
+                // // setTimeout(function() {
                 //     introTitle.innerHTML = imgSrc.title;
                 //     introTitleHeader.classList.add("active");
-                // }, 600);
-                // setTimeout(function() {
-                    introTitle.innerHTML = imgSrc.title;
-                    introTitleHeader.classList.add("active");
-                // }, 600);
+                // // }, 600);
+
+
+                addIntroTitleClass(addIntroTitleActive);
+            }
+
+
+            function addIntroTitleClass(callback) {
+                introTitle.classList.add(imgSrc.alt);
+                introEnter.classList.add(imgSrc.alt);
+                callback();
+            }
+            function addIntroTitleActive() {
+                introTitle.innerHTML = imgSrc.title;
+                introTitleHeader.classList.add("active");
             }
         }
 
