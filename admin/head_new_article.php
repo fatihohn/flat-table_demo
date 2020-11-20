@@ -12,6 +12,7 @@
 //     return $ie;
 // }
 // $file_server = $_SERVER[HTTP_HOST];
+$file_server = "pyeongsang.net";
 
 ?>
 
