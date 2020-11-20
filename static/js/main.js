@@ -191,17 +191,17 @@ function setIntroImg() {
         prevBtn.onclick = function() {
             if (prevBtn.classList.item(2)) {
                 // showPrevImg(prevBtn.classList.item(2));
-                setTimeout(function() {
+                // setTimeout(function() {
                     showPrevImg(prevBtn.classList.item(2), showIntroTitle);
-                }, 600);
+                // }, 600);
             }
         }
         nextBtn.onclick = function() {
             if (nextBtn.classList.item(2)) {
                 // showNextImg(nextBtn.classList.item(2));
-                setTimeout(function() {
+                // setTimeout(function() {
                     showNextImg(nextBtn.classList.item(2), showIntroTitle);
-                }, 600);
+                // }, 600);
             }
         }
         setInterval(function() {
@@ -210,7 +210,8 @@ function setIntroImg() {
                     // showNextImg(nextBtn.classList.item(2));
                     showNextImg(nextBtn.classList.item(2), showIntroTitle);
                 }
-            }, 600);
+            // }, 600);
+            }, 800);
         }, 10000);
 
         function showNextImg(srcNumber, callback) {
@@ -238,9 +239,9 @@ function setIntroImg() {
                 // setTimeout(function() {
                 //     showIntroTitle(nextImg);
                 // }, 600);
-                // setTimeout(function() {
+                setTimeout(function() {
                     callback(nextImg);
-                // }, 600);
+                }, 800);
             }
         }
 
@@ -270,9 +271,9 @@ function setIntroImg() {
                 // setTimeout(function() {
                 //     showIntroTitle(prevImg);
                 // }, 600);
-                // setTimeout(function() {
+                setTimeout(function() {
                     callback(prevImg);
-                // }, 600);
+                }, 800);
             }
         }
 
