@@ -222,14 +222,14 @@
             aboutVal = "<?=$about?>";
             if(flagVal == "on") {
                 flagInput.checked = true;
-                aboutInput.checked = false;
-                aboutInput.disabled = true;
+                // aboutInput.checked = false;
+                // aboutInput.disabled = true;
             }
             if(aboutVal == "on") {
                 aboutInput.checked = true;
                 aboutInput.disabled = true;
-                flagInput.checked = false;
-                flagInput.disabled = true;
+                // flagInput.checked = false;
+                // flagInput.disabled = true;
                 titleInput.disabled = true;
                 addressInput.disabled = true;
                 tagInput.disabled = true;
@@ -237,53 +237,55 @@
                 wordsInput.disabled = true;
                 fieldworkInput.disabled = true;
             }
-            aboutInput.disabled = true;
-
-            flagInput.onchange =  function(e) {
-                if(flagInput.checked !== true && flagInput.disabled !== true) {
-                    // aboutInput.disabled = false;
-                    aboutInput.disabled = true;
-                } else if(flagInput.checked == true && flagInput.disabled !== true) {
-                    aboutInput.checked = false;
-                    aboutInput.disabled = true;
+            // aboutInput.disabled = true;
+            if(flagInput) {
+                flagInput.onchange =  function(e) {
+                    if(flagInput.checked !== true && flagInput.disabled !== true) {
+                        // aboutInput.disabled = false;
+                        aboutInput.disabled = true;
+                    } else if(flagInput.checked == true && flagInput.disabled !== true) {
+                        aboutInput.checked = false;
+                        aboutInput.disabled = true;
+                    }
                 }
-            };
-            aboutInput.onchange =  function(e) {
-                if(aboutInput.checked !== true && aboutInput.disabled !== true) {
-                    // flagInput.disabled = false;
-                    flagInput.disabled = true;
-
-                    titleInput.disabled = false;
-                    addressInput.disabled = false;
-                    tagInput.disabled = false;
-                    photographerInput.disabled = false;
-                    wordsInput.disabled = false;
-                    fieldworkInput.disabled = false;
-
-                    // titleInput.value = "";
-                    // addressInput.value = "";
-                    // // tagInput.value = "0";
-                    // photographerInput.value = "";
-                    // wordsInput.value = "";
-                    // fieldworkInput.value = "";
-                } else if(aboutInput.checked == true && aboutInput.disabled !== true) {
-                    flagInput.checked = false;
-                    flagInput.disabled = true;
-
-                    titleInput.disabled = true;
-                    addressInput.disabled = true;
-                    tagInput.disabled = true;
-                    photographerInput.disabled = true;
-                    wordsInput.disabled = true;
-                    fieldworkInput.disabled = true;
-                    // titleInput.value = "평상으로부터";
-                    // addressInput.value = "소개글";
-                    // // tagInput.value = "0";
-                    // photographerInput.value = "변방평상";
-                    // wordsInput.value = "변방평상";
-                    // fieldworkInput.value = "0";
-                }
-            };
+            }
+            if(aboutInput) {
+                aboutInput.onchange =  function(e) {
+                    if(aboutInput.checked !== true && aboutInput.disabled !== true) {
+                        // flagInput.disabled = true;
+    
+                        titleInput.disabled = false;
+                        addressInput.disabled = false;
+                        tagInput.disabled = false;
+                        photographerInput.disabled = false;
+                        wordsInput.disabled = false;
+                        fieldworkInput.disabled = false;
+    
+                        // titleInput.value = "";
+                        // addressInput.value = "";
+                        // // tagInput.value = "0";
+                        // photographerInput.value = "";
+                        // wordsInput.value = "";
+                        // fieldworkInput.value = "";
+                    } else if(aboutInput.checked == true && aboutInput.disabled !== true) {
+                        // flagInput.checked = false;
+                        // flagInput.disabled = true;
+    
+                        titleInput.disabled = true;
+                        addressInput.disabled = true;
+                        tagInput.disabled = true;
+                        photographerInput.disabled = true;
+                        wordsInput.disabled = true;
+                        fieldworkInput.disabled = true;
+                        // titleInput.value = "평상으로부터";
+                        // addressInput.value = "소개글";
+                        // // tagInput.value = "0";
+                        // photographerInput.value = "변방평상";
+                        // wordsInput.value = "변방평상";
+                        // fieldworkInput.value = "0";
+                    }
+                };
+            }
         })();
     </script>
     <script>
