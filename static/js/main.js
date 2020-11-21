@@ -174,8 +174,8 @@ function setIntroImg() {
         }
         introSlide.style.backgroundImage = "url('" + slideImgSrc[0].src + "')";
         slideImgSrc[0].onload = function() {
-            // showIntroTitleFast(slideImgSrc[0]);
-            showIntroTitle(slideImgSrc[0]);
+            showIntroTitleFast(slideImgSrc[0]);
+            // showIntroTitle(slideImgSrc[0]);
         }
         prevBtn.onclick = function() {
             if (prevBtn.classList.item(2)) {
@@ -255,15 +255,15 @@ function setIntroImg() {
         }
 
         function showIntroTitleFast(imgSrc) {
-            // imgSrc.onload = function() {
-            // if (imgSrc.alt !== "") {
-            // setTimeout(function() {
-            addIntroTitleClass(imgSrc, function() {
-                addIntroTitleActive(imgSrc);
-            });
-            // }, 300);
-            // }
-            // }
+            imgSrc.onload = function() {
+                if (imgSrc.alt !== "") {
+                    // setTimeout(function() {
+                    addIntroTitleClass(imgSrc, function() {
+                        addIntroTitleActive(imgSrc);
+                    });
+                    // }, 300);
+                }
+            }
         }
 
         function addIntroTitleClass(src, callback) {
