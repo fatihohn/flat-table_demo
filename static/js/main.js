@@ -176,6 +176,13 @@ function setIntroImg() {
         slideImgSrc[0].onload = function() {
             showIntroTitleFast(slideImgSrc[0]);
             // showIntroTitle(slideImgSrc[0]);
+            showIntroTitleBackup(slideImgSrc[0]);
+        }
+
+        function showIntroTitleBackup(src) {
+            if (introTitle.innerHTML !== "") {
+                showIntroTitle(src);
+            }
         }
         prevBtn.onclick = function() {
             if (prevBtn.classList.item(2)) {
