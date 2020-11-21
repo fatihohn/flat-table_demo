@@ -118,6 +118,7 @@ ul {
     transition: background 1000ms ease-in-out;
     /* background-image: url('https://www.doongdoong.org/uploads/thumbs/1593343384.jpeg'); */
 }
+
 .intro .intro_slide .intro_slide_imgs {
     display: none;
 }
@@ -532,6 +533,7 @@ em {
     min-width: 100px;
     width: 100%;
 }
+
 .more_article_btn {
     color: #c28c29;
     background: transparent;
@@ -545,22 +547,10 @@ em {
     /* min-width: 50px; */
     width: 120px;
 }
+
 .more_article_btn:focus {
     outline: none;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 /*articles*/
@@ -592,24 +582,26 @@ em {
     z-index: 500;
     font-size: 1.2rem;
     color: #1a1a1a;
-
 }
+
 .filter_container .tag_search {
     max-width: 180px;
     border: none;
+    border-radius: 0;
     border-bottom: 1px solid #c28c29;
     background: transparent;
     font-family: 'GyeonggiBatang', 'Nunito', sans-serif;
     /* display: inline; */
     display: inline-block;
 }
+
 .filter_container .tag_search:focus {
     outline: none;
 }
 
 .filter_container .tag_search_btn {
     background: transparent;
-    color:  #c28c29;
+    color: #c28c29;
     font-weight: 900;
     font-family: 'GyeonggiBatang', 'Nunito', sans-serif;
     /* background-color: #E5E5E5; */
@@ -621,13 +613,14 @@ em {
     min-width: 50px;
     width: 50px;
 }
+
 .filter_container .tag_search_btn:hover {
-    color:  #1a1a1a;
+    color: #1a1a1a;
 }
+
 .filter_container .tag_search_btn:focus {
     outline: none;
 }
-
 
 .filter_list {
     /* border-bottom: 1px solid #1a1a1a; */
@@ -942,7 +935,6 @@ em {
     display: inline-flex !important; */
     display: inline-block !important;
     flex-shrink: 0;
-    
 }
 
 .article_main .main .article_container .article_pics figure img.verti {
@@ -1122,7 +1114,6 @@ em {
         display: block !important;
         height: auto;
     } */
-
     .mobile_img {
         max-width: 100%;
         margin: 0 0 20px 0;
