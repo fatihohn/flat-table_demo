@@ -58,7 +58,7 @@ function goToList() {
 
 
     if (isIndex === "yes") {
-        if(hashTag == "") {
+        if (hashTag == "") {
             if (scrollTag !== "") {
                 if (window.pageYOffset == 0) {
                     window.scrollBy(0, pageHeight);
@@ -252,23 +252,26 @@ function setIntroImg() {
                 }, 600);
             }
         }
+
         function showIntroTitleFast(imgSrc) {
-            if (imgSrc.alt !== "") {
+            imgSrc.onload = function() {
+                if (imgSrc.alt !== "") {
                     addIntroTitleClass(imgSrc, function() {
                         addIntroTitleActive(imgSrc)
                     });
+                }
             }
         }
 
         function addIntroTitleClass(src, callback) {
-                introTitle.classList.add(src.alt);
-                introEnter.classList.add(src.alt);
+            introTitle.classList.add(src.alt);
+            introEnter.classList.add(src.alt);
             callback();
         }
 
         function addIntroTitleActive(src) {
-                introTitleHeader.classList.add("active");
-                introTitle.innerHTML = src.title;
+            introTitleHeader.classList.add("active");
+            introTitle.innerHTML = src.title;
         }
 
         function hideIntroTitle() {
@@ -304,7 +307,7 @@ if (document.querySelector(".slide_title a")) {
 
 var showArticleWithTag;
 showArticleWithTag = function(tag) {
-    if(tag.trim() !== "") {
+    if (tag.trim() !== "") {
         location.href = "index.php?q=ok&tag=" + tag.trim();
     }
 }
@@ -312,7 +315,7 @@ showArticleWithTag = function(tag) {
 var tagSearchInput, tagSearchBtn;
 tagSearchBtn = document.querySelector(".tag_search_btn");
 tagSearchInput = document.querySelector(".tag_search");
-if(tagSearchInput && tagSearchBtn) {
+if (tagSearchInput && tagSearchBtn) {
     tagSearchInput.addEventListener("keyup", function(e) {
         if ((e.code == "Enter" || e.keycode == 13) && tagSearchInput.value) {
             showArticleWithTag(tagSearchInput.value);
@@ -333,17 +336,17 @@ showMoreArticles = function(scrollTag, hashTag, row, callback) {
 
     var articleContainer = document.querySelector(".collection.group ul");
     var articleGetter = new XMLHttpRequest();
-    if(scrollTag !== "" && hashTag !== "") {
+    if (scrollTag !== "" && hashTag !== "") {
         articleGetter.open("POST", "article_getter.php?q=" + scrollTag + "&tag=" + hashTag + "&row=" + row, true);
-    } else if(scrollTag !== "" && hashTag == "") {
+    } else if (scrollTag !== "" && hashTag == "") {
         articleGetter.open("POST", "article_getter.php?q=" + scrollTag + "&row=" + row, true);
-    } else if(scrollTag == "" && hashTag == "") {
+    } else if (scrollTag == "" && hashTag == "") {
         articleGetter.open("POST", "article_getter.php?row=" + row, true);
     }
     articleGetter.send();
     articleGetter.onreadystatechange = function() {
         if (articleGetter.readyState == 4 && articleGetter.status == 200) {
-            articleContainer.innerHTML =  articleGetter.responseText;
+            articleContainer.innerHTML = articleGetter.responseText;
             showReadArticle();
         }
 
@@ -404,7 +407,7 @@ shareBtnClick();
 
 function showExMap(address) {
     var naverMapURL;
-    if(window.innerWidth > 720) {
+    if (window.innerWidth > 720) {
         naverMapURL = "https://map.naver.com/v5/search/" + address;
     } else {
         naverMapURL = "https://m.map.naver.com/search2/search.nhn?query=" + address + "&sm=hty&style=v5";
