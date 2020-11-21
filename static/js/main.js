@@ -255,8 +255,8 @@ function setIntroImg() {
         }
 
         function showIntroTitleFast(imgSrc) {
-            imgSrc.alt.onload = function() {
-                // if (imgSrc.alt !== "") {
+            // imgSrc.alt.onload = function() {
+            if (imgSrc.alt !== "") {
                 // setTimeout(function() {
                 addIntroTitleClass(imgSrc, function() {
                     addIntroTitleActive(imgSrc);
