@@ -254,13 +254,13 @@ function setIntroImg() {
         }
 
         function showIntroTitleFast(imgSrc) {
-            imgSrc.onload = function() {
-                if (imgSrc.alt !== "") {
-                    addIntroTitleClass(imgSrc, function() {
-                        addIntroTitleActive(imgSrc)
-                    });
-                }
-            }
+            // imgSrc.onload = function() {
+            // if (imgSrc.alt !== "") {
+            addIntroTitleClass(imgSrc, function() {
+                addIntroTitleActive(imgSrc)
+            });
+            // }
+            // }
         }
 
         function addIntroTitleClass(src, callback) {
