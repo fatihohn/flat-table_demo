@@ -255,14 +255,14 @@ function setIntroImg() {
         }
 
         function showIntroTitleFast(imgSrc) {
-            imgSrc.onload = function() {
-                if (imgSrc.alt !== "") {
-                    // setTimeout(function() {
-                    addIntroTitleClass(imgSrc, function() {
-                        addIntroTitleActive(imgSrc);
-                    });
-                    // }, 300);
-                }
+            imgSrc.alt.onload = function() {
+                // if (imgSrc.alt !== "") {
+                // setTimeout(function() {
+                addIntroTitleClass(imgSrc, function() {
+                    addIntroTitleActive(imgSrc);
+                });
+                // }, 300);
+                // }
             }
         }
 
