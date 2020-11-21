@@ -256,9 +256,12 @@ function setIntroImg() {
         function showIntroTitleFast(imgSrc) {
             // imgSrc.onload = function() {
             // if (imgSrc.alt !== "") {
-            addIntroTitleClass(imgSrc, function() {
-                addIntroTitleActive(imgSrc)
-            });
+            setTimeout(function() {
+                addIntroTitleClass(imgSrc, function() {
+                    addIntroTitleActive(imgSrc)
+                });
+
+            }, 300);
             // }
             // }
         }
