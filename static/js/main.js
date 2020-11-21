@@ -182,7 +182,7 @@ function setIntroImg() {
 
         function showIntroTitleBackup(src) {
             if (introTitle.innerHTML !== "") {
-                showIntroTitle(src);
+                showIntroTitleFast(src);
             }
         }
         prevBtn.onclick = function() {
