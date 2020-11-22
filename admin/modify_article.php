@@ -623,7 +623,7 @@
             }
 
             limitInput = function () {
-                if(tagList.length >= 5) {
+                if(tagList.length >= 10) {
                     tagInput.style.visibility = "hidden";
                     tagListWrap.style.maxWidth = "100%";
                 } else {
