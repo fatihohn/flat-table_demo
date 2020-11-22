@@ -93,7 +93,7 @@
     $result_article_data_all_count = $conn->query($sql_article_data_all_count);
 
     // $sql_article_data_flag = $sql_article_data_all." WHERE flag = flag";
-    $sql_article_data_flag = "SELECT * FROM articles WHERE about != 'on' AND flag = 'on'";
+    $sql_article_data_flag = "SELECT * FROM articles WHERE about != 'on' AND flag = 'on' ORDER BY fieldwork_date ASC, id DESC";
     $result_article_data_flag = $conn->query($sql_article_data_flag);
     
 
