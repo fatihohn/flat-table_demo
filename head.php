@@ -9,7 +9,7 @@
 
   gtag('config', 'G-S6MN4RZV83');
 </script>
-
+    <meta name="naver-site-verification" content="d6a27565f01bda02eb5b4fc21b45e786b4ccb021" />
     <meta http-equiv="X-UA-Compatible" content="IE=Edge">
     <meta name="format-detection" content="telephone=no">
     <meta name="description" content="2020청년인문실험 평상도록 by 변방의북소리">
@@ -18,7 +18,8 @@
     <meta property="og:title" content="평상도록">
     <meta property="og:description" content="2020청년인문실험 평상도록 by 변방의북소리">
     <meta property="og:url" content="https://www.pyeongsang.net">
-<title>평상도록</title>
+    <title>평상도록</title>
+    <link rel="canonical" href="https://www.pyeongsang.net" />
 
 <!-- Fonts -->
 <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
