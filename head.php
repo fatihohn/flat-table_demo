@@ -10,6 +10,14 @@
   gtag('config', 'G-S6MN4RZV83');
 </script>
 
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="description" content="2020청년인문실험 평상도록 by 변방의북소리">
+    <meta name="keywords" content="청년인문실험, 2020청년인문실험, 평상도록, 변방평상, 평상, 변방의 북소리, 변방의북소리, 동두천, 아카이빙, 동두천 평상, 경기도평상, 경기도 평상">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="평상도록">
+    <meta property="og:description" content="2020청년인문실험 평상도록 by 변방의북소리">
+    <meta property="og:url" content="https://www.pyeongsang.net">
 <title>평상도록</title>
 
 <!-- Fonts -->
