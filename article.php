@@ -75,11 +75,11 @@
                         if (count($imgList) > 0) {
                             foreach ($imgList as $imgSrc) {
                                 if($imgSrc !== "") {
-                                    echo '
+                                    ?>
                                     <figure>
                                         <img src="/uploads/'.$imgSrc.'" alt="image">
                                     </figure>
-                                    ';
+                                    <?php
                                 }
                             }
                         }
@@ -141,8 +141,8 @@
             let articleImgs = document.querySelectorAll(".article_pics figure");
             let mobileImgs = document.querySelector(".article_pics_mobile");
             for(let m = 0; m < articleImgs.length; m++) {
-                articleImgs[m].style.display = "block";
                 if(m === 0) {
+                    articleImgs[m].style.display = "block";
                     articleImgs[m].style.width = "96.5% !important";
                     articleImgs[m].style.margin = "0 0 20px 5px !important";
                 } else {
@@ -153,27 +153,31 @@
                                 mobileImg.remove();
                             });
                         }
-                        articleImgs[m].querySelector("img").onload = function() {
-                            articleImgs[m].classList.add(getImgOrientation(this));
-                        }
+                        // articleImgs[m].querySelector("img").onload = function() {
+                            articleImgs[m].classList.add(getImgOrientation(articleImgs[m]));
+                            articleImgs[m].style.display = "block";
+                        // }
                     } else {
                         // articleImgs[m].querySelector("img").onload = function() {
-                            if(document.querySelectorAll(".mobile_img").length + 1 <= articleImgs.length) {
+                            if(document.querySelectorAll(".mobile_img").length + 1 < articleImgs.length) {
                                 replaceImg(articleImgs[m]);
                             }
                         // }
                     }
                 }
-                
             }
-            function replaceImg(imgSrc) {
-                let img;
-                img = imgSrc.querySelector("img");
-                imgSrc.style.display = "none";
+
+
+
+
+
+            function replaceImg(figure) {
+                let img = figure.querySelector("img");
                 let imgUrl = img.src;
                 let imgOrientation = getImgOrientation(img);
                 let mobileImgWrap = document.createElement("figure");
                 let mobileImg = document.createElement("img");
+                figure.style.display = "none";
                 img.onload = function() {
                     mobileImg.src = imgUrl;
                     mobileImg.style.width = "100%";
