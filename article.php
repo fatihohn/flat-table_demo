@@ -159,9 +159,9 @@
                         // }
                     } else {
                         // articleImgs[m].querySelector("img").onload = function() {
-                            if(document.querySelectorAll(".mobile_img").length + 1 < articleImgs.length) {
+                            // if(document.querySelectorAll(".mobile_img").length + 1 < articleImgs.length) {
                                 replaceImg(articleImgs[m]);
-                            }
+                            // }
                         // }
                     }
                 }
@@ -190,7 +190,9 @@
                     mobileImgWrap.style.width = "100%";
                     mobileImgWrap.style.margin = "0 0 20px 0";
                     mobileImgWrap.appendChild(mobileImg);
-                    document.querySelector(".article_pics_mobile").appendChild(mobileImgWrap);
+                    if(document.querySelectorAll(".mobile_img").length + 1 < articleImgs.length) {
+                        document.querySelector(".article_pics_mobile").appendChild(mobileImgWrap);
+                    }
                 }
             }
 
