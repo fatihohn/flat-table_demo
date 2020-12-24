@@ -147,18 +147,18 @@
                     articleImgs[m].style.margin = "0 0 20px 5px !important";
                 } else {
                     articleImgs[m].querySelector("img").style.width = "100%";
-                    // articleImgs[m].querySelector("img").onload = function() {
-                        if(window.innerWidth > 1080) {
-                            if(document.querySelectorAll(".mobile_img").length > 0) {
-                                document.querySelectorAll(".mobile_img").forEach(function(mobileImg) {
-                                    mobileImg.remove();
-                                });
-                            }
+                    if(window.innerWidth > 1080) {
+                        if(document.querySelectorAll(".mobile_img").length > 0) {
+                            document.querySelectorAll(".mobile_img").forEach(function(mobileImg) {
+                                mobileImg.remove();
+                            });
+                        }
+                        articleImgs[m].querySelector("img").onload = function() {
                             articleImgs[m].classList.add(getImgOrientation(this));
+                        }
                         } else {
                             replaceImg(articleImgs[m]);
                         }
-                    // }
                 }
                 
             }
