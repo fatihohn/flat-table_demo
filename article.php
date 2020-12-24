@@ -206,7 +206,9 @@
 
             return orientation;
         }
-        organizePics();
+        window.onload = function() {
+            organizePics();
+        }
         window.onresize = function() {
             organizePics();
         }
