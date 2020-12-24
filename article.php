@@ -178,7 +178,7 @@
                     if(imgOrientation == "hori") {
                         mobileImgWrap.style.margin = "12px";
                     } else {
-                        mobileImgWrap.style.margin = "0 0 20px 0";
+                        mobileImgWrap.style.margin = "0";
                     }
                 } else {
                     mobileImg.style.width = "100%";
