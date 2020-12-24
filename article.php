@@ -77,7 +77,7 @@
                                 if($imgSrc !== "") {
                                     ?>
                                     <figure>
-                                        <img src="/uploads/'.$imgSrc.'" alt="image">
+                                        <img src="/uploads/<?=$imgSrc?>" alt="image">
                                     </figure>
                                     <?php
                                 }
