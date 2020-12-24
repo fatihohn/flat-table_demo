@@ -122,8 +122,6 @@
                             <span>
                                 공유:
                             </span>
-                            <!-- <a href="">Facebook</a> -->
-                            <!-- <a href="">Tweeter</a> -->
                             <a class="share_btn">Link</a>
                         </div>
                     </footer>
@@ -153,23 +151,17 @@
                                 mobileImg.remove();
                             });
                         }
-                        // articleImgs[m].querySelector("img").onload = function() {
-                            articleImgs[m].classList.add(getImgOrientation(articleImgs[m].querySelector("img")));
+                        articleImgs[m].classList.add(getImgOrientation(articleImgs[m].querySelector("img")));
+                        if(articleImgs[m].classList.contains("verti")) {
+                            articleImgs[m].style.display = "inline-block";
+                        } else {
                             articleImgs[m].style.display = "block";
-                        // }
+                        }
                     } else {
-                        // articleImgs[m].querySelector("img").onload = function() {
-                            // if(document.querySelectorAll(".mobile_img").length + 1 < articleImgs.length) {
-                                replaceImg(articleImgs[m]);
-                            // }
-                        // }
+                        replaceImg(articleImgs[m]);
                     }
                 }
             }
-
-
-
-
 
             function replaceImg(figure) {
                 let img = figure.querySelector("img");
@@ -178,25 +170,21 @@
                 let mobileImgWrap = document.createElement("figure");
                 let mobileImg = document.createElement("img");
                 figure.style.display = "none";
-                // img.onload = function() {
-                    mobileImg.src = imgUrl;
-                    mobileImg.style.width = "100%";
-                    if(window.innerWidth >= 720) {
-                        mobileImg.classList.add(imgOrientation);
-                        mobileImgWrap.classList.add("mobile_img", imgOrientation);
-                    } else {
-                        mobileImgWrap.classList.add("mobile_img");
-                    }
-                    mobileImgWrap.style.width = "100%";
-                    mobileImgWrap.style.margin = "0 0 20px 0";
-                    mobileImgWrap.appendChild(mobileImg);
-                    if(document.querySelectorAll(".mobile_img").length + 1 < articleImgs.length) {
-                        document.querySelector(".article_pics_mobile").appendChild(mobileImgWrap);
-                    }
-                // }
+                mobileImg.src = imgUrl;
+                mobileImg.style.width = "100%";
+                if(window.innerWidth >= 720) {
+                    mobileImg.classList.add(imgOrientation);
+                    mobileImgWrap.classList.add("mobile_img", imgOrientation);
+                } else {
+                    mobileImgWrap.classList.add("mobile_img");
+                }
+                mobileImgWrap.style.width = "100%";
+                mobileImgWrap.style.margin = "0 0 20px 0";
+                mobileImgWrap.appendChild(mobileImg);
+                if(document.querySelectorAll(".mobile_img").length + 1 < articleImgs.length) {
+                    document.querySelector(".article_pics_mobile").appendChild(mobileImgWrap);
+                }
             }
-
-
         }
 
         function getImgOrientation(img) {
@@ -210,30 +198,14 @@
 
             return orientation;
         }
+
         window.onload = function() {
             organizePics();
         }
+
         window.onresize = function() {
             organizePics();
         }
-        // // let picControl = setInterval(organizePics, 200);
-        // // organizePics();
-        // // setTimeout(function() {
-        // //     organizePics();
-        // // }, 300);
-        
-        // window.addEventListener("resize", function() {
-        //     // setTimeout(function() {
-        //     //     if(window.innerWidth > 1080) {
-        //     //         setTimeout(() => {
-        //     //             clearInterval(picControl);
-        //     //             organizePics();
-        //     //         }, 200);
-        //     //     } else {
-        //     //         organizePics();
-        //     //     }
-        //     // }, 300);
-        // });
     </script>
 </body>
 </html>
