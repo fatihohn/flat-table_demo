@@ -156,11 +156,13 @@
                         articleImgs[m].querySelector("img").onload = function() {
                             articleImgs[m].classList.add(getImgOrientation(this));
                         }
-                        } else {
+                    } else {
+                        articleImgs[m].querySelector("img").onload = function() {
                             if(document.querySelectorAll(".mobile_img").length + 1 <= articleImgs.length) {
                                 replaceImg(articleImgs[m]);
                             }
                         }
+                    }
                 }
                 
             }
