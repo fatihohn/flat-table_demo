@@ -157,36 +157,35 @@
                             articleImgs[m].classList.add(getImgOrientation(this));
                         }
                         } else {
-                            replaceImg(articleImgs[m]);
+                            if(document.querySelectorAll(".mobile_img").length + 1 <= articleImgs.length) {
+                                replaceImg(articleImgs[m]);
+                            }
                         }
                 }
                 
             }
             function replaceImg(imgSrc) {
                 let img;
-                if(!imgSrc.src) {
-                    img = imgSrc.querySelector("img");
-                } else {
-                    img = imgSrc;
-                }
-                // let imgUrl = imgSrc.childNodes[1].src;
+                img = imgSrc.querySelector("img");
+                imgSrc.style.display = "none";
                 let imgUrl = img.src;
                 let imgOrientation = getImgOrientation(img);
                 let mobileImgWrap = document.createElement("figure");
                 let mobileImg = document.createElement("img");
-
-                mobileImg.src = imgUrl;
-                mobileImg.style.width = "100%";
-                if(window.innerWidth >= 720) {
-                    mobileImg.classList.add(imgOrientation);
-                    mobileImgWrap.classList.add("mobile_img", imgOrientation);
-                } else {
-                    mobileImgWrap.classList.add("mobile_img");
+                img.onload = function() {
+                    mobileImg.src = imgUrl;
+                    mobileImg.style.width = "100%";
+                    if(window.innerWidth >= 720) {
+                        mobileImg.classList.add(imgOrientation);
+                        mobileImgWrap.classList.add("mobile_img", imgOrientation);
+                    } else {
+                        mobileImgWrap.classList.add("mobile_img");
+                    }
+                    mobileImgWrap.style.width = "100%";
+                    mobileImgWrap.style.margin = "0 0 20px 0";
+                    mobileImgWrap.appendChild(mobileImg);
+                    document.querySelector(".article_pics_mobile").appendChild(mobileImgWrap);
                 }
-                mobileImgWrap.style.width = "100%";
-                mobileImgWrap.style.margin = "0 0 20px 0";
-                mobileImgWrap.appendChild(mobileImg);
-                document.querySelector(".article_pics_mobile").appendChild(mobileImgWrap);
             }
         }
 

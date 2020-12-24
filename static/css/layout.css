@@ -933,7 +933,7 @@ em {
     /* display: -webkit-inline-flex !important;
     display: -ms-inline-flexbox !important;
     display: inline-flex !important; */
-    display: inline-block !important;
+    /* display: inline-block !important; */
     flex-shrink: 0;
 }
 
