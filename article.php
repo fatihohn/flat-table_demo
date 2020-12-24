@@ -149,9 +149,9 @@
                     articleImgs[m].querySelector("img").style.width = "100%";
                     articleImgs[m].querySelector("img").onload = function() {
                         if(window.innerWidth > 1080) {
-                            if(mobileImgs.querySelectorAll("img").length > 0) {
-                                mobileImgs.querySelectorAll("img").forEach(function(mobileImg) {
-                                    mobileImg.parentElement.remove();
+                            if(document.querySelectorAll(".mobile_img").length > 0) {
+                                document.querySelectorAll(".mobile_img").forEach(function(mobileImg) {
+                                    mobileImg.remove();
                                 });
                             }
                             articleImgs[m].classList.add(getImgOrientation(this));
