@@ -144,7 +144,7 @@
                     articleImgs[m].style.display = "block";
                     articleImgs[m].style.width = "96.5% !important";
                     // articleImgs[m].style.margin = "0 0 20px 5px !important";
-                    articleImgs[m].style.margin = "12px !important";
+                    articleImgs[m].style.margin = "12px";
                 } else {
                     articleImgs[m].querySelector("img").style.width = "100%";
                     if(window.innerWidth > 1080) {
