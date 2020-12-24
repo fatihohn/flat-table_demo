@@ -188,6 +188,7 @@
                 mobileImgWrap.style.width = "100%";
                 mobileImgWrap.appendChild(mobileImg);
                 if(document.querySelectorAll(".mobile_img").length + 1 < articleImgs.length) {
+                    document.querySelector(".article_pics_mobile").style.textAlign = "center";
                     document.querySelector(".article_pics_mobile").appendChild(mobileImgWrap);
                 }
             }
