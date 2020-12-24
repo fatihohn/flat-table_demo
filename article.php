@@ -157,6 +157,7 @@
                             articleImgs[m].style.display = "inline-block";
                         } else {
                             articleImgs[m].style.display = "block";
+                            articleImgs[m].style.margin = "12px";
                         }
                     } else {
                         replaceImg(articleImgs[m]);
