@@ -151,7 +151,7 @@
                         if(window.innerWidth > 1080) {
                             if(mobileImgs.querySelectorAll("img").length > 0) {
                                 mobileImgs.querySelectorAll("img").forEach(function(mobileImg) {
-                                    mobileImg.parencElement.remove();
+                                    mobileImg.parentElement.remove();
                                 });
                             }
                             articleImgs[m].classList.add(getImgOrientation(this));
