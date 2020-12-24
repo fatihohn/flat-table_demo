@@ -178,7 +178,7 @@
                 let mobileImgWrap = document.createElement("figure");
                 let mobileImg = document.createElement("img");
                 figure.style.display = "none";
-                img.onload = function() {
+                // img.onload = function() {
                     mobileImg.src = imgUrl;
                     mobileImg.style.width = "100%";
                     if(window.innerWidth >= 720) {
@@ -190,10 +190,10 @@
                     mobileImgWrap.style.width = "100%";
                     mobileImgWrap.style.margin = "0 0 20px 0";
                     mobileImgWrap.appendChild(mobileImg);
-                    // if(document.querySelectorAll(".mobile_img").length + 1 < articleImgs.length) {
+                    if(document.querySelectorAll(".mobile_img").length + 1 < articleImgs.length) {
                         document.querySelector(".article_pics_mobile").appendChild(mobileImgWrap);
-                    // }
-                }
+                    }
+                // }
             }
 
 
