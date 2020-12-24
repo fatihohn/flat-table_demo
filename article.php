@@ -171,11 +171,12 @@
                 let mobileImg = document.createElement("img");
                 figure.style.display = "none";
                 mobileImg.src = imgUrl;
-                mobileImg.style.width = "100%";
                 if(window.innerWidth >= 720) {
+                    mobileImg.style.width = "96.5%";
                     mobileImg.classList.add(imgOrientation);
                     mobileImgWrap.classList.add("mobile_img", imgOrientation);
                 } else {
+                    mobileImg.style.width = "100%";
                     mobileImgWrap.classList.add("mobile_img");
                 }
                 mobileImgWrap.style.width = "100%";
