@@ -123,98 +123,86 @@
     <script src="/static/js/main.js"></script>
     <script>
         function organizePics() {
-        let articleImgs = document.querySelectorAll(".article_pics figure");
-        let mobileImgs = document.querySelector(".article_pics_mobile");
-            for(let m=0; m < articleImgs.length; m++) {
-                articleImgs[m].style.display = "block";
-                articleImgs[m].childNodes[1].style.width = "100%";
-                if(window.innerWidth > 1080) {
-                    if(mobileImgs.childNodes.length > 0) {
-                        for(let n=0; n < mobileImgs.childNodes.length; n++) {
-                            mobileImgs.childNodes[n].remove();
+            let articleImgs = document.querySelectorAll(".article_pics figure");
+            let mobileImgs = document.querySelector(".article_pics_mobile");
+            document.querySelector(".article_pics").style.textAlign = "center";
+            for(let m = 0; m < articleImgs.length; m++) {
+                if(m === 0) {
+                    articleImgs[m].style.display = "block";
+                    articleImgs[m].style.width = "96.5% !important";
+                    // articleImgs[m].style.margin = "0 0 20px 5px !important";
+                    articleImgs[m].style.margin = "12px";
+                } else {
+                    articleImgs[m].querySelector("img").style.width = "100%";
+                    if(window.innerWidth > 1080) {
+                        if(document.querySelectorAll(".mobile_img").length > 0) {
+                            document.querySelectorAll(".mobile_img").forEach(function(mobileImg) {
+                                mobileImg.remove();
+                            });
                         }
-                    }
-                    
-                    if(articleImgs[m].childNodes[1].width*1.2 > articleImgs[m].childNodes[1].height) {
-                        articleImgs[m].style.maxWidth = "96.5%";
-                        articleImgs[m].style.height = "auto";
-                        articleImgs[m].childNodes[1].style.height = "auto";
-                        articleImgs[m].childNodes[1].style.width = "100%";
-                        articleImgs[m].style.margin = "10px 0.75%";
-                    } else {
-                        articleImgs[m].style.maxWidth = "47.5%";
-                        articleImgs[m].style.height = "auto";
-                        articleImgs[m].childNodes[1].style.height = "auto";
-                        articleImgs[m].childNodes[1].style.width = "100%";
-                        articleImgs[m].style.margin = "10px 0.5%";
-                        articleImgs[m].style.display = "inline-flex";
-                    }
-                } else if(window.innerWidth <= 1080 && window.innerWidth >= 720) {
-                    if(m > 0 && document.querySelectorAll(".article_pics_mobile figure").length < document.querySelectorAll(".article_pics figure").length - 1) {
-                        replaceImg(articleImgs[m]);
-                        if(articleImgs[m].childNodes[1].width*1.2 >= articleImgs[m].childNodes[1].height) {
-                            document.querySelectorAll(".mobile_img")[m-1].style.maxWidth = "96.5%";
-                            document.querySelectorAll(".mobile_img")[m-1].style.width = "96.5%";
-                            document.querySelectorAll(".mobile_img")[m-1].style.height = "auto";
-                            document.querySelectorAll(".mobile_img")[m-1].childNodes[0].style.width = "100%";
-                            document.querySelectorAll(".mobile_img")[m-1].childNodes[0].style.height = "auto";
-                            document.querySelectorAll(".mobile_img")[m-1].style.margin = "10px 0.25%";
+                        articleImgs[m].classList.add(getImgOrientation(articleImgs[m].querySelector("img")));
+                        if(articleImgs[m].classList.contains("verti")) {
+                            articleImgs[m].style.display = "inline-block";
                         } else {
-                            document.querySelectorAll(".mobile_img")[m-1].style.maxWidth = "47.5%";
-                            document.querySelectorAll(".mobile_img")[m-1].style.width = "47.5%";
-                            document.querySelectorAll(".mobile_img")[m-1].style.height = "auto";
-                            document.querySelectorAll(".mobile_img")[m-1].childNodes[0].style.width = "100%";
-                            document.querySelectorAll(".mobile_img")[m-1].childNodes[0].style.height = "auto";
-                            document.querySelectorAll(".mobile_img")[m-1].style.margin = "10px 0.5%";
-                            document.querySelectorAll(".mobile_img")[m-1].style.display = "inline-flex";
+                            articleImgs[m].style.display = "block";
+                            articleImgs[m].style.margin = "12px";
                         }
-                    }
-                    
-                } else if(window.innerWidth < 720) {
-                    if(m > 0 && document.querySelectorAll(".article_pics_mobile figure").length < document.querySelectorAll(".article_pics figure").length - 1) {
+                    } else {
                         replaceImg(articleImgs[m]);
-                        document.querySelectorAll(".mobile_img")[m-1].style.maxWidth = "100% !important";
-                        document.querySelectorAll(".mobile_img")[m-1].style.height = "auto";
-                        document.querySelectorAll(".mobile_img")[m-1].childNodes[0].style.width = "100% !important";
-                        document.querySelectorAll(".mobile_img")[m-1].childNodes[0].style.height = "auto";
-                        document.querySelectorAll(".mobile_img")[m-1].style.margin = "0 0 20px 0 !important";
-                        document.querySelectorAll(".mobile_img")[m-1].style.display = "block";
-                        
                     }
                 }
-                
             }
-            function replaceImg(imgSrc) {
-                let imgUrl = imgSrc.childNodes[1].src;
+
+            function replaceImg(figure) {
+                let img = figure.querySelector("img");
+                let imgUrl = img.src;
+                let imgOrientation = getImgOrientation(img);
                 let mobileImgWrap = document.createElement("figure");
-                mobileImgWrap.className = "mobile_img";
-                mobileImgWrap.style.width = "100%";
-                mobileImgWrap.style.margin = "0 0 20px 0";
-                document.querySelector(".article_pics_mobile").appendChild(mobileImgWrap);
                 let mobileImg = document.createElement("img");
+                figure.style.display = "none";
                 mobileImg.src = imgUrl;
-                mobileImg.style.width = "100%";
+                if(window.innerWidth >= 720) {
+                    mobileImg.style.width = "96.5%";
+                    mobileImg.classList.add(imgOrientation);
+                    mobileImgWrap.classList.add("mobile_img", imgOrientation);
+                    if(imgOrientation == "hori") {
+                        mobileImgWrap.style.margin = "12px";
+                    } else {
+                        mobileImgWrap.style.margin = "0";
+                    }
+                } else {
+                    mobileImg.style.width = "100%";
+                    mobileImgWrap.classList.add("mobile_img");
+                    mobileImgWrap.style.margin = "0 0 20px 0";
+                }
+                mobileImgWrap.style.width = "100%";
                 mobileImgWrap.appendChild(mobileImg);
+                if(document.querySelectorAll(".mobile_img").length + 1 < articleImgs.length) {
+                    document.querySelector(".article_pics_mobile").style.textAlign = "center";
+                    document.querySelector(".article_pics_mobile").appendChild(mobileImgWrap);
+                }
             }
         }
-        let picControl = setInterval(organizePics, 200);
-        organizePics();
-        setTimeout(function() {
+
+        function getImgOrientation(img) {
+            let orientation;
+
+            if(img.width*1.2 > img.height) {
+                orientation = "hori";
+            } else {
+                orientation = "verti";
+            }
+
+            return orientation;
+        }
+
+        window.onload = function() {
             organizePics();
-        }, 300);
-        
-        window.addEventListener("resize", function() {
-            setTimeout(function() {
-                if(window.innerWidth > 1080) {
-                    setTimeout(() => {
-                        clearInterval(picControl);
-                        organizePics();
-                    }, 200);
-                } else {
-                    organizePics();
-                }
-            }, 300);
-        });
+        }
+
+        window.onresize = function() {
+            organizePics();
+        }
     </script>
 </body>
 </html>
