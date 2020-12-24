@@ -138,6 +138,7 @@
         function organizePics() {
             let articleImgs = document.querySelectorAll(".article_pics figure");
             let mobileImgs = document.querySelector(".article_pics_mobile");
+            document.querySelectorAll(".article_pics").style.textAlign = "center";
             for(let m = 0; m < articleImgs.length; m++) {
                 if(m === 0) {
                     articleImgs[m].style.display = "block";
