@@ -154,7 +154,7 @@
                             });
                         }
                         // articleImgs[m].querySelector("img").onload = function() {
-                            articleImgs[m].classList.add(getImgOrientation(articleImgs[m]));
+                            articleImgs[m].classList.add(getImgOrientation(articleImgs[m].querySelector("img")));
                             articleImgs[m].style.display = "block";
                         // }
                     } else {
@@ -193,6 +193,8 @@
                     document.querySelector(".article_pics_mobile").appendChild(mobileImgWrap);
                 }
             }
+
+
         }
 
         function getImgOrientation(img) {
