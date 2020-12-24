@@ -508,83 +508,57 @@
     </script>
     <script>
         function organizePics() {
-            let articleImgs = document.querySelectorAll(".article_pics figure");
-            let mobileImgs = document.querySelector(".article_pics_mobile");
-            document.querySelector(".article_pics").style.textAlign = "center";
-            for(let m = 0; m < articleImgs.length; m++) {
-                if(m === 0) {
-                    articleImgs[m].style.display = "block";
-                    articleImgs[m].style.width = "96.5% !important";
-                    // articleImgs[m].style.margin = "0 0 20px 5px !important";
-                    articleImgs[m].style.margin = "12px";
-                } else {
-                    articleImgs[m].querySelector("img").style.width = "100%";
-                        if(document.querySelectorAll(".mobile_img").length > 0) {
-                            document.querySelectorAll(".mobile_img").forEach(function(mobileImg) {
-                                mobileImg.remove();
-                            });
+        let articleImgs = document.querySelectorAll(".article_pics figure");
+        let mobileImgs = document.querySelector(".article_pics_mobile");
+            for(let m=0; m < articleImgs.length; m++) {
+                    if(mobileImgs.childNodes.length > 0) {
+                        for(let n=0; n < mobileImgs.childNodes.length; n++) {
+                            mobileImgs.childNodes[n].remove();
                         }
-                        articleImgs[m].classList.add(getImgOrientation(articleImgs[m].querySelector("img")));
-                        if(articleImgs[m].classList.contains("verti")) {
-                            articleImgs[m].style.display = "inline-block";
-                        } else {
-                            articleImgs[m].style.display = "block";
-                            articleImgs[m].style.margin = "12px";
-                        }
+                    }
                     
+                    if(articleImgs[m].childNodes[1].width*1.2 > articleImgs[m].childNodes[1].height) {
+                        articleImgs[m].classList.add("hori");
+                        articleImgs[m].childNodes[1].classList.add("hori");
+                    } else {
+                        articleImgs[m].classList.add("verti");
+                        articleImgs[m].childNodes[1].classList.add("verti");
+                    }
+                
+            }
+
+
+            function replaceImg(imgSrc) {
+                let imgUrl = imgSrc.childNodes[1].src;
+                let mobileImgWrap = document.createElement("figure");
+                mobileImgWrap.className = "mobile_img";
+                mobileImgWrap.style.width = "100%";
+                mobileImgWrap.style.margin = "0 0 20px 0";
+                document.querySelector(".article_pics_mobile").appendChild(mobileImgWrap);
+                let mobileImg = document.createElement("img");
+                mobileImg.src = imgUrl;
+                mobileImg.style.width = "100%";
+                mobileImgWrap.appendChild(mobileImg);
+            }
+        }
+        let picControl = setInterval(organizePics, 200);
+        organizePics();
+        setTimeout(function() {
+            organizePics();
+        }, 300);
+        
+        window.addEventListener("resize", function() {
+            setTimeout(function() {
+                if(window.innerWidth > 1080) {
+                    setTimeout(() => {
+                        clearInterval(picControl);
+                        organizePics();
+                    }, 200);
+                } else {
+                    organizePics();
                 }
-            }
-
-            // function replaceImg(figure) {
-            //     let img = figure.querySelector("img");
-            //     let imgUrl = img.src;
-            //     let imgOrientation = getImgOrientation(img);
-            //     let mobileImgWrap = document.createElement("figure");
-            //     let mobileImg = document.createElement("img");
-            //     figure.style.display = "none";
-            //     mobileImg.src = imgUrl;
-            //     if(window.innerWidth >= 720) {
-            //         mobileImg.style.width = "96.5%";
-            //         mobileImg.classList.add(imgOrientation);
-            //         mobileImgWrap.classList.add("mobile_img", imgOrientation);
-            //         if(imgOrientation == "hori") {
-            //             mobileImgWrap.style.margin = "12px";
-            //         } else {
-            //             mobileImgWrap.style.margin = "0";
-            //         }
-            //     } else {
-            //         mobileImg.style.width = "100%";
-            //         mobileImgWrap.classList.add("mobile_img");
-            //         mobileImgWrap.style.margin = "0 0 20px 0";
-            //     }
-            //     mobileImgWrap.style.width = "100%";
-            //     mobileImgWrap.appendChild(mobileImg);
-            //     if(document.querySelectorAll(".mobile_img").length + 1 < articleImgs.length) {
-            //         document.querySelector(".article_pics_mobile").style.textAlign = "center";
-            //         document.querySelector(".article_pics_mobile").appendChild(mobileImgWrap);
-            //     }
-            // }
-        }
-
-        function getImgOrientation(img) {
-            let orientation;
-
-            if(img.width*1.2 > img.height) {
-                orientation = "hori";
-            } else {
-                orientation = "verti";
-            }
-
-            return orientation;
-        }
-
-        window.onload = function() {
-            organizePics();
-        }
-
-        window.onresize = function() {
-            organizePics();
-        }
+            }, 300);
+        });
 
 
     </script>
