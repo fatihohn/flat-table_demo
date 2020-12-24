@@ -152,7 +152,7 @@
                             if(mobileImgs.querySelectorAll("img").length > 0) {
                                 mobileImgs.querySelectorAll("img").forEach(function(mobileImg) {
                                     mobileImg.parencElement.remove();
-                                }
+                                });
                             }
                             articleImgs[m].classList.add(getImgOrientation(this));
                         } else {
